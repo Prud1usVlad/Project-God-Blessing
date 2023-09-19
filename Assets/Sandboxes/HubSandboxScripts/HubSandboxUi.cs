@@ -12,7 +12,6 @@ public class HubSandboxUi : MonoBehaviour
 
     public GameEvent gameEvent;
 
-
     private void Awake()
     {
         foreach(var i in stats.Stats)
@@ -25,16 +24,48 @@ public class HubSandboxUi : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("Event Raised");
-            gameEvent.Raise();
+            Debug.Log("Increase");
+            gameEvent.Raise("Increase");
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Decrease");
+            gameEvent.Raise("Decrease");
+        }
+
+        CleanChildren(panel);
+        foreach (var i in stats.Stats)
+        {
+            var o = Instantiate(text, panel);
+
+            o.SetText($"{Enum.GetName(typeof(StatName), i.name)}: {i.Value}");
         }
     }
 
-    public void OnSomeEvent()
+    public void OnAdd(string parameter)
     {
-        Debug.Log("Event responded");
+        if (parameter == "Increase")
+        {
+            stats.GetStat(StatName.Sanity).AddModifier(
+                new StatModifier(2, StatModType.Flat, source: this));
+        }
+
+        if (parameter == "Decrease")
+        {
+            stats.GetStat(StatName.Sanity).AddModifier(
+                new StatModifier(-2, StatModType.Flat, source: this));
+        }
     }
 
+    public void CleanChildren(Transform obj)
+    {
+        int nbChildren = obj.childCount;
+
+        for (int i = nbChildren - 1; i >= 0; i--)
+        {
+            DestroyImmediate(obj.GetChild(i).gameObject);
+        }
+    }
 }

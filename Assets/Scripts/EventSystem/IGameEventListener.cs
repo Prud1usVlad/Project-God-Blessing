@@ -8,6 +8,6 @@ namespace Assets.Scripts.EventSystem
 {
     public interface IGameEventListener
     {
-        void OnEventRaised();
+        void OnEventRaised(string parameter = null);
     }
 }

@@ -14,10 +14,10 @@ namespace Assets.Scripts.EventSystem
         private readonly List<GameEventListener> eventListeners =
             new List<GameEventListener>();
 
-        public void Raise()
+        public void Raise(string parameter = null)
         {
             for (int i = eventListeners.Count - 1; i >= 0; i--)
-                eventListeners[i].OnEventRaised();
+                eventListeners[i].OnEventRaised(parameter);
         }
 
         public void RegisterListener(GameEventListener listener)
