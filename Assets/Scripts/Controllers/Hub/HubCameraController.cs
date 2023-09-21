@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class HubCameraController : MonoBehaviour
@@ -10,16 +6,24 @@ public class HubCameraController : MonoBehaviour
     private float cameraDistance;
     private Vector3 newCameraPos;
 
+    [Tooltip("Camera to be controlled")]
     public Camera childCamera;
+
+    [Header("Camera speed settings")]
     public float movementSpeed = 0.3f;
     public float movementTime = 5f;
 
+    [Header("Camera offset bounds settings")]
     public float maxCameraDistance = 10;
     public float minCameraDistance = 2;
 
+    [Header("Camera zooming settings")]
     public float zoomTime = 4;
     public float zoomSpeed = 1;
     public float zoomSpeedEffectMultiplier = 5;
+
+    [Header("Camera panning area radius")]
+    public float cameraMoveDistance = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +67,8 @@ public class HubCameraController : MonoBehaviour
 
             newCameraPos = newCameraPos.normalized * cameraDistance;
         }
+
+        newPos = Vector3.ClampMagnitude(newPos, cameraMoveDistance);
 
         transform.position = Vector3.Lerp(transform.position,
             newPos, Time.deltaTime * movementTime);
