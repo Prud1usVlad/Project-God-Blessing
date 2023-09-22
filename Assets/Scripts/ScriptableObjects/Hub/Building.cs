@@ -12,5 +12,6 @@ public abstract class Building : SerializableScriptableObject
     public string description;
 
     public GameObject prefab;
+    public GameObject blueprint;
 }
 
