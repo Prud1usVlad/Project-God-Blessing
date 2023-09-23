@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class ObjectPlacer : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> placedGameObjects = new();
+    public List<GameObject> placedGameObjects = new();
 
-    public int PlaceObject(GameObject prefab, Vector3 position)
+    public int PlaceObject(Building building, BuildingPlace place)
     {
-        GameObject newObject = Instantiate(prefab);
-        newObject.transform.position = position;
+        GameObject newObject = Instantiate(building.prefab);
+        newObject.transform.position = place.transform.position;
         placedGameObjects.Add(newObject);
+
+        place.building = building;
+        place.buildingIndexInPlacer = placedGameObjects.Count - 1;
+
         return placedGameObjects.Count - 1;
     }
 
-    internal void RemoveObjectAt(int gameObjectIndex)
+    internal void RemoveObjectAt(BuildingPlace place)
     {
-        if (placedGameObjects.Count <= gameObjectIndex
-            || placedGameObjects[gameObjectIndex] == null)
+        int idx = place.buildingIndexInPlacer;
+
+        if (placedGameObjects.Count <= idx
+            || idx < 0
+            || placedGameObjects[idx] == null)
+        {
             return;
-        Destroy(placedGameObjects[gameObjectIndex]);
-        placedGameObjects[gameObjectIndex] = null;
+        }
+            
+        Destroy(placedGameObjects[idx]);
+        placedGameObjects[idx] = null;
+
+        place.building = null;
+        place.buildingIndexInPlacer = -1;
     }
 }

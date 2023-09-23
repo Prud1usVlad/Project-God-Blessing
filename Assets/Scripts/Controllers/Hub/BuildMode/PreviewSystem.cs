@@ -104,10 +104,10 @@ public class PreviewSystem : MonoBehaviour
             position.z);
     }
 
-    //internal void StartShowingRemovePreview()
-    //{
-    //    cellIndicator.SetActive(true);
-    //    PrepareCursor(Vector2Int.one);
-    //    ApplyFeedbackToCursor(false);
-    //}
+    public void StartShowingRemovePreview()
+    {
+        //cellIndicator.SetActive(true);
+        //PrepareCursor(Vector2Int.one);
+        //ApplyFeedbackToCursor(false);
+    }
 }

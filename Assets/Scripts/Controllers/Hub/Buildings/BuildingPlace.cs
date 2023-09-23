@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BuildingPlace : MonoBehaviour
 {
-    public Building building;
-
+    public Building building = null;
+    public int buildingIndexInPlacer = -1;
 
     public void OnEnterBuildingMode()
     {

@@ -1,34 +1,27 @@
 using Assets.Scripts.Controllers.Hub.BuildMode;
+using Assets.Scripts.Helpers.Enums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlacementController : MonoBehaviour
 {
-    private ControllerState state = ControllerState.None;
-
-    [SerializeField]
-    private BuildModeInputManager inputManager;
-
+    private Vector3 lastDetectedPosition = Vector3.zero;
+    IBuildState buildingState;
+    
     //[SerializeField]
     //private AudioClip correctPlacementClip, wrongPlacementClip;
     //[SerializeField]
     //private AudioSource source;
-
-    [SerializeField]
-    private BuildingRegistry buildings;
-    [SerializeField]
-    private List<BuildingPlace> buildingPlaces;
-
-    [SerializeField]
-    private PreviewSystem preview;
-
-    private Vector3 lastDetectedPosition = Vector3.zero;
-
-    [SerializeField]
-    private ObjectPlacer objectPlacer;
-
-    IBuildState buildingState;
+    
+    public BuildModeInputManager inputManager;
+    public BuildingRegistry buildings;
+    public List<BuildingPlace> buildingPlaces;
+    public PreviewSystem preview;
+    public ObjectPlacer objectPlacer;
+    public GameObject confirmationDialogue;
+    public Transform ui;
 
     //[SerializeField]
     //private SoundFeedback soundFeedback;
@@ -37,6 +30,7 @@ public class PlacementController : MonoBehaviour
     {
         //gridVisualization.SetActive(false);
     }
+
     private void OnDisable()
     {
         StopPlacement();
@@ -54,22 +48,18 @@ public class PlacementController : MonoBehaviour
     {
         StopPlacement();
         //gridVisualization.SetActive(true);
-        //buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer, soundFeedback);
-        //inputManager.OnClicked += PlaceStructure;
-        //inputManager.OnExit += StopPlacement;
+        buildingState = new RemovingState(objectPlacer, preview, buildingPlaces);
     }
 
     public void PlaceStructure()
     {
-        if (inputManager.IsPointerOverUI())
-        {
+        if (inputManager.IsPointerOverUI() || buildingState is null)
             return;
-        }
+
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
 
-        Debug.Log("PlaceStructure");
-        buildingState.OnAction(mousePosition);
-
+        buildingState.OnAction(mousePosition, 
+            (a, v) => StartCoroutine(ConfirmRoutine(a, v)));
     }
 
     public void StopPlacement()
@@ -84,6 +74,25 @@ public class PlacementController : MonoBehaviour
         buildingState = null;
     }
 
+    private IEnumerator ConfirmRoutine(Action<Vector3> action, Vector3 position)
+    {
+        DialogueBox dialogue = Instantiate(confirmationDialogue, ui)
+            .GetComponent<DialogueBox>();
+
+        dialogue.header = "Confirmation needed";
+        dialogue.body = "Do you realy want to perform this action?";
+
+        dialogue.InitDialogue();
+
+        while (dialogue.result == DialogueBoxResult.None)
+            yield return new WaitForSeconds(0.5f);
+
+        if (dialogue.result == DialogueBoxResult.Yes)
+        {
+            action.Invoke(position);
+        }
+    }
+
     private void Update()
     {
         if (buildingState == null)
@@ -94,12 +103,5 @@ public class PlacementController : MonoBehaviour
             buildingState.UpdateState(mousePosition);
             lastDetectedPosition = mousePosition;
         }
-    }
-
-    private enum ControllerState
-    {
-        None,
-        Placing,
-        Removing,
     }
 }

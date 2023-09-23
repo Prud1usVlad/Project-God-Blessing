@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.Helpers.Enums;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Controllers.Hub.BuildMode
 {
@@ -21,12 +21,9 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
                 PreviewSystem previewSystem, List<BuildingPlace> places)
         {
             this.guid = guid;
-            //this.grid = grid;
             this.previewSystem = previewSystem;
             this.registry = registry;
             buildingPlaces = places;
-            //this.floorData = floorData;
-            //this.furnitureData = furnitureData;
             this.objectPlacer = objectPlacer;
             //this.soundFeedback = soundFeedback;
 
@@ -46,21 +43,28 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
             previewSystem.StopShowingPreview();
         }
 
-        public void OnAction(Vector3 position)
+        public void OnAction(Vector3 position, 
+            Action<Action<Vector3>, Vector3> confirm = null)
         {
-
             bool placementValidity = CheckPlacementValidity(position);
             if (placementValidity == false)
             {
                 //soundFeedback.PlaySound(SoundType.wrongPlacement);
                 return;
             }
-            //soundFeedback.PlaySound(SoundType.Place);
-            int index = objectPlacer.PlaceObject(building.prefab, position);
-            var place = buildingPlaces.Find(p => p.transform.position == position);
-            place.building = building;
 
-            previewSystem.UpdatePosition(position, false);
+            if (confirm == null)
+                ActionBase(position);
+            else
+                confirm.Invoke(ActionBase, position);
+
+        }
+
+        public void UpdateState(Vector3 position)
+        {
+            bool placementValidity = CheckPlacementValidity(position);
+
+            previewSystem.UpdatePosition(position, placementValidity);
         }
 
         private bool CheckPlacementValidity(Vector3 position)
@@ -70,11 +74,13 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
             else return place.building is null;
         }
 
-        public void UpdateState(Vector3 position)
+        private void ActionBase(Vector3 position)
         {
-            bool placementValidity = CheckPlacementValidity(position);
+            //soundFeedback.PlaySound(SoundType.Place);
+            var place = buildingPlaces.Find(p => p.transform.position == position);
+            int index = objectPlacer.PlaceObject(building, place);
 
-            previewSystem.UpdatePosition(position, placementValidity);
+            previewSystem.UpdatePosition(position, false);
         }
     }
 }

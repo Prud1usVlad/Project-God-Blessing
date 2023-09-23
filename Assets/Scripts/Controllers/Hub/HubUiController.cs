@@ -16,6 +16,7 @@ public class HubUiController : MonoBehaviour
     [Header("Events")]
     public GameEvent enterBuildMode;
     public GameEvent exitBuildMode;
+    public GameEvent removeMode;
 
     public void OnEnterBuildMode()
     {
@@ -34,5 +35,10 @@ public class HubUiController : MonoBehaviour
         buildingModeUi.gameObject.SetActive(false);
 
         exitBuildMode.Raise();
+    }
+
+    public void OnRemoveBuildings()
+    {
+        removeMode.Raise();
     }
 }
