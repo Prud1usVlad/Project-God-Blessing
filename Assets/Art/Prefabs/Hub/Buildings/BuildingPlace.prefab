@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3820998810712822129}
   - component: {fileID: 4867517442400476037}
   - component: {fileID: -7566461593571959857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BuildingPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 0}
+  buildingIndexInPlacer: -1

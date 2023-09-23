@@ -1,7 +1,7 @@
-using Assets.Scripts.EventSystem;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class HubController : MonoBehaviour
 {
@@ -9,6 +9,10 @@ public class HubController : MonoBehaviour
     public BuildingRegistry buildings;
 
     public GameObject buildSystem;
+
+    public SaveController saveController;
+
+    public GameProgress gameProgress;
 
     public void OnEnterBuildMode()
     {
@@ -20,4 +24,23 @@ public class HubController : MonoBehaviour
         buildSystem.SetActive(false);
     }
 
+    private void Awake()
+    {
+        gameProgress.buildingsPlaces = buildingPlaces;
+        gameProgress.objectPlacer = buildSystem.GetComponent<ObjectPlacer>();
+
+        saveController.Load();
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Scene unload");
+        saveController.AutoSave();
+    }
+
+    private void OnSceneUnload(Scene scene)
+    {
+        Debug.Log("Scene unload");
+        saveController.AutoSave();
+    }
 }
