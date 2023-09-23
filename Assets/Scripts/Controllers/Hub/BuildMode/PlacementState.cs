@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Helpers.Enums;
+using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,21 +11,24 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
     public class PlacementState : IBuildState
     {
         private Building building;
-        string guid;
-        BuildingRegistry registry;
-        ObjectPlacer objectPlacer;
-        PreviewSystem previewSystem;
-        List<BuildingPlace> buildingPlaces;
+        private string guid;
+        private BuildingRegistry registry;
+        private ObjectPlacer objectPlacer;
+        private PreviewSystem previewSystem;
+        private List<BuildingPlace> buildingPlaces;
+        private ResourceContainer resourceContainer;
 
         public PlacementState(string guid, 
             BuildingRegistry registry, ObjectPlacer objectPlacer,
-                PreviewSystem previewSystem, List<BuildingPlace> places)
+            PreviewSystem previewSystem, List<BuildingPlace> places,
+            ResourceContainer resourceContainer)
         {
             this.guid = guid;
             this.previewSystem = previewSystem;
             this.registry = registry;
             buildingPlaces = places;
             this.objectPlacer = objectPlacer;
+            this.resourceContainer = resourceContainer;
             //this.soundFeedback = soundFeedback;
 
             building = registry.Find(guid) as Building;
@@ -81,6 +85,8 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
             int index = objectPlacer.PlaceObject(building, place);
 
             previewSystem.UpdatePosition(position, false);
+
+            resourceContainer.Spend(building.price);
         }
     }
 }

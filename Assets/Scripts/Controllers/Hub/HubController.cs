@@ -37,10 +37,4 @@ public class HubController : MonoBehaviour
         Debug.Log("Scene unload");
         saveController.AutoSave();
     }
-
-    private void OnSceneUnload(Scene scene)
-    {
-        Debug.Log("Scene unload");
-        saveController.AutoSave();
-    }
 }

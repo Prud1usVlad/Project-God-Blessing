@@ -16,3 +16,12 @@ MonoBehaviour:
   name: Basic market
   description: Basic market
   prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 50
+      name: 1
+    - amount: 20
+      name: 2
+    - amount: 20
+      name: 3

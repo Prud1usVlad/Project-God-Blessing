@@ -132,9 +132,9 @@ namespace Assets.Scripts.SaveSystem
                 if (prefix is not null)
                     files = files.Where(f => f.Name.StartsWith(prefix));
 
-                files.OrderByDescending(f => f.LastWriteTime);
+                files = files.OrderByDescending(f => f.LastWriteTime);
 
-                for (int i = files.Count(); i > filesCap; i--)
+                for (int i = files.Count() - 1; i > filesCap; i--)
                 {
                     files.ElementAt(i).Delete();
                 }

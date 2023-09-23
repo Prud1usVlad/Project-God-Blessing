@@ -1,17 +1,23 @@
 using Assets.Scripts.EventSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using Assets.Scripts.ResourceSystem;
+using TMPro;
 using UnityEngine;
 
 public class HubUiController : MonoBehaviour
 {
     [Header("Ui elements")]
+    public ListViewController buildingsListView;
+
     public Transform buildingModeUi;
     public Transform basicUi;
 
+    public TextMeshProUGUI gold;
+    public TextMeshProUGUI wood;
+    public TextMeshProUGUI stone;
+
     [Header("Data")]
     public BuildingRegistry buildings;
+    public ResourceContainer resources;
 
     [Header("Events")]
     public GameEvent enterBuildMode;
@@ -25,6 +31,10 @@ public class HubUiController : MonoBehaviour
 
         var list = buildingModeUi.GetComponentInChildren<ListViewController>();
         list.InitView(buildings);
+
+        gold.SetText("Gold: " + resources.GetResourceAmount(ResourceName.Gold));
+        wood.SetText("Wood: " + resources.GetResourceAmount(ResourceName.Wood));
+        stone.SetText("Stone: " + resources.GetResourceAmount(ResourceName.Stone));
 
         enterBuildMode.Raise();
     }
@@ -40,5 +50,14 @@ public class HubUiController : MonoBehaviour
     public void OnRemoveBuildings()
     {
         removeMode.Raise();
+    }
+
+    public void OnUpdateUi()
+    {
+        buildingsListView.RefreshList();
+
+        gold.SetText("Gold: " + resources.GetResourceAmount(ResourceName.Gold));
+        wood.SetText("Wood: " + resources.GetResourceAmount(ResourceName.Wood));
+        stone.SetText("Stone: " + resources.GetResourceAmount(ResourceName.Stone));
     }
 }

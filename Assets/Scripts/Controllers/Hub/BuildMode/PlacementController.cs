@@ -1,5 +1,7 @@
 using Assets.Scripts.Controllers.Hub.BuildMode;
+using Assets.Scripts.EventSystem;
 using Assets.Scripts.Helpers.Enums;
+using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,9 +22,12 @@ public class PlacementController : MonoBehaviour
     public List<BuildingPlace> buildingPlaces;
     public PreviewSystem preview;
     public ObjectPlacer objectPlacer;
+    public ResourceContainer resourceContainer;
+
     public GameObject confirmationDialogue;
     public Transform ui;
 
+    public GameEvent updateUiEvent;
     //[SerializeField]
     //private SoundFeedback soundFeedback;
 
@@ -41,14 +46,16 @@ public class PlacementController : MonoBehaviour
         StopPlacement();
         //gridVisualization.SetActive(true);
         buildingState = new PlacementState(guid, 
-            buildings, objectPlacer, preview, buildingPlaces);
+            buildings, objectPlacer, preview, 
+            buildingPlaces, resourceContainer);
     }
 
     public void StartRemoving()
     {
         StopPlacement();
         //gridVisualization.SetActive(true);
-        buildingState = new RemovingState(objectPlacer, preview, buildingPlaces);
+        buildingState = new RemovingState(objectPlacer,
+            preview, buildingPlaces, resourceContainer);
     }
 
     public void PlaceStructure()
@@ -90,6 +97,8 @@ public class PlacementController : MonoBehaviour
         if (dialogue.result == DialogueBoxResult.Yes)
         {
             action.Invoke(position);
+            updateUiEvent.Raise();
+            StopPlacement();
         }
     }
 

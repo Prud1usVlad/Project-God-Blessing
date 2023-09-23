@@ -1,3 +1,4 @@
+using Assets.Scripts.Helpers.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -87,21 +88,21 @@ namespace Assets.Scripts.Stats
 			{
 				StatModifier mod = statModifiers[i];
 
-				if (mod.Type == StatModType.Flat)
+				if (mod.Type == ModifierType.Flat)
 				{
 					finalValue += mod.Value;
 				}
-				else if (mod.Type == StatModType.PercentAdd)
+				else if (mod.Type == ModifierType.PercentAdd)
 				{
 					sumPercentAdd += mod.Value;
 
-					if (i + 1 >= statModifiers.Count || statModifiers[i + 1].Type != StatModType.PercentAdd)
+					if (i + 1 >= statModifiers.Count || statModifiers[i + 1].Type != ModifierType.PercentAdd)
 					{
 						finalValue *= 1 + sumPercentAdd;
 						sumPercentAdd = 0;
 					}
 				}
-				else if (mod.Type == StatModType.PercentMult)
+				else if (mod.Type == ModifierType.PercentMult)
 				{
 					finalValue *= 1 + mod.Value;
 				}

@@ -77,7 +77,9 @@ MonoBehaviour:
   - {fileID: 0}
   preview: {fileID: 6795353339614238307}
   objectPlacer: {fileID: 1116606405127009740}
-  confirmationDialogue: {fileID: 0}
+  confirmationDialogue: {fileID: 2234857351415284797, guid: adc2c989f4a523a4f94c4ab250f48ff5,
+    type: 3}
+  ui: {fileID: 0}
 --- !u!114 &1116606405127009740
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class SaveController : MonoBehaviour
         file.Date = dateStr;
         file.Type = mode.HumanName();
         file.ReadFromGameProgress(gameProgress);
-        
+
         saveSystem.SaveData(file, fileName);
         saveSystem.DeleteOldFiles("AutoSave");
     }

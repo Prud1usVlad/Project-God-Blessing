@@ -1,4 +1,5 @@
 using Assets.Scripts.EventSystem;
+using Assets.Scripts.Helpers.Enums;
 using Assets.Scripts.Stats;
 using System;
 using TMPro;
@@ -49,13 +50,13 @@ public class HubSandboxUi : MonoBehaviour
         if (parameter == "Increase")
         {
             stats.GetStat(StatName.Sanity).AddModifier(
-                new StatModifier(2, StatModType.Flat, source: this));
+                new StatModifier(2, ModifierType.Flat, source: this));
         }
 
         if (parameter == "Decrease")
         {
             stats.GetStat(StatName.Sanity).AddModifier(
-                new StatModifier(-2, StatModType.Flat, source: this));
+                new StatModifier(-2, ModifierType.Flat, source: this));
         }
     }
 

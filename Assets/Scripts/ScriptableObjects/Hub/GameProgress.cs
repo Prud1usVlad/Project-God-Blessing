@@ -1,4 +1,5 @@
 using Assets.Scripts.Models;
+using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +14,13 @@ public class GameProgress : ScriptableObject
     public List<ItemAvaliability> buildings;
 
     public List<BuildingPlace> buildingsPlaces;
+
+    
     // other 
     [Header("Non serialized properties")]
     [Header("Registries")]
     public BuildingRegistry buildingRegistry;
+    public ResourceContainer resourceContainer;
 
     [NonSerialized]
     public ObjectPlacer objectPlacer;

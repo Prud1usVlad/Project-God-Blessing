@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.ResourceSystem;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,19 +7,24 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
 {
     public class RemovingState : IBuildState
     {
-        private Building building;
-        string guid;
-        BuildingRegistry registry;
-        ObjectPlacer objectPlacer;
-        PreviewSystem previewSystem;
-        List<BuildingPlace> buildingPlaces;
+        private float cashBack = 0.3f;
+
+        private string guid;
+        private BuildingRegistry registry;
+        private ObjectPlacer objectPlacer;
+        private PreviewSystem previewSystem;
+        private ResourceContainer resourceContainer;
+        
+        private List<BuildingPlace> buildingPlaces;
 
         public RemovingState(ObjectPlacer objectPlacer,
-                PreviewSystem previewSystem, List<BuildingPlace> places)
+            PreviewSystem previewSystem, List<BuildingPlace> places,
+            ResourceContainer resourceContainer)
         {
             this.previewSystem = previewSystem;
             buildingPlaces = places;
             this.objectPlacer = objectPlacer;
+            this.resourceContainer = resourceContainer;
             //this.soundFeedback = soundFeedback;
 
             previewSystem.StartShowingRemovePreview();
@@ -68,12 +74,20 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
         {
             BuildingPlace place = buildingPlaces.Find(p
                 => p.gameObject.transform.position == position);
+            var building = place.building;
 
             //soundFeedback.PlaySound(SoundType.Remove);
             objectPlacer.RemoveObjectAt(place);
 
             objectPlacer.RemoveObjectAt(place);
             previewSystem.UpdatePosition(position, CheckIfSelectionIsValid(position));
+
+            foreach (var res in building.price.resources)
+            {
+                resourceContainer.GetResource(res.name)
+                    .GainResource(Mathf.RoundToInt(res.amount * 0.3f),
+                    TransactionType.Cashback);
+            }
         }
     }
 }

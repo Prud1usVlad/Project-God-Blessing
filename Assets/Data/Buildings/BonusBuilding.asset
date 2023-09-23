@@ -16,3 +16,12 @@ MonoBehaviour:
   name: Basic bonus
   description: Basic bonus
   prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 90
+      name: 1
+    - amount: 10
+      name: 2
+    - amount: 20
+      name: 3

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Helpers;
+using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ public abstract class Building : SerializableScriptableObject
     public string description;
 
     public GameObject prefab;
-    public GameObject blueprint;
+
+    public Price price;
 }
 

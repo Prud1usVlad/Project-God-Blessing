@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Models;
+using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Assets.Scripts.SaveSystem
 
         // Hub config
         public List<Place> places;
+        public List<Resource> resources;
 
 
         public void ReadFromGameProgress(GameProgress progress)
@@ -32,6 +34,8 @@ namespace Assets.Scripts.SaveSystem
                         buildingGuid = p.building?.Guid 
                     }
                 ).ToList();
+
+            resources = progress.resourceContainer.Resources;
         }
 
         public void WriteToGameProgress(GameProgress progress)
@@ -39,6 +43,9 @@ namespace Assets.Scripts.SaveSystem
             progress.fame = Fame;
             progress.buildings = buildings;
             places.ForEach(p => progress.AddBuilding(p.position, p.buildingGuid));
+
+            progress.resourceContainer.Resources.Clear();
+            progress.resourceContainer.AddResources(resources);
         }
 
         [Serializable]
