@@ -9,11 +9,14 @@ using UnityEngine;
 
 public abstract class Building : SerializableScriptableObject
 {
-    public string name;
+    public string buildingName;
     public string description;
+    public bool isAvaliableAtStart = true;
 
     public GameObject prefab;
 
     public Price price;
+
+    public abstract void InitDialogue(DialogueBox dialogueBox);
 }
 

@@ -10,13 +10,14 @@ namespace Assets.Scripts.SaveSystem
     public class SaveFile
     {
         // Header
-        public string CharacterName { get; set; }
-        public string Type { get; set; }
-        public int Fame { get; set; }
-        public string Date { get; set; }
+        public string characterName;
+        public string type;
+        public int fame;
+        public int day;
+        public string date;
 
         // Progress
-        public List<ItemAvaliability> buildings { get; set; }
+        public List<ItemAvaliability> reserchedBuildings;
 
         // Hub config
         public List<Place> places;
@@ -25,8 +26,9 @@ namespace Assets.Scripts.SaveSystem
 
         public void ReadFromGameProgress(GameProgress progress)
         {
-            Fame = progress.fame;
-            buildings = progress.buildings;
+            day = progress.day;
+            fame = progress.fame;
+            reserchedBuildings = progress.buildingResearch;
             places = progress.buildingsPlaces.Select(p 
                 => new Place 
                     { 
@@ -40,8 +42,16 @@ namespace Assets.Scripts.SaveSystem
 
         public void WriteToGameProgress(GameProgress progress)
         {
-            progress.fame = Fame;
-            progress.buildings = buildings;
+            progress.fame = fame;
+
+            foreach (var b in reserchedBuildings)
+            {
+                var item = progress.buildingResearch
+                    .Find(o => b.guid == o.guid);
+
+                item.isAvaliable = b.isAvaliable;
+            }
+
             places.ForEach(p => progress.AddBuilding(p.position, p.buildingGuid));
 
             progress.resourceContainer.Resources.Clear();

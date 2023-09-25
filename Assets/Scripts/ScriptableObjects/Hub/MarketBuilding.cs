@@ -6,4 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Market", fileName = "Building")]
 public class MarketBuilding : Building
 {
+    public override void InitDialogue(DialogueBox dialogueBox)
+    {
+        throw new System.NotImplementedException();
+    }
 }

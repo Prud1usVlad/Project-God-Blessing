@@ -27,7 +27,7 @@ public class DialogueBox : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void InitDialogue() 
+    public virtual void InitDialogue() 
     {
         gameObject.SetActive(true);
 
@@ -45,14 +45,14 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    private void EndDialogue()
+    protected virtual void EndDialogue()
     {
         gameObject.SetActive(false);
 
         Invoke(nameof(DestroyDialogue), 5);
     }
 
-    private void DestroyDialogue()
+    protected virtual void DestroyDialogue()
     {
         Destroy(gameObject);
     }

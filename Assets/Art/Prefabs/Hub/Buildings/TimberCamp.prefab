@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 287843780674046939}
   - component: {fileID: 233908919606515555}
   - component: {fileID: 8870396423453465531}
-  - component: {fileID: 921277908920386921}
-  - component: {fileID: -5909389169456386199}
+  - component: {fileID: -7490065267072654581}
+  - component: {fileID: 1787950860603036153}
   m_Layer: 0
-  m_Name: BonuseBuilding
+  m_Name: TimberCamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 312882456432063554}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000047683716, y: 1.5, z: -0.0000009536743}
-  m_LocalScale: {x: 8, y: 3, z: 8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 20, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 11400000, guid: 68bfde619d9139146bf80c4d34833d16, type: 2}
-  dialogueBox: {fileID: 0}
+  building: {fileID: 11400000, guid: addde35c1584533409a3f3e6ff5d427a, type: 2}
+  dialogueBox: {fileID: 3329096449042376875, guid: 1bd9157ae3511b446a8949df5f64d209,
+    type: 3}
 --- !u!65 &8870396423453465531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &921277908920386921
+--- !u!114 &-7490065267072654581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +151,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-5909389169456386199
+--- !u!114 &1787950860603036153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

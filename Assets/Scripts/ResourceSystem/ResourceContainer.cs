@@ -22,6 +22,18 @@ namespace Assets.Scripts.ResourceSystem
             return GetResource(name).amount;
         }
 
+        public void GainResource(ResourceName name, 
+            int amount, TransactionType transactionType)
+        {
+            GetResource(name).GainResource(amount, transactionType);
+        }
+
+        public void SpendResource(ResourceName name,
+            int amount, TransactionType transactionType)
+        {
+            GetResource(name).SpendResource(amount, transactionType);
+        }
+
         public void AddResource(Resource resource)
         {
             resources.Add(resource);

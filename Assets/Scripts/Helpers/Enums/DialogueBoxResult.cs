@@ -11,5 +11,6 @@ namespace Assets.Scripts.Helpers.Enums
         None,
         Yes,
         No,
+        Close,
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ObjectPlacer : MonoBehaviour
 {
+    public GameProgress progress;
     public List<GameObject> placedGameObjects = new();
 
     public int PlaceObject(Building building, BuildingPlace place)
@@ -15,10 +17,14 @@ public class ObjectPlacer : MonoBehaviour
         place.building = building;
         place.buildingIndexInPlacer = placedGameObjects.Count - 1;
 
+        newObject.GetComponent<BuildingController>().isBuilt = true;
+
+        progress.placedBuildings.Add(building);
+
         return placedGameObjects.Count - 1;
     }
 
-    internal void RemoveObjectAt(BuildingPlace place)
+    public void RemoveObjectAt(BuildingPlace place)
     {
         int idx = place.buildingIndexInPlacer;
 
@@ -28,7 +34,9 @@ public class ObjectPlacer : MonoBehaviour
         {
             return;
         }
-            
+
+        progress.placedBuildings.Remove(place.building);
+
         Destroy(placedGameObjects[idx]);
         placedGameObjects[idx] = null;
 

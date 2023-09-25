@@ -10,11 +10,12 @@ public class GameProgress : ScriptableObject
 {
     public int fame;
     public int maxFame = 10000;
+    public int day = 1;
 
-    public List<ItemAvaliability> buildings;
+    public List<ItemAvaliability> buildingResearch;
 
     public List<BuildingPlace> buildingsPlaces;
-
+    public List<Building> placedBuildings = new();  
     
     // other 
     [Header("Non serialized properties")]
@@ -38,4 +39,5 @@ public class GameProgress : ScriptableObject
             }
         }
     }
+
 }

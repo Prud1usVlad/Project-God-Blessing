@@ -13,6 +13,7 @@ namespace Assets.Scripts.ResourceSystem
         Build,
         Sell,
         Cashback,
+        Production,
         Any,
     }
 }

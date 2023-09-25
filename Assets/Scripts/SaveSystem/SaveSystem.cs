@@ -95,8 +95,11 @@ namespace Assets.Scripts.SaveSystem
             if (!Directory.Exists(dirPath))
                 return null;
 
-            var file = directory.GetFiles()
-                .OrderByDescending(f => f.LastWriteTime)
+            var allFiles = directory.GetFiles();
+            FileInfo file = null;
+            
+            if (allFiles.Length > 0)
+                allFiles.OrderByDescending(f => f.LastWriteTime)
                 .First();
 
             if (file == null)

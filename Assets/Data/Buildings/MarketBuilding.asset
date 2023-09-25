@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MarketBuilding
   m_EditorClassIdentifier: 
   _guid: e201d62feb099824eb53be549f876488
-  name: Basic market
+  buildingName: Basic market
   description: Basic market
+  isAvaliableAtStart: 1
   prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
   price:
     transactionType: 2

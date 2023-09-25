@@ -22,7 +22,7 @@ public class BuildingRegistry : Registry<Building>, IListViewExtendedRegistry
     {
         foreach (var desc in _descriptors)
         {
-            if (desc.name == name)
+            if (desc.buildingName == name)
             {
                 return desc;
             }

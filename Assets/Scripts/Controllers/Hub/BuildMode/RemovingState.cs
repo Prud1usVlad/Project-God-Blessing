@@ -85,7 +85,7 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
             foreach (var res in building.price.resources)
             {
                 resourceContainer.GetResource(res.name)
-                    .GainResource(Mathf.RoundToInt(res.amount * 0.3f),
+                    .GainResource(Mathf.RoundToInt(res.amount * cashBack),
                     TransactionType.Cashback);
             }
         }

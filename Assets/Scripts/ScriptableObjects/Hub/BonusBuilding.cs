@@ -7,4 +7,9 @@ using UnityEngine;
 public class BonusBuilding : Building
 {
     List<StatModifier> modifiers;
+
+    public override void InitDialogue(DialogueBox dialogueBox)
+    {
+        throw new System.NotImplementedException();
+    }
 }

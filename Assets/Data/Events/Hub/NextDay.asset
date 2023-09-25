@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57697e5ee1ae59840b229c3b595bd4f2, type: 3}
-  m_Name: GlobalResourceContainer
+  m_Script: {fileID: 11500000, guid: e2875d35cfbff854598afade8e0d11d7, type: 3}
+  m_Name: NextDay
   m_EditorClassIdentifier: 
-  resources:
-  - amount: 784
-    name: 1
-  - amount: 86
-    name: 2
-  - amount: 72
-    name: 3
+  _guid: 

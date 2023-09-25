@@ -9,9 +9,11 @@ using UnityEngine.UI;
 public class BuildingListItem : MonoBehaviour, IListItem            
 {
     private bool isAvaliable = false;
+    private bool isPlaced = false;
+    private bool isReserched = false;
 
     public Building building;
-    public ResourceContainer resourceContainer;
+    public GameProgress gameProgress;
 
     public GameEvent itemSelected;
 
@@ -24,7 +26,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
     {
         building = (Building)data;
 
-        buildingName?.SetText(building?.name);
+        buildingName?.SetText(building?.buildingName);
         buildingDescription?.SetText(building?.description);
 
         foreach (var res in building.price.resources)
@@ -37,15 +39,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
             obj.transform.SetParent(resourcesPanel);
         }
 
-        isAvaliable = resourceContainer.CanAfford(building.price);
-        if (!isAvaliable)
-        {
-            GetComponent<Image>().color = new Color (1, 0, 0, 0.5f);
-        }
-        else
-        {
-            GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
-        }
+        ApplyColors();
     }
 
     public bool HasData(object data)
@@ -59,7 +53,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
     public void OnSelected()
     {
-        if (isAvaliable)
+        if (isAvaliable && !isPlaced && isReserched)
         {
             Debug.Log("Select item " + name);
             itemSelected.Raise(building.Guid);
@@ -69,5 +63,25 @@ public class BuildingListItem : MonoBehaviour, IListItem
     public void OnUnselected()
     {
         Debug.Log("Unselect item " + name);
+    }
+
+    private void ApplyColors()
+    {
+        isAvaliable = gameProgress.resourceContainer.CanAfford(building.price);
+        isReserched = gameProgress.buildingResearch.Find(b => b.guid == building.Guid).isAvaliable;
+        isPlaced = gameProgress.placedBuildings.Contains(building);
+
+        if (isPlaced)
+        {
+            GetComponent<Image>().color = new Color(0, 1, 0, 0.5f);
+        }
+        else if (!isAvaliable || !isReserched)
+        {
+            GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
+        }
+        else
+        {
+            GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        }
     }
 }

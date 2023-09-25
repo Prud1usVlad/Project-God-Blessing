@@ -1,6 +1,9 @@
+using Assets.Scripts.Models;
 using Assets.Scripts.SaveSystem;
 using System;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class SaveController : MonoBehaviour
@@ -16,9 +19,20 @@ public class SaveController : MonoBehaviour
 
     public void Load()
     {
+        // Init building research
+        gameProgress.buildingResearch =
+            gameProgress.buildingRegistry.Buildings
+            .Select(b =>
+                new ItemAvaliability
+                {
+                    guid = b.Guid,
+                    isAvaliable = b.isAvaliableAtStart
+                }
+            ).ToList();
+
         var file = saveSystem.LoadLast<SaveFile>();
 
-        if (file != null )
+        if (file != null)
         {
             file.WriteToGameProgress(gameProgress);
         }
@@ -30,9 +44,9 @@ public class SaveController : MonoBehaviour
         string fileName = mode.HumanName() + "Save " + dateStr + ".json";
         var file = new SaveFile();
 
-        file.CharacterName = "none";
-        file.Date = dateStr;
-        file.Type = mode.HumanName();
+        file.characterName = "none";
+        file.date = dateStr;
+        file.type = mode.HumanName();
         file.ReadFromGameProgress(gameProgress);
 
         saveSystem.SaveData(file, fileName);

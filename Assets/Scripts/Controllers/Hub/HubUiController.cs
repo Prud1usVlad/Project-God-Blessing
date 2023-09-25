@@ -23,6 +23,7 @@ public class HubUiController : MonoBehaviour
     public GameEvent enterBuildMode;
     public GameEvent exitBuildMode;
     public GameEvent removeMode;
+    public GameEvent addDay;
 
     public void OnEnterBuildMode()
     {
