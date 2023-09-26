@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BuildingController : MonoBehaviour
 {
@@ -30,12 +31,19 @@ public class BuildingController : MonoBehaviour
         isInBuildMode = false;
     }
 
-    private void OnMouseOver()
+    private void Update()
     {
-        if(Input.GetMouseButtonDown(0) 
-            && !isInBuildMode && isBuilt) 
+        if (Input.GetMouseButtonDown(0))
         {
-            Interact();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.GetInstanceID() == transform.GetInstanceID())
+                {
+                    Interact();
+                }
+            }
         }
     }
 }

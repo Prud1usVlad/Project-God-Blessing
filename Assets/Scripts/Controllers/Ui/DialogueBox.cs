@@ -1,4 +1,5 @@
 using Assets.Scripts.Helpers.Enums;
+using Assets.Scripts.ScriptableObjects.Hub;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ public class DialogueBox : MonoBehaviour
     public TextMeshProUGUI bodySection;
     public GameObject buttonsSection;
 
+    public RuntimeHubUiData runtimeData;
+
     private void Awake()
     {
         gameObject.SetActive(false);
@@ -29,6 +32,10 @@ public class DialogueBox : MonoBehaviour
 
     public virtual void InitDialogue() 
     {
+        if (runtimeData.isDialogOpened)
+            return;
+
+        runtimeData.DialogueOpen(this);
         gameObject.SetActive(true);
 
         headerSection.SetText(header);
@@ -47,9 +54,10 @@ public class DialogueBox : MonoBehaviour
 
     protected virtual void EndDialogue()
     {
+        runtimeData.DialogueClose();
         gameObject.SetActive(false);
 
-        Invoke(nameof(DestroyDialogue), 5);
+        Invoke(nameof(DestroyDialogue), 2);
     }
 
     protected virtual void DestroyDialogue()

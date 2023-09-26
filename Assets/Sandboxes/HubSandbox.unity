@@ -1322,6 +1322,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1242440415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6718698423289191576, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 52840703807536072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242440403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ad9ca374d6c7c4f8ac33091ad36fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1249858027 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4295695263244703301, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
@@ -1500,6 +1512,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HubController
       objectReference: {fileID: 0}
+    - target: {fileID: 4665787540938049998, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1242440415}
     - target: {fileID: 6718698423289191576, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
         type: 3}
       propertyPath: buildSystem

@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 11400000, guid: e201d62feb099824eb53be549f876488, type: 2}
-  dialogueBox: {fileID: 0}
+  dialogueBox: {fileID: 353559128252891476, guid: a58720220f0cc1142800c843fc78e541,
+    type: 3}
+  isBuilt: 0
 --- !u!136 &3654538408694978297
 CapsuleCollider:
   m_ObjectHideFlags: 0

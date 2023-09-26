@@ -8,6 +8,7 @@ public class MarketBuilding : Building
 {
     public override void InitDialogue(DialogueBox dialogueBox)
     {
-        throw new System.NotImplementedException();
+        (dialogueBox as MarketBuildingDialogueBox).building = this;
+        dialogueBox.InitDialogue();
     }
 }
