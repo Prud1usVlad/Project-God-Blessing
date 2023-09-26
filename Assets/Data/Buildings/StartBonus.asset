@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e3889604fd2a6345a46a52e81a61717, type: 3}
-  m_Name: BonusBuilding
+  m_Name: StartBonus
   m_EditorClassIdentifier: 
-  _guid: 68bfde619d9139146bf80c4d34833d16
+  _guid: efc29a37ef48d98408e98c8504e1aee3
   buildingName: Basic bonus
-  description: Basic bonus
-  isAvaliableAtStart: 0
+  description: Basic bonus awaliable at start
+  isAvaliableAtStart: 1
   prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
   price:
     transactionType: 2

@@ -14,7 +14,8 @@ public class GameProgress : ScriptableObject
 
     public List<ItemAvaliability> buildingResearch;
 
-    public List<BuildingPlace> buildingsPlaces;
+    // init from hub contoller
+    //public List<BuildingPlace> buildingsPlaces;
     public List<Building> placedBuildings = new();  
     
     // other 
@@ -22,22 +23,5 @@ public class GameProgress : ScriptableObject
     [Header("Registries")]
     public BuildingRegistry buildingRegistry;
     public ResourceContainer resourceContainer;
-
-    [NonSerialized]
-    public ObjectPlacer objectPlacer;
-
-    public void AddBuilding(Vector3 placePos, string buildingGuid)
-    {
-        var place = buildingsPlaces.Find(p => p.transform.position == placePos);
-        if (place != null) 
-        {
-            var building = buildingRegistry.FindByGuid(buildingGuid);
-
-            if (building != null) 
-            {
-                objectPlacer.PlaceObject(building, place);
-            }
-        }
-    }
 
 }

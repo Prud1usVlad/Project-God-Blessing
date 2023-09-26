@@ -29,13 +29,6 @@ namespace Assets.Scripts.SaveSystem
             day = progress.day;
             fame = progress.fame;
             reserchedBuildings = progress.buildingResearch;
-            places = progress.buildingsPlaces.Select(p 
-                => new Place 
-                    { 
-                        position = p.transform.position, 
-                        buildingGuid = p.building?.Guid 
-                    }
-                ).ToList();
 
             resources = progress.resourceContainer.Resources;
         }
@@ -43,6 +36,7 @@ namespace Assets.Scripts.SaveSystem
         public void WriteToGameProgress(GameProgress progress)
         {
             progress.fame = fame;
+            Debug.Log("write to game progress");
 
             foreach (var b in reserchedBuildings)
             {
@@ -52,7 +46,6 @@ namespace Assets.Scripts.SaveSystem
                 item.isAvaliable = b.isAvaliable;
             }
 
-            places.ForEach(p => progress.AddBuilding(p.position, p.buildingGuid));
 
             progress.resourceContainer.Resources.Clear();
             progress.resourceContainer.AddResources(resources);

@@ -8,11 +8,13 @@ using UnityEngine.UI;
 
 public class ProductionBuildingDialogueBox : DialogueBox
 {
+    private List<ConsumptionWidget> consumptionWidgets;
+
     public ProductionBuilding building;
 
     public ProductionWidget productionWidget;
     public Transform consumptionPanel;
-    public List<ConsumptionWidget> consumptionWidgets;
+    
     public Slider powerSlider;
 
     public GameObject consumptionPrefab;

@@ -12,7 +12,7 @@ namespace Assets.Scripts.ResourceSystem
     [Serializable]
     public class ResourceModifier : StatModifier
     {
-        public readonly TransactionType Transaction;
+        public TransactionType Transaction;
 
         public ResourceModifier(float value, 
             ModifierType type, TransactionType transaction) 

@@ -1,14 +1,15 @@
 using Assets.Scripts.Helpers.Enums;
+using System;
 
 namespace Assets.Scripts.Stats
-{ 
-
+{
+	[Serializable]
 	public class StatModifier
 	{
-		public readonly float Value;
-		public readonly ModifierType Type;
-		public readonly int Order;
-		public readonly object Source;
+		public float Value;
+		public ModifierType Type;
+		public int Order;
+		public object Source;
 
 		public StatModifier(float value, ModifierType type, int order, object source)
 		{

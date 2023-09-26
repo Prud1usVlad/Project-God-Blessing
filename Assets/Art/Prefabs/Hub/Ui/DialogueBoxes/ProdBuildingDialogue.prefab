@@ -490,7 +490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1200, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6647561336208597187
@@ -513,7 +513,6 @@ MonoBehaviour:
   building: {fileID: 0}
   productionWidget: {fileID: 7961317559353328565}
   consumptionPanel: {fileID: 3765203405480106788}
-  consumptionWidgets: []
   powerSlider: {fileID: 2773296555367846941}
   consumptionPrefab: {fileID: 8339659195582411166, guid: 885600d624fdfea43b921784842ddce1,
     type: 3}
@@ -1194,7 +1193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0002926089}
+  m_AnchoredPosition: {x: 0, y: 0.000026423484}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6116787444013216712

@@ -2,14 +2,17 @@ using Assets.Scripts.Models;
 using Assets.Scripts.SaveSystem;
 using System;
 using System.Linq;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static Assets.Scripts.SaveSystem.SaveFile;
 
 public class SaveController : MonoBehaviour
 {
     [Header("Utilities")]
     public SaveSystem saveSystem;
+    public HubController controller;
 
     [Header("Data to save and load")]
     public GameProgress gameProgress;
@@ -29,11 +32,15 @@ public class SaveController : MonoBehaviour
                     isAvaliable = b.isAvaliableAtStart
                 }
             ).ToList();
+        gameProgress.placedBuildings.Clear();
 
         var file = saveSystem.LoadLast<SaveFile>();
-
+        Debug.Log("load 1");
         if (file != null)
         {
+            Debug.Log("load file not null");
+
+            controller.AddBuildings(file.places);
             file.WriteToGameProgress(gameProgress);
         }
     }
@@ -48,6 +55,13 @@ public class SaveController : MonoBehaviour
         file.date = dateStr;
         file.type = mode.HumanName();
         file.ReadFromGameProgress(gameProgress);
+        file.places = controller.buildingPlaces.Select(p
+            => new Place
+            {
+                position = p.transform.position,
+                buildingGuid = p.building?.Guid
+            }
+        ).ToList();
 
         saveSystem.SaveData(file, fileName);
         saveSystem.DeleteOldFiles("AutoSave");

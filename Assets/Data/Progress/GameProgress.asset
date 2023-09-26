@@ -14,10 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fame: 0
   maxFame: 10000
-  buildings: []
+  day: 1
+  buildingResearch:
+  - guid: 68bfde619d9139146bf80c4d34833d16
+    isAvaliable: 0
+  - guid: e201d62feb099824eb53be549f876488
+    isAvaliable: 1
+  - guid: addde35c1584533409a3f3e6ff5d427a
+    isAvaliable: 1
   buildingsPlaces:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  placedBuildings:
+  - {fileID: 11400000, guid: addde35c1584533409a3f3e6ff5d427a, type: 2}
   buildingRegistry: {fileID: 11400000, guid: 6e9fc77b59fd41a4a82a066af5b5881c, type: 2}
   resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}

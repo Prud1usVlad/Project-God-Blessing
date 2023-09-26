@@ -99,7 +99,7 @@ namespace Assets.Scripts.SaveSystem
             FileInfo file = null;
             
             if (allFiles.Length > 0)
-                allFiles.OrderByDescending(f => f.LastWriteTime)
+                file = allFiles.OrderByDescending(f => f.LastWriteTime)
                 .First();
 
             if (file == null)

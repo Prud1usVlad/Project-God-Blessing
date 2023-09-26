@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using static Assets.Scripts.SaveSystem.SaveFile;
 
 public class HubController : MonoBehaviour
 {
+    private ObjectPlacer objectPlacer;
+
     public List<BuildingPlace> buildingPlaces;
     public BuildingRegistry buildings;
 
@@ -26,9 +28,7 @@ public class HubController : MonoBehaviour
 
     private void Awake()
     {
-        gameProgress.buildingsPlaces = buildingPlaces;
-        gameProgress.objectPlacer = buildSystem.GetComponent<ObjectPlacer>();
-
+        objectPlacer = buildSystem.GetComponent<ObjectPlacer>();
         saveController.Load();
     }
 
@@ -36,5 +36,22 @@ public class HubController : MonoBehaviour
     {
         Debug.Log("Scene unload");
         saveController.AutoSave();
+    }
+
+    public void AddBuildings(List<Place> places)
+    {
+        foreach (var savedPlace in places)
+        {
+            var place = buildingPlaces.Find(p => p.transform.position == savedPlace.position);
+            if (place != null)
+            {
+                var building = buildings.FindByGuid(savedPlace.buildingGuid);
+
+                if (building != null)
+                {
+                    objectPlacer.PlaceObject(building, place);
+                }
+            }
+        }
     }
 }
