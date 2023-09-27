@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15937a93946c6f14890e3576476cadaf, type: 3}
+  m_Name: FameTranslation
+  m_EditorClassIdentifier: 
+  currentPoints: 50
+  currentLevelIdx: 0
+  levels: {fileID: 11400000, guid: 614c179f60c4ebc48824bb6c89a728f1, type: 2}
+  currentFameLevel: {fileID: 11400000, guid: bc6f04b360e7e0546b88d5bce60401f3, type: 2}
