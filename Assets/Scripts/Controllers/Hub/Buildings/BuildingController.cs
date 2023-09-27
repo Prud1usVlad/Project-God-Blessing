@@ -22,7 +22,6 @@ public class BuildingController : MonoBehaviour
 
     public void OnBuildModeEnter()
     {
-        Debug.Log("Enter build mode");
         isInBuildMode = true;
     }
 
@@ -33,7 +32,7 @@ public class BuildingController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isInBuildMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

@@ -15,16 +15,18 @@ public class BonusBuildingDialogueBox : DialogueBox
     public Transform resModsArea;
     public Transform statModsArea;
 
-    public override void InitDialogue()
+    public override bool InitDialogue()
     {
         header = building.buildingName;
         body = building.description;
         widgetsR = new List<ModifierWidget>();
         widgetsS = new List<ModifierWidget>();
 
-        base.InitDialogue();
-        UpdateView();
+        var inited = base.InitDialogue();
+        
+        if (inited) UpdateView();
 
+        return inited;
     }
 
     public void UpdateView()

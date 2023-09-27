@@ -29,16 +29,18 @@ public class BuildingListItem : MonoBehaviour, IListItem
         buildingName?.SetText(building?.buildingName);
         buildingDescription?.SetText(building?.description);
 
+        GameObject pref = new GameObject("Resource");
+        var text = pref.AddComponent<TextMeshProUGUI>();
+        text.fontSize = 24;
+
         foreach (var res in building.price.resources)
         {
-            GameObject obj = new GameObject("Resource");
-            var text = obj.AddComponent<TextMeshProUGUI>();
-
-            text.SetText($"{Enum.GetName(typeof(ResourceName), res.name)} : {res.amount}");
-
-            obj.transform.SetParent(resourcesPanel);
+            var newText = Instantiate(pref, Vector3.zero, Quaternion.identity, resourcesPanel)
+                .GetComponent<TextMeshProUGUI>();
+            newText.SetText($"{Enum.GetName(typeof(ResourceName), res.name)} : {res.amount}");
         }
 
+        Destroy(pref);
         ApplyColors();
     }
 

@@ -8,14 +8,15 @@ public class MarketBuildingDialogueBox : DialogueBox
 {
     public MarketBuilding building;
 
-    public override void InitDialogue()
+    public override bool InitDialogue()
     {
         header = building.buildingName;
         body = building.description;
 
-        base.InitDialogue();
-        UpdateView();
-
+        var inited = base.InitDialogue();
+        
+        if (inited) UpdateView();
+        return inited;
     }
 
     public void UpdateView()

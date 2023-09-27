@@ -30,10 +30,13 @@ public class DialogueBox : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public virtual void InitDialogue() 
+    public virtual bool InitDialogue() 
     {
         if (runtimeData.isDialogOpened)
-            return;
+        {
+            DestroyDialogue();
+            return false;
+        }
 
         runtimeData.DialogueOpen(this);
         gameObject.SetActive(true);
@@ -50,6 +53,8 @@ public class DialogueBox : MonoBehaviour
             btn.onClick.AddListener(() => { result = dialogueBtn.result; });
             btn.onClick.AddListener(EndDialogue);
         }
+
+        return true;
     }
 
     protected virtual void EndDialogue()

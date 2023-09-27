@@ -19,17 +19,22 @@ public class ProductionBuildingDialogueBox : DialogueBox
 
     public GameObject consumptionPrefab;
 
-    public override void InitDialogue()
+    public override bool InitDialogue()
     {
         header = building.buildingName;
         body = building.description;
         powerSlider.value = building.productionPower;
         consumptionWidgets = new List<ConsumptionWidget>();
 
-        base.InitDialogue();
+        var inited = base.InitDialogue();
 
-        UpdateView();
-        StartCoroutine(SliderCheckRoutine());
+        if (inited)
+        {
+            UpdateView();
+            StartCoroutine(SliderCheckRoutine());
+        }
+
+        return inited;
     }
 
     public void UpdateView()

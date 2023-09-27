@@ -77,9 +77,11 @@ MonoBehaviour:
   - {fileID: 0}
   preview: {fileID: 6795353339614238307}
   objectPlacer: {fileID: 1116606405127009740}
+  resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
   confirmationDialogue: {fileID: 2234857351415284797, guid: adc2c989f4a523a4f94c4ab250f48ff5,
     type: 3}
   ui: {fileID: 0}
+  updateUiEvent: {fileID: 11400000, guid: 1fc04ce9e8188f347a2f0a474bead919, type: 2}
 --- !u!114 &1116606405127009740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61908f957111d444930575da5ace6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   placedGameObjects: []
 --- !u!114 &6795353339614238307
 MonoBehaviour:
