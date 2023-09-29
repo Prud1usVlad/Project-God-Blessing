@@ -43,7 +43,7 @@ public class FameTranslation : BaseProgressionTranslation
     public override void SetLevel(int level)
     {
         currentPoints = 0;
-        currentLevelIdx = 1;
+        currentLevelIdx = 0;
         atLevelCap = false;
 
         var levelData = registry.GetByIndex(level);
@@ -56,6 +56,26 @@ public class FameTranslation : BaseProgressionTranslation
         {
             throw new ArgumentOutOfRangeException($"Could not find any entry for level {level}");
         }
+    }
+
+    public override void SetPoints(int amount)
+    {
+        currentPoints = amount;
+        currentLevelIdx = 0;
+        atLevelCap = false;
+
+        for (int i = 0; i < registry.count; i++)
+        {
+            var level = registry.GetByIndex(i);
+            if (level.points <= amount)
+                currentLevelIdx = i;
+            else
+                break;
+        }
+
+        currentFameLevel = registry.GetByIndex(currentLevelIdx);
+        atLevelCap = currentLevelIdx == registry.count - 1;
+
     }
 
     public override int GetPointsForNextLevel()

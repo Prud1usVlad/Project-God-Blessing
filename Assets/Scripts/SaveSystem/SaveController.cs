@@ -35,11 +35,9 @@ public class SaveController : MonoBehaviour
         gameProgress.placedBuildings.Clear();
 
         var file = saveSystem.LoadLast<SaveFile>();
-        Debug.Log("load 1");
+        
         if (file != null)
         {
-            Debug.Log("load file not null");
-
             controller.AddBuildings(file.places);
             file.WriteToGameProgress(gameProgress);
         }

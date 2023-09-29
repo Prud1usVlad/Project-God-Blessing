@@ -11,6 +11,7 @@ public abstract class BaseProgressionTranslation : ScriptableObject
 
     public abstract bool AddPoints(int amount);
     public abstract void SetLevel(int level);
+    public abstract void SetPoints(int amount);
 
     public abstract int GetPointsForNextLevel();
 }

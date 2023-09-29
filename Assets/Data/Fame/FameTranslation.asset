@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15937a93946c6f14890e3576476cadaf, type: 3}
   m_Name: FameTranslation
   m_EditorClassIdentifier: 
-  currentPoints: 50
-  currentLevelIdx: 0
-  levels: {fileID: 11400000, guid: 614c179f60c4ebc48824bb6c89a728f1, type: 2}
-  currentFameLevel: {fileID: 11400000, guid: bc6f04b360e7e0546b88d5bce60401f3, type: 2}
+  currentPoints: 200
+  currentLevelIdx: 2
+  registry: {fileID: 11400000, guid: 614c179f60c4ebc48824bb6c89a728f1, type: 2}
+  currentFameLevel: {fileID: 11400000, guid: cbeea153395e34c47b8fd373519edfe1, type: 2}

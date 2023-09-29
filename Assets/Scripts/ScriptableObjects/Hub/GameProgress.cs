@@ -8,8 +8,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Progress/GameProgress", fileName = "GameProgress")]
 public class GameProgress : ScriptableObject
 {
-    public int fame;
-    public int maxFame = 10000;
     public int day = 1;
 
     public List<ItemAvaliability> buildingResearch;
@@ -23,5 +21,7 @@ public class GameProgress : ScriptableObject
     [Header("Registries")]
     public BuildingRegistry buildingRegistry;
     public ResourceContainer resourceContainer;
+    [Header("Translations")]
+    public FameTranslation fameTranslation;
 
 }

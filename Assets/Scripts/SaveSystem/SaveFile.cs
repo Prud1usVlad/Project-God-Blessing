@@ -27,7 +27,7 @@ namespace Assets.Scripts.SaveSystem
         public void ReadFromGameProgress(GameProgress progress)
         {
             day = progress.day;
-            fame = progress.fame;
+            fame = progress.fameTranslation.currentPoints;
             reserchedBuildings = progress.buildingResearch;
 
             resources = progress.resourceContainer.Resources;
@@ -35,8 +35,7 @@ namespace Assets.Scripts.SaveSystem
 
         public void WriteToGameProgress(GameProgress progress)
         {
-            progress.fame = fame;
-            Debug.Log("write to game progress");
+            progress.fameTranslation.SetPoints(fame);
 
             foreach (var b in reserchedBuildings)
             {
@@ -45,7 +44,6 @@ namespace Assets.Scripts.SaveSystem
 
                 item.isAvaliable = b.isAvaliable;
             }
-
 
             progress.resourceContainer.Resources.Clear();
             progress.resourceContainer.AddResources(resources);
