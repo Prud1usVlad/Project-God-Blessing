@@ -41,14 +41,14 @@ public class DialogueBox : MonoBehaviour
         runtimeData.DialogueOpen(this);
         gameObject.SetActive(true);
 
-        headerSection.SetText(header);
-        bodySection.SetText(body);
+        headerSection?.SetText(header);
+        bodySection?.SetText(body);
 
         foreach (var button in buttons)
         {
             var btnObj = Instantiate(button.gameObject, buttonsSection.transform);
             var btn = btnObj.GetComponent<Button>();
-            var dialogueBtn = btnObj.GetComponent<DialogueBtn>();
+            var dialogueBtn = btnObj.GetComponent<DialogueButton>();
 
             btn.onClick.AddListener(() => { result = dialogueBtn.result; });
             btn.onClick.AddListener(EndDialogue);

@@ -1,7 +1,5 @@
 using Assets.Scripts.Models;
 using Assets.Scripts.ResourceSystem;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,16 +10,23 @@ public class GameProgress : ScriptableObject
 
     public List<ItemAvaliability> buildingResearch;
 
-    // init from hub contoller
-    //public List<BuildingPlace> buildingsPlaces;
     public List<Building> placedBuildings = new();  
-    
+    public List<CurseCard> curses = new();
+
     // other 
     [Header("Non serialized properties")]
     [Header("Registries")]
     public BuildingRegistry buildingRegistry;
+    public CurseRegistry curseRegistry;
     public ResourceContainer resourceContainer;
     [Header("Translations")]
     public FameTranslation fameTranslation;
+    public LiesTranslation liesTranslation;
 
+
+    private void OnEnable()
+    {
+        placedBuildings = new();
+        curses = new();
+    }
 }

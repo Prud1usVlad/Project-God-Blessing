@@ -13,6 +13,7 @@ namespace Assets.Scripts.SaveSystem
         public string characterName;
         public string type;
         public int fame;
+        public int lies;
         public int day;
         public string date;
 
@@ -22,20 +23,31 @@ namespace Assets.Scripts.SaveSystem
         // Hub config
         public List<Place> places;
         public List<Resource> resources;
+        public List<Curse> curses;
 
 
         public void ReadFromGameProgress(GameProgress progress)
         {
             day = progress.day;
             fame = progress.fameTranslation.currentPoints;
+            lies = progress.liesTranslation.currentPoints;
             reserchedBuildings = progress.buildingResearch;
 
             resources = progress.resourceContainer.Resources;
+            curses = progress.curses.Select(c => 
+                new Curse 
+                { 
+                    guid = c.Guid, 
+                    imageIdx = c.imageIdx, 
+                    prophesyIdx = c.prophesyIdx 
+                }
+            ).ToList();
         }
 
         public void WriteToGameProgress(GameProgress progress)
         {
             progress.fameTranslation.SetPoints(fame);
+            progress.liesTranslation.SetPoints(lies);
 
             foreach (var b in reserchedBuildings)
             {
@@ -47,6 +59,9 @@ namespace Assets.Scripts.SaveSystem
 
             progress.resourceContainer.Resources.Clear();
             progress.resourceContainer.AddResources(resources);
+
+            curses.ForEach(c => progress.curses.Add(progress.curseRegistry
+                .InitByGuid(c.guid, c.prophesyIdx, c.imageIdx)));
         }
 
         [Serializable]
@@ -54,6 +69,14 @@ namespace Assets.Scripts.SaveSystem
         {
             public Vector3 position;
             public string buildingGuid;
+        }
+
+        [Serializable]
+        public class Curse
+        {
+            public string guid;
+            public int imageIdx;
+            public int prophesyIdx;
         }
     }
 }

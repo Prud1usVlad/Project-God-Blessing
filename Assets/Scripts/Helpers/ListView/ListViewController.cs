@@ -9,11 +9,11 @@ using UnityEngine;
 
 public class ListViewController : MonoBehaviour 
 {
+    private List<SerializableScriptableObject> data;
     private SerializableScriptableObject selectedData;
     private IListItem selectedItem;
     private List<IListItem> items;
 
-    public IListViewExtendedRegistry registry;
     public GameObject prefab;
     public GameObject contentParent;
 
@@ -27,10 +27,10 @@ public class ListViewController : MonoBehaviour
         } 
     }
 
-    public void InitView(IListViewExtendedRegistry reg,
+    public void InitView(List<SerializableScriptableObject> data,
         SerializableScriptableObject selection = null)
     {
-        registry = reg;
+        this.data = data;
         items = new List<IListItem>();
         RefreshList();
 
@@ -40,14 +40,31 @@ public class ListViewController : MonoBehaviour
             ChangeSelection(Selected.Guid);
     }
 
-    public void RefreshList()
+    public void InitView(IListViewExtendedRegistry reg,
+        SerializableScriptableObject selection = null)
+    {
+        data = new();
+        reg.ForEach(i => data.Add(i));
+        items = new List<IListItem>();
+        RefreshList();
+
+        Selected = selection;
+
+        if (selection != null)
+            ChangeSelection(Selected.Guid);
+    }
+
+    public void RefreshList(List<SerializableScriptableObject> newData = null)
     {
         items.Clear();
 
         foreach (Transform child in contentParent.transform)
             Destroy(child.gameObject);
 
-        registry.ForEach(item =>
+        if (newData != null) 
+            data = newData;
+
+        data.ForEach(item =>
         {
             var comp = Instantiate(prefab, contentParent.transform)
                 .GetComponent<IListItem>();
@@ -63,7 +80,7 @@ public class ListViewController : MonoBehaviour
         if (Selected is not null)
             selectedItem.OnUnselected();
 
-        Selected = registry.Find(guid);
+        Selected = data.Find(i => i.Guid == guid);
 
         selectedItem?.OnSelected();
     }
