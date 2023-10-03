@@ -10,21 +10,21 @@ public class ModifierWidget : MonoBehaviour
 {
     public TextMeshProUGUI statName;
     public TextMeshProUGUI modValue;
+    public TextMeshProUGUI source;
 
     public Color plusColor;
     public Color minusColor;
 
-    public void UpdateView(StatMod statModifier)
+    public void UpdateView(StatMod statModifier, bool showSource = false)
     {
         var value = statModifier.modifier.Value;
         statName.SetText(Enum.GetName(typeof(StatName), statModifier.stat));
 
         SetValue(value, statModifier.modifier.Type);
-
-
+        SetSource(showSource, statModifier.modifier.Source);
     }
 
-    public void UpdateView(ResMod resModifier)
+    public void UpdateView(ResMod resModifier, bool showSource = false)
     {
         var resName = Enum.GetName(typeof(ResourceName), resModifier.resource);
         var gain = (resModifier.forGain ? "Gain" : "Use");
@@ -33,6 +33,7 @@ public class ModifierWidget : MonoBehaviour
         statName.SetText($"{gain} in {trans} of {resName}");
 
         SetValue(resModifier.modifier.Value, resModifier.modifier.Type);
+        SetSource(showSource, resModifier.modifier.Source);
     }
 
     private void SetValue(float value, ModifierType type)
@@ -53,5 +54,13 @@ public class ModifierWidget : MonoBehaviour
         else { valueText += "%"; }
 
         modValue.SetText(valueText);
+    }
+
+    private void SetSource(bool showSource, object source)
+    {
+        if (showSource && source is not null)
+            this.source.SetText("Source: " + (source as ScriptableObject).name);
+        else
+            this.source.gameObject.SetActive(false);
     }
 }

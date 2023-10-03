@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Helpers;
 using Assets.Scripts.Models;
+using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.Stats;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,5 +37,14 @@ public class CurseCard : SerializableScriptableObject
     {
         prophesyIdx = propIdx;
         imageIdx = imgIdx;
+    }
+
+    private void OnEnable()
+    {
+        foreach (var mod in statMods)
+            mod.modifier.Source = this;
+
+        foreach (var mod in resMods)
+            mod.modifier.Source = this;
     }
 }

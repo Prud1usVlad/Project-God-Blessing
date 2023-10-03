@@ -32,14 +32,16 @@ MonoBehaviour:
   curseName: Cursed Reflection
   level: 2
   statMods:
-  - stat: 0
+  - stat: 3
+    reciever: 2
     modifier:
-      Value: -2
+      Value: -1
       Type: 100
       Order: 100
   - stat: 3
+    reciever: 3
     modifier:
-      Value: -1
+      Value: 1
       Type: 100
       Order: 100
   resMods: []

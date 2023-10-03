@@ -12,6 +12,8 @@ public class FortuneTellerDialogueWindow : DialogueBox
     public ListViewController cardsList;
     public GameObject noCursesText;
 
+    public GameObject playerStatsPrefab;
+
     public override bool InitDialogue()
     {
 
@@ -45,7 +47,12 @@ public class FortuneTellerDialogueWindow : DialogueBox
 
     public void CloseWindow()
     {
-        Destroy(gameObject);
+        EndDialogue();
+    }
+
+    public void ShowPlayerStats()
+    {
+        Instantiate(playerStatsPrefab, transform);
     }
 
     private void Update()

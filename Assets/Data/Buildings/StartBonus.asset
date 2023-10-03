@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guid: efc29a37ef48d98408e98c8504e1aee3
   buildingName: Basic bonus
-  description: Basic bonus awaliable at start
+  description: Basic bonus avaliable at start
   isAvaliableAtStart: 1
   prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
   price:
@@ -28,11 +28,13 @@ MonoBehaviour:
       name: 3
   statModifiers:
   - stat: 1
+    reciever: 2
     modifier:
       Value: 2
       Type: 100
       Order: 100
   - stat: 2
+    reciever: 2
     modifier:
       Value: -10
       Type: 200

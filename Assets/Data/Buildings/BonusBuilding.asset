@@ -28,11 +28,13 @@ MonoBehaviour:
       name: 3
   statModifiers:
   - stat: 1
+    reciever: 2
     modifier:
       Value: 2
       Type: 100
       Order: 100
   - stat: 2
+    reciever: 2
     modifier:
       Value: -10
       Type: 200

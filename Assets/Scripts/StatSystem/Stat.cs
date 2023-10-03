@@ -2,6 +2,7 @@ using Assets.Scripts.Helpers.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UnityEngine;
 
 namespace Assets.Scripts.Stats
 {
@@ -109,7 +110,7 @@ namespace Assets.Scripts.Stats
 			}
 
 			// Workaround for float calculation errors, like displaying 12.00001 instead of 12
-			return (float)Math.Round(finalValue, 3);
+			return Mathf.Max((float)Math.Round(finalValue, 3), 0);
 		}
 	}
 }

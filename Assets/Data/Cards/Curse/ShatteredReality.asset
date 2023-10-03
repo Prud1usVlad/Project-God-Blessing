@@ -35,14 +35,16 @@ MonoBehaviour:
   curseName: 'Shattered Reality '
   level: 3
   statMods:
-  - stat: 0
+  - stat: 2
+    reciever: 0
     modifier:
       Value: -2
       Type: 100
       Order: 100
   - stat: 3
+    reciever: 3
     modifier:
-      Value: -1
+      Value: 1
       Type: 100
       Order: 100
   resMods: []

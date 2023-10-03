@@ -46,9 +46,11 @@ namespace Assets.Scripts.SaveSystem
 
         public void WriteToGameProgress(GameProgress progress)
         {
+            // set basic values
             progress.fameTranslation.SetPoints(fame);
             progress.liesTranslation.SetPoints(lies);
 
+            // init all reserched buildings
             foreach (var b in reserchedBuildings)
             {
                 var item = progress.buildingResearch
@@ -57,11 +59,23 @@ namespace Assets.Scripts.SaveSystem
                 item.isAvaliable = b.isAvaliable;
             }
 
+            // set resources
             progress.resourceContainer.Resources.Clear();
             progress.resourceContainer.AddResources(resources);
 
+            // set curses
             curses.ForEach(c => progress.curses.Add(progress.curseRegistry
                 .InitByGuid(c.guid, c.prophesyIdx, c.imageIdx)));
+
+            // set modifiers
+            foreach (var c in progress.curses)
+                progress.globalModifiers.AddModifiers(c);
+
+            foreach (var b in progress.placedBuildings)
+                if (b is BonusBuilding)
+                    progress.globalModifiers.AddModifiers((BonusBuilding)b);
+
+            // TODO: in editor set up all relations, create inteface at fortune teller to review stats and modifiers 
         }
 
         [Serializable]

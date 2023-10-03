@@ -19,10 +19,13 @@ namespace Assets.Scripts.Stats
 			Source = source;
 		}
 
-		public StatModifier(float value, ModifierType type) : this(value, type, (int)type, null) { }
+		public StatModifier(float value, ModifierType type) 
+			: this(value, type, (int)type, null) { }
 
-		public StatModifier(float value, ModifierType type, int order) : this(value, type, order, null) { }
+		public StatModifier(float value, ModifierType type, int order) 
+			: this(value, type, order, null) { }
 
-		public StatModifier(float value, ModifierType type, object source) : this(value, type, (int)type, source) { }
+		public StatModifier(float value, ModifierType type, object source) 
+			: this(value, type, (int)type, source) { }
 	}
 }

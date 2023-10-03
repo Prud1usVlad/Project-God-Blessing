@@ -32,12 +32,14 @@ MonoBehaviour:
   curseName: Veil of Twilight
   level: 1
   statMods:
-  - stat: 0
+  - stat: 2
+    reciever: 2
     modifier:
       Value: -2
       Type: 100
       Order: 100
   - stat: 3
+    reciever: 2
     modifier:
       Value: -1
       Type: 100

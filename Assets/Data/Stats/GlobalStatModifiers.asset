@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55c3b1ad87fc0c4b9e17440c3625f99, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: 41bb8f07d043e904fac7cf69168b4bf7, type: 3}
+  m_Name: GlobalStatModifiers
   m_EditorClassIdentifier: 
-  stats:
-  - name: 1
-    baseValue: 12
-  - name: 2
-    baseValue: 23
-  - name: 3
-    baseValue: 4
-  recieverType: 2
+  containersToNotify:
+  - {fileID: 11400000, guid: 553e7f17b3465384ea19d9451121531a, type: 2}

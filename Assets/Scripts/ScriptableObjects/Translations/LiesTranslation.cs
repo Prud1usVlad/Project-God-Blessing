@@ -30,8 +30,12 @@ public class LiesTranslation : BaseProgressionTranslation
 
         var levelChanged = oldLevel != currentLevelIdx;
         if (levelChanged)
-            gameProgress.curses.Add(curseRegistry
-                .GetRandom(currentLevelIdx));
+        {
+            var curse = curseRegistry.GetRandom(currentLevelIdx);
+            gameProgress.curses.Add(curse);
+            gameProgress.globalModifiers.AddModifiers(curse);
+        }
+            
 
         return levelChanged; 
     }
@@ -48,7 +52,12 @@ public class LiesTranslation : BaseProgressionTranslation
 
         var levelChanged = oldLevel != currentLevelIdx;
         if (levelChanged)
-            gameProgress.curses.Remove(gameProgress.curses.Last());
+        {
+            var curse = gameProgress.curses.Last();
+            gameProgress.curses.Remove(curse);
+            gameProgress.globalModifiers.RemoveModifiers(curse);
+        }
+            
 
         return levelChanged;
     }

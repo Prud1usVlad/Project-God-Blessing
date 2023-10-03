@@ -17,4 +17,13 @@ public class BonusBuilding : Building
         (dialogueBox as BonusBuildingDialogueBox).building = this;
         dialogueBox.InitDialogue();
     }
+
+    private void OnEnable()
+    {
+        foreach (var mod in statModifiers)
+            mod.modifier.Source = this;
+
+        foreach (var mod in resourceModifiers)
+            mod.modifier.Source = this;
+    }
 }

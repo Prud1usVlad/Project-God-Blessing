@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Stats
+namespace Assets.Scripts.Helpers.Enums
 {
-    public enum StatName
+    public enum ModifierReciever
     {
         None,
-        Sanity,
-        Attack,
-        Speed,
-        Defence,
+        All,
+        Player,
+        Mobs,
     }
 }
