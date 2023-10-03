@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   stats:
-  - type: 0
+  - name: 1
     baseValue: 12
-  - type: 1
+  - name: 2
     baseValue: 23
-  - type: 2
+  - name: 3
     baseValue: 4
+  recieverType: 2

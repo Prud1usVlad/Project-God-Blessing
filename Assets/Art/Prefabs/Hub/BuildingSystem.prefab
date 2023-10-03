@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5837785053198378909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3784088906812663399}
+  - component: {fileID: 2272358156337500247}
+  - component: {fileID: 872046819778862476}
+  - component: {fileID: 1116606405127009740}
+  - component: {fileID: 6795353339614238307}
+  - component: {fileID: 1306662623753870886}
+  - component: {fileID: 816246165723293463}
+  - component: {fileID: 2738891024274330664}
+  - component: {fileID: 9065855382393623033}
+  m_Layer: 0
+  m_Name: BuildingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3784088906812663399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2272358156337500247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f531012fd25e0db439a222c7ea91ec95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementLayermask:
+    serializedVersion: 2
+    m_Bits: 64
+  sceneCamera: {fileID: 0}
+  onClicked: {fileID: 11400000, guid: 515ae2fdd60a1b346b08132809424cff, type: 2}
+  onExit: {fileID: 11400000, guid: 1b47820891b218d43a1e9bf8f2a69d46, type: 2}
+--- !u!114 &872046819778862476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7fbd26d73eb8346aea46bfca168414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 2272358156337500247}
+  buildings: {fileID: 11400000, guid: 6e9fc77b59fd41a4a82a066af5b5881c, type: 2}
+  buildingPlaces:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  preview: {fileID: 6795353339614238307}
+  objectPlacer: {fileID: 1116606405127009740}
+  resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
+  confirmationDialogue: {fileID: 2234857351415284797, guid: adc2c989f4a523a4f94c4ab250f48ff5,
+    type: 3}
+  ui: {fileID: 0}
+  updateUiEvent: {fileID: 11400000, guid: 1fc04ce9e8188f347a2f0a474bead919, type: 2}
+--- !u!114 &1116606405127009740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61908f957111d444930575da5ace6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
+  placedGameObjects: []
+--- !u!114 &6795353339614238307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a5323dba570a74183d675dfc3ff5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewYOffset: 2
+  previewMaterialPrefab: {fileID: 2100000, guid: 64f0a15810e42d74cbd2b4c17fd40a8e,
+    type: 2}
+--- !u!114 &1306662623753870886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b54460fe99c0d4d873b76d295257da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 515ae2fdd60a1b346b08132809424cff, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872046819778862476}
+        m_TargetAssemblyTypeName: PlacementController, Assembly-CSharp
+        m_MethodName: PlaceStructure
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &816246165723293463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b54460fe99c0d4d873b76d295257da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 1b47820891b218d43a1e9bf8f2a69d46, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872046819778862476}
+        m_TargetAssemblyTypeName: PlacementController, Assembly-CSharp
+        m_MethodName: StopPlacement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2738891024274330664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b54460fe99c0d4d873b76d295257da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 807690386a9db324488a62be20959bdc, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872046819778862476}
+        m_TargetAssemblyTypeName: PlacementController, Assembly-CSharp
+        m_MethodName: StartPlacement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9065855382393623033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837785053198378909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b54460fe99c0d4d873b76d295257da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 2ebd6c061655e8c4990c0fb6c2fcc9ef, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872046819778862476}
+        m_TargetAssemblyTypeName: PlacementController, Assembly-CSharp
+        m_MethodName: StartRemoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

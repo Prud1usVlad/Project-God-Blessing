@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80120a646c44f304a977c8b80f5d5fc3, type: 3}
+  m_Name: CurseRegistry
+  m_EditorClassIdentifier: 
+  _descriptors:
+  - {fileID: 11400000, guid: 3270a4ac572aea742ae8e75c99bf7bcd, type: 2}
+  - {fileID: 11400000, guid: 26317f76cd0837c4089b5cc0533f3965, type: 2}
+  - {fileID: 11400000, guid: 649e8b16e47e2c84e974983241f7cc92, type: 2}
+  - {fileID: 11400000, guid: b9a5400322308b34aa41af56dfab0dab, type: 2}
+  - {fileID: 11400000, guid: cacedb47b0c361b478acae50f89a6111, type: 2}
+  - {fileID: 11400000, guid: 45a58b1ee5b783b4d8d38e8708f6ef33, type: 2}
