@@ -3,6 +3,7 @@ using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.StatSystem;
 using System.Collections.Generic;
 using UnityEngine;
+using static Assets.Scripts.SaveSystem.SaveFile;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Progress/GameProgress", fileName = "GameProgress")]
 public class GameProgress : ScriptableObject
@@ -31,5 +32,50 @@ public class GameProgress : ScriptableObject
     {
         placedBuildings = new();
         curses = new();
+    }
+
+    public void AddBuilding(Building building)
+    {
+        placedBuildings.Add(building);
+
+        if (building is BonusBuilding)
+        {
+            globalModifiers.AddModifiers(
+                building as BonusBuilding);
+        }
+        else if (building is ProductionBuilding)
+        {
+            resourceContainer.productionBuildings
+                .Add(building as ProductionBuilding);
+        }
+
+    }
+
+    public void RemoveBuilding(Building building) 
+    {
+        placedBuildings.Remove(building);
+
+        if (building is BonusBuilding)
+        {
+            globalModifiers.AddModifiers(
+                building as BonusBuilding);
+        }
+        else if (building is ProductionBuilding)
+        {
+            resourceContainer.productionBuildings
+                .Add(building as ProductionBuilding);
+        }
+    }
+
+    public void AddCurse(CurseCard curse)
+    {
+        curses.Add(curse);
+        globalModifiers.AddModifiers(curse);
+    }
+
+    public void RemoveCurse(CurseCard curse)
+    {
+        curses.Remove(curse);
+        globalModifiers.RemoveModifiers(curse);
     }
 }

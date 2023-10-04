@@ -4,20 +4,19 @@ using Assets.Scripts.Helpers.ListView;
 using Assets.Scripts.Registries;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ListViewController : MonoBehaviour 
 {
-    private List<SerializableScriptableObject> data;
-    private SerializableScriptableObject selectedData;
+    private List<object> data;
+    private object selectedData;
     private IListItem selectedItem;
     private List<IListItem> items;
 
     public GameObject prefab;
     public GameObject contentParent;
 
-    public SerializableScriptableObject Selected 
+    public object Selected 
     {
         get => selectedData;
         set
@@ -27,8 +26,8 @@ public class ListViewController : MonoBehaviour
         } 
     }
 
-    public void InitView(List<SerializableScriptableObject> data,
-        SerializableScriptableObject selection = null)
+    public void InitView(List<object> data,
+        object selection = null)
     {
         this.data = data;
         items = new List<IListItem>();
@@ -37,11 +36,11 @@ public class ListViewController : MonoBehaviour
         Selected = selection;
 
         if (selection != null) 
-            ChangeSelection(Selected.Guid);
+            ChangeSelection(Selected);
     }
 
     public void InitView(IListViewExtendedRegistry reg,
-        SerializableScriptableObject selection = null)
+        object selection = null)
     {
         data = new();
         reg.ForEach(i => data.Add(i));
@@ -51,10 +50,10 @@ public class ListViewController : MonoBehaviour
         Selected = selection;
 
         if (selection != null)
-            ChangeSelection(Selected.Guid);
+            ChangeSelection(Selected);
     }
 
-    public void RefreshList(List<SerializableScriptableObject> newData = null)
+    public void RefreshList(List<object> newData = null)
     {
         items.Clear();
 
@@ -75,12 +74,12 @@ public class ListViewController : MonoBehaviour
             
     }
 
-    public void ChangeSelection(string guid)
+    public void ChangeSelection(object obj)
     {
         if (Selected is not null)
             selectedItem.OnUnselected();
 
-        Selected = data.Find(i => i.Guid == guid);
+        Selected = data.Find(i => i.Equals(obj));
 
         selectedItem?.OnSelected();
     }

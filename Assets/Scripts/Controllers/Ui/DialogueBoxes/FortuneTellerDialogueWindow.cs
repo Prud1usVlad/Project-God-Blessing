@@ -22,8 +22,7 @@ public class FortuneTellerDialogueWindow : DialogueBox
 
         var inited = base.InitDialogue();
         
-        cardsList.InitView(gameProgress.curses
-            .Cast<SerializableScriptableObject>().ToList());
+        cardsList.InitView(gameProgress.curses.Cast<object>().ToList());
 
         if (inited)
         {
@@ -36,8 +35,7 @@ public class FortuneTellerDialogueWindow : DialogueBox
     public void UpdateView()
     {
         liesSlider.value = (float)liesTranslation.currentPoints / (float)liesTranslation.pointsCap;
-        cardsList.RefreshList(gameProgress.curses
-            .Cast<SerializableScriptableObject>().ToList());
+        cardsList.RefreshList(gameProgress.curses.Cast<object>().ToList());
 
         if (gameProgress.curses.Count() == 0)
             noCursesText.SetActive(true);

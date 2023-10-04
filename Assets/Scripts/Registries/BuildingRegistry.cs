@@ -13,7 +13,7 @@ public class BuildingRegistry : Registry<Building>, IListViewExtendedRegistry
 {
     public IEnumerable<Building> Buildings { get { return _descriptors; } }
 
-    public SerializableScriptableObject Find(string guid)
+    public object Find(string guid)
     {
         return FindByGuid(guid);
     }
@@ -31,7 +31,7 @@ public class BuildingRegistry : Registry<Building>, IListViewExtendedRegistry
         return null;
     }
 
-    public void ForEach(Action<SerializableScriptableObject> action)
+    public void ForEach(Action<object> action)
     {
         foreach (var desc in _descriptors)
         {

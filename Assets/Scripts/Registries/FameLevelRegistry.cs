@@ -15,12 +15,12 @@ public class FameLevelRegistry : Registry<FameLevel>, IListViewExtendedRegistry
         return _descriptors[index];
     }
     
-    public SerializableScriptableObject Find(string guid)
+    public object Find(string guid)
     {
         return FindByGuid(guid);
     }
 
-    public void ForEach(Action<SerializableScriptableObject> action)
+    public void ForEach(Action<object> action)
     {
         foreach (var desc in _descriptors)
         {

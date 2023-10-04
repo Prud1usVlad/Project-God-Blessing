@@ -21,4 +21,10 @@ public class ProductionBuilding : Building
         (dialogueBox as ProductionBuildingDialogueBox).building = this;
         dialogueBox.InitDialogue();
     }
+
+    public int GetProductionAmount()
+    {
+        return Mathf.RoundToInt(resource.amount
+            * productionMultiplier * productionPower);
+    }
 }

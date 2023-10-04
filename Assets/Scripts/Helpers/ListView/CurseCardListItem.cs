@@ -12,7 +12,7 @@ public class CurseCardListItem : MonoBehaviour, IListItem
 
     public void FillItem(object data)
     {
-        card = (CurseCard)data;
+        card = data as CurseCard;
 
         curseName?.SetText(card?.curseName);
         Instantiate(card.image, imageParent);

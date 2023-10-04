@@ -19,21 +19,24 @@ namespace Assets.Scripts.SaveSystem
 
         // Progress
         public List<ItemAvaliability> reserchedBuildings;
+        public List<ResStatItem> resourceStatistics;
 
         // Hub config
         public List<Place> places;
         public List<Resource> resources;
         public List<Curse> curses;
+        public List<ProductionPower> productionPowers;
 
 
         public void ReadFromGameProgress(GameProgress progress)
         {
+            // save basic data
             day = progress.day;
             fame = progress.fameTranslation.currentPoints;
             lies = progress.liesTranslation.currentPoints;
             reserchedBuildings = progress.buildingResearch;
 
-            resources = progress.resourceContainer.Resources;
+            // save current curses
             curses = progress.curses.Select(c => 
                 new Curse 
                 { 
@@ -42,6 +45,30 @@ namespace Assets.Scripts.SaveSystem
                     prophesyIdx = c.prophesyIdx 
                 }
             ).ToList();
+
+            // save resources and their statistics
+            resources = progress.resourceContainer.Resources;
+            resourceStatistics = new List<ResStatItem>();
+            foreach (var res in progress.resourceContainer.Resources)
+            {
+                foreach (var item in progress.resourceContainer.GetStatistics(res.name))
+                {
+                    resourceStatistics.Add(new ResStatItem
+                    {
+                        resource = res.name,
+                        transactionType = item.Key,
+                        gained = item.Value.gained,
+                        spent = item.Value.spent,
+                    });
+                }
+            }
+
+            productionPowers = progress.resourceContainer.productionBuildings
+                .Select(b => new ProductionPower 
+                { 
+                    buildingGuid = b.Guid, 
+                    power = b.productionPower 
+                }).ToList();
         }
 
         public void WriteToGameProgress(GameProgress progress)
@@ -62,6 +89,25 @@ namespace Assets.Scripts.SaveSystem
             // set resources
             progress.resourceContainer.Resources.Clear();
             progress.resourceContainer.AddResources(resources);
+            var resGroup = resourceStatistics.GroupBy(r => r.resource);
+
+            foreach (var group in resGroup)
+            {
+                var record = new Dictionary<TransactionType, ResourceStatData>();
+
+                foreach (var item in group)
+                {
+                    record.Add(item.transactionType, 
+                        new ResourceStatData 
+                        { 
+                            gained = item.gained, 
+                            spent = item.spent 
+                        }
+                    );
+                }
+
+                progress.resourceContainer.AddStatistics(group.Key, record);
+            }
 
             // set curses
             curses.ForEach(c => progress.curses.Add(progress.curseRegistry
@@ -75,9 +121,20 @@ namespace Assets.Scripts.SaveSystem
                 if (b is BonusBuilding)
                     progress.globalModifiers.AddModifiers((BonusBuilding)b);
 
-            // TODO: in editor set up all relations, create inteface at fortune teller to review stats and modifiers 
+            // set production powers
+            foreach (var b in progress.resourceContainer.productionBuildings)
+            {
+                var power = productionPowers.Find(p => p.buildingGuid == b.Guid);
+                if (power is not null)
+                {
+                    b.productionPower = power.power;
+                }
+            }
+
         }
 
+
+        // models used only in serialization
         [Serializable]
         public class Place
         {
@@ -91,6 +148,22 @@ namespace Assets.Scripts.SaveSystem
             public string guid;
             public int imageIdx;
             public int prophesyIdx;
+        }
+
+        [Serializable]
+        public class ResStatItem
+        {
+            public ResourceName resource;
+            public TransactionType transactionType;
+            public int gained;
+            public int spent;
+        }
+
+        [Serializable]
+        public class ProductionPower
+        {
+            public string buildingGuid;
+            public int power;
         }
     }
 }

@@ -24,7 +24,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
     public void FillItem(object data)
     {
-        building = (Building)data;
+        building = data as Building;
 
         buildingName?.SetText(building?.buildingName);
         buildingDescription?.SetText(building?.description);
@@ -48,7 +48,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
     {
         if (data is Building)
         {
-            return (data as Building) == building;
+            return (data as Building)  == building;
         }
         else return false;
     }

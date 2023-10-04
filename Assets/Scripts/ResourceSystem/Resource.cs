@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Helpers.Enums;
 using Assets.Scripts.Stats;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,6 +34,14 @@ namespace Assets.Scripts.ResourceSystem
             spendModifiers = _spendModifiers.AsReadOnly();
         }
 
+        public int ValueWithModifiers(int amount, TransactionType transaction, bool gain)
+        {
+            if (gain)
+                return CalcValue(amount, transaction, _gainModifiers);
+            else
+                return CalcValue(amount, transaction, _spendModifiers);
+        }
+
         public void AddGainModifier(ResourceModifier mod)
         {
             _gainModifiers.Add(mod);
@@ -50,18 +59,20 @@ namespace Assets.Scripts.ResourceSystem
             return this.amount >= price;
         }
 
-        public void SpendResource(int amount, TransactionType transactionType)
+        public int SpendResource(int amount, TransactionType transactionType)
         {
             var price = CalcValue(amount, transactionType, _spendModifiers);
 
             this.amount -= price;
+            return price;
         }
 
-        public void GainResource(int amount, TransactionType transactionType)
+        public int GainResource(int amount, TransactionType transactionType)
         {
             var income = CalcValue(amount, transactionType, _gainModifiers);
 
             this.amount += income;
+            return income;
         }
 
         public virtual bool RemoveAllModifiersFromSource(object source)

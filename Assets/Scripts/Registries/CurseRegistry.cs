@@ -21,7 +21,7 @@ public class CurseRegistry : Registry<CurseCard>, IListViewExtendedRegistry
         return card;
     }
 
-    public void ForEach(System.Action<SerializableScriptableObject> action)
+    public void ForEach(System.Action<object> action)
     {
         foreach (var card in _descriptors)
         {
@@ -29,7 +29,7 @@ public class CurseRegistry : Registry<CurseCard>, IListViewExtendedRegistry
         }
     }
 
-    public SerializableScriptableObject Find(string guid)
+    public object Find(string guid)
     {
         return FindByGuid(guid);
     }
