@@ -1,10 +1,12 @@
-﻿using Assets.Scripts.Helpers;
+﻿using Assets.Scripts.EventSystem;
+using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.ListView;
 using Assets.Scripts.Models;
 using Assets.Scripts.ResourceSystem;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceListItem : MonoBehaviour, IListItem
 {
@@ -15,9 +17,12 @@ public class ResourceListItem : MonoBehaviour, IListItem
     public TextMeshProUGUI gained;
     public TextMeshProUGUI used;
 
+    public GameEvent itemSelected;
     public ResourceContainer resourceContainer;
 
     public string resName;
+
+    public Action Selection { get; set; }
 
     public void FillItem(object data)
     {
@@ -44,11 +49,15 @@ public class ResourceListItem : MonoBehaviour, IListItem
 
     public void OnSelected()
     {
+        
     }
 
-    public void OnUnselected()
+    public void OnSelecting()
     {
-        Debug.Log(resName);
+        Selection.Invoke();
+        GetComponent<Image>().color = new Color(0.5f, 0, 0);
+
+        itemSelected.Raise(((int)resource.name).ToString());
     }
 
 }

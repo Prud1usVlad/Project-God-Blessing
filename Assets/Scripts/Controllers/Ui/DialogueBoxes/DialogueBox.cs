@@ -32,13 +32,13 @@ public class DialogueBox : MonoBehaviour
 
     public virtual bool InitDialogue() 
     {
-        if (runtimeData.isDialogOpened)
+        if (runtimeData is not null && runtimeData.isDialogOpened)
         {
             DestroyDialogue();
             return false;
         }
 
-        runtimeData.DialogueOpen(this);
+        runtimeData?.DialogueOpen(this);
         gameObject.SetActive(true);
 
         headerSection?.SetText(header);
@@ -59,7 +59,7 @@ public class DialogueBox : MonoBehaviour
 
     protected virtual void EndDialogue()
     {
-        runtimeData.DialogueClose();
+        runtimeData?.DialogueClose();
         gameObject.SetActive(false);
 
         Invoke(nameof(DestroyDialogue), 2);

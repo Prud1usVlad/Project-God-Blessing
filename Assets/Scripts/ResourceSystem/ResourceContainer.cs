@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace Assets.Scripts.ResourceSystem
 {
-    [CreateAssetMenu(fileName = "ResourceContainer", menuName = "ScriptableObjects/Resources")]
+    [CreateAssetMenu(fileName = "ResourceContainer", menuName = "ScriptableObjects/ResourceSystem/Container")]
     public class ResourceContainer : ScriptableObject
     {
         [SerializeField]
         private List<Resource> resources;
 
-        private Dictionary<ResourceName, Dictionary<TransactionType, ResourceStatData>> statistics;
+        private Dictionary<ResourceName, Dictionary<TransactionType, ResourceDynamic>> statistics;
         
-        public  List<ProductionBuilding> productionBuildings;
+        public List<ProductionBuilding> productionBuildings;
+        public ResourceMarket resourceMarket;
 
         public List<Resource> Resources => resources;
     
@@ -34,7 +36,7 @@ namespace Assets.Scripts.ResourceSystem
             return productionBuildings.Where(b => b.resource.name == resource);
         }
 
-        public Dictionary<TransactionType, ResourceStatData> 
+        public Dictionary<TransactionType, ResourceDynamic> 
             GetStatistics(ResourceName resource)
         {
             if (statistics is not null
@@ -46,7 +48,7 @@ namespace Assets.Scripts.ResourceSystem
         }
 
         public void AddStatistics(ResourceName resource,
-            Dictionary<TransactionType, ResourceStatData> record)
+            Dictionary<TransactionType, ResourceDynamic> record)
         {
             if (statistics is null)
                 statistics = new();
@@ -73,6 +75,8 @@ namespace Assets.Scripts.ResourceSystem
             int amount, TransactionType transactionType)
         {
             var spent = GetResource(name).SpendResource(amount, transactionType);
+
+            InitDict(name, transactionType);
 
             statistics[name][transactionType].spent += spent;
             statistics[name][TransactionType.Any].spent += spent;
@@ -132,6 +136,8 @@ namespace Assets.Scripts.ResourceSystem
                 }
             }
 
+            value += resourceMarket.GetTransaction(resource).spent;
+
             return value;
         }
 
@@ -139,13 +145,16 @@ namespace Assets.Scripts.ResourceSystem
         {
             var res = GetResource(resource);
 
-            return productionBuildings
+            var value = productionBuildings
                 .Where(b => b.resource.name == resource)
                 .Sum(b => res.ValueWithModifiers(
                     b.GetProductionAmount(), 
-                    TransactionType.Production, 
-                    true)
-                );
+                    TransactionType.Production,
+                true)
+            );
+
+            value += resourceMarket.GetTransaction(resource).gained;
+            return value;
         }
 
         private void InitDict(ResourceName resource, TransactionType transaction)
@@ -158,11 +167,11 @@ namespace Assets.Scripts.ResourceSystem
 
             if (!statistics[resource].ContainsKey(transaction))
                 statistics[resource].Add(transaction, 
-                    new ResourceStatData { gained = 0, spent = 0 });
+                    new ResourceDynamic { gained = 0, spent = 0 });
 
             if (!statistics[resource].ContainsKey(TransactionType.Any))
                 statistics[resource].Add(TransactionType.Any,
-                    new ResourceStatData { gained = 0, spent = 0 });
+                    new ResourceDynamic { gained = 0, spent = 0 });
         }
 
         private void OnEnable()

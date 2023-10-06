@@ -26,6 +26,7 @@ namespace Assets.Scripts.SaveSystem
         public List<Resource> resources;
         public List<Curse> curses;
         public List<ProductionPower> productionPowers;
+        public List<ResourceDynamic> everydayTransactions;
 
 
         public void ReadFromGameProgress(GameProgress progress)
@@ -37,20 +38,27 @@ namespace Assets.Scripts.SaveSystem
             reserchedBuildings = progress.buildingResearch;
 
             // save current curses
-            curses = progress.curses.Select(c => 
-                new Curse 
-                { 
-                    guid = c.Guid, 
-                    imageIdx = c.imageIdx, 
-                    prophesyIdx = c.prophesyIdx 
+            curses = progress.curses.Select(c =>
+                new Curse
+                {
+                    guid = c.Guid,
+                    imageIdx = c.imageIdx,
+                    prophesyIdx = c.prophesyIdx
                 }
             ).ToList();
 
             // save resources and their statistics
             resources = progress.resourceContainer.Resources;
             resourceStatistics = new List<ResStatItem>();
+            everydayTransactions = new();
+
             foreach (var res in progress.resourceContainer.Resources)
             {
+                var transaction = progress.resourceContainer
+                    .resourceMarket.GetTransaction(res.name);
+                transaction.resource = res.name;
+                everydayTransactions.Add(transaction);
+
                 foreach (var item in progress.resourceContainer.GetStatistics(res.name))
                 {
                     resourceStatistics.Add(new ResStatItem
@@ -64,10 +72,10 @@ namespace Assets.Scripts.SaveSystem
             }
 
             productionPowers = progress.resourceContainer.productionBuildings
-                .Select(b => new ProductionPower 
-                { 
-                    buildingGuid = b.Guid, 
-                    power = b.productionPower 
+                .Select(b => new ProductionPower
+                {
+                    buildingGuid = b.Guid,
+                    power = b.productionPower
                 }).ToList();
         }
 
@@ -91,17 +99,23 @@ namespace Assets.Scripts.SaveSystem
             progress.resourceContainer.AddResources(resources);
             var resGroup = resourceStatistics.GroupBy(r => r.resource);
 
+            foreach (var res in everydayTransactions)
+            {
+                progress.resourceContainer.resourceMarket
+                    .SetTransaction(res.resource, res);
+            }
+
             foreach (var group in resGroup)
             {
-                var record = new Dictionary<TransactionType, ResourceStatData>();
+                var record = new Dictionary<TransactionType, ResourceDynamic>();
 
                 foreach (var item in group)
                 {
-                    record.Add(item.transactionType, 
-                        new ResourceStatData 
-                        { 
-                            gained = item.gained, 
-                            spent = item.spent 
+                    record.Add(item.transactionType,
+                        new ResourceDynamic
+                        {
+                            gained = item.gained,
+                            spent = item.spent
                         }
                     );
                 }

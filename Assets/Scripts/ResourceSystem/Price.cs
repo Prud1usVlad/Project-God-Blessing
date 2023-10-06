@@ -32,6 +32,12 @@ namespace Assets.Scripts.ResourceSystem
             return newP;
         }
 
+        public Price(TransactionType transaction, List<Resource> resources)
+        {
+            transactionType = transaction;
+            this.resources = resources;
+        }
+
         public Price(Price other)
         {
             transactionType = other.transactionType;

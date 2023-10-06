@@ -22,6 +22,8 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
     public Transform resourcesPanel;
 
+    public Action Selection { get; set; }
+
     public void FillItem(object data)
     {
         building = data as Building;
@@ -55,16 +57,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
     public void OnSelected()
     {
-        if (isAvaliable && !isPlaced && isReserched)
-        {
-            Debug.Log("Select item " + name);
-            itemSelected.Raise(building.Guid);
-        }
-    }
-
-    public void OnUnselected()
-    {
-        Debug.Log("Unselect item " + name);
+        
     }
 
     private void ApplyColors()
@@ -84,6 +77,16 @@ public class BuildingListItem : MonoBehaviour, IListItem
         else
         {
             GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        }
+    }
+
+    public void OnSelecting()
+    {
+        if (isAvaliable && !isPlaced && isReserched)
+        {
+            Debug.Log("Select item " + name);
+            itemSelected.Raise(building.Guid);
+            Selection.Invoke();
         }
     }
 }

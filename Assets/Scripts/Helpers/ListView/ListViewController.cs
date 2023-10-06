@@ -2,6 +2,7 @@ using Assets.Scripts.EventSystem;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.ListView;
 using Assets.Scripts.Registries;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class ListViewController : MonoBehaviour
     private IListItem selectedItem;
     private List<IListItem> items;
 
+    public Action selectionChanged;
+
     public GameObject prefab;
     public GameObject contentParent;
 
@@ -23,6 +26,7 @@ public class ListViewController : MonoBehaviour
         {
             selectedData = value;
             selectedItem = items.Find(i => i.HasData(value));
+            selectionChanged?.Invoke();
         } 
     }
 
@@ -68,6 +72,7 @@ public class ListViewController : MonoBehaviour
             var comp = Instantiate(prefab, contentParent.transform)
                 .GetComponent<IListItem>();
 
+            comp.Selection += () => ChangeSelection(item);
             comp.FillItem(item);
             items.Add(comp);
         });
@@ -76,9 +81,6 @@ public class ListViewController : MonoBehaviour
 
     public void ChangeSelection(object obj)
     {
-        if (Selected is not null)
-            selectedItem.OnUnselected();
-
         Selected = data.Find(i => i.Equals(obj));
 
         selectedItem?.OnSelected();

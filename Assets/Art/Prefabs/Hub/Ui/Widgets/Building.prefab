@@ -548,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2448982456021704332}
         m_TargetAssemblyTypeName: BuildingListItem, Assembly-CSharp
-        m_MethodName: OnSelected
+        m_MethodName: OnSelecting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
