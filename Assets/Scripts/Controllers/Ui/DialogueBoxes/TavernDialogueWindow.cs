@@ -5,6 +5,7 @@ using UnityEngine;
 public class TavernDialogueWindow : DialogueBox
 {
     public GameObject economicsWindowPrefab;
+    public GameObject skillTreeWindowPrefab;
 
     public override bool InitDialogue()
     {
@@ -42,7 +43,9 @@ public class TavernDialogueWindow : DialogueBox
 
     public void OnResearch(int nationIdx) 
     {
-        Debug.Log("Nation: " + nationIdx);
+        Instantiate(skillTreeWindowPrefab, transform)
+            .GetComponent<SkillTreeWindow>()
+            .InitWindow((NationName)nationIdx);
     }
 
 }
