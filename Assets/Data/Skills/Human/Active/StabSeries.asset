@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8459f1eda5a73d140833cbd0d12888f1, type: 3}
-  m_Name: SkillSystem
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: StabSeries
   m_EditorClassIdentifier: 
-  skillRegistries:
-  - {fileID: 11400000, guid: 29013186909a2fd42bc6cc167d575235, type: 2}
-  connections: {fileID: 11400000, guid: 823faf716e794284d9351754ec406d20, type: 2}
+  _guid: e07ef4b1c4e804a47ae763406f49d97f
+  skillName: Stab series
+  type: 3
+  description: A series of dadly stabs
+  level: 0
+  pointsRequired: 1
+  isLearnd: 0
+  required: []

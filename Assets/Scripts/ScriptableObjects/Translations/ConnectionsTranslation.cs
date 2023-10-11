@@ -21,8 +21,8 @@ public class ConnectionsTranslation : BaseProgressionTranslation
 
     public int pointsCap => GetLevelPoints(levelsAmount);
     public int connectionLevel => 
-        currentLevelIdx < firstLevelCap ? 1 : 
-        currentLevelIdx < secondLevelCap ? 2 : 3; 
+        aquiredResearchPoints - freeResearchPoints < firstLevelCap ? 1 :
+        aquiredResearchPoints - freeResearchPoints < secondLevelCap ? 2 : 3; 
 
     public override bool AddPoints(int amount)
     {
@@ -83,8 +83,18 @@ public class ConnectionsTranslation : BaseProgressionTranslation
 
     public bool CanLearn(Skill skill)
     {
-        return skill.level <= connectionLevel 
-            && skill.pointsRequired <= freeResearchPoints;
+        return !IsSkillOutranked(skill) 
+            && IsSkillAvaliable(skill);
+    }
+
+    public bool IsSkillAvaliable(Skill skill)
+    {
+        return skill.pointsRequired <= freeResearchPoints;
+    }
+
+    public bool IsSkillOutranked(Skill skill)
+    {
+        return skill.level > connectionLevel;
     }
 
     public int GetLevelPoints(int reqLevel)

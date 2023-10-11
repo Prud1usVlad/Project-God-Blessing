@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Helpers;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.SkillSystem
@@ -12,5 +13,7 @@ namespace Assets.Scripts.SkillSystem
         public int level;
         public int pointsRequired = 1;
         public bool isLearnd = false;
+
+        public List<Skill> required;
     }
 }

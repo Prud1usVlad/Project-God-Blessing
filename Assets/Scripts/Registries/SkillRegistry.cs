@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Registries/Buildings", fileName = "SkillRegistry")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Registries/Skills", fileName = "SkillRegistry")]
 public class SkillRegistry : Registry<Skill>, IListViewExtendedRegistry
 {
     public NationName nation;
