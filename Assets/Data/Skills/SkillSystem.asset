@@ -15,3 +15,4 @@ MonoBehaviour:
   skillRegistries:
   - {fileID: 11400000, guid: 29013186909a2fd42bc6cc167d575235, type: 2}
   connections: {fileID: 11400000, guid: 823faf716e794284d9351754ec406d20, type: 2}
+  gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}

@@ -27,6 +27,7 @@ public class GameProgress : ScriptableObject
     public LiesTranslation liesTranslation;
     [Header("Data trackers")]
     public GlobalModifiers globalModifiers;
+    public SkillSystem skillSystem;
 
     private void OnEnable()
     {

@@ -1,12 +1,15 @@
 ﻿using Assets.Scripts.SkillSystem;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Assets.Scripts.Models;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Skills/SkillSystem", fileName = "SkillSystem")]
 public class SkillSystem : ScriptableObject
 {
     public List<SkillRegistry> skillRegistries;
     public ConnectionsContainer connections;
+    public GameProgress gameProgress;
 
     public void LearnSkill(NationName nation, string guid)
     {
@@ -17,13 +20,13 @@ public class SkillSystem : ScriptableObject
 
         if (connection.CanLearn(skill) && !skill.isLearnd) 
         {
-            OnSkillLearn(skill.type);
+            OnSkillLearn(skill.type, skill);
             skill.isLearnd = true;
             connection.UseResearchPoint(skill);
         }
     }
 
-    private void OnSkillLearn(SkillType type) 
+    private void OnSkillLearn(SkillType type, Skill skill) 
     {
         switch(type)
         {
@@ -34,7 +37,7 @@ public class SkillSystem : ScriptableObject
 
                 break;
             case SkillType.Building:
-
+                OnBuildingLearn(skill);
                 break;
             case SkillType.Value:
 
@@ -43,5 +46,21 @@ public class SkillSystem : ScriptableObject
 
                 break;
         }
+    }
+
+    private void OnBuildingLearn(Skill skill)
+    {
+        var building = (skill as BuildingSkill).building;
+        var rb = gameProgress.buildingResearch
+            .Find(b => b.guid == building.Guid);
+
+        if (rb is not null)
+            rb.isAvaliable = true;
+        else
+            gameProgress.buildingResearch.Add(new ItemAvaliability
+            {
+                guid = building.Guid,
+                isAvaliable = true
+            });
     }
 }

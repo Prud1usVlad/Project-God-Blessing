@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf354f7220f8f24ca696a4d35aece8c, type: 3}
   m_Name: HumanConnections
   m_EditorClassIdentifier: 
-  currentPoints: 0
-  currentLevelIdx: 0
+  currentPoints: 1240
+  currentLevelIdx: 7
   nation: 1
   pointsMultiplier: 100
   levelsAmount: 25
-  aquiredResearchPoints: 0
-  freeResearchPoints: 0
+  aquiredResearchPoints: 7
+  freeResearchPoints: 1
   firstLevelCap: 5
   secondLevelCap: 15

@@ -15,7 +15,7 @@ MonoBehaviour:
   _guid: 16ebe5cc36d5fec42bc41e99a2e91bc1
   buildingName: Mine
   description: 'An old mine, all can ptovide is cold stone '
-  isAvaliableAtStart: 1
+  isAvaliableAtStart: 0
   prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
   price:
     transactionType: 2

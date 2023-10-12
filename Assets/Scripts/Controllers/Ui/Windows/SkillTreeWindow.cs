@@ -3,19 +3,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.SkillSystem;
+using Assets.Scripts.SaveSystem;
 
 public class SkillTreeWindow : MonoBehaviour
 {
+    private Skill selected = null;
+
     public SkillSystem skillSystem;
     public NationName nation;
 
     [Header("Simple ui components")]
+    public GameObject info;
     public Slider progressionSlider;
     public TextMeshProUGUI freePoints;
     public TextMeshProUGUI skillName;
     public TextMeshProUGUI skillDescription;
     public TextMeshProUGUI skillType;
     public Button learnButton;
+    public ListViewController requiredSkills;
+    public GameObject noSkillsReqIndicator;
 
     [Header("Skill node parents")]
     public GameObject buildings;
@@ -42,6 +48,7 @@ public class SkillTreeWindow : MonoBehaviour
 
         UpdateView();
 
+        info.SetActive(false);
         gameObject.SetActive(true);
     }
 
@@ -52,30 +59,43 @@ public class SkillTreeWindow : MonoBehaviour
 
     public void OnLearnSkill()
     {
-
+        if (selected is not null)
+        {
+            skillSystem.LearnSkill(nation, selected.Guid);
+            UpdateView();
+            info.SetActive(false);
+        }
     }
 
     public void OnSelectSkill(string skillGuid)
     {
+        info.SetActive(true);
         var skill = skills.FindByGuid(skillGuid);
+        selected = skill;
 
         skillName.SetText(skill.skillName);
         skillDescription.SetText(skill.description);
         skillType.SetText(System.Enum.GetName(typeof(SkillType), skill.type));
+
+        if (skill.required.Count > 0)
+            noSkillsReqIndicator.SetActive(false);
+        else
+            noSkillsReqIndicator.SetActive(true);
+
+        requiredSkills.InitView(skill.required.Cast<object>().ToList());
 
         var allReqLearned = skill.required.All(s => s.isLearnd);
 
         var isO = translation.IsSkillOutranked(skill);
         var isD = !(allReqLearned && translation.IsSkillAvaliable(skill));
 
-        learnButton.interactable = !(isO || isD);
+        learnButton.interactable = !(isO || isD) && !skill.isLearnd;
 
     }
     
     private void UpdateView(bool updateNodes = true)
     {
         FillProgress(translation);
-
         if(updateNodes) InitAllNodes();
 
         freePoints.SetText(translation.freeResearchPoints.ToString());

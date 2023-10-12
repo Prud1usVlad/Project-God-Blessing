@@ -38,18 +38,21 @@ public class SkillNodeWidget : MonoBehaviour
         {
             shader.color = new Color(0,0,0,0);
         }
-        if (isDisabled) 
+        else
         {
-            shader.color = disabledShaderColor;
-        }
-        if (isOutranked || skill is null)
-        {
-            shader.color = outrankedShaderColor;
-        } 
-        if (!isDisabled && !isOutranked && 
-            skill is not null &&  !skill.isLearnd) 
-        {
-            shader.color = avaliableShaderColor;
+            if (isDisabled)
+            {
+                shader.color = disabledShaderColor;
+            }
+            if (isOutranked || skill is null)
+            {
+                shader.color = outrankedShaderColor;
+            }
+            if (!isDisabled && !isOutranked &&
+                skill is not null && !skill.isLearnd)
+            {
+                shader.color = avaliableShaderColor;
+            }
         }
     }
 
