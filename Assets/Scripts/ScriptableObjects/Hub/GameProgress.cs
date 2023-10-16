@@ -3,7 +3,6 @@ using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.StatSystem;
 using System.Collections.Generic;
 using UnityEngine;
-using static Assets.Scripts.SaveSystem.SaveFile;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Progress/GameProgress", fileName = "GameProgress")]
 public class GameProgress : ScriptableObject
@@ -12,6 +11,8 @@ public class GameProgress : ScriptableObject
 
     [Header("Progress")]
     public List<ItemAvaliability> buildingResearch;
+    public Equipment equipment;
+    public Inventory inventory;
 
     [Header("Runtime game data")]
     public List<Building> placedBuildings = new();  

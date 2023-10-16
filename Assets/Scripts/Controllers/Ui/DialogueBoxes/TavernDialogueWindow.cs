@@ -6,6 +6,7 @@ public class TavernDialogueWindow : DialogueBox
 {
     public GameObject economicsWindowPrefab;
     public GameObject skillTreeWindowPrefab;
+    public GameObject inventoryWindowPrefab;
 
     public override bool InitDialogue()
     {
@@ -38,7 +39,7 @@ public class TavernDialogueWindow : DialogueBox
 
     public void OnInventory()
     {
-        Debug.Log("Inventory");
+        Instantiate(inventoryWindowPrefab, transform);
     }
 
     public void OnResearch(int nationIdx) 

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc421aac174a394c93b230267f8724b, type: 3}
+  m_Name: Ring
+  m_EditorClassIdentifier: 
+  _guid: 3310dd1d4076e3743b643df0380c7409
+  itemName: Ring
+  description: Simple ring
+  sellPrice:
+    transactionType: 3
+    resources:
+    - amount: 10
+      name: 1
+  buyPrice:
+    transactionType: 3
+    resources:
+    - amount: 40
+      name: 1
+  deconstructionPrice:
+    transactionType: 7
+    resources:
+    - amount: 5
+      name: 1
+  type: 6
+  nation: 1
+  level: 0
+  modifiers: []

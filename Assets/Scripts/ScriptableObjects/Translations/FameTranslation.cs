@@ -85,6 +85,7 @@ public class FameTranslation : BaseProgressionTranslation
 
     private void OnEnable()
     {
-        currentFameLevel = registry.GetByIndex(currentLevelIdx);
+        if (registry != null)
+            currentFameLevel = registry.GetByIndex(currentLevelIdx);
     }
 }

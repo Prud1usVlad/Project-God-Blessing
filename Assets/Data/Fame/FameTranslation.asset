@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 15937a93946c6f14890e3576476cadaf, type: 3}
   m_Name: FameTranslation
-  m_EditorClassIdentifier: Assembly-CSharp::FameTranslation
-  currentPoints: 0
+  m_EditorClassIdentifier: 
+  currentPoints: 100
   currentLevelIdx: 0
   registry: {fileID: 11400000, guid: 614c179f60c4ebc48824bb6c89a728f1, type: 2}
   currentFameLevel: {fileID: 0}

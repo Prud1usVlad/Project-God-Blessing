@@ -38,6 +38,14 @@ public class HubController : MonoBehaviour
         saveController.AutoSave();
     }
 
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.Space)) 
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
     public void AddBuildings(List<Place> places)
     {
         foreach (var savedPlace in places)

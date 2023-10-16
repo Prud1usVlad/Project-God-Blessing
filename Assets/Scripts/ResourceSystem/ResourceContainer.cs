@@ -120,6 +120,12 @@ namespace Assets.Scripts.ResourceSystem
 
         }
 
+        public void Gain(Price price)
+        {
+            foreach(var r in price.resources)
+                GainResource(r.name, r.amount, price.transactionType);
+        }
+
         public int SpentPerDay(ResourceName resource)
         {
             int value = 0;

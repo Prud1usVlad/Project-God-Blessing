@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Models;
+﻿using Assets.Scripts.EquipmentSystem;
+using Assets.Scripts.Models;
 using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Assets.Scripts.SaveSystem
         public List<ItemAvaliability> reserchedBuildings;
         public List<ResStatItem> resourceStatistics;
         public List<NationLearnedSkills> learnedSkills;
+        public List<InventoryRecord> inventoryRecords;
 
         // Hub config
         public List<Place> places;
@@ -33,28 +35,21 @@ namespace Assets.Scripts.SaveSystem
         public void ReadFromGameProgress(GameProgress progress)
         {
             SaveBasic(progress);
-
             SaveCurrentCurses(progress);
-
             SaveResources(progress);
-            
             SaveSkills(progress);
+            SaveInventory(progress);
         }
 
         public void WriteToGameProgress(GameProgress progress)
         {
             LoadBasic(progress);
-
             LoadResources(progress);
-
             LoadCurses(progress);
-
             LoadModifiers(progress);
-
             LoadProduction(progress);
-            
             LoadSkills(progress);
-
+            LoadInventory(progress);
         }
 
         private void LoadSkills(GameProgress progress)
@@ -146,6 +141,17 @@ namespace Assets.Scripts.SaveSystem
             progress.liesTranslation.SetPoints(lies);
         }
 
+        private void LoadInventory(GameProgress progress)
+        {
+            foreach(var record in inventoryRecords)
+            {
+                progress.inventory.Add(record);
+
+                if (record.isEquipped)
+                    progress.equipment.Equip(record, false);
+            }
+        }
+
         private void SaveResources(GameProgress progress)
         {
             resources = progress.resourceContainer.Resources;
@@ -215,6 +221,10 @@ namespace Assets.Scripts.SaveSystem
             }
         }
 
+        private void SaveInventory(GameProgress progress)
+        {
+            inventoryRecords = progress.inventory.records;
+        }
         
         // models used only in serialization
         [Serializable]

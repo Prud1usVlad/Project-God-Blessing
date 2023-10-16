@@ -27,7 +27,7 @@ namespace Assets.Scripts.ScriptableObjects.Hub
 
         private void OnEnable()
         {
-            DialogueClose();   
+            DialogueClose();
         }
     }
 }

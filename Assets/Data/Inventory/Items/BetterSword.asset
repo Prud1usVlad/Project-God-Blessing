@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc421aac174a394c93b230267f8724b, type: 3}
+  m_Name: BetterSword
+  m_EditorClassIdentifier: 
+  _guid: 1f5d50092d552d042b045b2a12477aa8
+  itemName: Beter Sword
+  description: Better Steel sword
+  sellPrice:
+    transactionType: 3
+    resources:
+    - amount: 25
+      name: 1
+  buyPrice:
+    transactionType: 3
+    resources:
+    - amount: 250
+      name: 1
+  deconstructionPrice:
+    transactionType: 7
+    resources:
+    - amount: 20
+      name: 1
+  type: 8
+  nation: 0
+  level: 2
+  modifiers:
+  - stat: 6
+    reciever: 2
+    modifier:
+      Value: 40
+      Type: 100
+      Order: 0
+  - stat: 9
+    reciever: 2
+    modifier:
+      Value: 0.1
+      Type: 200
+      Order: 0
+  - stat: 10
+    reciever: 2
+    modifier:
+      Value: 2.5
+      Type: 300
+      Order: 0
+  - stat: 11
+    reciever: 2
+    modifier:
+      Value: 2
+      Type: 100
+      Order: 0

@@ -1413,6 +1413,8 @@ MonoBehaviour:
     type: 3}
   skillTreeWindowPrefab: {fileID: 6521700032752588356, guid: d339343a4a48d434482878f0fa93f59f,
     type: 3}
+  inventoryWindowPrefab: {fileID: 1924166080759615591, guid: 8d21963b9913ed44abce26016c15c8f9,
+    type: 3}
 --- !u!1 &6494100748596424976
 GameObject:
   m_ObjectHideFlags: 0
