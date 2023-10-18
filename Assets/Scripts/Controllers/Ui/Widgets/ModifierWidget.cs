@@ -59,7 +59,10 @@ public class ModifierWidget : MonoBehaviour
     private void SetSource(bool showSource, object source)
     {
         if (showSource && source is not null)
+        {
             this.source.SetText("Source: " + (source as ScriptableObject).name);
+            this.source.gameObject.SetActive(true);
+        }
         else
             this.source.gameObject.SetActive(false);
     }

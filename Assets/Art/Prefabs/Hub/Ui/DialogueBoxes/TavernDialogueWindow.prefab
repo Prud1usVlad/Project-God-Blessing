@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 2963169189233577002}
   - component: {fileID: 1093923385584099045}
   - component: {fileID: 3036245615945328447}
+  - component: {fileID: 6885178696281340251}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -240,6 +241,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6885178696281340251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405502734221182514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Orks skilltree
+  content: Find use of your connections with orks
+  delay: 0.5
 --- !u!1 &1871582656856226259
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +268,7 @@ GameObject:
   - component: {fileID: 4426742600839751790}
   - component: {fileID: 810386350017298275}
   - component: {fileID: 3542278585654430408}
+  - component: {fileID: 5184434033163110397}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -373,6 +390,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5184434033163110397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871582656856226259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Elves skilltree
+  content: Find use of your connections with elves
+  delay: 0.5
 --- !u!1 &2152997543660073071
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +551,7 @@ GameObject:
   - component: {fileID: 3817319159563478371}
   - component: {fileID: 2833272060757991009}
   - component: {fileID: 8591528789712959379}
+  - component: {fileID: 7884695824081219579}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -640,6 +673,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7884695824081219579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642562948787103599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Inventory
+  content: Inspect your inventory, manage skills and equipment
+  delay: 0.5
 --- !u!1 &3713657850878168259
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +836,7 @@ GameObject:
   - component: {fileID: 4409701575251758613}
   - component: {fileID: 6927809264518186356}
   - component: {fileID: 367495874362183964}
+  - component: {fileID: 5315352016219569683}
   m_Layer: 5
   m_Name: Economics
   m_TagString: Untagged
@@ -909,6 +958,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5315352016219569683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177155121918037183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Economics
+  content: Inspect and manage resources
+  delay: 0.5
 --- !u!1 &4428848606034446414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Halvelings
+  m_text: Halflings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1189,6 +1253,7 @@ GameObject:
   - component: {fileID: 5797563619999945605}
   - component: {fileID: 47355289992616249}
   - component: {fileID: 6816249326558986699}
+  - component: {fileID: 8147871808380662285}
   m_Layer: 5
   m_Name: Button (4)
   m_TagString: Untagged
@@ -1310,6 +1375,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8147871808380662285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964759730796113600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Halflings skilltree
+  content: Find use of your connections with halflings
+  delay: 0.5
 --- !u!1 &5357034412144202058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1507,7 @@ GameObject:
   - component: {fileID: 8405234702262461272}
   - component: {fileID: 7514803321797295254}
   - component: {fileID: 540077791519090551}
+  - component: {fileID: 6562961520648130019}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -1548,6 +1629,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6562961520648130019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494100748596424976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Dwarves skilltree
+  content: Find use of your connections with dwarves
+  delay: 0.5
 --- !u!1 &7095927646689240976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1790,7 @@ GameObject:
   - component: {fileID: 9057839908243795444}
   - component: {fileID: 5360041895336583400}
   - component: {fileID: 7108256126806789412}
+  - component: {fileID: 2128965622340528992}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1815,6 +1912,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2128965622340528992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192657767522550953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Humans skilltree
+  content: Find use of your connections with humans
+  delay: 0.5
 --- !u!1 &7654936675494762074
 GameObject:
   m_ObjectHideFlags: 0

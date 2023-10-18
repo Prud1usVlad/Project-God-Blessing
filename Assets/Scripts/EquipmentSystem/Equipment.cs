@@ -1,8 +1,6 @@
 ﻿using Assets.Scripts.EquipmentSystem;
 using UnityEngine;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using NUnit.Framework.Constraints;
 using Assets.Scripts.Stats;
 using System;
 using System.Linq;
@@ -10,9 +8,6 @@ using System.Linq;
 [CreateAssetMenu(menuName = "ScriptableObjects/EquipmentSystem/Equipment", fileName = "Equipment")]
 public class Equipment : ScriptableObject
 {
-    [SerializeField]
-    private List<ItemConfig> inventoryConfig;
-
     public EquipmentItemRegistry itemsRegistry;
     public List<EquipmentItem> equipedItems;
     public List<InventoryRecord> records;
@@ -40,10 +35,21 @@ public class Equipment : ScriptableObject
         return equipedItems.Find(i => i.type == type);
     }
 
-    public List<ItemType> GetExcluded(ItemType type)
+    public EquipmentItem GetEquipedAnalogue(EquipmentItem item)
     {
-        return inventoryConfig
-            .Find(c => c.type == type).excludedTypes;
+        var equiped = GetItemByType(item.type);
+
+        if (equiped is null)
+        {
+            foreach(var ex in item.type.GetAnalogues())
+            {
+                equiped = GetItemByType(ex);
+                if (equiped is not null)
+                    break;
+            }
+        }
+
+        return equiped;
     }
 
     public Dictionary<StatName, List<StatModifier>> GetModifiers()
@@ -70,14 +76,13 @@ public class Equipment : ScriptableObject
             return false;
 
         var item = itemsRegistry.FindByGuid(record.itemGuid);
-        var conf = inventoryConfig.Find(c => c.type == item.type);
+        var excluded = item.type.GetExcluded();
         var toUnequip = new List<EquipmentItem>();
 
         foreach (var eItem in equipedItems)
         {
             if (eItem.type == item.type ||
-                (conf is not null &&
-                conf.excludedTypes.Contains(eItem.type)))
+                excluded.Contains(eItem.type))
             {
                     toUnequip.Add(eItem);
             }
@@ -113,14 +118,5 @@ public class Equipment : ScriptableObject
     {
         equipedItems = new();
         records = new();
-    }
-
-    [Serializable]
-    private class ItemConfig
-    {
-        public ItemType type;
-
-        [Tooltip("Types of items that are excluded, while wearing current type")]
-        public List<ItemType> excludedTypes;
     }
 }

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
+  building: {fileID: 11400000, guid: 6feefb1a86b5f8e48a390e427b736c3f, type: 2}
   dialogueBox: {fileID: 5357034412144202058, guid: 5482138364d567a4bae8ae2fb6c681f7,
     type: 3}
   isBuilt: 1

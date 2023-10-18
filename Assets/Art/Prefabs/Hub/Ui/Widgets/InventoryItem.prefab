@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 8902596000967158900}
   - component: {fileID: 8219215746741635414}
   - component: {fileID: 2028422192665747894}
+  - component: {fileID: 721659253693946281}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -323,10 +324,12 @@ MonoBehaviour:
     recordGuid: 
     isEquipped: 0
   equipmentItem: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 01a728e652eb0d8499c9104b019a3c7c, type: 2}
   equipmentRegistry: {fileID: 11400000, guid: 47cc198efbd558043af141526be3fd9c, type: 2}
   underlay: {fileID: 3837818590396346669}
   shade: {fileID: 383928177515333334}
   image: {fileID: 181546708355021279}
+  tooltipTrigger: {fileID: 721659253693946281}
 --- !u!114 &8219215746741635414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,3 +356,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &721659253693946281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650944977342564654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbb11a36badbfa46a982b102d596571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  compare: {fileID: 0}
+  delay: 0.5

@@ -30,7 +30,7 @@ MonoBehaviour:
     resources:
     - amount: 5
       name: 1
-  type: 8
+  type: 100
   nation: 0
   level: 0
   modifiers:

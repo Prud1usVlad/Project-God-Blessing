@@ -32,7 +32,7 @@ MonoBehaviour:
       name: 1
     - amount: 2
       name: 2
-  type: 13
+  type: 202
   nation: 3
   level: 1
   modifiers:

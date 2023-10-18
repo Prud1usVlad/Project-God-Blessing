@@ -32,11 +32,14 @@ public class InventoryWindow : MonoBehaviour
     {
         inventoryGrid.InitView(inventory.records.Cast<object>().ToList());
 
-        foreach (var item in equipment.equipedItems)
+        slots.ForEach(s => s.slot.FillItem(null));
+
+        foreach (var record in equipment.records)
         {
+            var item = equipment.GetItemByGuid(record.itemGuid);
             var slot = slots.Find(s => s.types.Contains(item.type));
             if (slot is not null)
-                slot.slot.FillItem(inventory.GetRecord(item));
+                slot.slot.FillItem(inventory.GetRecord(record.recordGuid));
         }
     }
 
@@ -69,6 +72,11 @@ public class InventoryWindow : MonoBehaviour
         inventory.Deconstruct(record.recordGuid);
 
         UpdateView();
+    }
+
+    public void OnClose()
+    {
+        Destroy(gameObject);
     }
 
     [Serializable]

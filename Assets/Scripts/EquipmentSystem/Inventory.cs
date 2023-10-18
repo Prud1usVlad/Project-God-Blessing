@@ -54,14 +54,9 @@ public class Inventory : ScriptableObject
         resourceContainer.Gain(item.deconstructionPrice);
     }
 
-    public InventoryRecord GetRecord(EquipmentItem item)
-    {
-        return GetRecord(item.Guid);
-    }
-
     public InventoryRecord GetRecord(string guid)
     {
-        return records.Find(r => r.itemGuid == guid);
+        return records.Find(r => r.recordGuid == guid);
     }
 
     private void OnEnable()
