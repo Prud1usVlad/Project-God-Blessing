@@ -1,3 +1,4 @@
+using Assets.Scripts.TooltipSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,8 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [TextArea]
     public string content;
     public float delay = 0.5f;
+
+    public TooltipDataProvider dataProvider;
 
     public void Init(string content, string header = "")
     {
@@ -29,6 +32,13 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private IEnumerator ShowRoutine()
     {
         yield return new WaitForSeconds(delay);
+
+        if (dataProvider is not null)
+        {
+            header = dataProvider.GetHeader();
+            content = dataProvider.GetContent();
+        }
+
         TooltipSystem.Show(content, header);
     }
 }

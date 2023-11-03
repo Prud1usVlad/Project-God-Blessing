@@ -120,6 +120,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59018713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2879940452927830594, guid: b5457895622ed984db9e516414a1cbec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2321620266521967682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &59018718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59018713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 11400000, guid: 550f7add176a99042b601f18dce31488, type: 2}
+  dialogueBox: {fileID: 474379688560021357, guid: 4ae74c0d333378b429a15a9faf6cb339,
+    type: 3}
+  isBuilt: 1
 --- !u!1 &88937602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2085,11 @@ PrefabInstance:
     - target: {fileID: 3955880193599085407, guid: 8c0ae1beb2e228f41bb717add76a0b21,
         type: 3}
       propertyPath: m_ChildAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955880193599085407, guid: 8c0ae1beb2e228f41bb717add76a0b21,
+        type: 3}
+      propertyPath: m_ChildControlHeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994796332241974920, guid: 8c0ae1beb2e228f41bb717add76a0b21,
@@ -4022,7 +4049,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2879940452927830594, guid: b5457895622ed984db9e516414a1cbec,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 59018718}
   m_SourcePrefab: {fileID: 100100000, guid: b5457895622ed984db9e516414a1cbec, type: 3}
 --- !u!1001 &5102610885814726182
 PrefabInstance:
@@ -4210,6 +4241,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4757852062342599038, guid: d48dc62bc90a7994080ccd6f50d1f184,
+        type: 3}
+      propertyPath: runtimeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb,
+        type: 2}
     - target: {fileID: 4947627700635447273, guid: d48dc62bc90a7994080ccd6f50d1f184,
         type: 3}
       propertyPath: m_AnchorMax.y

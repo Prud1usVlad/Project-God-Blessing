@@ -9,6 +9,6 @@ namespace Assets.Scripts.Models
     public class ItemAvaliability
     {
         public string guid;
-        public bool isAvaliable;
+        public bool isAvailable;
     }
 }

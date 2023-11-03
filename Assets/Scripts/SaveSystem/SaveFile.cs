@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.EquipmentSystem;
 using Assets.Scripts.Models;
+using Assets.Scripts.QuestSystem;
+using Assets.Scripts.QuestSystem.Stages;
 using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,8 @@ namespace Assets.Scripts.SaveSystem
         public List<ResStatItem> resourceStatistics;
         public List<NationLearnedSkills> learnedSkills;
         public List<InventoryRecord> inventoryRecords;
+        public List<Quest> completedQuests;
+        public List<Quest> availableQuests;
 
         // Hub config
         public List<Place> places;
@@ -39,6 +43,7 @@ namespace Assets.Scripts.SaveSystem
             SaveResources(progress);
             SaveSkills(progress);
             SaveInventory(progress);
+            SaveQuests(progress);
         }
 
         public void WriteToGameProgress(GameProgress progress)
@@ -50,6 +55,7 @@ namespace Assets.Scripts.SaveSystem
             LoadProduction(progress);
             LoadSkills(progress);
             LoadInventory(progress);
+            LoadQuests(progress);
         }
 
         private void LoadSkills(GameProgress progress)
@@ -102,7 +108,7 @@ namespace Assets.Scripts.SaveSystem
                 var item = progress.buildingResearch
                     .Find(o => b.guid == o.guid);
 
-                item.isAvaliable = b.isAvaliable;
+                item.isAvailable = b.isAvailable;
             }
 
             // set resources
@@ -149,6 +155,26 @@ namespace Assets.Scripts.SaveSystem
 
                 if (record.isEquipped)
                     progress.equipment.Equip(record, false);
+            }
+        }
+
+        private void LoadQuests(GameProgress progress)
+        {
+            availableQuests.ForEach(q => InitQuestBeforeLoad(q, progress));
+            completedQuests.ForEach(q => InitQuestBeforeLoad(q, progress));
+
+            progress.questSystem.availableQuests = availableQuests;
+            progress.questSystem.completedQuests = completedQuests;
+        }
+
+        private void InitQuestBeforeLoad(Quest quest, GameProgress progress)
+        {
+            quest.data = progress.questSystem
+                .questRegistry.FindByGuid(quest.questDataGuid);
+
+            for (int i = 0; i < quest.data.stages.Count(); i++)
+            {
+                quest.stages[i].data = quest.data.stages[i];
             }
         }
 
@@ -225,6 +251,12 @@ namespace Assets.Scripts.SaveSystem
         {
             inventoryRecords = progress.inventory.records;
         }
+
+        private void SaveQuests(GameProgress progress)
+        {
+            availableQuests = progress.questSystem.availableQuests;
+            completedQuests = progress.questSystem.completedQuests;
+        }
         
         // models used only in serialization
         [Serializable]
@@ -264,5 +296,32 @@ namespace Assets.Scripts.SaveSystem
             public NationName nation;
             public List<string> skillGuids;
         }
+
+        //[Serializable]
+        //public class QuestStages
+        //{
+        //    public Quest quest;
+        //    public List<StageIndex<KillStage>> killStages;
+        //    public List<StageIndex<CollectStage>> collectStages;
+        //    public List<StageIndex<TravelStage>> travelStages;
+        //    public List<StageIndex<InteractStage>> interactStages;
+
+        //    public QuestStages(Quest quest)
+        //    {
+        //        this.quest = quest;
+
+        //        foreach(var stage in quest.stages)
+        //        {
+
+        //        }
+        //    }
+        //}
+
+        //[Serializable]
+        //public class StageIndex<T> where T : QuestStage
+        //{
+        //    public int index;
+        //    public T stage;
+        //}
     }
 }

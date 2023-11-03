@@ -30,6 +30,8 @@ public class HubController : MonoBehaviour
     {
         objectPlacer = buildSystem.GetComponent<ObjectPlacer>();
         saveController.Load();
+
+        gameProgress.questSystem.FillAvailable();
     }
 
     private void OnDestroy()
@@ -42,7 +44,7 @@ public class HubController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) 
         {
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
         }
     }
 

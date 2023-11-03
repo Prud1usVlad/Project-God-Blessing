@@ -17,7 +17,7 @@ public class SkillNodeWidget : MonoBehaviour
     public Image shader;
 
     public Color selectedShaderColor;
-    public Color avaliableShaderColor;
+    public Color availableShaderColor;
     public Color disabledShaderColor;
     public Color outrankedShaderColor;
 
@@ -51,7 +51,7 @@ public class SkillNodeWidget : MonoBehaviour
             if (!isDisabled && !isOutranked &&
                 skill is not null && !skill.isLearnd)
             {
-                shader.color = avaliableShaderColor;
+                shader.color = availableShaderColor;
             }
         }
     }

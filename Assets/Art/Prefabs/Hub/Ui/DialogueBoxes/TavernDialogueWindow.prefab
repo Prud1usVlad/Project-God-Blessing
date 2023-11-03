@@ -256,6 +256,7 @@ MonoBehaviour:
   header: Orks skilltree
   content: Find use of your connections with orks
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &1871582656856226259
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   header: Elves skilltree
   content: Find use of your connections with elves
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &2152997543660073071
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +690,7 @@ MonoBehaviour:
   header: Inventory
   content: Inspect your inventory, manage skills and equipment
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &3713657850878168259
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +976,7 @@ MonoBehaviour:
   header: Economics
   content: Inspect and manage resources
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &4428848606034446414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1394,7 @@ MonoBehaviour:
   header: Halflings skilltree
   content: Find use of your connections with halflings
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &5357034412144202058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1493,7 @@ MonoBehaviour:
   headerSection: {fileID: 5404024398971480726}
   bodySection: {fileID: 2765348021512039410}
   buttonsSection: {fileID: 0}
+  allowInBuildMode: 0
   runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   economicsWindowPrefab: {fileID: 7831787125945151806, guid: f1a20509eabfbcc4387bbe6ae30bd482,
     type: 3}
@@ -1644,6 +1650,7 @@ MonoBehaviour:
   header: Dwarves skilltree
   content: Find use of your connections with dwarves
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &7095927646689240976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,6 +1934,7 @@ MonoBehaviour:
   header: Humans skilltree
   content: Find use of your connections with humans
   delay: 0.5
+  dataProvider: {fileID: 0}
 --- !u!1 &7654936675494762074
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using Assets.Scripts.Models;
+using Assets.Scripts.QuestSystem;
 using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.StatSystem;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class GameProgress : ScriptableObject
     public List<ItemAvaliability> buildingResearch;
     public Equipment equipment;
     public Inventory inventory;
+    public QuestSystem questSystem;
 
     [Header("Runtime game data")]
     public List<Building> placedBuildings = new();  

@@ -29,24 +29,40 @@ namespace Assets.Scripts.Helpers.ListView
 
                 return;
             }
+            else if (data is InventoryRecord)
+            {
+                record = data as InventoryRecord;
+                equipmentItem = equipmentRegistry
+                    .FindByGuid(record.itemGuid);
+            }
+            else if (data is EquipmentItem)
+            {
+                equipmentItem = data as EquipmentItem;
+            }
 
-            record = data as InventoryRecord;
-            equipmentItem = equipmentRegistry
-                .FindByGuid(record.itemGuid);
+            ProcessEquipmentItem();
 
-            if (record.isEquipped) 
+        }
+
+        private void ProcessEquipmentItem()
+        {
+            if (record.isEquipped)
             {
                 shade.gameObject.SetActive(true);
                 shade.color = new Color(0, 0, 0, 0.5f);
             }
 
-            tooltipTrigger.Init(equipmentItem, 
+            tooltipTrigger.Init(equipmentItem,
                 equipment.GetEquipedAnalogue(equipmentItem));
         }
 
         public bool HasData(object data)
         {
-            return record == data as InventoryRecord;
+            if (data is InventoryRecord)
+                return record == data as InventoryRecord;
+            else if (data is EquipmentItem)
+                return equipmentItem == data as EquipmentItem;
+            else return false;
         }
 
         public void OnSelected()

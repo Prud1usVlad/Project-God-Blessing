@@ -19,6 +19,8 @@ public class ListViewController : MonoBehaviour
     public GameObject prefab;
     public GameObject contentParent;
 
+    public bool allowSelection = true;
+
     public object Selected 
     {
         get => selectedData;
@@ -72,7 +74,9 @@ public class ListViewController : MonoBehaviour
             var comp = Instantiate(prefab, contentParent.transform)
                 .GetComponent<IListItem>();
 
-            comp.Selection += () => ChangeSelection(item);
+            if (allowSelection && comp.Selection != null)
+                comp.Selection += () => ChangeSelection(item);
+
             comp.FillItem(item);
             items.Add(comp);
         });

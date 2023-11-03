@@ -87,7 +87,7 @@ public class SkillTreeWindow : MonoBehaviour
         var allReqLearned = skill.required.All(s => s.isLearnd);
 
         var isO = translation.IsSkillOutranked(skill);
-        var isD = !(allReqLearned && translation.IsSkillAvaliable(skill));
+        var isD = !(allReqLearned && translation.IsSkillAvailable(skill));
 
         learnButton.interactable = !(isO || isD) && !skill.isLearnd;
 
@@ -123,7 +123,7 @@ public class SkillTreeWindow : MonoBehaviour
             var allReqLearned = skill.required.All(s => s.isLearnd);
 
             var isO = translation.IsSkillOutranked(skill);
-            var isD = !(allReqLearned && translation.IsSkillAvaliable(skill));
+            var isD = !(allReqLearned && translation.IsSkillAvailable(skill));
 
             nodes[i].InitNode(skill, isD, isO);
         }

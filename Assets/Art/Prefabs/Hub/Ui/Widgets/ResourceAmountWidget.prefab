@@ -307,7 +307,7 @@ MonoBehaviour:
   m_MinHeight: -1
   m_PreferredWidth: 80
   m_PreferredHeight: -1
-  m_FlexibleWidth: 0
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1 &8257350393670683652
@@ -396,5 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e85baee7e13b8644810219ba6f5a1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    amount: 100
+    name: 0
   resource: {fileID: 1812083990225796941}
   amount: {fileID: 3979372598491921764}

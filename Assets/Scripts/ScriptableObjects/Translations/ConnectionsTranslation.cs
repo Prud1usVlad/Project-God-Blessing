@@ -84,10 +84,10 @@ public class ConnectionsTranslation : BaseProgressionTranslation
     public bool CanLearn(Skill skill)
     {
         return !IsSkillOutranked(skill) 
-            && IsSkillAvaliable(skill);
+            && IsSkillAvailable(skill);
     }
 
-    public bool IsSkillAvaliable(Skill skill)
+    public bool IsSkillAvailable(Skill skill)
     {
         return skill.pointsRequired <= freeResearchPoints;
     }
@@ -99,7 +99,10 @@ public class ConnectionsTranslation : BaseProgressionTranslation
 
     public int GetLevelPoints(int reqLevel)
     {
-        if (reqLevel < 0) return 0;
+        if (reqLevel < 0)
+            return 0;
+        else if (reqLevel > levelsAmount)
+            reqLevel = levelsAmount;
 
         float sum = 0;
         for (var i = 1; i <= reqLevel; i++)

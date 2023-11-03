@@ -11,7 +11,7 @@ public abstract class Building : SerializableScriptableObject
 {
     public string buildingName;
     public string description;
-    public bool isAvaliableAtStart = true;
+    public bool isAvailableAtStart = true;
 
     public GameObject prefab;
 

@@ -23,6 +23,8 @@ public class DialogueBox : MonoBehaviour
     public TextMeshProUGUI bodySection;
     public GameObject buttonsSection;
 
+    public bool allowInBuildMode = false;
+
     public RuntimeHubUiData runtimeData;
 
     private void Awake()
@@ -32,7 +34,9 @@ public class DialogueBox : MonoBehaviour
 
     public virtual bool InitDialogue() 
     {
-        if (runtimeData is not null && runtimeData.isDialogOpened)
+        if ((runtimeData is not null && runtimeData.isDialogOpened
+            || (!allowInBuildMode && runtimeData.isInBuildMode))
+            )
         {
             DestroyDialogue();
             return false;

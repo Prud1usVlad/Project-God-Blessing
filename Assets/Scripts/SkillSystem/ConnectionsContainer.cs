@@ -13,6 +13,12 @@ public class ConnectionsContainer : ScriptableObject
         return connections?.Find(c => c.nation == nation);
     }
 
+    public int GetLevel(NationName nation)
+    {
+        var conn = GetConnection(nation);
+        return conn is null ? -1 : conn.currentLevelIdx;
+    }
+
     public void AddPoints(int amount, NationName nation)
     {
         GetConnection(nation).AddPoints(amount);

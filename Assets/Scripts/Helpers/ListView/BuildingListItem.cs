@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class BuildingListItem : MonoBehaviour, IListItem            
 {
-    private bool isAvaliable = false;
+    private bool isAvailable = false;
     private bool isPlaced = false;
     private bool isReserched = false;
 
@@ -67,8 +67,8 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
     private void ApplyColors()
     {
-        isAvaliable = gameProgress.resourceContainer.CanAfford(building.price);
-        isReserched = gameProgress.buildingResearch.Find(b => b.guid == building.Guid).isAvaliable;
+        isAvailable = gameProgress.resourceContainer.CanAfford(building.price);
+        isReserched = gameProgress.buildingResearch.Find(b => b.guid == building.Guid).isAvailable;
         isPlaced = gameProgress.placedBuildings.Contains(building);
 
         if (isPlaced)
@@ -76,7 +76,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
             GetComponent<Image>().color = new Color(0, 1, 0, 0.5f);
             tooltipTrigger.Init("Building already placed", building.name);
         }
-        else if (!isAvaliable || !isReserched)
+        else if (!isAvailable || !isReserched)
         {
             GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
             
@@ -87,13 +87,13 @@ public class BuildingListItem : MonoBehaviour, IListItem
         else
         {
             GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
-            tooltipTrigger.Init("Building is avaliable", building.name);
+            tooltipTrigger.Init("Building is available", building.name);
         }
     }
 
     public void OnSelecting()
     {
-        if (isAvaliable && !isPlaced && isReserched)
+        if (isAvailable && !isPlaced && isReserched)
         {
             Debug.Log("Select item " + name);
             itemSelected.Raise(building.Guid);

@@ -16,6 +16,7 @@ namespace Assets.Scripts.ResourceSystem
         Production,
         ResourceMarket,
         Deconstruction,
+        QuestReward,
         Any,
     }
 }

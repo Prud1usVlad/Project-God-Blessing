@@ -21,5 +21,18 @@ namespace Assets.Scripts.Helpers
                 return Math.Round(num / (1000d * 1000d), decimals).ToString() + "M";
             else return "none";
         } 
+
+        public static Color NationToColor(NationName nation)
+        {
+            switch (nation)
+            {
+                case NationName.Human: return new Color32(214, 36, 36, 255);
+                case NationName.Orks: return new Color32(210, 214, 36, 255);
+                case NationName.Elves: return new Color32(61, 214, 36, 255);
+                case NationName.Dwarves: return new Color32(36, 86, 214, 255);
+                case NationName.Halflings: return new Color32(214, 132, 36, 255);
+                default: return Color.white;
+            }
+        }
     }
 }

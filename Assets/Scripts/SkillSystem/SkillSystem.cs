@@ -55,12 +55,12 @@ public class SkillSystem : ScriptableObject
             .Find(b => b.guid == building.Guid);
 
         if (rb is not null)
-            rb.isAvaliable = true;
+            rb.isAvailable = true;
         else
             gameProgress.buildingResearch.Add(new ItemAvaliability
             {
                 guid = building.Guid,
-                isAvaliable = true
+                isAvailable = true
             });
     }
 }
