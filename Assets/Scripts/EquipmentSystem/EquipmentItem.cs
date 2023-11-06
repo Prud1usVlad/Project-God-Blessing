@@ -18,6 +18,9 @@ namespace Assets.Scripts.EquipmentSystem
         public Price deconstructionPrice;
 
         public ItemType type;
+        [Tooltip("Used to set relations between accesories and weapons")]
+        public ItemType complementary = ItemType.None;
+        public SlothType slothType;
         public NationName nation;
         [Range(0, 25)]
         public int level;
