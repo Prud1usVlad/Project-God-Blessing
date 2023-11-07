@@ -38,7 +38,7 @@ public class CurseCardListItem : MonoBehaviour, IListItem
 
     public void OnSelecting()
     {
-        Selection.Invoke();
+        Selection?.Invoke();
         Instantiate(details, transform.parent.parent)
             .GetComponent<CurseDetailWindow>().Init(card);
     }

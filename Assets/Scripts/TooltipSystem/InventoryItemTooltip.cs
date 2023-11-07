@@ -6,6 +6,7 @@ public class InventoryItemTooltip : MonoBehaviour
 {
     public Canvas canvas;
     public RectTransform rectTransform;
+    public bool trackPosition = true;
 
     public TextMeshProUGUI header;
     public TextMeshProUGUI description;
@@ -56,14 +57,17 @@ public class InventoryItemTooltip : MonoBehaviour
 
     private void Update()
     {
-        var pos = Input.mousePosition * canvas.scaleFactor;
-        float xPivot = pos.x / Screen.width;
-        float yPivot = pos.y / Screen.height;
+        if (trackPosition)
+        {
+            var pos = Input.mousePosition * canvas.scaleFactor;
+            float xPivot = pos.x / Screen.width;
+            float yPivot = pos.y / Screen.height;
 
-        xPivot = xPivot > 0.5 ? 1 : 0;
-        yPivot = yPivot > 0.5 ? 1 : 0;
+            xPivot = xPivot > 0.5 ? 1 : 0;
+            yPivot = yPivot > 0.5 ? 1 : 0;
 
-        rectTransform.position = pos;
-        rectTransform.pivot = new Vector2(xPivot, yPivot);
+            rectTransform.position = pos;
+            rectTransform.pivot = new Vector2(xPivot, yPivot);
+        }
     }
 }

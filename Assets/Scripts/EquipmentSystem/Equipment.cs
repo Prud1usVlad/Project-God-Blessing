@@ -90,7 +90,7 @@ public class Equipment : ScriptableObject
             if (accesory.complementary != item.type)
                 Unequip(accesory);
         }
-        else if (item.slothType != SlothType.Accesory 
+        else if (item.slothType == SlothType.Accesory 
             && equipedItems.ContainsKey(SlothType.Weapon))
         {
             var weapon = equipedItems[SlothType.Weapon];

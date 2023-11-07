@@ -113,12 +113,12 @@ public class QuestListItem :  TooltipDataProvider, IListItem
         Selection.Invoke();
     }
 
-    public override string GetHeader()
+    public override string GetHeader(string tag = null)
     {
         return quest.data.name;
     }
 
-    public override string GetContent()
+    public override string GetContent(string tag = null)
     {
         return quest.data.description;
     }

@@ -74,7 +74,7 @@ public class ListViewController : MonoBehaviour
             var comp = Instantiate(prefab, contentParent.transform)
                 .GetComponent<IListItem>();
 
-            if (allowSelection && comp.Selection != null)
+            if (allowSelection)
                 comp.Selection += () => ChangeSelection(item);
 
             comp.FillItem(item);
@@ -85,7 +85,7 @@ public class ListViewController : MonoBehaviour
 
     public void ChangeSelection(object obj)
     {
-        Selected = data.Find(i => i.Equals(obj));
+        Selected = data.Find(i => i == obj);
 
         selectedItem?.OnSelected();
     }

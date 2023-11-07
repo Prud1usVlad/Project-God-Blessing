@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cc421aac174a394c93b230267f8724b, type: 3}
-  m_Name: Ring
+  m_Name: CopperRing
   m_EditorClassIdentifier: 
-  _guid: 3310dd1d4076e3743b643df0380c7409
-  itemName: Ring
-  description: Simple ring
+  _guid: 5d81aca06178bdc4ea58ff0a39ddfb2c
+  itemName: Copper ring
+  description: Simple copper ring
   sellPrice:
     transactionType: 3
     resources:
@@ -35,4 +35,10 @@ MonoBehaviour:
   slothType: 2
   nation: 1
   level: 1
-  modifiers: []
+  modifiers:
+  - stat: 10
+    reciever: 2
+    modifier:
+      Value: 1
+      Type: 100
+      Order: 0

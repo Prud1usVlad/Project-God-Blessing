@@ -51,7 +51,7 @@ public class QuestStageListItem : TooltipDataProvider, IListItem
     {
     }
 
-    public override string GetHeader()
+    public override string GetHeader(string tag = null)
     {
         if (stage.data is KillStage)
             return "Kill stage";
@@ -65,7 +65,7 @@ public class QuestStageListItem : TooltipDataProvider, IListItem
             return "";
     }
 
-    public override string GetContent()
+    public override string GetContent(string tag = null)
     {
         return stage.longDescription;
     }

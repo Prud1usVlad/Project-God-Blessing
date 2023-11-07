@@ -33,6 +33,8 @@ MonoBehaviour:
     - amount: 2
       name: 2
   type: 202
+  complementary: 102
+  slothType: 4
   nation: 3
   level: 1
   modifiers:

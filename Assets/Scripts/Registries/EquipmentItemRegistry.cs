@@ -32,6 +32,11 @@ public class EquipmentItemRegistry : Registry<EquipmentItem>
             .Where(i => i.type == type).ToList();
     }
 
+    public List<EquipmentItem> GetBySlothType(SlothType sloth)
+    {
+        return _descriptors.Where(i => i.slothType == sloth).ToList();
+    }
+
     public EquipmentItem GetByName(string name)
     {
         return _descriptors.Find(i => i.name == name);

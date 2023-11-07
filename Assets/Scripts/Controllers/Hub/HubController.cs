@@ -32,6 +32,10 @@ public class HubController : MonoBehaviour
         saveController.Load();
 
         gameProgress.questSystem.FillAvailable();
+        var market = gameProgress.placedBuildings.Find(b => b is MarketBuilding);
+
+        if (market != null)
+            (market as MarketBuilding).UpdateStore(); 
     }
 
     private void OnDestroy()

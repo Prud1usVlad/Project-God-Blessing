@@ -31,8 +31,10 @@ MonoBehaviour:
     - amount: 20
       name: 1
   type: 100
-  nation: 0
-  level: 2
+  complementary: 200
+  slothType: 5
+  nation: 1
+  level: 1
   modifiers:
   - stat: 6
     reciever: 2

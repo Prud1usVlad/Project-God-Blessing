@@ -26,22 +26,24 @@ namespace Assets.Scripts.Helpers.ListView
             if (data == null)
             {
                 shade.gameObject.SetActive(false);
+                underlay.color = Color.red;
 
                 return;
             }
             else if (data is InventoryRecord)
             {
+                underlay.color = Color.white;
                 record = data as InventoryRecord;
                 equipmentItem = equipmentRegistry
                     .FindByGuid(record.itemGuid);
             }
             else if (data is EquipmentItem)
             {
+                underlay.color = Color.white;
                 equipmentItem = data as EquipmentItem;
             }
 
             ProcessEquipmentItem();
-
         }
 
         private void ProcessEquipmentItem()

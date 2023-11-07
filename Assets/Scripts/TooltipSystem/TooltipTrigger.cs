@@ -11,6 +11,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public float delay = 0.5f;
 
     public TooltipDataProvider dataProvider;
+    public string providerTag = null;
 
     public void Init(string content, string header = "")
     {
@@ -35,8 +36,8 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (dataProvider is not null)
         {
-            header = dataProvider.GetHeader();
-            content = dataProvider.GetContent();
+            header = dataProvider.GetHeader(providerTag);
+            content = dataProvider.GetContent(providerTag);
         }
 
         TooltipSystem.Show(content, header);

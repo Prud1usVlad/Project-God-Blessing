@@ -1,5 +1,6 @@
 using Assets.Scripts.Helpers.Enums;
 using Assets.Scripts.ScriptableObjects.Hub;
+using Assets.Scripts.TooltipSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueBox : MonoBehaviour
+public class DialogueBox : TooltipDataProvider
 {
     [NonSerialized]
     public string header;
@@ -72,5 +73,15 @@ public class DialogueBox : MonoBehaviour
     protected virtual void DestroyDialogue()
     {
         Destroy(gameObject);
+    }
+
+    public override string GetHeader(string tag = null)
+    {
+        return header;
+    }
+
+    public override string GetContent(string tag = null)
+    {
+        return body;
     }
 }
