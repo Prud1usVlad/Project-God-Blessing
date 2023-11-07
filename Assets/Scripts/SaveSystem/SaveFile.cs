@@ -6,6 +6,7 @@ using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 namespace Assets.Scripts.SaveSystem
 {
@@ -23,6 +24,7 @@ namespace Assets.Scripts.SaveSystem
         // Progress
         public List<ItemAvaliability> reserchedBuildings;
         public List<ResStatItem> resourceStatistics;
+        public List<ConnectionData> connectionsData;
         public List<NationLearnedSkills> learnedSkills;
         public List<InventoryRecord> inventoryRecords;
         public List<Quest> completedQuests;
@@ -33,6 +35,7 @@ namespace Assets.Scripts.SaveSystem
         public List<Resource> resources;
         public List<Curse> curses;
         public List<ProductionPower> productionPowers;
+        public List<MarketBuildingData> marketBuildingsData;
         public List<ResourceDynamic> everydayTransactions;
 
 
@@ -41,6 +44,7 @@ namespace Assets.Scripts.SaveSystem
             SaveBasic(progress);
             SaveCurrentCurses(progress);
             SaveResources(progress);
+            SaveBuildingStates(progress);
             SaveSkills(progress);
             SaveInventory(progress);
             SaveQuests(progress);
@@ -52,11 +56,13 @@ namespace Assets.Scripts.SaveSystem
             LoadResources(progress);
             LoadCurses(progress);
             LoadModifiers(progress);
-            LoadProduction(progress);
+            LoadBuildingStates(progress);
             LoadSkills(progress);
             LoadInventory(progress);
             LoadQuests(progress);
         }
+
+        # region Load Methods 
 
         private void LoadSkills(GameProgress progress)
         {
@@ -70,9 +76,22 @@ namespace Assets.Scripts.SaveSystem
                     reg.FindByGuid(skill).isLearnd = true;
                 }
             }
+
+            foreach (var trans in progress.skillSystem.connections)
+            {
+                if (connectionsData.Count() == 0)
+                    break;
+
+                var data = connectionsData
+                    .First(d => d.nation == trans.nation);
+
+                trans.SetPoints(data.points);
+                trans.freeResearchPoints = data.freeResearchPoints;
+                trans.aquiredResearchPoints = data.aquiredResearchPoints;
+            }
         }
 
-        private void LoadProduction(GameProgress progress)
+        private void LoadBuildingStates(GameProgress progress)
         {
             foreach (var b in progress.resourceContainer.productionBuildings)
             {
@@ -81,6 +100,15 @@ namespace Assets.Scripts.SaveSystem
                 {
                     b.productionPower = power.power;
                 }
+            }
+
+            foreach (var marketData in marketBuildingsData)
+            {
+                var building = progress.placedBuildings
+                    .Find(b => b.Guid == marketData.buildingGuid);
+
+                (building as MarketBuilding)
+                    .InitStore(marketData.itemGuids, marketData.daysTillUpdate); 
             }
         }
 
@@ -167,6 +195,10 @@ namespace Assets.Scripts.SaveSystem
             progress.questSystem.completedQuests = completedQuests;
         }
 
+
+        #endregion
+
+        #region Load auxilary methods
         private void InitQuestBeforeLoad(Quest quest, GameProgress progress)
         {
             quest.data = progress.questSystem
@@ -177,6 +209,9 @@ namespace Assets.Scripts.SaveSystem
                 quest.stages[i].data = quest.data.stages[i];
             }
         }
+        #endregion
+
+        # region Save Methods
 
         private void SaveResources(GameProgress progress)
         {
@@ -202,13 +237,34 @@ namespace Assets.Scripts.SaveSystem
                     });
                 }
             }
+        }
 
+        private void SaveBuildingStates(GameProgress progress)
+        {
             productionPowers = progress.resourceContainer.productionBuildings
                 .Select(b => new ProductionPower
                 {
                     buildingGuid = b.Guid,
                     power = b.productionPower
                 }).ToList();
+
+            var markets = progress.placedBuildings
+                .Where(b => b is MarketBuilding)
+                .Cast<MarketBuilding>();
+
+            marketBuildingsData = new List<MarketBuildingData>();
+            foreach (var market in markets)
+            {
+                marketBuildingsData.Add(new()
+                {
+                    buildingGuid = market.Guid,
+                    daysTillUpdate = market.daysTillUpdate,
+                    itemGuids = market.items
+                        .Where(i => i is not null)
+                        .Select(i => i.Guid)
+                        .ToList(),
+                });
+            }
         }
 
         private void SaveCurrentCurses(GameProgress progress)
@@ -245,6 +301,18 @@ namespace Assets.Scripts.SaveSystem
                         .ToList()
                 });
             }
+
+            connectionsData = new();
+            foreach (var trans in progress.skillSystem.connections)
+            {
+                connectionsData.Add(new()
+                {
+                    nation = trans.nation,
+                    points = trans.currentPoints,
+                    aquiredResearchPoints = trans.aquiredResearchPoints,
+                    freeResearchPoints = trans.freeResearchPoints,
+                });
+            }
         }
 
         private void SaveInventory(GameProgress progress)
@@ -257,7 +325,10 @@ namespace Assets.Scripts.SaveSystem
             availableQuests = progress.questSystem.availableQuests;
             completedQuests = progress.questSystem.completedQuests;
         }
-        
+
+        #endregion
+
+        #region Models 
         // models used only in serialization
         [Serializable]
         public class Place
@@ -297,31 +368,23 @@ namespace Assets.Scripts.SaveSystem
             public List<string> skillGuids;
         }
 
-        //[Serializable]
-        //public class QuestStages
-        //{
-        //    public Quest quest;
-        //    public List<StageIndex<KillStage>> killStages;
-        //    public List<StageIndex<CollectStage>> collectStages;
-        //    public List<StageIndex<TravelStage>> travelStages;
-        //    public List<StageIndex<InteractStage>> interactStages;
+        [Serializable]
+        public class ConnectionData
+        {
+            public NationName nation;
+            public int points;
+            public int freeResearchPoints;
+            public int aquiredResearchPoints;
+        }
 
-        //    public QuestStages(Quest quest)
-        //    {
-        //        this.quest = quest;
+        [Serializable]
+        public class MarketBuildingData
+        {
+            public string buildingGuid;
+            public int daysTillUpdate;
+            public List<string> itemGuids;
+        }
 
-        //        foreach(var stage in quest.stages)
-        //        {
-
-        //        }
-        //    }
-        //}
-
-        //[Serializable]
-        //public class StageIndex<T> where T : QuestStage
-        //{
-        //    public int index;
-        //    public T stage;
-        //}
+        #endregion
     }
 }

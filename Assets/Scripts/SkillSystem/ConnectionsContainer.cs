@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Skills/ConnectionsContainer", fileName = "ConnectionsContainer")]
-public class ConnectionsContainer : ScriptableObject
+public class ConnectionsContainer : ScriptableObject, IEnumerable<ConnectionsTranslation>
 {
     [SerializeField]
     private List<ConnectionsTranslation> connections;
@@ -22,5 +22,15 @@ public class ConnectionsContainer : ScriptableObject
     public void AddPoints(int amount, NationName nation)
     {
         GetConnection(nation).AddPoints(amount);
+    }
+
+    public IEnumerator<ConnectionsTranslation> GetEnumerator()
+    {
+        return connections.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return connections.GetEnumerator();
     }
 }

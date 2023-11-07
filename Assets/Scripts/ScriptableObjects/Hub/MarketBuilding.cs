@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Market", fileName = "Building")]
 public class MarketBuilding : Building
@@ -43,6 +42,24 @@ public class MarketBuilding : Building
             var randItem = items.Count > 0 ? items[rand] : null;
 
             currentStore.Add(sloth, randItem);
+        }
+    }
+
+    public void InitStore(IEnumerable<string> guids, int daysTillUpdate)
+    {
+        this.daysTillUpdate = daysTillUpdate;
+        currentStore = new();
+
+        foreach (var guid in guids)
+        {
+            var item = itemRegistry.FindByGuid(guid);
+            currentStore.Add(item.slothType, item);
+        }
+
+        foreach (var sloth in (SlothType[])Enum.GetValues(typeof(SlothType)))
+        {
+            if (!currentStore.ContainsKey(sloth))
+                currentStore.Add(sloth, null);
         }
     }
 
