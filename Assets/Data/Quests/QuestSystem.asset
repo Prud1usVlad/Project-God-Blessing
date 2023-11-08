@@ -14,6 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   questRegistry: {fileID: 11400000, guid: 8f43e23a17e855744adc8168e32e1160, type: 2}
-  avaliableQuests: []
+  availableQuests:
+  - data: {fileID: 11400000, guid: a7fccbe2cbbf55d4c84a0ded9eabd81b, type: 2}
+    questDataGuid: a7fccbe2cbbf55d4c84a0ded9eabd81b
+    stages:
+    - progress: 0
+      isCompleted: 0
+    - progress: 0
+      isCompleted: 0
+    - progress: 0
+      isCompleted: 0
+    - progress: 0
+      isCompleted: 0
+    - progress: 0
+      isCompleted: 0
+    status: 0
+    currentStageIdx: 0
   completedQuests: []
   replayableAmount: 3

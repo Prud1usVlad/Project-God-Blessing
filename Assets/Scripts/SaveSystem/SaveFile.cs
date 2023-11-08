@@ -324,7 +324,8 @@ namespace Assets.Scripts.SaveSystem
                 .skillSystem.equipedActiveSkills
                 .Where(s => s is not null)
                 .Select(s => s.Guid));
-            equipedSkills.Add(progress.skillSystem.equipedValueSkill.Guid);
+            if (progress.skillSystem.equipedValueSkill is not null)
+                equipedSkills.Add(progress.skillSystem.equipedValueSkill.Guid);
 
             connectionsData = new();
             foreach (var trans in progress.skillSystem.connections)

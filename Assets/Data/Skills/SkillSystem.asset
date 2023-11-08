@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459f1eda5a73d140833cbd0d12888f1, type: 3}
   m_Name: SkillSystem
   m_EditorClassIdentifier: 
+  learnedSkills: []
+  equipedActiveSkills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  equipedValueSkill: {fileID: 0}
   skillRegistries:
   - {fileID: 11400000, guid: 29013186909a2fd42bc6cc167d575235, type: 2}
   connections: {fileID: 11400000, guid: 823faf716e794284d9351754ec406d20, type: 2}
