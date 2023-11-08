@@ -11,6 +11,7 @@ public class SkillTreeWindow : MonoBehaviour
 
     public SkillSystem skillSystem;
     public NationName nation;
+    public GameObject skillManagementWindowPrefab;
 
     [Header("Simple ui components")]
     public GameObject info;
@@ -55,6 +56,11 @@ public class SkillTreeWindow : MonoBehaviour
     public void OnClose()
     {
         Destroy(gameObject);
+    }
+
+    public void OnManageSkills()
+    {
+        Instantiate(skillManagementWindowPrefab, transform);
     }
 
     public void OnLearnSkill()

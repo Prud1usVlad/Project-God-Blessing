@@ -3,6 +3,7 @@ using Assets.Scripts.Models;
 using Assets.Scripts.QuestSystem;
 using Assets.Scripts.QuestSystem.Stages;
 using Assets.Scripts.ResourceSystem;
+using Assets.Scripts.SkillSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Assets.Scripts.SaveSystem
         public List<ResStatItem> resourceStatistics;
         public List<ConnectionData> connectionsData;
         public List<NationLearnedSkills> learnedSkills;
+        public List<string> equipedSkills;
         public List<InventoryRecord> inventoryRecords;
         public List<Quest> completedQuests;
         public List<Quest> availableQuests;
@@ -66,15 +68,29 @@ namespace Assets.Scripts.SaveSystem
 
         private void LoadSkills(GameProgress progress)
         {
+            progress.skillSystem.learnedSkills = new();
             foreach (var nation in learnedSkills)
             {
                 var reg = progress.skillSystem.skillRegistries
                     .Find(r => r.nation == nation.nation);
 
-                foreach (var skill in nation.skillGuids)
+                foreach (var guid in nation.skillGuids)
                 {
-                    reg.FindByGuid(skill).isLearnd = true;
+                    var skill = reg.FindByGuid(guid);
+                    skill.isLearnd = true;
+                    progress.skillSystem.learnedSkills.Add(skill);
                 }
+            }
+
+            foreach (var (guid, i) in equipedSkills.Select((g, i) => (g, i)))
+            {
+                var skill = progress.skillSystem
+                    .learnedSkills.Find(s => s.Guid == guid);
+
+                if (skill.type == SkillType.Active)
+                    progress.skillSystem.equipedActiveSkills[i] = skill as ActiveSkill;
+                else if (skill.type == SkillType.Value)
+                    progress.skillSystem.equipedValueSkill = skill as ValueSkill;
             }
 
             foreach (var trans in progress.skillSystem.connections)
@@ -289,7 +305,7 @@ namespace Assets.Scripts.SaveSystem
 
         private void SaveSkills(GameProgress progress)
         {
-            learnedSkills = new List<NationLearnedSkills>();
+            learnedSkills = new();
             foreach (var registry in progress.skillSystem.skillRegistries)
             {
                 learnedSkills.Add(new NationLearnedSkills
@@ -301,6 +317,14 @@ namespace Assets.Scripts.SaveSystem
                         .ToList()
                 });
             }
+
+            equipedSkills = new(); 
+
+            equipedSkills.AddRange(progress
+                .skillSystem.equipedActiveSkills
+                .Where(s => s is not null)
+                .Select(s => s.Guid));
+            equipedSkills.Add(progress.skillSystem.equipedValueSkill.Guid);
 
             connectionsData = new();
             foreach (var trans in progress.skillSystem.connections)

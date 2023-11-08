@@ -298,7 +298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3627868686585450286}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2315053856824278589}
+        m_TargetAssemblyTypeName: InventoryWindow, Assembly-CSharp
+        m_MethodName: OnManageSkills
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1924166080759615591
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd9e9f960eead4eb780e55873da8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillManagementWindowPrefab: {fileID: 6521700032752588356, guid: 8eae66c58b591a5479efcf293500d715,
+    type: 3}
   slots:
   - slot: {fileID: 5866602643345567745}
     types: 06000000
@@ -412,7 +426,7 @@ MonoBehaviour:
   inventoryGrid: {fileID: 5426565209804516224}
   inventory: {fileID: 11400000, guid: 865369dcb19c42d4aa098866fd93edd7, type: 2}
   equipment: {fileID: 11400000, guid: 01a728e652eb0d8499c9104b019a3c7c, type: 2}
-  resources: {fileID: 0}
+  resources: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
   inventoryDrop: {fileID: 3222020683698121903}
   sellDrop: {fileID: 0}
   deconstructDrop: {fileID: 0}
@@ -1214,6 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6650944977342564654, guid: 79294653d9b3cc24a87f29bdbf9799c2, type: 3}
   contentParent: {fileID: 5174701992943563436}
+  allowSelection: 1
 --- !u!114 &4534418447261646693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,7 +2590,7 @@ PrefabInstance:
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
@@ -2585,17 +2600,17 @@ PrefabInstance:
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
@@ -2635,12 +2650,12 @@ PrefabInstance:
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 110
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -110
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2962028207218839740, guid: 79294653d9b3cc24a87f29bdbf9799c2,
         type: 3}

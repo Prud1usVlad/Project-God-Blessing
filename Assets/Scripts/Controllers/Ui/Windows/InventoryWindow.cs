@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class InventoryWindow : MonoBehaviour
 {
+    public GameObject skillManagementWindowPrefab;
+
     [Header("Slots in the left panel")]
     [SerializeField]
     private List<Slot> slots;
@@ -77,6 +79,11 @@ public class InventoryWindow : MonoBehaviour
     public void OnClose()
     {
         Destroy(gameObject);
+    }
+
+    public void OnManageSkills()
+    {
+        Instantiate(skillManagementWindowPrefab, transform);
     }
 
     [Serializable]

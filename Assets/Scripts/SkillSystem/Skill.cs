@@ -8,6 +8,7 @@ namespace Assets.Scripts.SkillSystem
     {
         public string skillName;
         public SkillType type;
+        [TextArea]
         public string description;
         [Range(1, 3)]
         public int level;
