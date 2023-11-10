@@ -25,6 +25,12 @@ namespace Assets.Scripts.EquipmentSystem
         [Range(0, 25)]
         public int level;
 
-        public List<StatMod> modifiers;
+        public ModifiersContainer modifiers;
+
+        private void OnEnable()
+        {
+            modifiers?.InitSource(this);
+        }
+
     }
 }

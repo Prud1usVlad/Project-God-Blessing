@@ -8,6 +8,7 @@ using System.Linq;
 [CreateAssetMenu(menuName = "ScriptableObjects/EquipmentSystem/Equipment", fileName = "Equipment")]
 public class Equipment : ScriptableObject
 {
+    public GameProgress gameProgress;
     public EquipmentItemRegistry itemsRegistry;
     //public List<EquipmentItem> equipedItems;
     public Dictionary<SlothType, EquipmentItem> equipedItems;
@@ -55,7 +56,7 @@ public class Equipment : ScriptableObject
 
         foreach (var item in equipedItems.Values)
         {
-            foreach (var m in item.modifiers)
+            foreach (var m in item.modifiers.statModifiers)
             {
                 if (res.ContainsKey(m.stat))
                     res[m.stat].Add(m.modifier);
@@ -100,6 +101,7 @@ public class Equipment : ScriptableObject
         
         record.isEquipped = true;
         records.Add(record);
+        gameProgress.globalModifiers.AddModifiers(item.modifiers);
 
         return true;
     }
@@ -111,8 +113,10 @@ public class Equipment : ScriptableObject
         {
             record.isEquipped = false;
             records.Remove(record);
-            equipedItems.Remove(equipedItems.Values
-                .First(i => i.Guid == record.itemGuid).slothType);
+            var item = equipedItems.Values
+                .First(i => i.Guid == record.itemGuid);
+            equipedItems.Remove(item.slothType);
+            gameProgress.globalModifiers.RemoveModifiers(item.modifiers);
         }
     }
 

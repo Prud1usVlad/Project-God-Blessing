@@ -11,6 +11,10 @@ public class FameLevel : SerializableScriptableObject
     public string description;
     public int points;
 
-    public List<StatMod> statModifiers;
-    public List<ResMod> resourceModifiers;
+    public ModifiersContainer modifiers;
+
+    private void OnEnable()
+    {
+        modifiers?.InitSource(this);
+    }
 }

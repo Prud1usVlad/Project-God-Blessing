@@ -32,12 +32,12 @@ public class BonusBuildingDialogueBox : DialogueBox
     public void UpdateView()
     {
         if (widgetsS.Count == 0)
-            InitWidgets(widgetsS, statModsArea, building.statModifiers.Count);
+            InitWidgets(widgetsS, statModsArea, building.modifiers.statModifiers.Count);
         if (widgetsR.Count == 0) 
-            InitWidgets(widgetsR, resModsArea, building.resourceModifiers.Count);
+            InitWidgets(widgetsR, resModsArea, building.modifiers.resourceModifiers.Count);
 
-        UpdateWidgets(widgetsS, building.statModifiers.Cast<object>().ToList());
-        UpdateWidgets(widgetsR, building.resourceModifiers.Cast<object>().ToList());
+        UpdateWidgets(widgetsS, building.modifiers.statModifiers.Cast<object>().ToList());
+        UpdateWidgets(widgetsR, building.modifiers.resourceModifiers.Cast<object>().ToList());
     }
 
     private void InitWidgets(List<ModifierWidget> wList, Transform parent, int amount)

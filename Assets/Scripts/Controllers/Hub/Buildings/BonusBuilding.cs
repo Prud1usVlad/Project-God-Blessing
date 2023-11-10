@@ -9,8 +9,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Bonus", fileName = "Building")]
 public class BonusBuilding : Building
 {
-    public List<StatMod> statModifiers;
-    public List<ResMod> resourceModifiers;
+    public ModifiersContainer modifiers;
 
     public override void InitDialogue(DialogueBox dialogueBox)
     {
@@ -20,10 +19,6 @@ public class BonusBuilding : Building
 
     private void OnEnable()
     {
-        foreach (var mod in statModifiers)
-            mod.modifier.Source = this;
-
-        foreach (var mod in resourceModifiers)
-            mod.modifier.Source = this;
+        modifiers?.InitSource(this);  
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   _guid: 68bfde619d9139146bf80c4d34833d16
   buildingName: Basic bonus
   description: Basic bonus
-  isAvaliableAtStart: 0
+  isAvailableAtStart: 1
   prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
   price:
     transactionType: 2
@@ -26,31 +26,25 @@ MonoBehaviour:
       name: 2
     - amount: 20
       name: 3
-  statModifiers:
-  - stat: 1
-    reciever: 2
-    modifier:
-      Value: 2
-      Type: 100
-      Order: 100
-  - stat: 2
-    reciever: 2
-    modifier:
-      Value: -10
-      Type: 200
-      Order: 200
-  resourceModifiers:
-  - resource: 1
-    forGain: 0
-    modifier:
-      Value: 5
-      Type: 200
-      Order: 100
-      Transaction: 5
-  - resource: 1
-    forGain: 1
-    modifier:
-      Value: -5
-      Type: 200
-      Order: 0
-      Transaction: 1
+  modifiers:
+    statModifiers:
+    - stat: 5
+      reciever: 2
+      modifier:
+        Value: 1
+        Type: 100
+        Order: 0
+    - stat: 7
+      reciever: 3
+      modifier:
+        Value: 5
+        Type: 200
+        Order: 0
+    resourceModifiers:
+    - resource: 1
+      forGain: 1
+      modifier:
+        Value: 5
+        Type: 100
+        Order: 0
+        Transaction: 1

@@ -131,11 +131,11 @@ namespace Assets.Scripts.SaveSystem
         private void LoadModifiers(GameProgress progress)
         {
             foreach (var c in progress.curses)
-                progress.globalModifiers.AddModifiers(c);
+                progress.globalModifiers.AddModifiers(c.modifiers);
 
             foreach (var b in progress.placedBuildings)
                 if (b is BonusBuilding)
-                    progress.globalModifiers.AddModifiers((BonusBuilding)b);
+                    progress.globalModifiers.AddModifiers(((BonusBuilding)b).modifiers);
         }
 
         private void LoadCurses(GameProgress progress)

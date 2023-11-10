@@ -49,7 +49,17 @@ namespace Assets.Scripts.ResourceSystem
 
         public void AddSpendModifier(ResourceModifier mod)
         {
-            _gainModifiers.Add(mod);
+            _spendModifiers.Add(mod);
+        }
+
+        public void RemoveGainModifier(ResourceModifier mod)
+        {
+            _gainModifiers.Remove(mod);
+        }
+
+        public void RemoveSpendModifier(ResourceModifier mod)
+        {
+            _spendModifiers.Remove(mod);
         }
 
         public bool CanAfford(int amount, TransactionType transactionType)

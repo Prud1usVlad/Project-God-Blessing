@@ -14,14 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRegistry: {fileID: 11400000, guid: 47cc198efbd558043af141526be3fd9c, type: 2}
   resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 01a728e652eb0d8499c9104b019a3c7c, type: 2}
   records:
   - itemGuid: 57b4c74f838add543b529029018bca49
     recordGuid: bf5e5e60-57fb-40c7-b547-6e0c19a03d19
-    isEquipped: 1
-  - itemGuid: 57b4c74f838add543b529029018bca49
-    recordGuid: 24f355d0-4f4d-4d32-9f44-58ce2e29ac20
     isEquipped: 0
-  - itemGuid: 57b4c74f838add543b529029018bca49
-    recordGuid: 51874908-342e-4ba6-8574-93a9267f3fc5
+  - itemGuid: 7902d9a1311afed44b6bed4621793676
+    recordGuid: 24d355d0-4f4d-4d32-9f44-58ce2e29ac20
+    isEquipped: 1
+  - itemGuid: 3310dd1d4076e3743b643df0380c7409
+    recordGuid: 51374908-342e-4ba6-8574-93a9267f3fc5
+    isEquipped: 1
+  - itemGuid: ac161f84a95d5e342b4bc39585f28b17
+    recordGuid: 51374908-342e-4ba6-8574-93a9267f3f65
+    isEquipped: 0
+  - itemGuid: 7902d9a1311afed44b6bed4621793676
+    recordGuid: af988f9d-391c-4f43-b1cd-f38201581fa9
+    isEquipped: 0
+  - itemGuid: ac161f84a95d5e342b4bc39585f28b17
+    recordGuid: c1ac1566-bb38-4d27-9cdd-644a59bcf017
+    isEquipped: 0
+  - itemGuid: 7902d9a1311afed44b6bed4621793676
+    recordGuid: 5689fec6-1841-47d3-b35d-ebe1d86ad4d2
     isEquipped: 0

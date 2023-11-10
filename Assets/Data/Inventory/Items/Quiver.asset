@@ -38,9 +38,11 @@ MonoBehaviour:
   nation: 3
   level: 1
   modifiers:
-  - stat: 11
-    reciever: 2
-    modifier:
-      Value: 0.1
-      Type: 200
-      Order: 0
+    statModifiers:
+    - stat: 7
+      reciever: 2
+      modifier:
+        Value: 0.1
+        Type: 200
+        Order: 0
+    resourceModifiers: []

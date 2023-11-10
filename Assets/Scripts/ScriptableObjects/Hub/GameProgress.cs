@@ -45,7 +45,7 @@ public class GameProgress : ScriptableObject
         if (building is BonusBuilding)
         {
             globalModifiers.AddModifiers(
-                building as BonusBuilding);
+                (building as BonusBuilding).modifiers);
         }
         else if (building is ProductionBuilding)
         {
@@ -62,7 +62,7 @@ public class GameProgress : ScriptableObject
         if (building is BonusBuilding)
         {
             globalModifiers.AddModifiers(
-                building as BonusBuilding);
+                (building as BonusBuilding).modifiers);
         }
         else if (building is ProductionBuilding)
         {
@@ -74,12 +74,12 @@ public class GameProgress : ScriptableObject
     public void AddCurse(CurseCard curse)
     {
         curses.Add(curse);
-        globalModifiers.AddModifiers(curse);
+        globalModifiers.AddModifiers(curse.modifiers);
     }
 
     public void RemoveCurse(CurseCard curse)
     {
         curses.Remove(curse);
-        globalModifiers.RemoveModifiers(curse);
+        globalModifiers.RemoveModifiers(curse.modifiers);
     }
 }

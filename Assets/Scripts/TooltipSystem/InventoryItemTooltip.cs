@@ -31,7 +31,7 @@ public class InventoryItemTooltip : MonoBehaviour
         DestroyAllChildren(sellPanel);
         DestroyAllChildren(deconstructPanel);
 
-        foreach(var mod in item.modifiers)
+        foreach(var mod in item.modifiers.statModifiers)
         {
             var widget = Instantiate(modifierWidget, modifiersPanel)
                 .GetComponent<ModifierWidget>();

@@ -36,33 +36,29 @@ MonoBehaviour:
   nation: 3
   level: 1
   modifiers:
-  - stat: 6
-    reciever: 2
-    modifier:
-      Value: 30
-      Type: 100
-      Order: 0
-  - stat: 9
-    reciever: 2
-    modifier:
-      Value: 0.01
-      Type: 200
-      Order: 0
-  - stat: 10
-    reciever: 2
-    modifier:
-      Value: 2
-      Type: 300
-      Order: 0
-  - stat: 11
-    reciever: 2
-    modifier:
-      Value: 1.5
-      Type: 100
-      Order: 0
-  - stat: 12
-    reciever: 2
-    modifier:
-      Value: 10
-      Type: 100
-      Order: 0
+    statModifiers:
+    - stat: 6
+      reciever: 2
+      modifier:
+        Value: 20
+        Type: 100
+        Order: 0
+    - stat: 11
+      reciever: 2
+      modifier:
+        Value: 1
+        Type: 200
+        Order: 0
+    - stat: 9
+      reciever: 2
+      modifier:
+        Value: 0.01
+        Type: 200
+        Order: 0
+    - stat: 12
+      reciever: 2
+      modifier:
+        Value: 10
+        Type: 100
+        Order: 0
+    resourceModifiers: []

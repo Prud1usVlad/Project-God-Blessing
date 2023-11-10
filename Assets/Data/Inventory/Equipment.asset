@@ -12,18 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abcb1396984007499052abe5bd4c63b, type: 3}
   m_Name: Equipment
   m_EditorClassIdentifier: 
-  inventoryConfig:
-  - type: 8
-    excludedTypes: 090000000a0000000c0000000d000000
-  - type: 11
-    excludedTypes: 090000000a0000000c0000000d000000
-  - type: 10
-    excludedTypes: 09000000080000000c0000000b000000
-  - type: 13
-    excludedTypes: 09000000080000000c0000000b000000
-  - type: 9
-    excludedTypes: 0a000000080000000d0000000b000000
-  - type: 12
-    excludedTypes: 0a000000080000000d0000000b000000
+  gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   itemsRegistry: {fileID: 11400000, guid: 47cc198efbd558043af141526be3fd9c, type: 2}
-  equipedItems: []
+  records:
+  - itemGuid: 7902d9a1311afed44b6bed4621793676
+    recordGuid: 24d355d0-4f4d-4d32-9f44-58ce2e29ac20
+    isEquipped: 1
+  - itemGuid: 3310dd1d4076e3743b643df0380c7409
+    recordGuid: 51374908-342e-4ba6-8574-93a9267f3fc5
+    isEquipped: 1
