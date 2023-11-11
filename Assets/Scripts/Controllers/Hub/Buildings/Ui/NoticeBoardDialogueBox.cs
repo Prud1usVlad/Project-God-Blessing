@@ -13,6 +13,7 @@ public class NoticeBoardDialogueBox : DialogueBox
     private Quest selected;
 
     public ListViewController quests;
+    public GameObject secretsWindow;
 
     [Header("Info panel properties")]
     public GameObject infoPanel;
@@ -93,6 +94,11 @@ public class NoticeBoardDialogueBox : DialogueBox
     {
         gameProgress.questSystem.CollectRewards(selected);
         UpdateView();
+    }
+
+    public void OnManageSecrets()
+    {
+        Instantiate(secretsWindow, transform);
     }
 
     private void UpdateButtons(Quest quest)

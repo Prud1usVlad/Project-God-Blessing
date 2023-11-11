@@ -19,4 +19,6 @@ MonoBehaviour:
     baseValue: 23
   - name: 3
     baseValue: 4
+  - name: 5
+    baseValue: 2
   recieverType: 2

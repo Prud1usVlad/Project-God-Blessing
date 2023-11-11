@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 5df814df7a5da08429a649a09d0b4baa
   skillName: Hard working
   type: 4
+  nation: 1
   description: 'A hard life of humans made them a hard working nation. Having human
     production buildings production power in high positions results in 5% increase
     in income. '

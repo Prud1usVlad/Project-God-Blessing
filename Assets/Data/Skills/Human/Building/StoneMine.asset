@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 065fa74e2ce69b94e9ef403505d9fccb
   skillName: 'Stone mine '
   type: 1
+  nation: 1
   description: 'Old stone mine '
   level: 0
   pointsRequired: 1

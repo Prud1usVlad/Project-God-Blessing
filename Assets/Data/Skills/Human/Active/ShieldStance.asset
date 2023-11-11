@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 78ca49654a49a2048b2c579e2918c3d8
   skillName: Shield Stance
   type: 3
+  nation: 1
   description: Improve your defensive stats using shield stance
   level: 0
   pointsRequired: 1

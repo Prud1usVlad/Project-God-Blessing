@@ -82,7 +82,7 @@ public class SkillSystem : ScriptableObject
         switch(type)
         {
             case SkillType.Secret:
-
+                (skill as SecretSkill).OnLearn(); 
                 break;
             case SkillType.Active:
 

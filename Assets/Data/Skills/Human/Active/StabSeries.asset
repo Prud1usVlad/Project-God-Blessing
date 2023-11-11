@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: e07ef4b1c4e804a47ae763406f49d97f
   skillName: Stab series
   type: 3
+  nation: 1
   description: A series of dadly stabs
   level: 0
   pointsRequired: 1

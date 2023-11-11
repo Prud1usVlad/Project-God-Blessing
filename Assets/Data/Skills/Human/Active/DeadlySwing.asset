@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: b9af826463ad9c04b842edd600d1076e
   skillName: Deadly swing
   type: 3
+  nation: 1
   description: Cut the heads of your opponents
   level: 2
   pointsRequired: 1

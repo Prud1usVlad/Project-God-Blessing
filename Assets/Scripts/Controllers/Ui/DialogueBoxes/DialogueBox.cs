@@ -25,6 +25,7 @@ public class DialogueBox : TooltipDataProvider
     public GameObject buttonsSection;
 
     public bool allowInBuildMode = false;
+    public bool ignoreConstraints = false;
 
     public RuntimeHubUiData runtimeData;
 
@@ -35,28 +36,19 @@ public class DialogueBox : TooltipDataProvider
 
     public virtual bool InitDialogue() 
     {
-        if ((runtimeData is not null && runtimeData.isDialogOpened
+        if (ignoreConstraints)
+            Init();
+        else if ((runtimeData is not null && runtimeData.isDialogOpened
             || (!allowInBuildMode && runtimeData.isInBuildMode))
             )
         {
             DestroyDialogue();
             return false;
         }
-
-        runtimeData?.DialogueOpen(this);
-        gameObject.SetActive(true);
-
-        headerSection?.SetText(header);
-        bodySection?.SetText(body);
-
-        foreach (var button in buttons)
+        else
         {
-            var btnObj = Instantiate(button.gameObject, buttonsSection.transform);
-            var btn = btnObj.GetComponent<Button>();
-            var dialogueBtn = btnObj.GetComponent<DialogueButton>();
-
-            btn.onClick.AddListener(() => { result = dialogueBtn.result; });
-            btn.onClick.AddListener(EndDialogue);
+            runtimeData?.DialogueOpen(this);
+            Init();
         }
 
         return true;
@@ -64,7 +56,9 @@ public class DialogueBox : TooltipDataProvider
 
     protected virtual void EndDialogue()
     {
-        runtimeData?.DialogueClose();
+        if (!ignoreConstraints)
+            runtimeData?.DialogueClose();
+        
         gameObject.SetActive(false);
 
         Invoke(nameof(DestroyDialogue), 2);
@@ -83,5 +77,23 @@ public class DialogueBox : TooltipDataProvider
     public override string GetContent(string tag = null)
     {
         return body;
+    }
+
+    private void Init()
+    {
+        gameObject.SetActive(true);
+
+        headerSection?.SetText(header);
+        bodySection?.SetText(body);
+
+        foreach (var button in buttons)
+        {
+            var btnObj = Instantiate(button.gameObject, buttonsSection.transform);
+            var btn = btnObj.GetComponent<Button>();
+            var dialogueBtn = btnObj.GetComponent<DialogueButton>();
+
+            btn.onClick.AddListener(() => { result = dialogueBtn.result; });
+            btn.onClick.AddListener(EndDialogue);
+        }
     }
 }

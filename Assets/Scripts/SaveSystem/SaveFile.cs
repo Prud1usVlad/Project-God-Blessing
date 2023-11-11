@@ -28,6 +28,7 @@ namespace Assets.Scripts.SaveSystem
         public List<ConnectionData> connectionsData;
         public List<NationLearnedSkills> learnedSkills;
         public List<string> equipedSkills;
+        public List<string> publishedSecrets;
         public List<InventoryRecord> inventoryRecords;
         public List<Quest> completedQuests;
         public List<Quest> availableQuests;
@@ -79,6 +80,12 @@ namespace Assets.Scripts.SaveSystem
                     var skill = reg.FindByGuid(guid);
                     skill.isLearnd = true;
                     progress.skillSystem.learnedSkills.Add(skill);
+
+                    if (skill.type == SkillType.Secret 
+                        && publishedSecrets.Contains(skill.Guid))
+                    {
+                        (skill as SecretSkill).isPublished = true;
+                    }
                 }
             }
 
@@ -326,6 +333,11 @@ namespace Assets.Scripts.SaveSystem
                 .Select(s => s.Guid));
             if (progress.skillSystem.equipedValueSkill is not null)
                 equipedSkills.Add(progress.skillSystem.equipedValueSkill.Guid);
+
+            publishedSecrets = progress.skillSystem.learnedSkills
+                .Where(s => s.type == SkillType.Secret && (s as SecretSkill).isPublished)
+                .Select(s => s.Guid)
+                .ToList();
 
             connectionsData = new();
             foreach (var trans in progress.skillSystem.connections)

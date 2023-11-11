@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 2800a19ec170e8e40a0210de0bca4410
   skillName: New bonus
   type: 1
+  nation: 1
   description: New bonus building
   level: 0
   pointsRequired: 1
