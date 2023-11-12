@@ -3,6 +3,7 @@ using UnityEngine;
 public class HubCameraController : MonoBehaviour
 {
     private Vector3 newPos;
+    private float newDeg;
     private float cameraDistance;
     private Vector3 newCameraPos;
 
@@ -12,6 +13,8 @@ public class HubCameraController : MonoBehaviour
     [Header("Camera speed settings")]
     public float movementSpeed = 0.3f;
     public float movementTime = 5f;
+    public int rotationDegrees = 45;
+    public float rotationSpeed = 3f;
 
     [Header("Camera offset bounds settings")]
     public float maxCameraDistance = 10;
@@ -25,7 +28,6 @@ public class HubCameraController : MonoBehaviour
     [Header("Camera panning area radius")]
     public float cameraMoveDistance = 10;
 
-    // Start is called before the first frame update
     void Start()
     {
         newPos = transform.position;
@@ -34,7 +36,6 @@ public class HubCameraController : MonoBehaviour
         newCameraPos = childCamera.transform.localPosition.normalized * cameraDistance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleMovement();
@@ -59,6 +60,15 @@ public class HubCameraController : MonoBehaviour
             newPos += CalcNewPos(transform.right, movementSpeed);
         }
 
+        if (Input.GetKeyUp(KeyCode.E)) 
+        { 
+            newDeg = (int)transform.rotation.eulerAngles.y - rotationDegrees;
+        }
+        else if (Input.GetKeyUp(KeyCode.Q)) 
+        {
+            newDeg = (int)transform.rotation.eulerAngles.y + rotationDegrees;
+        }
+
         if (Input.mouseScrollDelta.y != 0)
         {
             cameraDistance += Input.mouseScrollDelta.y * zoomSpeed;
@@ -72,6 +82,10 @@ public class HubCameraController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position,
             newPos, Time.deltaTime * movementTime);
+
+        var newRotation = Quaternion.AngleAxis(newDeg, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation,
+            newRotation, Time.deltaTime * rotationSpeed);
 
         childCamera.transform.localPosition = Vector3.Lerp(
             childCamera.transform.localPosition, newCameraPos, Time.deltaTime * zoomTime);

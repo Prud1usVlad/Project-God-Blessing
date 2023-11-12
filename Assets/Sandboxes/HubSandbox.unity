@@ -4440,6 +4440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HubCameraRig
       objectReference: {fileID: 0}
+    - target: {fileID: 7468703351127331765, guid: 0bfc39eed78c92f4e90fe109d785fbfe,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9014543193173078539, guid: 0bfc39eed78c92f4e90fe109d785fbfe,
         type: 3}
       propertyPath: m_LocalPosition.x
