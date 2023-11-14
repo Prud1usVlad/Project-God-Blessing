@@ -32,8 +32,7 @@ public class LiesTranslation : BaseProgressionTranslation
         if (levelChanged)
         {
             var curse = curseRegistry.GetRandom(currentLevelIdx);
-            gameProgress.curses.Add(curse);
-            gameProgress.globalModifiers.AddModifiers(curse);
+            gameProgress.AddCurse(curse);
         }
             
 
@@ -54,8 +53,7 @@ public class LiesTranslation : BaseProgressionTranslation
         if (levelChanged)
         {
             var curse = gameProgress.curses.Last();
-            gameProgress.curses.Remove(curse);
-            gameProgress.globalModifiers.RemoveModifiers(curse);
+            gameProgress.RemoveCurse(curse);
         }
             
 

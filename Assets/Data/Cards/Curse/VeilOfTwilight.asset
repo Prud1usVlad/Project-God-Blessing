@@ -31,17 +31,12 @@ MonoBehaviour:
   - {fileID: 8054113735732439965, guid: ed3371224ed1f254597656f10f8a02c1, type: 3}
   curseName: Veil of Twilight
   level: 1
-  statMods:
-  - stat: 2
-    reciever: 2
-    modifier:
-      Value: -2
-      Type: 100
-      Order: 100
-  - stat: 3
-    reciever: 2
-    modifier:
-      Value: -1
-      Type: 100
-      Order: 100
-  resMods: []
+  modifiers:
+    statModifiers:
+    - stat: 1
+      reciever: 2
+      modifier:
+        Value: -2
+        Type: 0
+        Order: 0
+    resourceModifiers: []

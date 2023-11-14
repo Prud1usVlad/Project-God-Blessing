@@ -1,5 +1,6 @@
 using Assets.Scripts.Helpers.Enums;
 using Assets.Scripts.ScriptableObjects.Hub;
+using Assets.Scripts.TooltipSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueBox : MonoBehaviour
+public class DialogueBox : TooltipDataProvider
 {
     [NonSerialized]
     public string header;
@@ -23,6 +24,9 @@ public class DialogueBox : MonoBehaviour
     public TextMeshProUGUI bodySection;
     public GameObject buttonsSection;
 
+    public bool allowInBuildMode = false;
+    public bool ignoreConstraints = false;
+
     public RuntimeHubUiData runtimeData;
 
     private void Awake()
@@ -32,13 +36,51 @@ public class DialogueBox : MonoBehaviour
 
     public virtual bool InitDialogue() 
     {
-        if (runtimeData.isDialogOpened)
+        if (ignoreConstraints)
+            Init();
+        else if ((runtimeData is not null && runtimeData.isDialogOpened
+            || (!allowInBuildMode && runtimeData.isInBuildMode))
+            )
         {
             DestroyDialogue();
             return false;
         }
+        else
+        {
+            runtimeData?.DialogueOpen(this);
+            Init();
+        }
 
-        runtimeData.DialogueOpen(this);
+        return true;
+    }
+
+    protected virtual void EndDialogue()
+    {
+        if (!ignoreConstraints)
+            runtimeData?.DialogueClose();
+        
+        gameObject.SetActive(false);
+
+        Invoke(nameof(DestroyDialogue), 2);
+    }
+
+    protected virtual void DestroyDialogue()
+    {
+        Destroy(gameObject);
+    }
+
+    public override string GetHeader(string tag = null)
+    {
+        return header;
+    }
+
+    public override string GetContent(string tag = null)
+    {
+        return body;
+    }
+
+    private void Init()
+    {
         gameObject.SetActive(true);
 
         headerSection?.SetText(header);
@@ -53,20 +95,5 @@ public class DialogueBox : MonoBehaviour
             btn.onClick.AddListener(() => { result = dialogueBtn.result; });
             btn.onClick.AddListener(EndDialogue);
         }
-
-        return true;
-    }
-
-    protected virtual void EndDialogue()
-    {
-        runtimeData.DialogueClose();
-        gameObject.SetActive(false);
-
-        Invoke(nameof(DestroyDialogue), 2);
-    }
-
-    protected virtual void DestroyDialogue()
-    {
-        Destroy(gameObject);
     }
 }

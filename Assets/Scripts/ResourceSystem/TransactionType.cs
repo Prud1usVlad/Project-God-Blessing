@@ -14,6 +14,9 @@ namespace Assets.Scripts.ResourceSystem
         Sell,
         Cashback,
         Production,
+        ResourceMarket,
+        Deconstruction,
+        QuestReward,
         Any,
     }
 }

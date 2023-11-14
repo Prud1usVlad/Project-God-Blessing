@@ -95,6 +95,7 @@ MonoBehaviour:
   headerSection: {fileID: 1992794380869238090}
   bodySection: {fileID: 7034594764210214845}
   buttonsSection: {fileID: 8065314146355599106}
+  allowInBuildMode: 1
   runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
 --- !u!1 &3131715528086285335
 GameObject:

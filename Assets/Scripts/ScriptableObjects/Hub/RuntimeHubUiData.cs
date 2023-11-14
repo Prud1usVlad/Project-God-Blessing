@@ -11,6 +11,7 @@ namespace Assets.Scripts.ScriptableObjects.Hub
     public class RuntimeHubUiData : ScriptableObject
     {
         public bool isDialogOpened = false;
+        public bool isInBuildMode = false;
         public DialogueBox openedDialogue = null;
 
         public void DialogueOpen(DialogueBox dialogueBox)
@@ -27,7 +28,7 @@ namespace Assets.Scripts.ScriptableObjects.Hub
 
         private void OnEnable()
         {
-            DialogueClose();   
+            DialogueClose();
         }
     }
 }

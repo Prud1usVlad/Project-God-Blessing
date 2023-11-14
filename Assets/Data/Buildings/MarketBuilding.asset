@@ -15,7 +15,7 @@ MonoBehaviour:
   _guid: e201d62feb099824eb53be549f876488
   buildingName: Basic market
   description: Basic market
-  isAvaliableAtStart: 1
+  isAvailableAtStart: 1
   prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
   price:
     transactionType: 2
@@ -26,3 +26,8 @@ MonoBehaviour:
       name: 2
     - amount: 20
       name: 3
+  daysTillUpdate: 0
+  nation: 1
+  daysToUpdate: 5
+  itemRegistry: {fileID: 11400000, guid: 8a6f5d322a834dc4694af17cacd68494, type: 2}
+  gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}

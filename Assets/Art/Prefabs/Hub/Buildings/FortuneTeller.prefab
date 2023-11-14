@@ -116,7 +116,8 @@ GameObject:
   - component: {fileID: 8188597777920999304}
   - component: {fileID: 7422450566383102583}
   - component: {fileID: 3464612127705422634}
-  - component: {fileID: 6753025283166184356}
+  - component: {fileID: 4871191141567267586}
+  - component: {fileID: 5745774942734159164}
   m_Layer: 0
   m_Name: FortuneTeller
   m_TagString: Untagged
@@ -192,8 +193,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6753025283166184356
-BoxCollider:
+--- !u!114 &4871191141567267586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790126978264021699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 11400000, guid: af2192259181df842ab4669b35f8eb83, type: 2}
+  dialogueBox: {fileID: 6319322947091837240, guid: ad20e614b98c9e9468bf78d5e328c0e0,
+    type: 3}
+  isBuilt: 1
+--- !u!135 &5745774942734159164
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -211,7 +228,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2385406228927683376
 GameObject:

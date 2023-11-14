@@ -5,7 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Sandboxes/HubSandbox.unity
+    guid: 5643934ac1f73be4eb71bfa26396c175
+  - enabled: 1
+    path: Assets/Sandboxes/TransitionTest.unity
+    guid: 21f214fe6c3b4d54a96918dea76b67c9
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

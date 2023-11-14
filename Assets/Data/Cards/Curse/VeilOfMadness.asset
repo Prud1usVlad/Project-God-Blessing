@@ -31,17 +31,12 @@ MonoBehaviour:
   - {fileID: 8054113735732439965, guid: 1af4ae595d7bcca4a91eb757bbe7fff9, type: 3}
   curseName: Veil of Madness
   level: 3
-  statMods:
-  - stat: 2
-    reciever: 2
-    modifier:
-      Value: -2
-      Type: 100
-      Order: 100
-  - stat: 3
-    reciever: 3
-    modifier:
-      Value: 3
-      Type: 100
-      Order: 100
-  resMods: []
+  modifiers:
+    statModifiers:
+    - stat: 1
+      reciever: 2
+      modifier:
+        Value: -2
+        Type: 0
+        Order: 0
+    resourceModifiers: []

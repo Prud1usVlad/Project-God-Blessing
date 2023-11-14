@@ -22,11 +22,21 @@ MonoBehaviour:
     isAvaliable: 1
   - guid: efc29a37ef48d98408e98c8504e1aee3
     isAvaliable: 1
-  placedBuildings: []
-  curses: []
+  - guid: 16ebe5cc36d5fec42bc41e99a2e91bc1
+    isAvaliable: 0
+  equipment: {fileID: 11400000, guid: 01a728e652eb0d8499c9104b019a3c7c, type: 2}
+  inventory: {fileID: 11400000, guid: 865369dcb19c42d4aa098866fd93edd7, type: 2}
+  questSystem: {fileID: 11400000, guid: 2bdc1cf5eb3f3d9498597125b50bf3b8, type: 2}
+  placedBuildings:
+  - {fileID: 11400000, guid: addde35c1584533409a3f3e6ff5d427a, type: 2}
+  - {fileID: 11400000, guid: e201d62feb099824eb53be549f876488, type: 2}
+  - {fileID: 11400000, guid: efc29a37ef48d98408e98c8504e1aee3, type: 2}
+  curses:
+  - {fileID: 11400000, guid: 45a58b1ee5b783b4d8d38e8708f6ef33, type: 2}
   buildingRegistry: {fileID: 11400000, guid: 6e9fc77b59fd41a4a82a066af5b5881c, type: 2}
   curseRegistry: {fileID: 11400000, guid: b0a46eb1e44fdcf4f9d22360bbe8dc75, type: 2}
   resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
   fameTranslation: {fileID: 11400000, guid: c955e92e6d3ea494bb5912b8cfaad348, type: 2}
   liesTranslation: {fileID: 11400000, guid: 38880d4d97b9e754aae711c543169976, type: 2}
   globalModifiers: {fileID: 11400000, guid: c814db361047cc44b9573f9e97d9902d, type: 2}
+  skillSystem: {fileID: 11400000, guid: 30f617e36c55274428e6a4a47b732c80, type: 2}

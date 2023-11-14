@@ -34,17 +34,12 @@ MonoBehaviour:
   - {fileID: 8054113735732439965, guid: dd5892560b2f5454ab4fadb2d9d25d4e, type: 3}
   curseName: 'Shattered Reality '
   level: 3
-  statMods:
-  - stat: 2
-    reciever: 0
-    modifier:
-      Value: -2
-      Type: 100
-      Order: 100
-  - stat: 3
-    reciever: 3
-    modifier:
-      Value: 1
-      Type: 100
-      Order: 100
-  resMods: []
+  modifiers:
+    statModifiers:
+    - stat: 1
+      reciever: 2
+      modifier:
+        Value: -2
+        Type: 0
+        Order: 0
+    resourceModifiers: []

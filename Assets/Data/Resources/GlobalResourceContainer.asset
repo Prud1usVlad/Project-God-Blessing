@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: GlobalResourceContainer
   m_EditorClassIdentifier: 
   resources:
-  - amount: 784
+  - amount: 980
     name: 1
-  - amount: 86
+  - amount: 200
     name: 2
-  - amount: 72
+  - amount: 200
     name: 3
+  productionBuildings: []
+  resourceMarket: {fileID: 11400000, guid: 2dac4c29cabd337408d9fdb225c40215, type: 2}

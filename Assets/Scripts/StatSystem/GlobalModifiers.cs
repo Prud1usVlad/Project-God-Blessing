@@ -6,6 +6,9 @@ using Assets.Scripts.SaveSystem;
 using System.Linq;
 using System;
 using Assets.Scripts.Models;
+using Assets.Scripts.ResourceSystem;
+using System.Text.RegularExpressions;
+using UnityEditor.Experimental.GraphView;
 
 namespace Assets.Scripts.StatSystem
 {
@@ -13,45 +16,40 @@ namespace Assets.Scripts.StatSystem
     public class GlobalModifiers : ScriptableObject
     {
         // stats ordered by: reciever >> statName >> source
-        public Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>> table;
+        public Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>> statTable;
+        public Dictionary<ResourceName, List<ResourceModifier>> resTable;
 
-        public List<StatsContainer> containersToNotify;
+        public List<StatsContainer> statContainers;
+        public List<ResourceContainer> resContainers;
 
         // methods with simplified signature
-        public void AddModifiers(CurseCard curse)
+        public void AddModifiers(ModifiersContainer container)
         {
-            BaseAddRemove(curse.statMods, m => m.reciever, m => m.stat, true);
+            BaseAddRemove(container.statModifiers, m => m.reciever, m => m.stat, true);
+            BaseAddRemove(container.resourceModifiers, m => m.resource, true);
         }
 
-        public void RemoveModifiers(CurseCard curse)
+        public void RemoveModifiers(ModifiersContainer container)
         {
-            BaseAddRemove(curse.statMods, m => m.reciever, m => m.stat, false);
-        }
-
-        public void AddModifiers(BonusBuilding building)
-        {
-            BaseAddRemove(building.statModifiers, m => m.reciever, m => m.stat, true);
-        }
-
-        public void RemoveModifiers(BonusBuilding building)
-        {
-            BaseAddRemove(building.statModifiers, m => m.reciever, m => m.stat, false);
+            BaseAddRemove(container.statModifiers, m => m.reciever, m => m.stat, false);
+            BaseAddRemove(container.resourceModifiers, m => m.resource, false);
         }
 
         // basic methods
         public void AddModifiers(IEnumerable<StatMod> modifiers,
             ModifierReciever reciever, StatName stat, bool update = true)
+
         {
-            if (table is null)
-                table = new Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>> ();
+            if (statTable is null)
+                statTable = new Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>> ();
 
-            if (!table.ContainsKey(reciever))
-                table.Add(reciever, new Dictionary<StatName, List<StatModifier>>());
+            if (!statTable.ContainsKey(reciever))
+                statTable.Add(reciever, new Dictionary<StatName, List<StatModifier>>());
 
-            if (!table[reciever].ContainsKey(stat))
-                table[reciever].Add(stat, new List<StatModifier>());
+            if (!statTable[reciever].ContainsKey(stat))
+                statTable[reciever].Add(stat, new List<StatModifier>());
 
-            var list = table[reciever][stat];
+            var list = statTable[reciever][stat];
 
             foreach (var modifier in modifiers)
             {
@@ -65,16 +63,56 @@ namespace Assets.Scripts.StatSystem
         public void RemoveModifiers(IEnumerable<StatMod> modifiers,
             ModifierReciever reciever, StatName stat, bool update = true)
         {
-            if (table is null)
-                table = new Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>>();
+            if (statTable is null)
+                statTable = new Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>>();
 
-            if (!table.ContainsKey(reciever))
+            if (!statTable.ContainsKey(reciever))
                 return;
 
-            if (!table[reciever].ContainsKey(stat))
+            if (!statTable[reciever].ContainsKey(stat))
                 return;
 
-            var list = table[reciever][stat];
+            var list = statTable[reciever][stat];
+
+            foreach (var modifier in modifiers)
+            {
+                list.Remove(modifier.modifier);
+            }
+
+            if (update)
+                UpdateContainers(modifiers, false);
+        }
+
+        public void AddModifiers(IEnumerable<ResMod> modifiers,
+            ResourceName res, bool update = true)
+        {
+            if (resTable is null)
+                resTable = new Dictionary<ResourceName, List<ResourceModifier>>();
+
+            if (!resTable.ContainsKey(res))
+                resTable.Add(res, new List<ResourceModifier>());
+
+            var list = resTable[res];
+
+            foreach (var modifier in modifiers)
+            {
+                list.Add(modifier.modifier);
+            }
+
+            if (update)
+                UpdateContainers(modifiers, true);
+        }
+
+        public void RemoveModifiers(IEnumerable<ResMod> modifiers,
+            ResourceName res, bool update = true)
+        {
+            if (resTable is null)
+                resTable = new Dictionary<ResourceName, List<ResourceModifier>>();
+
+            if (!resTable.ContainsKey(res))
+                return;
+
+            var list = resTable[res];
 
             foreach (var modifier in modifiers)
             {
@@ -93,7 +131,7 @@ namespace Assets.Scripts.StatSystem
             {
                 var grupedS = grupR.GroupBy(m => m.stat);
 
-                var cSet = containersToNotify
+                var cSet = statContainers
                     .Where(c => c.recieverType == grupR.Key);
 
                 foreach (var grupS in grupedS)
@@ -105,6 +143,31 @@ namespace Assets.Scripts.StatSystem
                             c.RemoveModifiers(grupS.Select(m => m.modifier));
                     }
                         
+            }
+        }
+
+        private void UpdateContainers(IEnumerable<ResMod> modifiers, bool add)
+        {
+            var grouped = modifiers.GroupBy(m => m.resource);
+
+            foreach (var group in grouped)
+            {
+                foreach (var c in resContainers)
+                {
+                    foreach (var mod in group)
+                    {
+                        var res = c.GetResource(group.Key);
+
+                        if (add && mod.forGain)
+                            res.AddGainModifier(mod.modifier);
+                        else if (add && ! mod.forGain)
+                            res.AddSpendModifier(mod.modifier);
+                        else if (!add && mod.forGain)
+                            res.RemoveGainModifier(mod.modifier);
+                        else if (!add && !mod.forGain)
+                            res.RemoveSpendModifier(mod.modifier);
+                    }
+                }
             }
         }
 
@@ -125,6 +188,22 @@ namespace Assets.Scripts.StatSystem
                     else
                         RemoveModifiers(iGrup, grup.Key, iGrup.Key, false);
                 }
+            }
+
+            UpdateContainers(modifiers, add);
+        }
+
+        private void BaseAddRemove(List<ResMod> modifiers,
+            Func<ResMod, ResourceName> resSelector, bool add)
+        {
+            var gruped = modifiers.GroupBy(resSelector);
+
+            foreach (var grup in gruped)
+            {
+                if (add)
+                    AddModifiers(grup, grup.Key, false);
+                else
+                    RemoveModifiers(grup, grup.Key, false);
             }
 
             UpdateContainers(modifiers, add);

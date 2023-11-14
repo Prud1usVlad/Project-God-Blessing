@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 15937a93946c6f14890e3576476cadaf, type: 3}
   m_Name: FameTranslation
-  m_EditorClassIdentifier: Assembly-CSharp::FameTranslation
-  currentPoints: 0
+  m_EditorClassIdentifier: 
+  currentPoints: 40
   currentLevelIdx: 0
+  gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   registry: {fileID: 11400000, guid: 614c179f60c4ebc48824bb6c89a728f1, type: 2}
-  currentFameLevel: {fileID: 0}
+  currentFameLevel: {fileID: 11400000, guid: bc6f04b360e7e0546b88d5bce60401f3, type: 2}

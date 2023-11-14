@@ -180,6 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2686375745248009014}
+  - component: {fileID: 8646630315258352991}
   m_Layer: 5
   m_Name: Desc
   m_TagString: Untagged
@@ -208,6 +209,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8646630315258352991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357118054839054572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d1dad73873e8f4095dd547812c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: 
+  content: 
+  delay: 0.5
 --- !u!1 &3733508871465534396
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +517,7 @@ MonoBehaviour:
   itemSelected: {fileID: 11400000, guid: 807690386a9db324488a62be20959bdc, type: 2}
   buildingName: {fileID: 6403881355248677477}
   buildingDescription: {fileID: 1494087007592670462}
+  tooltipTrigger: {fileID: 8646630315258352991}
   resourcesPanel: {fileID: 3402320761505373236}
 --- !u!114 &-1701716013376313108
 MonoBehaviour:
@@ -548,7 +565,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2448982456021704332}
         m_TargetAssemblyTypeName: BuildingListItem, Assembly-CSharp
-        m_MethodName: OnSelected
+        m_MethodName: OnSelecting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

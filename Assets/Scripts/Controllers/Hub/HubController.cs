@@ -30,12 +30,24 @@ public class HubController : MonoBehaviour
     {
         objectPlacer = buildSystem.GetComponent<ObjectPlacer>();
         saveController.Load();
+
+        gameProgress.questSystem.FillAvailable();
+        var market = gameProgress.placedBuildings.Find(b => b is MarketBuilding);
+
     }
 
     private void OnDestroy()
     {
         Debug.Log("Scene unload");
         saveController.AutoSave();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.Space)) 
+        {
+            //SceneManager.LoadScene(1);
+        }
     }
 
     public void AddBuildings(List<Place> places)

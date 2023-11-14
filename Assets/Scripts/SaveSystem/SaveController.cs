@@ -29,7 +29,7 @@ public class SaveController : MonoBehaviour
                 new ItemAvaliability
                 {
                     guid = b.Guid,
-                    isAvaliable = b.isAvaliableAtStart
+                    isAvailable = b.isAvailableAtStart
                 }
             ).ToList();
         gameProgress.placedBuildings.Clear();

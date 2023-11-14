@@ -9,7 +9,7 @@ namespace Assets.Scripts.Registries
 {
     public interface IListViewExtendedRegistry
     {
-        public void ForEach(Action<SerializableScriptableObject> action);
-        public SerializableScriptableObject Find(string guid);
+        public void ForEach(Action<object> action);
+        public object Find(string guid);
     }
 }

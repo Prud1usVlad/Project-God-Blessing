@@ -126,7 +126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9122835000751678662}
         m_TargetAssemblyTypeName: CurseCardListItem, Assembly-CSharp
-        m_MethodName: OnSelected
+        m_MethodName: OnSelecting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

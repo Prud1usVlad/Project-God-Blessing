@@ -21,8 +21,7 @@ public class CurseCard : SerializableScriptableObject
     [System.NonSerialized]
     public int imageIdx = 0;
 
-    public List<StatMod> statMods;
-    public List<ResMod> resMods;
+    public ModifiersContainer modifiers;
 
     public string prophesy => prophesies[prophesyIdx];
     public GameObject image => imagePrefabs[imageIdx];
@@ -41,10 +40,6 @@ public class CurseCard : SerializableScriptableObject
 
     private void OnEnable()
     {
-        foreach (var mod in statMods)
-            mod.modifier.Source = this;
-
-        foreach (var mod in resMods)
-            mod.modifier.Source = this;
+        modifiers?.InitSource(this);
     }
 }

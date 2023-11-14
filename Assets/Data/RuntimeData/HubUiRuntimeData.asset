@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3a2a3a3a3a6ad42864ff4e79f2a496, type: 3}
   m_Name: HubUiRuntimeData
   m_EditorClassIdentifier: 
-  isDialogOpened: 0
+  isDialogOpened: 1
+  isInBuildMode: 0
   openedDialogue: {fileID: 0}

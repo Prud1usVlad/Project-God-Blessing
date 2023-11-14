@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Helpers.ListView;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,9 +11,11 @@ public class CurseCardListItem : MonoBehaviour, IListItem
     public Transform imageParent;
     public GameObject details;
 
+    public Action Selection { get; set; }
+
     public void FillItem(object data)
     {
-        card = (CurseCard)data;
+        card = data as CurseCard;
 
         curseName?.SetText(card?.curseName);
         Instantiate(card.image, imageParent);
@@ -30,13 +33,13 @@ public class CurseCardListItem : MonoBehaviour, IListItem
 
     public void OnSelected()
     {
-        Instantiate(details, transform.parent.parent)
-            .GetComponent<CurseDetailWindow>().Init(card);
-        Debug.Log("Card selected: " + card.curseName);
+        
     }
 
-    public void OnUnselected()
+    public void OnSelecting()
     {
-        Debug.Log("Card unslected: " + card.curseName);
+        Selection?.Invoke();
+        Instantiate(details, transform.parent.parent)
+            .GetComponent<CurseDetailWindow>().Init(card);
     }
 }

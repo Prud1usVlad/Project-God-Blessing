@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Translations/Fame" , fileName = "FameTranslation")]
 public class FameTranslation : BaseProgressionTranslation
 {
+    public GameProgress gameProgress;
     public FameLevelRegistry registry;
     public FameLevel currentFameLevel;
 
@@ -26,6 +24,7 @@ public class FameTranslation : BaseProgressionTranslation
                 // level changed?
                 if (i != currentLevelIdx)
                 {
+                    ManageModifiers(entry, currentFameLevel);
                     currentLevelIdx = i;
                     currentFameLevel = entry;
 
@@ -86,8 +85,17 @@ public class FameTranslation : BaseProgressionTranslation
         return registry.GetByIndex(currentLevelIdx + 1).points - currentPoints;
     }
 
+    private void ManageModifiers(FameLevel prev, FameLevel curr)
+    {
+        if (curr is not null)
+            gameProgress.globalModifiers.AddModifiers(curr.modifiers);
+        if (prev is not null)
+            gameProgress.globalModifiers.RemoveModifiers(prev.modifiers);
+    }
+
     private void OnEnable()
     {
-        currentFameLevel = registry.GetByIndex(currentLevelIdx);
+        if (registry != null)
+            currentFameLevel = registry.GetByIndex(currentLevelIdx);
     }
 }

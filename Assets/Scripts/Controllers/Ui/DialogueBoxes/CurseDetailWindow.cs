@@ -17,14 +17,14 @@ internal class CurseDetailWindow : MonoBehaviour
 
         Instantiate(curseCard.image, imgParent);
 
-        foreach(var resMod in curseCard.resMods)
+        foreach(var resMod in curseCard.modifiers.statModifiers)
         {
             Instantiate(modifierPref, modsParent)
                 .GetComponent<ModifierWidget>()
                 .UpdateView(resMod);
         }
 
-        foreach (var statMod in curseCard.statMods)
+        foreach (var statMod in curseCard.modifiers.statModifiers)
         {
             Instantiate(modifierPref, modsParent)
                 .GetComponent<ModifierWidget>()

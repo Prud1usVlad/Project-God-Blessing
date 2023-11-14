@@ -19,11 +19,7 @@ public class ObjectPlacer : MonoBehaviour
 
         newObject.GetComponent<BuildingController>().isBuilt = true;
 
-        progress.placedBuildings.Add(building);
-        
-        if (building is BonusBuilding)
-            progress.globalModifiers.AddModifiers(
-                building as BonusBuilding);
+        progress.AddBuilding(building);
 
         return placedGameObjects.Count - 1;
     }
@@ -39,11 +35,7 @@ public class ObjectPlacer : MonoBehaviour
             return;
         }
 
-        progress.placedBuildings.Remove(place.building);
-
-        if (place.building is BonusBuilding)
-            progress.globalModifiers.AddModifiers(
-                place.building as BonusBuilding);
+        progress.RemoveBuilding(place.building);
 
         Destroy(placedGameObjects[idx]);
         placedGameObjects[idx] = null;
