@@ -60,14 +60,23 @@ public class HubCameraController : MonoBehaviour
             newPos += CalcNewPos(transform.right, movementSpeed);
         }
 
+        var targetDeg = newDeg;
+
         if (Input.GetKeyUp(KeyCode.E)) 
         { 
-            newDeg = (int)transform.rotation.eulerAngles.y - rotationDegrees;
+            targetDeg = (int)transform.rotation.eulerAngles.y - rotationDegrees;
         }
         else if (Input.GetKeyUp(KeyCode.Q)) 
         {
-            newDeg = (int)transform.rotation.eulerAngles.y + rotationDegrees;
+            targetDeg = (int)transform.rotation.eulerAngles.y + rotationDegrees;
         }
+
+        if (targetDeg % rotationDegrees != 0) 
+        {
+            targetDeg = Mathf.RoundToInt((float)targetDeg / (float)rotationDegrees) * rotationDegrees;  
+        }
+
+        newDeg = targetDeg;
 
         if (Input.mouseScrollDelta.y != 0)
         {
