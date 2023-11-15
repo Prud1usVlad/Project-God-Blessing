@@ -9,6 +9,7 @@ using UnityEngine;
 public class GameProgress : ScriptableObject
 {
     public int day = 1;
+    public string preferedSaveFile;
 
     [Header("Progress")]
     public List<ItemAvaliability> buildingResearch;

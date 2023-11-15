@@ -12,7 +12,7 @@ using UnityEngine;
 namespace Assets.Scripts.SaveSystem
 {
     [Serializable]
-    public class SaveFile
+    public class SaveFile : ISaveFile
     {
         // Header
         public string characterName;
@@ -21,6 +21,8 @@ namespace Assets.Scripts.SaveSystem
         public int lies;
         public int day;
         public string date;
+        public string fileName;
+        public string filePath;
 
         // Progress
         public List<ItemAvaliability> reserchedBuildings;
@@ -63,6 +65,12 @@ namespace Assets.Scripts.SaveSystem
             LoadSkills(progress);
             LoadInventory(progress);
             LoadQuests(progress);
+        }
+
+        public void SetSystemHeaders(string fileName, string filePath)
+        {
+            this.fileName = fileName;
+            this.filePath = filePath;
         }
 
         # region Load Methods 
