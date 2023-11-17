@@ -4,6 +4,7 @@ using Assets.Scripts.QuestSystem;
 using Assets.Scripts.QuestSystem.Stages;
 using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.SkillSystem;
+using Assets.Scripts.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,12 @@ using UnityEngine;
 namespace Assets.Scripts.SaveSystem
 {
     [Serializable]
-    public class SaveFile : ISaveFile
+    public class SaveFile : ISaveFile, ISerializationCallbackReceiver
     {
+        private List<StatName> defaultStatNames = 
+            new List<StatName>() { StatName.Sanity, StatName.Strength,
+                StatName.Agility, StatName.Charism, StatName.Luck };
+
         // Header
         public string characterName;
         public string type;
@@ -23,8 +28,12 @@ namespace Assets.Scripts.SaveSystem
         public string date;
         public string fileName;
         public string filePath;
+        public string avatarPath;
+        [NonSerialized]
+        public Sprite avatarSprite;
 
         // Progress
+        public List<Stat> defaultStats;
         public List<ItemAvaliability> reserchedBuildings;
         public List<ResStatItem> resourceStatistics;
         public List<ConnectionData> connectionsData;
@@ -71,6 +80,18 @@ namespace Assets.Scripts.SaveSystem
         {
             this.fileName = fileName;
             this.filePath = filePath;
+        }
+
+        public void OnBeforeSerialize()
+        {
+            if (avatarSprite is not null)
+                avatarPath = AssetDatabase.GetAssetPath(avatarSprite);
+        }
+
+        public void OnAfterDeserialize()
+        {
+            if (!string.IsNullOrEmpty(avatarPath))
+                avatarSprite = (Sprite)AssetDatabase.LoadAssetAtPath(avatarPath, typeof(Sprite));
         }
 
         # region Load Methods 
@@ -202,8 +223,18 @@ namespace Assets.Scripts.SaveSystem
 
         private void LoadBasic(GameProgress progress)
         {
+            progress.characterName = characterName;
             progress.fameTranslation.SetPoints(fame);
             progress.liesTranslation.SetPoints(lies);
+            progress.avatar = avatarSprite;
+
+            foreach (var stat in defaultStats)
+            {
+                var progressStat = progress.playerStats.GetStat(stat.name);
+                    
+                if (progressStat != null)
+                    progressStat.baseValue = stat.baseValue;
+            }
         }
 
         private void LoadInventory(GameProgress progress)
@@ -230,6 +261,7 @@ namespace Assets.Scripts.SaveSystem
         #endregion
 
         #region Load auxilary methods
+
         private void InitQuestBeforeLoad(Quest quest, GameProgress progress)
         {
             quest.data = progress.questSystem
@@ -240,10 +272,11 @@ namespace Assets.Scripts.SaveSystem
                 quest.stages[i].data = quest.data.stages[i];
             }
         }
+        
         #endregion
 
         # region Save Methods
-
+        
         private void SaveResources(GameProgress progress)
         {
             resources = progress.resourceContainer.Resources;
@@ -312,10 +345,16 @@ namespace Assets.Scripts.SaveSystem
 
         private void SaveBasic(GameProgress progress)
         {
+            characterName = progress.characterName;
             day = progress.day;
             fame = progress.fameTranslation.currentPoints;
             lies = progress.liesTranslation.currentPoints;
             reserchedBuildings = progress.buildingResearch;
+            avatarSprite = progress.avatar;
+
+            defaultStats = progress.playerStats.Stats
+                .Where(s => defaultStatNames.Contains(s.name))
+                .ToList();
         }
 
         private void SaveSkills(GameProgress progress)

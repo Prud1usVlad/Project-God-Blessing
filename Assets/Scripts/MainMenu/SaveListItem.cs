@@ -4,6 +4,7 @@ using Assets.Scripts.SaveSystem;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.MainMenu
 {
@@ -15,6 +16,7 @@ namespace Assets.Scripts.MainMenu
         private SaveSystem.SaveSystem saveSystem;
         private SaveFile saveFile;
 
+        public Image image;
         public TextMeshProUGUI charName;
         public TextMeshProUGUI saveType;
         public TextMeshProUGUI fame;
@@ -30,6 +32,7 @@ namespace Assets.Scripts.MainMenu
         {
             saveFile = (SaveFile)data;
 
+            image.sprite = saveFile.avatarSprite;
             charName.SetText(saveFile.characterName);
             saveType.SetText(saveFile.type);
             fame.SetText(fameTranslation.GetProgressPercentage(saveFile.fame) + "%");

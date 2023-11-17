@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fameTranslation: {fileID: 11400000, guid: c955e92e6d3ea494bb5912b8cfaad348, type: 2}
   saveSystem: {fileID: 11400000, guid: ff24ea4b837dc754da1f339d15b7e30d, type: 2}
+  image: {fileID: 583952139737549034}
   charName: {fileID: 2775770839588635751}
   saveType: {fileID: 8635313726743023086}
   fame: {fileID: 8812827544383623051}

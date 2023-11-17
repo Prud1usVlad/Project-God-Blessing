@@ -20,7 +20,12 @@ namespace Assets.Scripts.Helpers
             else if (abs < 1000 * 1000 * 1000)
                 return Math.Round(num / (1000d * 1000d), decimals).ToString() + "M";
             else return "none";
-        } 
+        }
+
+        public static string DateTimeToSaveDate(DateTime date)
+        {
+            return date.ToString("MM-dd-yyyy HH-mm-ss");
+        }
 
         public static Color NationToColor(NationName nation)
         {

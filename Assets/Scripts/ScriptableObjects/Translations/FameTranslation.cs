@@ -89,7 +89,7 @@ public class FameTranslation : BaseProgressionTranslation
     public float GetProgressPercentage(int points)
     {
         var maxPoints = registry.levels.Sum(l => l.points);
-        return Mathf.Min((float)Math.Round((double)maxPoints / (double)points, 2) * 100f, 100);
+        return Mathf.Min((float)Math.Round((double)points / (double)maxPoints, 2) * 100f, 100);
     }
 
     private void ManageModifiers(FameLevel prev, FameLevel curr)

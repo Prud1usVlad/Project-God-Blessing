@@ -12,6 +12,14 @@ public class SavesMenuWindow : MonoBehaviour
     public SaveSystem saveSystem;
     public GameProgress gameProgress;
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Awake()
     {
         UpdateView();
