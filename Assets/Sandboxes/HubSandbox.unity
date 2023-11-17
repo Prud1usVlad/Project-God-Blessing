@@ -454,6 +454,12 @@ PrefabInstance:
       propertyPath: buildSystem
       value: 
       objectReference: {fileID: 818982083}
+    - target: {fileID: 6718698423289191576, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 11400000, guid: 328c84cd0a6cd324d8c8d3305cb3d1a7,
+        type: 2}
     - target: {fileID: 7819601773079189314, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
         type: 3}
       propertyPath: m_LocalPosition.x

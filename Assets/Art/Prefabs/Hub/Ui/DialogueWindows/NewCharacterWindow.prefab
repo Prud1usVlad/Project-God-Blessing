@@ -2596,6 +2596,7 @@ MonoBehaviour:
   - {fileID: 1172192777, guid: 7239e9892cd02294cb73e5be69eaedf9, type: 3}
   progress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   saveSystem: {fileID: 11400000, guid: ff24ea4b837dc754da1f339d15b7e30d, type: 2}
+  loadingScreen: {fileID: 11400000, guid: 328c84cd0a6cd324d8c8d3305cb3d1a7, type: 2}
 --- !u!1 &8828969256386614633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,7 +3417,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6933734796904018502, guid: d264610bbcaccee4ab8bf925b2132510, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

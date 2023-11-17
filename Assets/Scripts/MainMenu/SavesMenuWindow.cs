@@ -1,3 +1,4 @@
+using Assets.Scripts.Helpers;
 using Assets.Scripts.SaveSystem;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class SavesMenuWindow : MonoBehaviour
 
     public SaveSystem saveSystem;
     public GameProgress gameProgress;
+    public LoadingScreen loadingScreen;
 
     public void Update()
     {
@@ -41,6 +43,7 @@ public class SavesMenuWindow : MonoBehaviour
 
     public void OnLoadSaveFile(string fileName)
     {
+        loadingScreen.Show();
         gameProgress.preferedSaveFile = fileName;
         SceneManager.LoadScene(0);
     }

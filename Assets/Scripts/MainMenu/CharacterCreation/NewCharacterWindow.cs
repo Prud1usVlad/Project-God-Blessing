@@ -26,6 +26,7 @@ public class NewCharacterWindow : MonoBehaviour
 
     public GameProgress progress;
     public SaveSystem saveSystem;
+    public LoadingScreen loadingScreen;
 
     public void Awake()
     {
@@ -52,6 +53,8 @@ public class NewCharacterWindow : MonoBehaviour
 
     public void CreateCharacter()
     {
+        loadingScreen.Show();
+
         var saveFile = new SaveFile();
         saveFile.day = 1;
         saveFile.characterName = characterName.text;

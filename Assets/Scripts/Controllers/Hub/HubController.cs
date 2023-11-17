@@ -1,3 +1,4 @@
+using Assets.Scripts.Helpers;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +14,8 @@ public class HubController : MonoBehaviour
     public GameObject buildSystem;
 
     public SaveController saveController;
-
     public GameProgress gameProgress;
+    public LoadingScreen loadingScreen;
 
     public void OnEnterBuildMode()
     {
@@ -34,20 +35,13 @@ public class HubController : MonoBehaviour
         gameProgress.questSystem.FillAvailable();
         var market = gameProgress.placedBuildings.Find(b => b is MarketBuilding);
 
+        loadingScreen.Hide();
     }
 
     private void OnDestroy()
     {
         Debug.Log("Scene unload");
         saveController.AutoSave();
-    }
-
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.Space)) 
-        {
-            //SceneManager.LoadScene(1);
-        }
     }
 
     public void AddBuildings(List<Place> places)
