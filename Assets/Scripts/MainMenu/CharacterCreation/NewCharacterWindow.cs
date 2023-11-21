@@ -167,6 +167,8 @@ public class NewCharacterWindow : MonoBehaviour
 
     public void CreateCharacterFromCard()
     {
+        loadingScreen.Show();
+
         var saveFile = new SaveFile();
         saveFile.day = 1;
         saveFile.characterName = selectedCard.characterName;
