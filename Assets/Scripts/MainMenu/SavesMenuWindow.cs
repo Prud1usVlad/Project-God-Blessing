@@ -18,7 +18,7 @@ public class SavesMenuWindow : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            Destroy(gameObject);
+            OnClose();
         }
     }
 
@@ -46,5 +46,10 @@ public class SavesMenuWindow : MonoBehaviour
         loadingScreen.Show();
         gameProgress.preferedSaveFile = fileName;
         SceneManager.LoadScene(0);
+    }
+
+    public void OnClose()
+    {
+        Destroy(gameObject);
     }
 }

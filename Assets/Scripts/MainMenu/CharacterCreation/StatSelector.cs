@@ -39,22 +39,16 @@ namespace Assets.Scripts.MainMenu.CharacterCreation
             if (!allowInteractions)
                 return;
 
-            if (value == newValue)
-            {
-                freePoints += value;
-                value = 0;
-            }
-            else
-            {
-                freePoints += value - newValue;
-                value = newValue;
-            }
+            UpdateValue(newValue);
 
             UpdateView();
         }
 
-        public void UpdateView()
+        public void UpdateView(int newValue = -1)
         {
+            if (newValue >= 0)
+                UpdateValue(newValue, false, false);
+
             foreach (var (button, i) in buttons.Select((b, i) => (b, i))) 
             {
                 if (i < value) 
@@ -79,6 +73,23 @@ namespace Assets.Scripts.MainMenu.CharacterCreation
         {
             if (prevFreePoints != freePoints)
                 UpdateView();
+        }
+
+        private void UpdateValue(int newValue, 
+            bool sameValueNullifies = true, bool withFreePoints = true)
+        {
+            if (sameValueNullifies && value == newValue)
+            {
+                if (withFreePoints)
+                    freePoints += value;
+                value = 0;
+            }
+            else
+            {
+                if (withFreePoints)
+                    freePoints += value - newValue;
+                value = newValue;
+            }
         }
     }
 }
