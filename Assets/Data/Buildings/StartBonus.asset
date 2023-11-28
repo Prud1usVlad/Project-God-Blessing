@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StartBonus
   m_EditorClassIdentifier: 
   _guid: efc29a37ef48d98408e98c8504e1aee3
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Basic bonus
   description: Basic bonus avaliable at start
   isAvailableAtStart: 1

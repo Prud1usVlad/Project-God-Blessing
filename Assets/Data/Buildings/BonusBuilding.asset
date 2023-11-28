@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BonusBuilding
   m_EditorClassIdentifier: 
   _guid: 68bfde619d9139146bf80c4d34833d16
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Basic bonus
   description: Basic bonus
   isAvailableAtStart: 1

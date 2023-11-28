@@ -89,7 +89,7 @@ public class PlacementController : MonoBehaviour
         dialogue.header = "Confirmation needed";
         dialogue.body = "Do you realy want to perform this action?";
 
-        dialogue.InitDialogue();
+        dialogue.modalManager.DialogueOpen(dialogue);
 
         while (dialogue.result == DialogueBoxResult.None)
             yield return new WaitForSeconds(0.5f);

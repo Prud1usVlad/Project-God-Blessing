@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Helpers;
 using Assets.Scripts.ResourceSystem;
+using Assets.Scripts.ScriptableObjects.Hub;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ using UnityEngine;
 
 public abstract class Building : SerializableScriptableObject
 {
+    [SerializeField]
+    protected ModalManager modalManager;
+
     public string buildingName;
     public string description;
     public bool isAvailableAtStart = true;

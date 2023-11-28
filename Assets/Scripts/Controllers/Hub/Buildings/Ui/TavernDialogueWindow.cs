@@ -29,24 +29,33 @@ public class TavernDialogueWindow : DialogueBox
 
     public void CloseWindow()
     {
-        EndDialogue();
+        modalManager.DialogueClose();
     }
 
     public void OnEconomics()
     {
-        Instantiate(economicsWindowPrefab, transform);
+        var dialogue = Instantiate(economicsWindowPrefab, transform)
+            .GetComponent<EconomicsWindow>();
+
+        modalManager.DialogueOpen(dialogue);
     }
 
     public void OnInventory()
     {
-        Instantiate(inventoryWindowPrefab, transform);
+        var dialogue = Instantiate(inventoryWindowPrefab, transform)
+            .GetComponent<InventoryWindow>();
+
+        modalManager.DialogueOpen(dialogue);
     }
 
     public void OnResearch(int nationIdx) 
     {
-        Instantiate(skillTreeWindowPrefab, transform)
-            .GetComponent<SkillTreeWindow>()
-            .InitWindow((NationName)nationIdx);
+        var dialogue = Instantiate(skillTreeWindowPrefab, transform)
+            .GetComponent<SkillTreeWindow>();
+
+        dialogue.InitData((NationName)nationIdx);
+
+        modalManager.DialogueOpen(dialogue);
     }
 
 }

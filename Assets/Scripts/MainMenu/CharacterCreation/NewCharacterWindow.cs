@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class NewCharacterWindow : MonoBehaviour
+public class NewCharacterWindow : DialogueBox
 {
     public int statPoints;
     public GameObject modeSelection;
@@ -49,17 +49,24 @@ public class NewCharacterWindow : MonoBehaviour
     public SaveSystem saveSystem;
     public LoadingScreen loadingScreen;
 
-    public void Awake()
+    public override bool InitDialogue()
     {
-        SetRandomName();
-        avatar.sprite = randomAvatars[Random.Range(0, randomAvatars.Count)];
-        StatSelector.freePoints = statPoints;
-        allAvatarsList.selectionChanged += OnAvatarSelect;
-        storyCardsView.selectionChanged += StoryCardSelect;
+        var inited = base.InitDialogue();
 
-        modeSelection.gameObject.SetActive(true);
-        storyBasedPanel.SetActive(false);
-        handCreationPanel.SetActive(false);
+        if (inited)
+        {
+            SetRandomName();
+            avatar.sprite = randomAvatars[Random.Range(0, randomAvatars.Count)];
+            StatSelector.freePoints = statPoints;
+            allAvatarsList.selectionChanged += OnAvatarSelect;
+            storyCardsView.selectionChanged += StoryCardSelect;
+
+            modeSelection.gameObject.SetActive(true);
+            storyBasedPanel.SetActive(false);
+            handCreationPanel.SetActive(false);
+        }
+
+        return inited;
     }
 
     public void Update()
@@ -70,11 +77,6 @@ public class NewCharacterWindow : MonoBehaviour
             createButton.interactable = false;
         else if (!createButton.interactable && StatSelector.freePoints == 0)
             createButton.interactable = true;
-
-        if (Input.GetKeyUp(KeyCode.Escape)) 
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void InitByHand()

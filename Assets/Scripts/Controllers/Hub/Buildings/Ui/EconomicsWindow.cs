@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class EconomicsWindow : MonoBehaviour
+public class EconomicsWindow : DialogueBox
 {
     private Resource selected;
 
@@ -47,19 +47,26 @@ public class EconomicsWindow : MonoBehaviour
     public TextMeshProUGUI spentOther;
     public TextMeshProUGUI spentAll;
 
-    private void Start()
+    public override bool InitDialogue()
     {
-        listView.selectionChanged += OnSelectionChanged;
+        var inited = base.InitDialogue();
 
-        selected = container.Resources.First();
-        listView.InitView(container.Resources.Cast<object>().ToList(), selected);
+        if (inited)
+        {
+            listView.selectionChanged += OnSelectionChanged;
 
-        UpdateView();
+            selected = container.Resources.First();
+            listView.InitView(container.Resources.Cast<object>().ToList(), selected);
+
+            UpdateView();
+        }
+
+        return inited;
     }
 
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 
     public void ConfirmTransaction()
@@ -236,11 +243,12 @@ public class EconomicsWindow : MonoBehaviour
     private void ShowMessage(string header, string body)
     {
         var box = Instantiate(messageBox, transform)
-                    .GetComponentInChildren<DialogueBox>();
+            .GetComponentInChildren<DialogueBox>();
 
         box.header = header;
         box.body = body;
-        box.InitDialogue();
+
+        modalManager.DialogueOpen(box);
     }
 
     private ResourceDynamic GetStat

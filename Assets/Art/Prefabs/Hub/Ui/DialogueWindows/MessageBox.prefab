@@ -442,7 +442,8 @@ MonoBehaviour:
   buttonsSection: {fileID: 394459150619501298}
   allowInBuildMode: 1
   ignoreConstraints: 1
-  runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
 --- !u!114 &4079383043725740273
 MonoBehaviour:
   m_ObjectHideFlags: 0

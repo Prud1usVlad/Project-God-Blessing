@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Tavern
   m_EditorClassIdentifier: 
   _guid: 6feefb1a86b5f8e48a390e427b736c3f
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Tavern
   description: Tavern
-  isAvaliableAtStart: 1
+  isAvailableAtStart: 1
   prefab: {fileID: 6091930860955423883, guid: 143780a6d9fe1604baf9800b55ff5687, type: 3}
   price:
     transactionType: 0

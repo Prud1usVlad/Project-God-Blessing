@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MarketBuilding
   m_EditorClassIdentifier: 
   _guid: e201d62feb099824eb53be549f876488
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Basic market
   description: Basic market
   isAvailableAtStart: 1

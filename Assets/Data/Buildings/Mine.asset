@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Mine
   m_EditorClassIdentifier: 
   _guid: 16ebe5cc36d5fec42bc41e99a2e91bc1
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Mine
   description: 'An old mine, all can ptovide is cold stone '
-  isAvaliableAtStart: 0
+  isAvailableAtStart: 1
   prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
   price:
     transactionType: 2

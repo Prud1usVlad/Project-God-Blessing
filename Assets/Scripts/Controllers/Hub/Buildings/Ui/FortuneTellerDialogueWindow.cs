@@ -16,7 +16,6 @@ public class FortuneTellerDialogueWindow : DialogueBox
 
     public override bool InitDialogue()
     {
-
         header = "Fortune Teller";
         body = "Tells fortunes";
 
@@ -45,12 +44,15 @@ public class FortuneTellerDialogueWindow : DialogueBox
 
     public void CloseWindow()
     {
-        EndDialogue();
+        modalManager.DialogueClose();
     }
 
     public void ShowPlayerStats()
     {
-        Instantiate(playerStatsPrefab, transform);
+        var dialogue = Instantiate(playerStatsPrefab, transform)
+            .GetComponent<PlayerStatsWindow>();
+
+        modalManager.DialogueOpen(dialogue);
     }
 
     private void Update()

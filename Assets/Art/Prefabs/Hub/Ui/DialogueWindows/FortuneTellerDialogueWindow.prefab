@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2170827041471755628, guid: 5bdfd7d82541a674aa3e14335be33c27, type: 3}
   contentParent: {fileID: 647327579766664145}
+  allowSelection: 1
 --- !u!1 &1795559975548458612
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +942,10 @@ MonoBehaviour:
   headerSection: {fileID: 8928930026150946104}
   bodySection: {fileID: 732074930992203124}
   buttonsSection: {fileID: 0}
-  runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  allowInBuildMode: 0
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   liesTranslation: {fileID: 11400000, guid: 38880d4d97b9e754aae711c543169976, type: 2}
   gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   liesSlider: {fileID: 7260329537783006523}

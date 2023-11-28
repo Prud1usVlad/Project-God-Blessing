@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SavesMenuWindow : MonoBehaviour
+public class SavesMenuWindow : DialogueBox
 {
     public ListViewController savesView;
 
@@ -14,17 +14,16 @@ public class SavesMenuWindow : MonoBehaviour
     public GameProgress gameProgress;
     public LoadingScreen loadingScreen;
 
-    public void Update()
+    public override bool InitDialogue()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            OnClose();
-        }
-    }
+        var inited = base.InitDialogue();
 
-    public void Awake()
-    {
-        UpdateView();
+        if (inited)
+        {
+            UpdateView();
+        }
+
+        return inited;
     }
 
     public void UpdateView()
@@ -50,6 +49,6 @@ public class SavesMenuWindow : MonoBehaviour
 
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 }

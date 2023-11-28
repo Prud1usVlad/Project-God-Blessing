@@ -94,8 +94,11 @@ MonoBehaviour:
   headerSection: {fileID: 2915160069628189330}
   bodySection: {fileID: 6973378764593488264}
   buttonsSection: {fileID: 3286706324516821514}
+  discardOtherWhileOpen: 1
   allowInBuildMode: 0
-  runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   building: {fileID: 0}
   widgetPrefab: {fileID: 5017420270391392606, guid: 844b7994c1e53e740aa54ad7cd3cf065,
     type: 3}

@@ -1043,6 +1043,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffcbf8fd8bd43d4dbbd9fa8c5b5c400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
+  headerSection: {fileID: 0}
+  bodySection: {fileID: 0}
+  buttonsSection: {fileID: 0}
+  discardOtherWhileOpen: 0
+  allowInBuildMode: 0
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   skillSystem: {fileID: 11400000, guid: 30f617e36c55274428e6a4a47b732c80, type: 2}
   reserchedList: {fileID: 7711706163733584485}
   activeSkillSloths:

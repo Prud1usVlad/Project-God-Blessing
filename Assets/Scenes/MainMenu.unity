@@ -2342,6 +2342,7 @@ MonoBehaviour:
     type: 3}
   newCharacterMenu: {fileID: 8420620799111929170, guid: af4b90979de5b544ab12ab6e3b549a05,
     type: 3}
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
 --- !u!1 &1760844092
 GameObject:
   m_ObjectHideFlags: 0

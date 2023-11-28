@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NoticeBoard
   m_EditorClassIdentifier: 
   _guid: 550f7add176a99042b601f18dce31488
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Notice board
   description: Place where you can find new quests and share some secrets
   isAvailableAtStart: 1

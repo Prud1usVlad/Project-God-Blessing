@@ -6,8 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class InventoryWindow : MonoBehaviour
+public class InventoryWindow : DialogueBox
 {
     public GameObject skillManagementWindowPrefab;
 
@@ -28,6 +29,18 @@ public class InventoryWindow : MonoBehaviour
     private void Start()
     {
         UpdateView();
+    }
+
+    public override bool InitDialogue()
+    {
+        var inited = base.InitDialogue();
+
+        if (inited)
+        {
+            UpdateView();
+        }
+
+        return inited;
     }
 
     public void UpdateView()
@@ -78,7 +91,7 @@ public class InventoryWindow : MonoBehaviour
 
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 
     public void OnManageSkills()

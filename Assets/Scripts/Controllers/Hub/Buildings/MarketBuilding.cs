@@ -22,7 +22,7 @@ public class MarketBuilding : Building
     public override void InitDialogue(DialogueBox dialogueBox)
     {
         (dialogueBox as MarketBuildingDialogueBox).building = this;
-        dialogueBox.InitDialogue();
+        modalManager.DialogueOpen(dialogueBox);
     }
 
     public void UpdateStore()

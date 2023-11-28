@@ -744,6 +744,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e48c58be2165fb459af0ab92008f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
+  headerSection: {fileID: 0}
+  bodySection: {fileID: 0}
+  buttonsSection: {fileID: 0}
+  discardOtherWhileOpen: 0
+  allowInBuildMode: 0
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   savesView: {fileID: 4557916617965717630}
   saveSystem: {fileID: 11400000, guid: ff24ea4b837dc754da1f339d15b7e30d, type: 2}
   gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}

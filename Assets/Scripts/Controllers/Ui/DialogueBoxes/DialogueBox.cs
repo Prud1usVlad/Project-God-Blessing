@@ -24,10 +24,12 @@ public class DialogueBox : TooltipDataProvider
     public TextMeshProUGUI bodySection;
     public GameObject buttonsSection;
 
+    public bool discardOtherWhileOpen = false;
     public bool allowInBuildMode = false;
     public bool ignoreConstraints = false;
+    public bool requireResultToClose = false;
 
-    public RuntimeHubUiData runtimeData;
+    public ModalManager modalManager;
 
     private void Awake()
     {
@@ -38,27 +40,30 @@ public class DialogueBox : TooltipDataProvider
     {
         if (ignoreConstraints)
             Init();
-        else if ((runtimeData is not null && runtimeData.isDialogOpened
-            || (!allowInBuildMode && runtimeData.isInBuildMode))
-            )
+        else if (modalManager.isDiscarding)
         {
             DestroyDialogue();
             return false;
         }
         else
         {
-            runtimeData?.DialogueOpen(this);
             Init();
         }
 
         return true;
     }
 
-    protected virtual void EndDialogue()
+    public virtual void EndDialogue()
     {
-        if (!ignoreConstraints)
-            runtimeData?.DialogueClose();
-        
+        //if (!ignoreConstraints)
+        //runtimeData?.DialogueClose();
+
+        if (requireResultToClose && result == DialogueBoxResult.None)
+            return;
+
+        if (discardOtherWhileOpen)
+            modalManager.isDiscarding = false;
+
         gameObject.SetActive(false);
 
         Invoke(nameof(DestroyDialogue), 2);
@@ -92,8 +97,10 @@ public class DialogueBox : TooltipDataProvider
             var btn = btnObj.GetComponent<Button>();
             var dialogueBtn = btnObj.GetComponent<DialogueButton>();
 
-            btn.onClick.AddListener(() => { result = dialogueBtn.result; });
-            btn.onClick.AddListener(EndDialogue);
+            btn.onClick.AddListener(() => result = dialogueBtn.result);
+            btn.onClick.AddListener(() => modalManager.DialogueClose());
         }
+
+        modalManager.isDiscarding = discardOtherWhileOpen;
     }
 }

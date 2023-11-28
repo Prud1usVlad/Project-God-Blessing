@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-internal class CurseDetailWindow : MonoBehaviour
+internal class CurseDetailWindow : DialogueBox
 {
     public TextMeshProUGUI curse;
     public TextMeshProUGUI prophesy;
@@ -10,7 +10,7 @@ internal class CurseDetailWindow : MonoBehaviour
 
     public GameObject modifierPref;
 
-    public void Init(CurseCard curseCard)
+    public void InitData(CurseCard curseCard)
     {
         curse.SetText(curseCard.curseName);
         prophesy.SetText(curseCard.prophesy);
@@ -33,8 +33,15 @@ internal class CurseDetailWindow : MonoBehaviour
 
     }
 
+    public override bool InitDialogue()
+    {
+        var inited = base.InitDialogue();
+
+        return inited;
+    }
+
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 }

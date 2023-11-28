@@ -10,6 +10,6 @@ public class Tavern : Building
 {
     public override void InitDialogue(DialogueBox dialogueBox)
     {
-        dialogueBox.InitDialogue();
+        modalManager.DialogueOpen(dialogueBox);
     }
 }

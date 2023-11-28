@@ -1160,6 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7213980481335694789, guid: 0cd081c6da7b8394688d32934624cf3d, type: 3}
   contentParent: {fileID: 1678175840377852212}
+  allowSelection: 1
 --- !u!1 &1883699600477356826
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,6 +4382,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda4f7f5e5dd4cf4483aba1151fb2c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
+  headerSection: {fileID: 0}
+  bodySection: {fileID: 0}
+  buttonsSection: {fileID: 0}
+  discardOtherWhileOpen: 0
+  allowInBuildMode: 0
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   resourcePrefab: {fileID: 1678175840377852212}
   messageBox: {fileID: 8441426459605575032, guid: 66aaaf59ff296c342a5c853b99e0155f,
     type: 3}

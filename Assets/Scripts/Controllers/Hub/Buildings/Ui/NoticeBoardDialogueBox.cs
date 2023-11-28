@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Helpers;
 using Assets.Scripts.QuestSystem;
+using Assets.Scripts.SkillSystem.Ui;
 using System;
 using System.Linq;
 using TMPro;
@@ -98,7 +99,10 @@ public class NoticeBoardDialogueBox : DialogueBox
 
     public void OnManageSecrets()
     {
-        Instantiate(secretsWindow, transform);
+        var dialogue = Instantiate(secretsWindow, transform)
+            .GetComponent<SecretsPostingWindow>();
+
+        modalManager.DialogueOpen(dialogue);
     }
 
     private void UpdateButtons(Quest quest)

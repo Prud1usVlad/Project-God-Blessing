@@ -5,13 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class SkillManagementWindow : MonoBehaviour
+public class SkillManagementWindow : DialogueBox
 {
     public SkillSystem skillSystem;
     public ListViewController reserchedList;
     public List<EquipableSkillListItem> activeSkillSloths;
     public EquipableSkillListItem valueSloth;
+
+    public override bool InitDialogue()
+    {
+        var inited = base.InitDialogue();
+
+        if (inited)
+        {
+            UpdateView();
+        }
+
+        return inited;
+    }
 
     public void UpdateView()
     {
@@ -68,7 +81,7 @@ public class SkillManagementWindow : MonoBehaviour
 
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 
     public void OnEnable()

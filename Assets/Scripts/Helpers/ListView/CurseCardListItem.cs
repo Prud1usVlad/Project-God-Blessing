@@ -39,7 +39,9 @@ public class CurseCardListItem : MonoBehaviour, IListItem
     public void OnSelecting()
     {
         Selection?.Invoke();
-        Instantiate(details, transform.parent.parent)
-            .GetComponent<CurseDetailWindow>().Init(card);
+        var dialogue = Instantiate(details, transform.parent.parent)
+            .GetComponent<CurseDetailWindow>();
+        dialogue.InitData(card);
+        dialogue.modalManager.DialogueOpen(dialogue);
     }
 }

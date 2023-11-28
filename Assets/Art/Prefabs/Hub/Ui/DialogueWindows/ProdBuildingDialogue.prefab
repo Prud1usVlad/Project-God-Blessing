@@ -512,7 +512,11 @@ MonoBehaviour:
   headerSection: {fileID: 1620542552781917829}
   bodySection: {fileID: 9190168518426735848}
   buttonsSection: {fileID: 8935761269316759066}
-  runtimeData: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  discardOtherWhileOpen: 1
+  allowInBuildMode: 0
+  ignoreConstraints: 0
+  requireResultToClose: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   building: {fileID: 0}
   productionWidget: {fileID: 7961317559353328565}
   consumptionPanel: {fileID: 3765203405480106788}
