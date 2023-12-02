@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.ScriptableObjects.Hub;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.SkillSystem.Ui
 {
-    public class SecretsPostingWindow : MonoBehaviour
+    public class SecretsPostingWindow : DialogueBox
     {
         public GameProgress gameProgress;
         public SecretSkill skill;
@@ -28,16 +29,18 @@ namespace Assets.Scripts.SkillSystem.Ui
 
         public GameObject infoPanel;
 
-        private void Awake()
+        public override bool InitDialogue()
         {
-            InitWindow();
-        }
+            var inited = base.InitDialogue();
 
-        public void InitWindow()
-        {
-            UpdateView();
+            if (inited)
+            {
+                UpdateView();
 
-            infoPanel.SetActive(false);
+                infoPanel.SetActive(false);
+            }
+
+            return inited;
         }
 
         public void UpdateView()
@@ -102,15 +105,11 @@ namespace Assets.Scripts.SkillSystem.Ui
                 box.ignoreConstraints = true;
                 box.header = $"The secret \"{skill.skillName}\" is published";
                 box.body = skill.publishMessage;
-                box.InitDialogue();
+                modalManager.DialogueOpen(box);
 
                 UpdateView();
             }
         }
 
-        public void OnClose()
-        {
-            Destroy(gameObject);
-        }
     }
 }

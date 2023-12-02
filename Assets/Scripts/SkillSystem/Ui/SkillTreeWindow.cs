@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Assets.Scripts.SkillSystem;
 using Assets.Scripts.SaveSystem;
 
-public class SkillTreeWindow : MonoBehaviour
+public class SkillTreeWindow : DialogueBox
 {
     private Skill selected = null;
 
@@ -37,30 +37,37 @@ public class SkillTreeWindow : MonoBehaviour
         skillSystem.connections.GetConnection(nation);
     public SkillRegistry skills => 
         skillSystem.skillRegistries.Find(r => r.nation == nation);
-    
-    private void Awake()
+
+    public override bool InitDialogue()
     {
-        gameObject.SetActive(false);
+        var inited = base.InitDialogue();
+
+        if (inited)
+        {
+            UpdateView();
+
+            info.SetActive(false);
+        }
+
+        return inited;
     }
 
-    public void InitWindow(NationName nation)
+    public void InitData(NationName nation)
     {
         this.nation = nation;
-
-        UpdateView();
-
-        info.SetActive(false);
-        gameObject.SetActive(true);
     }
 
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 
     public void OnManageSkills()
     {
-        Instantiate(skillManagementWindowPrefab, transform);
+        var dialogue = Instantiate(skillManagementWindowPrefab, transform)
+            .GetComponent<SkillManagementWindow>();
+    
+        modalManager.DialogueOpen(dialogue);
     }
 
     public void OnLearnSkill()

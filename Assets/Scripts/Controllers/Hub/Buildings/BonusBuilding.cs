@@ -14,7 +14,7 @@ public class BonusBuilding : Building
     public override void InitDialogue(DialogueBox dialogueBox)
     {
         (dialogueBox as BonusBuildingDialogueBox).building = this;
-        dialogueBox.InitDialogue();
+        modalManager.DialogueOpen(dialogueBox);
     }
 
     private void OnEnable()

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Translations/Fame" , fileName = "FameTranslation")]
@@ -83,6 +84,12 @@ public class FameTranslation : BaseProgressionTranslation
             return int.MaxValue;
 
         return registry.GetByIndex(currentLevelIdx + 1).points - currentPoints;
+    }
+
+    public float GetProgressPercentage(int points)
+    {
+        var maxPoints = registry.levels.Sum(l => l.points);
+        return Mathf.Min((float)Math.Round((double)points / (double)maxPoints, 2) * 100f, 100);
     }
 
     private void ManageModifiers(FameLevel prev, FameLevel curr)

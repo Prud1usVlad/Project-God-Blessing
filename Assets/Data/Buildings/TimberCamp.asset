@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: TimberCamp
   m_EditorClassIdentifier: 
   _guid: addde35c1584533409a3f3e6ff5d427a
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Timber Camp
   description: Converts gold to wood
-  isAvaliableAtStart: 1
+  isAvailableAtStart: 1
   prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
   price:
     transactionType: 2
@@ -33,4 +34,4 @@ MonoBehaviour:
     - amount: 10
       name: 1
   productionMultiplier: 1
-  productionPower: 4
+  productionPower: 1

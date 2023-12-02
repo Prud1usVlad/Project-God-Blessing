@@ -11,10 +11,12 @@ namespace Assets.Scripts.SaveSystem
     public class SaveSystem : ScriptableObject
     {
         public bool SaveData<T>(T file, string fileName = "save.json")
-                where T : class
+                where T : ISaveFile
         {
             string dirPath = Application.persistentDataPath + "/Saves";
             string path = dirPath + "/" + fileName;
+
+            file.SetSystemHeaders(fileName, path);
             string data = JsonUtility.ToJson(file);
 
             string reserveCopy = "";
@@ -106,6 +108,24 @@ namespace Assets.Scripts.SaveSystem
                 return null;
 
             return LoadData<T>(file.Name); 
+        }
+
+        public List<T> LoadAll<T>() where T : class
+        {
+            string path = Application.persistentDataPath + "/Saves/";
+            var directory = new DirectoryInfo(path);
+            List<T> res = new();
+
+            if (!Directory.Exists(path))
+                return res;
+
+            foreach (var file in directory
+                .GetFiles().OrderByDescending(f => f.LastWriteTime))
+            {
+                res.Add(LoadData<T>(file.Name));
+            }
+
+            return res;
         }
 
         public void DeleteFile(string fileName)

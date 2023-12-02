@@ -1,6 +1,7 @@
 using Assets.Scripts.Models;
 using Assets.Scripts.QuestSystem;
 using Assets.Scripts.ResourceSystem;
+using Assets.Scripts.Stats;
 using Assets.Scripts.StatSystem;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Progress/GameProgress", fileName = "GameProgress")]
 public class GameProgress : ScriptableObject
 {
+    public string characterName;
     public int day = 1;
+    public Sprite avatar;
+    public string preferedSaveFile;
 
     [Header("Progress")]
     public List<ItemAvaliability> buildingResearch;
@@ -29,6 +33,7 @@ public class GameProgress : ScriptableObject
     public FameTranslation fameTranslation;
     public LiesTranslation liesTranslation;
     [Header("Data trackers")]
+    public StatsContainer playerStats;
     public GlobalModifiers globalModifiers;
     public SkillSystem skillSystem;
 

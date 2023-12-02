@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using Assets.Scripts.Models;
 
-public class PlayerStatsWindow : MonoBehaviour
+public class PlayerStatsWindow : DialogueBox
 {
     public StatsContainer playerStats;
 
@@ -15,7 +15,7 @@ public class PlayerStatsWindow : MonoBehaviour
 
     public Transform contentParent;
 
-    private void Start()
+    private void UpdateView()
     {
         foreach (var stat in playerStats.Stats)
         {
@@ -39,8 +39,18 @@ public class PlayerStatsWindow : MonoBehaviour
         }
     }
 
+    public override bool InitDialogue()
+    {
+        var inited = base.InitDialogue();
+
+        if (inited)
+            UpdateView();
+
+        return inited;
+    }
+
     public void OnClose()
     {
-        Destroy(gameObject);
+        modalManager.DialogueClose();
     }
 }

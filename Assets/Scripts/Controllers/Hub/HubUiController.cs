@@ -15,7 +15,7 @@ public class HubUiController : MonoBehaviour
     [Header("Data")]
     public BuildingRegistry buildings;
     public ResourceContainer resources;
-    public RuntimeHubUiData runtimeData;
+    public ModalManager runtimeData;
 
     [Header("Events")]
     public GameEvent enterBuildMode;
@@ -62,5 +62,13 @@ public class HubUiController : MonoBehaviour
             && !runtimeData.isInBuildMode
             && !basicUi.gameObject.activeSelf)
             basicUi.gameObject.SetActive(true);
+
+        if (Input.GetKeyUp(KeyCode.Escape)) 
+        {
+            if (runtimeData.isDialogOpened)
+            {
+                runtimeData.DialogueClose();
+            }
+        }
     }
 }

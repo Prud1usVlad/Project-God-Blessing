@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class HubSandboxUi : MonoBehaviour
 {
-    public RuntimeHubUiData runtimeHubUiData;
+    public ModalManager runtimeHubUiData;
 
     private void Awake()
     {

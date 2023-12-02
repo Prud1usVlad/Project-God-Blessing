@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: 1
-    baseValue: 12
+    baseValue: 0
   - name: 2
-    baseValue: 23
+    baseValue: 0
   - name: 3
-    baseValue: 4
+    baseValue: 0
   - name: 5
-    baseValue: 2
+    baseValue: 0
+  - name: 4
+    baseValue: 0
   recieverType: 2

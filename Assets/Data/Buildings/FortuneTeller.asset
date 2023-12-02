@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: FortuneTeller
   m_EditorClassIdentifier: 
   _guid: af2192259181df842ab4669b35f8eb83
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   buildingName: Fortune teller
   description: Fortune teller camp
-  isAvaliableAtStart: 1
+  isAvailableAtStart: 1
   prefab: {fileID: 1790126978264021699, guid: 644994cf2a540ae4bae23d6a82039d8e, type: 3}
   price:
     transactionType: 0

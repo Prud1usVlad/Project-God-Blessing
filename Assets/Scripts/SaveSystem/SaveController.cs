@@ -1,3 +1,4 @@
+using Assets.Scripts.Helpers;
 using Assets.Scripts.Models;
 using Assets.Scripts.SaveSystem;
 using System;
@@ -34,8 +35,16 @@ public class SaveController : MonoBehaviour
             ).ToList();
         gameProgress.placedBuildings.Clear();
 
-        var file = saveSystem.LoadLast<SaveFile>();
+        SaveFile file;
         
+        if (string.IsNullOrEmpty(gameProgress.preferedSaveFile))
+            file = saveSystem.LoadLast<SaveFile>();
+        else
+        {
+            file = saveSystem.LoadData<SaveFile>(gameProgress.preferedSaveFile);
+            gameProgress.preferedSaveFile = null;
+        }
+
         if (file != null)
         {
             controller.AddBuildings(file.places);
@@ -45,11 +54,10 @@ public class SaveController : MonoBehaviour
 
     private void Save(SaveMode mode)
     {
-        string dateStr = DateTime.Now.ToString("MM-dd-yyyy HH-mm-ss");
+        string dateStr = Converters.DateTimeToSaveDate(DateTime.Now);
         string fileName = mode.HumanName() + "Save " + dateStr + ".json";
         var file = new SaveFile();
 
-        file.characterName = "none";
         file.date = dateStr;
         file.type = mode.HumanName();
         file.ReadFromGameProgress(gameProgress);

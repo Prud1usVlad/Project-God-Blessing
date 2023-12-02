@@ -19,7 +19,7 @@ public class ProductionBuilding : Building
     public override void InitDialogue(DialogueBox dialogueBox)
     {
         (dialogueBox as ProductionBuildingDialogueBox).building = this;
-        dialogueBox.InitDialogue();
+        modalManager.DialogueOpen(dialogueBox);
     }
 
     public int GetProductionAmount()
