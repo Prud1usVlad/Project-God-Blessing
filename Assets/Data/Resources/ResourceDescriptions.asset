@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b8471c208e7f445a634d0006082527, type: 3}
+  m_Name: ResourceDescriptions
+  m_EditorClassIdentifier: 
+  data:
+  - resource: 1
+    humanName: Gold
+    description: 'cool shiny coins that can be used to buy almost anything. You can
+      even make a tooth out of them!  '
+    icon: {fileID: 0}
+  - resource: 2
+    humanName: Wood
+    description: One of the most common materials, the basis for the construction
+      of even a simple toilet.
+    icon: {fileID: 0}
+  - resource: 3
+    humanName: Stone
+    description: One of the most common materials, the basis for construction. The
+      best weapon for protest.
+    icon: {fileID: 0}
+  - resource: 4
+    humanName: Tall grass
+    description: It is one of the most widespread materials, the basis for various
+      industries. Even from this, something can be made.
+    icon: {fileID: 0}
+  - resource: 5
+    humanName: Sugar Root
+    description: "\u041D\u0435\u0432\u0435\u043B\u0438\u0447\u043A\u0438\u0439 \u043A\u043E\u0440\u0435\u043D\u0435\u043F\u043B\u0456\u0434,
+      \u0437 \u0432\u0438\u0441\u043E\u043A\u043E\u044E \u043A\u043E\u043D\u0446\u0435\u043D\u0442\u0440\u0430\u0446\u0456\u0454\u044E
+      \u0446\u0443\u043A\u0440\u0443. \u041C\u0430\u0454 \u0434\u0435\u044F\u043A\u0456
+      \u043F\u0435\u0440\u0441\u043F\u0435\u043A\u0442\u0438\u0432\u0438 \u0432 \u0432\u0438\u0440\u043E\u0431\u043D\u0438\u0446\u0442\u0432\u0456
+      \u043F\u0440\u0438 \u043D\u0430\u044F\u0432\u043D\u043E\u0441\u0442\u0456 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0456\u0439
+      \u0456 \u0432\u0456\u0434\u0441\u0443\u0442\u043D\u043E\u0441\u0442\u0456 \u0430\u043B\u043A\u043E\u0433\u043E\u043B\u0456\u0437\u043C\u0443."
+    icon: {fileID: 0}
+  - resource: 6
+    humanName: Coal
+    description: The material is useful in alchemy and blacksmithing and wherever
+      you need to burn something.
+    icon: {fileID: 0}
+  - resource: 7
+    humanName: Bones
+    description: Animal material used in many areas. Even after death, there is no
+      peace...
+    icon: {fileID: 0}
+  - resource: 8
+    humanName: Bone meal
+    description: Ground animal bones can be used as fertilizer, as a last resort.
+      If there is nothing alive at hand.
+    icon: {fileID: 0}
+  - resource: 9
+    humanName: Processed stone
+    description: Processed pieces of stone. An excellent material for durable structures.
+      Ideal for covering crimes until concrete is invented.
+    icon: {fileID: 0}
+  - resource: 10
+    humanName: Planks
+    description: Smooth planed wooden boards, an ideal material for construction.
+      Carefully, a strange creature with a growing nose can be created.
+    icon: {fileID: 0}
+  - resource: 11
+    humanName: Cereals
+    description: Sprouts of cereal plants suitable for consumption when processed
+      appropriately. Don't even try to put it in your breakfast like that.
+    icon: {fileID: 0}
+  - resource: 12
+    humanName: Poisonous glands
+    description: A valuable organ of many venomous creatures, it is still possible
+      to extract some venom. Once a part of your ex.
+    icon: {fileID: 0}
+  - resource: 13
+    humanName: Animal skin
+    description: Undamaged animal skin is a rarity. It is a good material for production.
+      At least the animal won't see what you're turning this world into.
+    icon: {fileID: 0}
+  - resource: 14
+    humanName: Distillate
+    description: A low-quality alcoholic product with a fairly high alcohol content.
+      The taste of youth.
+    icon: {fileID: 0}
+  - resource: 15
+    humanName: Flour
+    description: A bag of finely ground cereal grains, suitable for use in baking.
+      The main thing is not to confuse it with other substances. I'm talking about
+      starch, of course.
+    icon: {fileID: 0}
+  - resource: 16
+    humanName: Rope
+    description: An irreplaceable material made from fibrous plants. Soap as a gift.
+    icon: {fileID: 0}
+  - resource: 17
+    humanName: Copper ore
+    description: 'A piece of rock clearly saturated with copper. But more so with
+      dashed hopes. '
+    icon: {fileID: 0}
+  - resource: 18
+    humanName: Medical herbs
+    description: This rare material is used for alchemy and medicine. Make your cat
+      happy.
+    icon: {fileID: 0}
+  - resource: 19
+    humanName: Flux
+    description: A rare material for fabric production. You should see these seas
+      of flowers.
+    icon: {fileID: 0}
+  - resource: 20
+    humanName: Poison
+    description: A valuable resource in medicine, but more often used as a weapon.
+      There are several ways to cheat such a death, but you won't like them.
+    icon: {fileID: 0}
+  - resource: 21
+    humanName: Fur
+    description: Animal fur is a valuable material for warm clothing. It could have
+      kept some animal warm, but now you're going to make some shit out of it.
+    icon: {fileID: 0}
+  - resource: 22
+    humanName: Healing paste
+    description: A little bit of grated herbs in the right proportions can significantly
+      speed up the healing process of small wounds. Do not consume internally! causes
+      hallucinations.
+    icon: {fileID: 0}
+  - resource: 23
+    humanName: Mushrums
+    description: A rarely useful ingredient for medicine and alchemy. You all know
+      what the joke was supposed to be about)
+    icon: {fileID: 0}
+  - resource: 24
+    humanName: Iron ore
+    description: A piece of rock, clearly saturated with iron. In a lower concentration
+      than in Tom Cruise's balls.
+    icon: {fileID: 0}
+  - resource: 25
+    humanName: Sulfur
+    description: 'A rare material. Indispensable for modern alchemy. There''s something
+      inside me that feels like breathing in sulfur. '
+    icon: {fileID: 0}
+  - resource: 26
+    humanName: Ancestral powder
+    description: In the harsh homeland of the halflings it is a sacred substance
+      that allows you to hear the voice of your ancestors, and in large doses, even
+      see.
+    icon: {fileID: 0}
+  - resource: 27
+    humanName: Tissue
+    description: 'A well-woven fabric suitable for sewing clothes. Eco, vegan, gluten-free,
+      and lactose-free. '
+    icon: {fileID: 0}
+  - resource: 28
+    humanName: Leather
+    description: A piece of well-treated animal skin. I'm tired of reminding you
+      of the animal's fate, so it's an interesting fact that it was processed in
+      bird shit, maybe.
+    icon: {fileID: 0}
+  - resource: 29
+    humanName: Iron ingot
+    description: An ingot of relatively pure iron, the weapon will not last long,
+      but horseshoes or nails will be good. Don't drop it on your foot.
+    icon: {fileID: 0}
+  - resource: 30
+    humanName: Copper ingot
+    description: 'A shiny copper ingot, valuable and ready for recycling. If you
+      were Archimedes, you could do something with it and set fire to some ship. '
+    icon: {fileID: 0}
+  - resource: 31
+    humanName: Acid
+    description: 'It is the basis of many alchemical experiments but is also used
+      in many other places. Don''t use it, don''t be toxic. '
+    icon: {fileID: 0}
+  - resource: 32
+    humanName: Stone slabs
+    description: Perfectly smooth and perfect for construction on any scale. Perfect
+      for cemeteries.
+    icon: {fileID: 0}
+  - resource: 33
+    humanName: Wooden furniture
+    description: It's good to have a home, but it's even better to have something
+      else in it. Makes you feel cozy.
+    icon: {fileID: 0}
+  - resource: 34
+    humanName: Thick sailcloth
+    description: A large scroll of dense and durable fabric, indispensable in navigation.
+      There is enough fabric to hide all your problems.
+    icon: {fileID: 0}
+  - resource: 35
+    humanName: Linen clothes
+    description: A simple but comfortable set of clothes made of high-quality and
+      pleasant fabric. Your mother will be proud.
+    icon: {fileID: 0}
+  - resource: 36
+    humanName: Copper wire
+    description: 'A coil of thin orange wire. It is difficult to produce and it is
+      not clear why it is needed. But the elves pay a lot of money for it. What fools,
+      could have just used wifi. '
+    icon: {fileID: 0}
+  - resource: 37
+    humanName: Nails
+    description: 'An indispensable material for construction, repair and horse breeding.
+      For want of a nail the shoe was lost.
+
+      For want of a shoe the horse
+      was lost.
+
+      For want of a horse the rider was lost.
+
+      For want
+      of a rider the message was lost.
+
+      For want of a message the battle was
+      lost.
+
+      For want of a battle the kingdom was lost.
+
+      And all for
+      the want of a horseshoe nail.'
+    icon: {fileID: 0}
+  - resource: 38
+    humanName: Tincture of medicinal herbs
+    description: Alcohol infused with herbs with medicinal properties. Some people
+      believe that this liquid also has these properties, but science has not proven
+      it.
+    icon: {fileID: 0}
+  - resource: 39
+    humanName: Organic fertilizers
+    description: Your best investment in the development of your own agriculture.
+      It smells like shit, but the harvest is great.
+    icon: {fileID: 0}
+  - resource: 40
+    humanName: Gunpowder
+    description: 'It''s a strange, dark mixture that flares up quickly and produces
+      a lot of smoke. This thing will change the course of history, but I don''t
+      think it''s in your hands. '
+    icon: {fileID: 0}
+  - resource: 41
+    humanName: Steel plates
+    description: Hardened and ready to be transformed into the world's best armor.
+      But it won't protect you from the most powerful weapon - the word (of the developer
+      haha).
+    icon: {fileID: 0}
+  - resource: 42
+    humanName: Traveling sums
+    description: Every traveler definitely knows the value of spacious and durable
+      containers for transporting things. Your sadness will fit in there too.
+    icon: {fileID: 0}
+  - resource: 43
+    humanName: Concentrated poison
+    description: An already deadly poison, it is greatly enhanced by appropriate
+      aging. One drop can kill a horse, almost like nicotine.
+    icon: {fileID: 0}
+  - resource: 44
+    humanName: Alchemical reagents
+    description: A complete set for a young alchemist. It's perfect when paired with
+      strong alcohol, but don't even try to snack on something from the set.
+    icon: {fileID: 0}
+  - resource: 45
+    humanName: Medicines
+    description: A set of vials with various substances. Consult your doctor before
+      use.
+    icon: {fileID: 0}
+  - resource: 46
+    humanName: Quality alcohol
+    description: Good aging and several stages of purification made it a fine and
+      expensive drink. But if you drink too much, you will still behave like a pig.
+    icon: {fileID: 0}
+  - resource: 47
+    humanName: Cured fur
+    description: 'Beautifully processed fur animal skin, a high-quality and expensive
+      material. It will keep anyone warm at any time, but what about your conscience? '
+    icon: {fileID: 0}
+  - resource: 48
+    humanName: Liquid for hardening
+    description: A secret reagent used in orc forges for hundreds of years. I wouldn't
+      put my fingers in it.
+    icon: {fileID: 0}
+  - resource: 49
+    humanName: Lure of visions
+    description: The strange powder is incredibly valuable among the grassroots.
+      It makes you forget all the problems of the day, sometimes forever.
+    icon: {fileID: 0}
+  - resource: 50
+    humanName: Antidote
+    description: Having a poisoned stylet on your side, you should always have a
+      spare bottle of this substance. It tastes much worse than dying from poison,
+      but who said it would be easy
+    icon: {fileID: 0}
+  - resource: 51
+    humanName: Leather accessories
+    description: It is a beautiful and status item, as well as an indicator that
+      you are likely to be robbed.
+    icon: {fileID: 0}
