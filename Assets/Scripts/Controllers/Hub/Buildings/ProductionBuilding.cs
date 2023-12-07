@@ -16,9 +16,13 @@ public class ProductionBuilding : Building
     [Range(0, 4)]
     public int productionPower = 0;
 
-    public override void InitDialogue(DialogueBox dialogueBox)
+    public override void InitDialogue(DialogueBox dialogueBox,
+        BuildingController controller = null)
     {
-        (dialogueBox as ProductionBuildingDialogueBox).building = this;
+        var box = dialogueBox as ProductionBuildingDialogueBox;
+
+        box.building = this;
+        box.buildingController = controller;
         modalManager.DialogueOpen(dialogueBox);
     }
 

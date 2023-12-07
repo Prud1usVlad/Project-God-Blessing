@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Codex reading room
+  m_EditorClassIdentifier: 
+  _guid: e4f2394f83413f0479a6dc7cf0257451
+  skillName: Codex reading room
+  type: 1
+  nation: 2
+  description: 'Sometimes it is useful to remind yourself of the basic principles
+    of life when you are in complete silence. If only there wasn''t all that noise
+    outside the window.
+
+
+    A bonus to sanity in a dungeon.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 0}
+  building: {fileID: 11400000, guid: 0a74200a075e1b94bac301e0dd23632d, type: 2}

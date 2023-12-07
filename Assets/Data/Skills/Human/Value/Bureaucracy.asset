@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Bureaucracy
+  m_EditorClassIdentifier: 
+  _guid: 21f40f7883de7a34d8e870d734ec5ddd
+  skillName: Bureaucracy
+  type: 4
+  nation: 1
+  description: 'If you hire people in the bureau who can talk to anyone who comes
+    to them, then there will be fewer complaints against you. Everything is like
+    at home.
+
+
+    If an employee relations office is built, the price of production
+    decreases, while the efficiency does not decrease.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 8777bd140660acf40a3e90a2715fa978, type: 2}

@@ -97,13 +97,29 @@ public class SkillSystem : ScriptableObject
 
                 break;
         }
+
+        if (skill.buildingUpgrades is not null 
+            && skill.buildingUpgrades.Count > 0)
+        {
+            foreach(var upgrade in skill.buildingUpgrades) 
+            {
+                AddReserchedBuilding(upgrade);
+            }
+        }
     }
 
     private void OnBuildingLearn(Skill skill)
     {
         var building = (skill as BuildingSkill).building;
-        var rb = gameProgress.buildingResearch
-            .Find(b => b.guid == building.Guid);
+        if (building == null)
+            return;
+        AddReserchedBuilding(building);
+    }
+
+    private void AddReserchedBuilding(Building building)
+    {
+        var rb = gameProgress.buildingResearch?
+                    .Find(b => b.guid == building.Guid);
 
         if (rb is not null)
             rb.isAvailable = true;

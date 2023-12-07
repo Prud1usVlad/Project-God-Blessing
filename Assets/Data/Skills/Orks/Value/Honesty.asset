@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Honesty
+  m_EditorClassIdentifier: 
+  _guid: 71fc843664b5c16419b13236ff65c8f1
+  skillName: Honesty
+  type: 4
+  nation: 2
+  description: "The basis of any healthy relationship is honesty. And the one who
+    lies is bad and not honest at all, and something bad will happen to him.   \n\nIt
+    increases the chance of success with truthful remarks, but the lie scale fills
+    up much faster."
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []

@@ -13,11 +13,28 @@ MonoBehaviour:
   m_Name: HumanSkills
   m_EditorClassIdentifier: 
   _descriptors:
-  - {fileID: 11400000, guid: b9af826463ad9c04b842edd600d1076e, type: 2}
-  - {fileID: 11400000, guid: 78ca49654a49a2048b2c579e2918c3d8, type: 2}
-  - {fileID: 11400000, guid: e07ef4b1c4e804a47ae763406f49d97f, type: 2}
-  - {fileID: 11400000, guid: 065fa74e2ce69b94e9ef403505d9fccb, type: 2}
-  - {fileID: 11400000, guid: 2800a19ec170e8e40a0210de0bca4410, type: 2}
-  - {fileID: 11400000, guid: 5df814df7a5da08429a649a09d0b4baa, type: 2}
-  - {fileID: 11400000, guid: ca3459ae35d914f468363b86f95e2ee6, type: 2}
+  - {fileID: 11400000, guid: bdec71ac065b8cf4387eafdf0a1182ec, type: 2}
+  - {fileID: 11400000, guid: e64427ac2eb8998448dfcef63698078e, type: 2}
+  - {fileID: 11400000, guid: 858990bee7e079a42a179015873399cc, type: 2}
+  - {fileID: 11400000, guid: ed9624de1d7c01445b8eeccf9d607ea3, type: 2}
+  - {fileID: 11400000, guid: d0fc9d88f18b2e840b0a53f19d94f9fb, type: 2}
+  - {fileID: 11400000, guid: cc2734a1ca3725b46851fc70e859f0ee, type: 2}
+  - {fileID: 11400000, guid: 5c54ccd01a20e6240a474f8a106fba0f, type: 2}
+  - {fileID: 11400000, guid: 4f91f51368486b94585962b1c9a46445, type: 2}
+  - {fileID: 11400000, guid: 8c1117e37abc6dc40b06d703b24d1c3a, type: 2}
+  - {fileID: 11400000, guid: 582b8865c8507b7459fb22e952527eab, type: 2}
+  - {fileID: 11400000, guid: fb4b0bab95c47d74d9a387f05071fdd8, type: 2}
+  - {fileID: 11400000, guid: b65c313c31e9f9749974553a6c52887d, type: 2}
+  - {fileID: 11400000, guid: 2812c1a65206c804989f3a7458e027e8, type: 2}
+  - {fileID: 11400000, guid: 433a0cc6defe975468300e49dfa8965a, type: 2}
+  - {fileID: 11400000, guid: 161d9e051139d6748a4bc6ac43a6e1f3, type: 2}
+  - {fileID: 11400000, guid: 17f5c5ef180aea44584d8de9cb65edcc, type: 2}
+  - {fileID: 11400000, guid: fa6548e692ca8414f853531fd37b65ff, type: 2}
+  - {fileID: 11400000, guid: e2cbeab9fb67b3542b5c49d8733048d4, type: 2}
+  - {fileID: 11400000, guid: 44093446690479c44ac1f8dded1f4f98, type: 2}
+  - {fileID: 11400000, guid: 8777bd140660acf40a3e90a2715fa978, type: 2}
+  - {fileID: 11400000, guid: 21f40f7883de7a34d8e870d734ec5ddd, type: 2}
+  - {fileID: 11400000, guid: 971515d9d6304ed46af996c7dd4ded1f, type: 2}
+  - {fileID: 11400000, guid: c4f40f5ac9c5296488c5bedc9812a358, type: 2}
+  - {fileID: 11400000, guid: 90600a1882a3e924599d1cb59b22b7c6, type: 2}
   nation: 1

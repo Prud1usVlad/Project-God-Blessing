@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Mill
+  m_EditorClassIdentifier: 
+  _guid: cc2734a1ca3725b46851fc70e859f0ee
+  skillName: Mill
+  type: 1
+  nation: 1
+  description: "A large and beautiful structure that ruthlessly exploits the wind.
+    Not to be confused with giants.  \n\nProduces flour from cereals."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  building: {fileID: 11400000, guid: 877d5306add773e42b0784770994aa28, type: 2}

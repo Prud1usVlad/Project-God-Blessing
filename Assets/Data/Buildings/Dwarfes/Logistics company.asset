@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Logistics company
+  m_EditorClassIdentifier: 
+  _guid: 6a234a0e3db7e2946a159cee99a7897e
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Representative office of a logistics company
+  description: "A few warmed-over dwarves offer you to host their logistics company's
+    warehouse, and in return they will leave some boxes for you. They say it often
+    happens that during the delivery the customer is no longer alive. It's a strange
+    thing, but they are obliged to leave the boxes regularly, and no one will know
+    what will be in the boxes until they are opened.  \n\nIt allows you to get deliveries
+    of random goods for gold."
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  resource:
+    amount: 5
+    name: 1
+  productionPrice:
+    transactionType: 5
+    resources:
+    - amount: 10
+      name: 1
+  productionMultiplier: 1
+  productionPower: 1

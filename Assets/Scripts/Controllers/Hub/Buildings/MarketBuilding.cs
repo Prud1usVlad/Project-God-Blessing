@@ -19,7 +19,7 @@ public class MarketBuilding : Building
     public EquipmentItemRegistry itemRegistry;
     public GameProgress gameProgress;
 
-    public override void InitDialogue(DialogueBox dialogueBox)
+    public override void InitDialogue(DialogueBox dialogueBox, BuildingController controller = null)
     {
         (dialogueBox as MarketBuildingDialogueBox).building = this;
         modalManager.DialogueOpen(dialogueBox);

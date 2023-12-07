@@ -40,7 +40,8 @@ public class DialogueBox : TooltipDataProvider
     {
         if (ignoreConstraints)
             Init();
-        else if (modalManager.isDiscarding)
+        else if (modalManager.isDiscarding || 
+            (modalManager.isInBuildMode && !allowInBuildMode)) 
         {
             DestroyDialogue();
             return false;

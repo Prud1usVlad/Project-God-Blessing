@@ -14,6 +14,7 @@ public abstract class Building : SerializableScriptableObject
     protected ModalManager modalManager;
 
     public string buildingName;
+    [TextArea]
     public string description;
     public bool isAvailableAtStart = true;
 
@@ -21,6 +22,9 @@ public abstract class Building : SerializableScriptableObject
 
     public Price price;
 
-    public abstract void InitDialogue(DialogueBox dialogueBox);
+    public Building upgrade;
+
+    public abstract void InitDialogue(DialogueBox dialogueBox,
+        BuildingController controller = null);
 }
 

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Lumberyard II
+  m_EditorClassIdentifier: 
+  _guid: 1410cf2535d21ad429ce17688fa3884b
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Lumberyard II
+  description: 'A small shed where loggers bring wood from the neighboring forest.
+    Sometimes the woodcutters may not make it, but who cares? We''ll hire new ones.
+
+
+    It
+    produces wood and planks.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: fcb575d7b0b96844098ab4ca449f121e, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 0}
+  resource:
+    amount: 5
+    name: 1
+  productionPrice:
+    transactionType: 5
+    resources:
+    - amount: 10
+      name: 1
+  productionMultiplier: 1
+  productionPower: 1

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Metal plant
+  m_EditorClassIdentifier: 
+  _guid: 74af0ecca3790714f8e6a069480e9744
+  skillName: Metal plant
+  type: 1
+  nation: 2
+  description: 'A few guys who didn''t qualify as orcish blacksmiths offer their
+    services. They can''t forge a good sword, and you can sell the breastplate to
+    the dwarves for an anchor, but at least they make good ingots.
+
+
+    He makes
+    ingots from ore and acid from sulfur.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 0}
+  building: {fileID: 11400000, guid: c8a3f86bbec46624dae6cb3ec1bd8564, type: 2}

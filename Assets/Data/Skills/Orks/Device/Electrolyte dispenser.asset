@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Electrolyte dispenser
+  m_EditorClassIdentifier: 
+  _guid: ba2891a5e4daafd4ab91aabf2bb4a43c
+  skillName: Electrolyte dispenser
+  type: 5
+  nation: 2
+  description: "Effective watering methods, or rather mud dilution. \n\nFloods a
+    wide area in front of you with electrolyte."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: b636d3f9c9e7acd4a93776030e243e02, type: 2}

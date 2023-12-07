@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Farmland
+  m_EditorClassIdentifier: 
+  _guid: ed9624de1d7c01445b8eeccf9d607ea3
+  skillName: Farmland
+  type: 1
+  nation: 1
+  description: 'An agricultural development center that provides tools for cultivating
+    nearby fields. Sometimes you find the skeletons of your less successful predecessors
+    while cultivating the land.
+
+
+    Produces cereals and some flax for money.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  building: {fileID: 11400000, guid: 86af80f35a48a23459acc4e032488949, type: 2}

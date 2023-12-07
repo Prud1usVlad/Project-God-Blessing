@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Power supply
+  m_EditorClassIdentifier: 
+  _guid: 913b93b71f3208c4e9fa390bc55d0312
+  skillName: Power supply
+  type: 5
+  nation: 2
+  description: 'It''s a big and heavy thing, who knows what they put in it, but once
+    it''s turned on, you better run as far as you can, because you might not be able
+    to anymore.
+
+
+    Puts a battery next to it that works like a battery but with
+    better performance.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 0d928315a2838374384dda043ed692f1, type: 2}

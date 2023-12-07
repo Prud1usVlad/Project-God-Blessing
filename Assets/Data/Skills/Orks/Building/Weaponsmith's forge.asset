@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Weaponsmith's forge
+  m_EditorClassIdentifier: 
+  _guid: 15e892adc4e49ed4badbf8b7c37d769d
+  skillName: Weaponsmith's forge
+  type: 1
+  nation: 2
+  description: 'There''s an old orc master in the tavern, he was banned from the
+    city for two years for some trifle, I think he accidentally urinated on the walls
+    of the court. Maybe you can persuade him to make weapons for you.
+
+
+    A shop
+    where you can buy improved orcish weapons and equipment for expensive resources.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 0}
+  building: {fileID: 11400000, guid: b10c89dd4dbd331468c6e88c3df5333c, type: 2}

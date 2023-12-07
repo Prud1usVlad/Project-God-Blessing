@@ -17,22 +17,22 @@ MonoBehaviour:
     humanName: Gold
     description: 'cool shiny coins that can be used to buy almost anything. You can
       even make a tooth out of them!  '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ab2693bfbc56e144aad03bec82d892c6, type: 3}
   - resource: 2
     humanName: Wood
     description: One of the most common materials, the basis for the construction
       of even a simple toilet.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: f1acf862681ae3e4bae0e7078d73d140, type: 3}
   - resource: 3
     humanName: Stone
     description: One of the most common materials, the basis for construction. The
       best weapon for protest.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: c388e7ef621b2e24d8abf0b84f41b4e4, type: 3}
   - resource: 4
     humanName: Tall grass
     description: It is one of the most widespread materials, the basis for various
       industries. Even from this, something can be made.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d4db93c36597d004bb279741ebe64ed9, type: 3}
   - resource: 5
     humanName: Sugar Root
     description: "\u041D\u0435\u0432\u0435\u043B\u0438\u0447\u043A\u0438\u0439 \u043A\u043E\u0440\u0435\u043D\u0435\u043F\u043B\u0456\u0434,
@@ -41,258 +41,258 @@ MonoBehaviour:
       \u043F\u0435\u0440\u0441\u043F\u0435\u043A\u0442\u0438\u0432\u0438 \u0432 \u0432\u0438\u0440\u043E\u0431\u043D\u0438\u0446\u0442\u0432\u0456
       \u043F\u0440\u0438 \u043D\u0430\u044F\u0432\u043D\u043E\u0441\u0442\u0456 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0456\u0439
       \u0456 \u0432\u0456\u0434\u0441\u0443\u0442\u043D\u043E\u0441\u0442\u0456 \u0430\u043B\u043A\u043E\u0433\u043E\u043B\u0456\u0437\u043C\u0443."
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 048c9736b2aab1d4097f9394180ad4e4, type: 3}
   - resource: 6
     humanName: Coal
     description: The material is useful in alchemy and blacksmithing and wherever
       you need to burn something.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: aed3146c71dce6149accdabb10846f5f, type: 3}
   - resource: 7
     humanName: Bones
     description: Animal material used in many areas. Even after death, there is no
       peace...
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d7b42c34ae1b47c4ba2e2e8edfc9cc0c, type: 3}
   - resource: 8
     humanName: Bone meal
     description: Ground animal bones can be used as fertilizer, as a last resort.
       If there is nothing alive at hand.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 970a65b903c1afa458ab5a891db8c4a4, type: 3}
   - resource: 9
     humanName: Processed stone
     description: Processed pieces of stone. An excellent material for durable structures.
       Ideal for covering crimes until concrete is invented.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 173c224ba92743745a0948b31ce3b567, type: 3}
   - resource: 10
     humanName: Planks
     description: Smooth planed wooden boards, an ideal material for construction.
       Carefully, a strange creature with a growing nose can be created.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 367217f72225cbd4a95660cd69a68b34, type: 3}
   - resource: 11
     humanName: Cereals
     description: Sprouts of cereal plants suitable for consumption when processed
       appropriately. Don't even try to put it in your breakfast like that.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 07b7aaf0bd9574349a29e24748166cab, type: 3}
   - resource: 12
     humanName: Poisonous glands
     description: A valuable organ of many venomous creatures, it is still possible
       to extract some venom. Once a part of your ex.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 0db44f0d03620a34a9a100590f2b9d49, type: 3}
   - resource: 13
-    humanName: Animal skin
+    humanName: Animal hide
     description: Undamaged animal skin is a rarity. It is a good material for production.
       At least the animal won't see what you're turning this world into.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b35a5ffed89b7f547a8645a43da80c97, type: 3}
   - resource: 14
     humanName: Distillate
     description: A low-quality alcoholic product with a fairly high alcohol content.
       The taste of youth.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: af9cc19cb6d7e384abab4d81af975a00, type: 3}
   - resource: 15
     humanName: Flour
     description: A bag of finely ground cereal grains, suitable for use in baking.
       The main thing is not to confuse it with other substances. I'm talking about
       starch, of course.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 57a61518a5cb49144bd66daa03b666b4, type: 3}
   - resource: 16
     humanName: Rope
     description: An irreplaceable material made from fibrous plants. Soap as a gift.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ebe8f6d462e9e604fae016b44918e4c6, type: 3}
   - resource: 17
     humanName: Copper ore
     description: 'A piece of rock clearly saturated with copper. But more so with
       dashed hopes. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 6dbbdc4d538bd5b40a57943d13905578, type: 3}
   - resource: 18
     humanName: Medical herbs
     description: This rare material is used for alchemy and medicine. Make your cat
       happy.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 4695e3d3fa3216144a52211d504e6eb7, type: 3}
   - resource: 19
-    humanName: Flux
+    humanName: Flax
     description: A rare material for fabric production. You should see these seas
       of flowers.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: a09b6606822e6bd4b82eee81886967de, type: 3}
   - resource: 20
     humanName: Poison
     description: A valuable resource in medicine, but more often used as a weapon.
       There are several ways to cheat such a death, but you won't like them.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 63b7d4cb5b4cc754bb406dbb2aa86f27, type: 3}
   - resource: 21
     humanName: Fur
     description: Animal fur is a valuable material for warm clothing. It could have
       kept some animal warm, but now you're going to make some shit out of it.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 88b7b4e48aa06e5499daac783b2be429, type: 3}
   - resource: 22
     humanName: Healing paste
     description: A little bit of grated herbs in the right proportions can significantly
       speed up the healing process of small wounds. Do not consume internally! causes
       hallucinations.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: fdade13ab4628614991135bed3a488f7, type: 3}
   - resource: 23
     humanName: Mushrums
     description: A rarely useful ingredient for medicine and alchemy. You all know
       what the joke was supposed to be about)
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 977509c3cc0636545b1c12b910d85774, type: 3}
   - resource: 24
     humanName: Iron ore
     description: A piece of rock, clearly saturated with iron. In a lower concentration
       than in Tom Cruise's balls.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e5dcab80ef38f7246995fe9e29a3e6d4, type: 3}
   - resource: 25
     humanName: Sulfur
     description: 'A rare material. Indispensable for modern alchemy. There''s something
       inside me that feels like breathing in sulfur. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 7cbc191dfa498e2458ab0cf0d1779691, type: 3}
   - resource: 26
     humanName: Ancestral powder
     description: In the harsh homeland of the halflings it is a sacred substance
       that allows you to hear the voice of your ancestors, and in large doses, even
       see.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e3bbe5c702bd59d43b71ff71271b4e93, type: 3}
   - resource: 27
-    humanName: Tissue
+    humanName: Fabric
     description: 'A well-woven fabric suitable for sewing clothes. Eco, vegan, gluten-free,
       and lactose-free. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 7990c950ed9326b4c99b2bbf388d9fda, type: 3}
   - resource: 28
     humanName: Leather
     description: A piece of well-treated animal skin. I'm tired of reminding you
       of the animal's fate, so it's an interesting fact that it was processed in
       bird shit, maybe.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e6f6af83931f0214187dbd9640d0a31e, type: 3}
   - resource: 29
     humanName: Iron ingot
     description: An ingot of relatively pure iron, the weapon will not last long,
       but horseshoes or nails will be good. Don't drop it on your foot.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d34edf920cc6c6c43b14be4cad34d0a8, type: 3}
   - resource: 30
     humanName: Copper ingot
     description: 'A shiny copper ingot, valuable and ready for recycling. If you
       were Archimedes, you could do something with it and set fire to some ship. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ffb156f58476c53489a3b7c8dc301e7c, type: 3}
   - resource: 31
     humanName: Acid
     description: 'It is the basis of many alchemical experiments but is also used
       in many other places. Don''t use it, don''t be toxic. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e09535250c7bee3468a991d2af974308, type: 3}
   - resource: 32
     humanName: Stone slabs
     description: Perfectly smooth and perfect for construction on any scale. Perfect
       for cemeteries.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d166ebaf865859e4bbb40b8e63270e48, type: 3}
   - resource: 33
     humanName: Wooden furniture
     description: It's good to have a home, but it's even better to have something
       else in it. Makes you feel cozy.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 75dd26e54f9f9e345984e069ee80a6ef, type: 3}
   - resource: 34
     humanName: Thick sailcloth
     description: A large scroll of dense and durable fabric, indispensable in navigation.
       There is enough fabric to hide all your problems.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 0a654b29ef527754fa32a0782b58f16c, type: 3}
   - resource: 35
     humanName: Linen clothes
     description: A simple but comfortable set of clothes made of high-quality and
       pleasant fabric. Your mother will be proud.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 23fdb4c8e027fda42bd8df5b41500523, type: 3}
   - resource: 36
     humanName: Copper wire
     description: 'A coil of thin orange wire. It is difficult to produce and it is
       not clear why it is needed. But the elves pay a lot of money for it. What fools,
       could have just used wifi. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d138f3b516ade6a43b5ef7f69dea147a, type: 3}
   - resource: 37
     humanName: Nails
     description: 'An indispensable material for construction, repair and horse breeding.
       For want of a nail the shoe was lost.
 
-      For want of a shoe the horse
-      was lost.
+      For want of a shoe the horse was
+      lost.
 
       For want of a horse the rider was lost.
 
-      For want
-      of a rider the message was lost.
+      For want of a rider
+      the message was lost.
 
-      For want of a message the battle was
-      lost.
+      For want of a message the battle was lost.
 
-      For want of a battle the kingdom was lost.
+      For
+      want of a battle the kingdom was lost.
 
-      And all for
-      the want of a horseshoe nail.'
-    icon: {fileID: 0}
+      And all for the want of a horseshoe
+      nail.'
+    icon: {fileID: 21300000, guid: 00a52e4a27e325f4c88fd765d3b04536, type: 3}
   - resource: 38
     humanName: Tincture of medicinal herbs
     description: Alcohol infused with herbs with medicinal properties. Some people
       believe that this liquid also has these properties, but science has not proven
       it.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ce7da5f1c0dd555488bf5ed3f8d5698b, type: 3}
   - resource: 39
     humanName: Organic fertilizers
     description: Your best investment in the development of your own agriculture.
       It smells like shit, but the harvest is great.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 67b5d0389f6e0dd46891642b96f475e3, type: 3}
   - resource: 40
     humanName: Gunpowder
     description: 'It''s a strange, dark mixture that flares up quickly and produces
       a lot of smoke. This thing will change the course of history, but I don''t
       think it''s in your hands. '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: a92a432846e9ac14184beeee7e1544d7, type: 3}
   - resource: 41
     humanName: Steel plates
     description: Hardened and ready to be transformed into the world's best armor.
       But it won't protect you from the most powerful weapon - the word (of the developer
       haha).
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 7a9315033c3de2943bb7cd9836505b3f, type: 3}
   - resource: 42
     humanName: Traveling sums
     description: Every traveler definitely knows the value of spacious and durable
       containers for transporting things. Your sadness will fit in there too.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d7d0b87eb9acfd04a83cd245124ee64b, type: 3}
   - resource: 43
     humanName: Concentrated poison
     description: An already deadly poison, it is greatly enhanced by appropriate
       aging. One drop can kill a horse, almost like nicotine.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 17f697c3b561fc14ba48d3b1b21a1307, type: 3}
   - resource: 44
     humanName: Alchemical reagents
     description: A complete set for a young alchemist. It's perfect when paired with
       strong alcohol, but don't even try to snack on something from the set.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 9d7233368b7a8294dbd29f23153aefc5, type: 3}
   - resource: 45
     humanName: Medicines
     description: A set of vials with various substances. Consult your doctor before
       use.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 594dd065915f0b54094f0af700cf811a, type: 3}
   - resource: 46
     humanName: Quality alcohol
     description: Good aging and several stages of purification made it a fine and
       expensive drink. But if you drink too much, you will still behave like a pig.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: dc8b51b55f2cf244ab6e8f16be8e16fc, type: 3}
   - resource: 47
-    humanName: Cured fur
+    humanName: Coat
     description: 'Beautifully processed fur animal skin, a high-quality and expensive
       material. It will keep anyone warm at any time, but what about your conscience? '
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 171587e438c5b674babdd02d578b8eed, type: 3}
   - resource: 48
     humanName: Liquid for hardening
     description: A secret reagent used in orc forges for hundreds of years. I wouldn't
       put my fingers in it.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b2250d8793b12a743a2e9a1ef491562a, type: 3}
   - resource: 49
     humanName: Lure of visions
     description: The strange powder is incredibly valuable among the grassroots.
       It makes you forget all the problems of the day, sometimes forever.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 88547e52797c368478be950a156d83c4, type: 3}
   - resource: 50
     humanName: Antidote
     description: Having a poisoned stylet on your side, you should always have a
       spare bottle of this substance. It tastes much worse than dying from poison,
       but who said it would be easy
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: fc1d8e763f94e6745867ab2170bcc5eb, type: 3}
   - resource: 51
     humanName: Leather accessories
     description: It is a beautiful and status item, as well as an indicator that
       you are likely to be robbed.
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b08d285855f183c41979cddafed9066e, type: 3}

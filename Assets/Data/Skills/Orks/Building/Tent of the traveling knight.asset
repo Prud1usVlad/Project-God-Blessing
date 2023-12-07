@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Tent of the traveling knight
+  m_EditorClassIdentifier: 
+  _guid: 9d65caa42952f8d4bab8a426ecc45b6e
+  skillName: Tent of the traveling knight
+  type: 1
+  nation: 2
+  description: 'Having arranged a shelter for orc knights, you can try to trade weapons
+    with them, their squires always carry much more than necessary.
+
+
+    An orcish
+    outfit shop.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 0}
+  building: {fileID: 11400000, guid: 4b98ee97a6a85da489ee5c07e6dc699d, type: 2}

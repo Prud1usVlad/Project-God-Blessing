@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Mine
+  m_EditorClassIdentifier: 
+  _guid: aa0c11bb95d84bb4999e491cc1f3a335
+  skillName: Bakery
+  type: 1
+  nation: 2
+  description: "A group of orcs have found an abandoned mine in the mountains nearby,
+    so they're asking for a storage and transportation site, with the possibility
+    of buying resources from them at low prices. It sounds like a plan, as long as
+    you don't steal from them  \n\nProduces coal, sulfur, iron and copper ore, for
+    a lot of money."
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 0}
+  building: {fileID: 11400000, guid: 269a49c86cff8cd4fb90d1392b027d16, type: 2}

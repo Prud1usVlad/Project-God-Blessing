@@ -10,6 +10,7 @@ public class ProductionBuildingDialogueBox : DialogueBox
 {
     private List<ConsumptionWidget> consumptionWidgets;
 
+    public BuildingController buildingController;
     public ProductionBuilding building;
 
     public ProductionWidget productionWidget;
@@ -18,6 +19,7 @@ public class ProductionBuildingDialogueBox : DialogueBox
     public Slider powerSlider;
 
     public GameObject consumptionPrefab;
+    public Button upgradeButton;
 
     public override bool InitDialogue()
     {
@@ -65,6 +67,44 @@ public class ProductionBuildingDialogueBox : DialogueBox
 
             consumptionWidgets[i].UpdateView(name, point, all);
         }
+
+        if (!buildingController.HasUpgrades()) 
+        {
+            upgradeButton.gameObject.SetActive(false);
+        }
+        else if (!buildingController.CanUpgrade())
+        {
+            upgradeButton.interactable = false;
+        }
+    }
+
+    public void UpgradeBuilding()
+    {
+        buildingController.UpdgradeBuilding();
+        modalManager.DialogueClose();
+    }
+
+    public override string GetHeader(string tag = null)
+    {
+        if (tag == "upgrade" && buildingController.HasUpgrades())
+        {
+            return building.upgrade.buildingName;
+        }
+        else
+            return base.GetHeader(tag);
+    }
+
+    public override string GetContent(string tag = null)
+    {
+        if (tag == "upgrade" && buildingController.HasUpgrades())
+        {
+            if (buildingController.CanUpgrade())
+                return "Building is ready for upgrade";
+            else
+                return "Can't upgrade";
+        }
+        else
+            return base.GetHeader(tag);
     }
 
     private IEnumerator SliderCheckRoutine()

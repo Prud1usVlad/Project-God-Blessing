@@ -60,4 +60,16 @@ public class HubController : MonoBehaviour
             }
         }
     }
+
+    public void UpgradeBuilding(Vector3 pos)
+    {
+        var place = buildingPlaces.Find(p => p.transform.position == pos);
+        
+        if (place != null)
+        {
+            var building = place.building;
+            objectPlacer.RemoveObjectAt(place);
+            objectPlacer.PlaceObject(building.upgrade, place);
+        }
+    }
 }

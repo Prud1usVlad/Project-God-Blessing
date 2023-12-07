@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Vial of fire liquid
+  m_EditorClassIdentifier: 
+  _guid: 971515d9d6304ed46af996c7dd4ded1f
+  skillName: 
+  type: 5
+  nation: 1
+  description: 'A small bottle that can cause a lot of problems. Not to be confused
+    with tabasco sauce.
+
+
+    Throwing a bottle that sets everything on fire in a
+    small area.'
+  level: 0
+  pointsRequired: 1
+  isLearnd: 0
+  required: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Pyrotechnic workshop
+  m_EditorClassIdentifier: 
+  _guid: c54c5f2d952dd884da93d34b5341ac17
+  skillName: Pyrotechnic workshop
+  type: 1
+  nation: 3
+  description: 'In the dream, you had a great idea to gather all the smart elves
+    to write all their smart things in books so that you can learn from them. It
+    won''t make you smarter, but it will make you feel more confident.
+
+
+    It adds
+    two points to your intelligence.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  building: {fileID: 11400000, guid: 589f618f90e9c6f43a173e14d69fd1a0, type: 2}
