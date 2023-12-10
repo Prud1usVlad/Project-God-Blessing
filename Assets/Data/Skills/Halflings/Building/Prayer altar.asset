@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Prayer altar
+  m_EditorClassIdentifier: 
+  _guid: 72edf868ccd9c1d48b1061fe5b3cfc9c
+  skillName: Prayer altar
+  type: 1
+  nation: 5
+  description: "Several halflings have asked you to build a special structure for
+    them where they can talk to the gods. They believe that this way they will get
+    more loot in the next raid. Who would believe them, but that's their religion.
+    \n\nIt gives a boost to loot."
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: 396bf1e9a36e9cd44a706ef413951f68, type: 2}

@@ -20,12 +20,13 @@ MonoBehaviour:
     next raid. Who would believe them, but that's their religion. \n\nIt gives a
     boost to loot."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  prefab: {fileID: 312882456432063554, guid: e3de74dee8d77ee4bb7c7dee6c904246, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   modifiers:
     statModifiers:
     - stat: 1

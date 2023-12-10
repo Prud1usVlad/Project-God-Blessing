@@ -138,6 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInBuildMode: 0
+  modalManager: {fileID: 0}
+  gameProgress: {fileID: 0}
+  hubController: {fileID: 0}
   building: {fileID: 11400000, guid: 550f7add176a99042b601f18dce31488, type: 2}
   dialogueBox: {fileID: 474379688560021357, guid: 4ae74c0d333378b429a15a9faf6cb339,
     type: 3}
@@ -449,6 +453,12 @@ PrefabInstance:
       propertyPath: objectPlacer
       value: 
       objectReference: {fileID: 818982089}
+    - target: {fileID: 6718698423289191576, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
+        type: 3}
+      propertyPath: buildings
+      value: 
+      objectReference: {fileID: 11400000, guid: 35b2ff5f6cd6b5749b4e1fe62f9a9019,
+        type: 2}
     - target: {fileID: 6718698423289191576, guid: ace98e08a4d79fe46a68f1dd8de34e9e,
         type: 3}
       propertyPath: buildSystem

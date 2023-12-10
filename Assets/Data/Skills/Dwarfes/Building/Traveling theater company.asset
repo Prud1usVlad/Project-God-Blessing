@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Traveling theater company
+  m_EditorClassIdentifier: 
+  _guid: 5fc205f836ba46b4ea6e3d6e437462ee
+  skillName: Traveling theater company
+  type: 1
+  nation: 4
+  description: 'Traveling thespians have agreed to glorify you in their travels and
+    performances for a small contribution to organizational capital and a place to
+    rest. Marketing in action.
+
+
+    Gives a bonus to the information received.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: 3eb84e786f3cb944395acb048c4afdc9, type: 2}

@@ -23,12 +23,13 @@ MonoBehaviour:
     A shop where
     you can buy improved orcish weapons and equipment for expensive resources.'
   isAvailableAtStart: 0
-  prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
+  prefab: {fileID: 7828922696322781366, guid: 1fd220f359b198f4ba759783a9802113, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   daysTillUpdate: 5
   nation: 1
   daysToUpdate: 5

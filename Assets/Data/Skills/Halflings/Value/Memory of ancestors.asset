@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Memory of ancestors
+  m_EditorClassIdentifier: 
+  _guid: 03ac9d276eea88743be3be2d0c67013e
+  skillName: Memory of ancestors
+  type: 4
+  nation: 5
+  description: 'By looking under every rock, searching every closet, your sharp eyes
+    will definitely find something that no one would want you to find. The main thing
+    is not to stick your nose in a mousetrap.
+
+
+    Collect all the resources at
+    the resource bonus level.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: ec0edfbe3bdc059459122d9e5b81eba6, type: 2}
+  buildingUpgrades: []

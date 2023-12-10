@@ -17,27 +17,67 @@ MonoBehaviour:
   avatar: {fileID: 0}
   preferedSaveFile: 
   buildingResearch:
-  - guid: 6092f40a78ab0ed4a9542dcd2dc2d537
+  - guid: d632d18573bb68540a4f88f7fbb3ea30
     isAvailable: 0
-  - guid: 81dd2e4276a2e324eabfd71f6b4d8e99
-    isAvailable: 0
-  - guid: ebd6b43eadf64a243ad1cd35228195ee
+  - guid: 87f131c363f370d4883ab6ebc8f38e3c
     isAvailable: 0
   - guid: 86af80f35a48a23459acc4e032488949
     isAvailable: 0
+  - guid: 591fce15a95ea1f44b223da51eced84c
+    isAvailable: 0
+  - guid: 6092f40a78ab0ed4a9542dcd2dc2d537
+    isAvailable: 1
+  - guid: 1410cf2535d21ad429ce17688fa3884b
+    isAvailable: 1
+  - guid: a50bd4f7d7617204b8079f2387cb8081
+    isAvailable: 0
+  - guid: ebd6b43eadf64a243ad1cd35228195ee
+    isAvailable: 1
   - guid: 877d5306add773e42b0784770994aa28
     isAvailable: 0
   - guid: f2d614abdf1282e47b5184547fa0a547
     isAvailable: 0
-  - guid: d632d18573bb68540a4f88f7fbb3ea30
+  - guid: 81dd2e4276a2e324eabfd71f6b4d8e99
+    isAvailable: 1
+  - guid: ba4a3874eaf680c4ca85a6888f1a3968
+    isAvailable: 1
+  - guid: 13728839d08cf30479bd63a510c4e35c
     isAvailable: 0
   equipment: {fileID: 11400000, guid: 01a728e652eb0d8499c9104b019a3c7c, type: 2}
   inventory: {fileID: 11400000, guid: 865369dcb19c42d4aa098866fd93edd7, type: 2}
   questSystem: {fileID: 11400000, guid: 2bdc1cf5eb3f3d9498597125b50bf3b8, type: 2}
-  placedBuildings: []
+  placedBuildings:
+  - {fileID: 11400000, guid: 1410cf2535d21ad429ce17688fa3884b, type: 2}
   curses:
   - {fileID: 11400000, guid: 45a58b1ee5b783b4d8d38e8708f6ef33, type: 2}
-  buildingRegistry: {fileID: 11400000, guid: 6e9fc77b59fd41a4a82a066af5b5881c, type: 2}
+  production:
+  - recipe:
+      name: Wood
+      resources:
+      - amount: 10
+        name: 2
+      price:
+        transactionType: 5
+        resources:
+        - amount: 50
+          name: 1
+    buildingGuid: 1410cf2535d21ad429ce17688fa3884b
+    workers: 1
+  - recipe:
+      name: Planks
+      resources:
+      - amount: 5
+        name: 10
+      price:
+        transactionType: 5
+        resources:
+        - amount: 100
+          name: 1
+        - amount: 10
+          name: 2
+    buildingGuid: 1410cf2535d21ad429ce17688fa3884b
+    workers: 0
+  buildingRegistry: {fileID: 11400000, guid: 35b2ff5f6cd6b5749b4e1fe62f9a9019, type: 2}
   curseRegistry: {fileID: 11400000, guid: b0a46eb1e44fdcf4f9d22360bbe8dc75, type: 2}
   resourceContainer: {fileID: 11400000, guid: 03386862cd8b06044820586b7c3e33d9, type: 2}
   fameTranslation: {fileID: 11400000, guid: c955e92e6d3ea494bb5912b8cfaad348, type: 2}

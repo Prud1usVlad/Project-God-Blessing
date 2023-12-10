@@ -26,6 +26,6 @@ MonoBehaviour:
   level: 2
   pointsRequired: 1
   isLearnd: 0
-  required:
-  - {fileID: 0}
+  required: []
+  buildingUpgrades: []
   building: {fileID: 11400000, guid: b10c89dd4dbd331468c6e88c3df5333c, type: 2}

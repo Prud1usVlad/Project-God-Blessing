@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Tourist kit
+  m_EditorClassIdentifier: 
+  _guid: 7f8f33387f02a7d449175e456f5b0048
+  skillName: Tourist kit
+  type: 5
+  nation: 4
+  description: 'A simple set with everything you need if you need to go out for a
+    couple of days. It even has a folding kettle!
+
+
+    Reveals the type of the next
+    room.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []

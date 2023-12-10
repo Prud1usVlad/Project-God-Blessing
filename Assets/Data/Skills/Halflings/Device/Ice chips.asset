@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Ice chips
+  m_EditorClassIdentifier: 
+  _guid: 61ceb9b42dde2e14b9b0bd85d0ece984
+  skillName: Ice chips
+  type: 5
+  nation: 5
+  description: 'A strange white ice from the northern regions of the Halflings''
+    land, they take it with them everywhere because it melts slowly and cools well
+    on hot days.
+
+
+    It allows you to freeze anything within a short range.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []

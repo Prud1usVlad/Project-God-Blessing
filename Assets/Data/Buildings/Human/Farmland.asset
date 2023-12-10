@@ -28,7 +28,7 @@ MonoBehaviour:
     resources:
     - amount: 100
       name: 1
-  upgrade: {fileID: 0}
+  upgrade: {fileID: 11400000, guid: 591fce15a95ea1f44b223da51eced84c, type: 2}
   resource:
     amount: 5
     name: 1

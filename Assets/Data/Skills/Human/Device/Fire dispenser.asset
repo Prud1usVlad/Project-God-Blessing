@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire dispenser
   m_EditorClassIdentifier: 
   _guid: 90600a1882a3e924599d1cb59b22b7c6
-  skillName: 
+  skillName: Fire dispenser
   type: 5
   nation: 1
   description: "A complex mechanism that sprays fire, usually used at low power to
@@ -24,3 +24,4 @@ MonoBehaviour:
   isLearnd: 0
   required:
   - {fileID: 11400000, guid: c4f40f5ac9c5296488c5bedc9812a358, type: 2}
+  buildingUpgrades: []

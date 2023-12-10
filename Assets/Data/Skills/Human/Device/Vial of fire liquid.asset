@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vial of fire liquid
   m_EditorClassIdentifier: 
   _guid: 971515d9d6304ed46af996c7dd4ded1f
-  skillName: 
+  skillName: Vial of fire liquid
   type: 5
   nation: 1
   description: 'A small bottle that can cause a lot of problems. Not to be confused
@@ -26,3 +26,4 @@ MonoBehaviour:
   pointsRequired: 1
   isLearnd: 0
   required: []
+  buildingUpgrades: []

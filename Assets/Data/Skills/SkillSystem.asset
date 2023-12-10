@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8459f1eda5a73d140833cbd0d12888f1, type: 3}
   m_Name: SkillSystem
   m_EditorClassIdentifier: 
-  learnedSkills: []
+  learnedSkills:
+  - {fileID: 11400000, guid: bdec71ac065b8cf4387eafdf0a1182ec, type: 2}
+  - {fileID: 11400000, guid: e64427ac2eb8998448dfcef63698078e, type: 2}
+  - {fileID: 11400000, guid: 858990bee7e079a42a179015873399cc, type: 2}
+  - {fileID: 11400000, guid: d0fc9d88f18b2e840b0a53f19d94f9fb, type: 2}
+  - {fileID: 11400000, guid: 582b8865c8507b7459fb22e952527eab, type: 2}
+  - {fileID: 11400000, guid: fb4b0bab95c47d74d9a387f05071fdd8, type: 2}
   equipedActiveSkills:
   - {fileID: 0}
   - {fileID: 0}
@@ -20,5 +26,9 @@ MonoBehaviour:
   equipedValueSkill: {fileID: 0}
   skillRegistries:
   - {fileID: 11400000, guid: 29013186909a2fd42bc6cc167d575235, type: 2}
+  - {fileID: 11400000, guid: 27732a754ec63a045bd5a86f6f254f07, type: 2}
+  - {fileID: 11400000, guid: 73fe2734b14855c4496fa53358e34019, type: 2}
+  - {fileID: 11400000, guid: 30aa775309e3d06418c00ceec9db8ece, type: 2}
+  - {fileID: 11400000, guid: fad7a8e766e619d488c9ca738468ba5c, type: 2}
   connections: {fileID: 11400000, guid: 823faf716e794284d9351754ec406d20, type: 2}
   gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}

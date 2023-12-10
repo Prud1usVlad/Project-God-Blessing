@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Throwing an axe
+  m_EditorClassIdentifier: 
+  _guid: 5fc9f770cf517f640a24d4fbe70256f9
+  skillName: Throwing an axe
+  type: 3
+  nation: 5
+  description: "When throwing an axe, the main thing is to let go in time. It is
+    considered timely when you are not injured, that is, not in the head or legs. 
+    \n\nThrowing an axe that flies long but has high damage and a chance to hit."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 7ba979047ec14d247bbafadbb74df616, type: 2}
+  buildingUpgrades: []

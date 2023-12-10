@@ -13,11 +13,39 @@ MonoBehaviour:
   m_Name: GlobalResourceContainer
   m_EditorClassIdentifier: 
   resources:
-  - amount: 980
+  - amount: 336
     name: 1
-  - amount: 200
+  - amount: 169
     name: 2
-  - amount: 200
+  - amount: 138
     name: 3
-  productionBuildings: []
+  - amount: 138
+    name: 10
+  production:
+  - recipe:
+      name: Wood
+      resources:
+      - amount: 10
+        name: 2
+      price:
+        transactionType: 5
+        resources:
+        - amount: 50
+          name: 1
+    buildingGuid: 1410cf2535d21ad429ce17688fa3884b
+    workers: 1
+  - recipe:
+      name: Planks
+      resources:
+      - amount: 5
+        name: 10
+      price:
+        transactionType: 5
+        resources:
+        - amount: 100
+          name: 1
+        - amount: 10
+          name: 2
+    buildingGuid: 1410cf2535d21ad429ce17688fa3884b
+    workers: 0
   resourceMarket: {fileID: 11400000, guid: 2dac4c29cabd337408d9fdb225c40215, type: 2}

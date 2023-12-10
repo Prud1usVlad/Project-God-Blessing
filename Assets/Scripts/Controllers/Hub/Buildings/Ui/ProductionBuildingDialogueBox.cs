@@ -1,81 +1,89 @@
+using Assets.Scripts.Models;
 using Assets.Scripts.ResourceSystem;
-using System;
-using System.Collections;
+using JetBrains.Annotations;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.Controllers.Hub.Buildings.Ui;
+using UnityEngine;
 
-public class ProductionBuildingDialogueBox : DialogueBox
+public class ProductionBuildingDialogueBox : DialogueBox, IWorkersChecker
 {
-    private List<ConsumptionWidget> consumptionWidgets;
+    private int workers;
 
     public BuildingController buildingController;
     public ProductionBuilding building;
 
-    public ProductionWidget productionWidget;
-    public Transform consumptionPanel;
-    
-    public Slider powerSlider;
+    public TextMeshProUGUI workersText;
+    public ListViewController productionList;
 
-    public GameObject consumptionPrefab;
+    public GameObject upgradePanel;
     public Button upgradeButton;
+    public TextMeshProUGUI upgradeName;
+    public ListViewController upgradeResources;
 
     public override bool InitDialogue()
     {
         header = building.buildingName;
         body = building.description;
-        powerSlider.value = building.productionPower;
-        consumptionWidgets = new List<ConsumptionWidget>();
 
         var inited = base.InitDialogue();
 
         if (inited)
         {
             UpdateView();
-            StartCoroutine(SliderCheckRoutine());
         }
 
         return inited;
     }
 
-    public void UpdateView()
+    public void UpdateView(string recipeName = null)
     {
-        string resName = Enum.GetName(typeof(ResourceName), building.resource.name);
-        string resProd = Mathf.RoundToInt(building.resource.amount *
-            building.productionMultiplier * building.productionPower) + "/day";
+        var progress = buildingController.gameProgress;
+        var production = progress.production.Where(p => p.buildingGuid == building.Guid);
 
-        productionWidget.UpdateView(resName, resProd);
+        UpdateWorkers(production);
+        productionList.InitView(production.Cast<object>().ToList());
 
-        var resources = building.productionPrice.resources;
-
-        if (consumptionWidgets.Count == 0)
+        if (!buildingController.HasUpgrades())
         {
-            foreach(var r in resources) 
+            upgradePanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (!buildingController.CanUpgrade())
             {
-                var widget = Instantiate(consumptionPrefab, consumptionPanel)
-                    .GetComponent<ConsumptionWidget>();
-                consumptionWidgets.Add(widget);
+                upgradeButton.interactable = false;
             }
+
+            upgradeName.SetText(building.upgrade.buildingName);
+            upgradeResources.InitView(building.upgrade
+                .price.resources.Cast<object>().ToList());
         }
 
-        for (int i = 0; i < resources.Count; i++)
-        {
-            string name = Enum.GetName(typeof(ResourceName), building.productionPrice.resources[i].name);
-            string point = building.productionPrice.resources[i].amount + "/item";
-            string all = building.productionPrice.resources[i].amount * building.productionPower + "/day";
+    }
 
-            consumptionWidgets[i].UpdateView(name, point, all);
+    public bool ChekWorkers(string recipeName, int newValue)
+    {
+        var production = buildingController.gameProgress
+            .production.Where(p => p.buildingGuid == building.Guid && p.recipe.name != recipeName);
+        var newWorkers = 5 - production.Sum(p => p.workers) - newValue;
+
+        return newWorkers >= 0;
+    }
+
+    public void UpdateWorkers(IEnumerable<Production> production = null) 
+    {
+        if (production == null)
+        {
+            var progress = buildingController.gameProgress;
+            production = progress.production.Where(p => p.buildingGuid == building.Guid);
         }
 
-        if (!buildingController.HasUpgrades()) 
-        {
-            upgradeButton.gameObject.SetActive(false);
-        }
-        else if (!buildingController.CanUpgrade())
-        {
-            upgradeButton.interactable = false;
-        }
+        var workers = 5 - production.Sum(p => p.workers);
+        workersText.SetText("Free workers: " + workers);
     }
 
     public void UpgradeBuilding()
@@ -98,26 +106,9 @@ public class ProductionBuildingDialogueBox : DialogueBox
     {
         if (tag == "upgrade" && buildingController.HasUpgrades())
         {
-            if (buildingController.CanUpgrade())
-                return "Building is ready for upgrade";
-            else
-                return "Can't upgrade";
+            return building.upgrade.description;
         }
         else
             return base.GetHeader(tag);
     }
-
-    private IEnumerator SliderCheckRoutine()
-    {
-        while(true)
-        {
-            if (powerSlider.value != building.productionPower)
-            {
-                building.productionPower = (int)powerSlider.value;
-                UpdateView();
-            }
-
-            yield return new WaitForSeconds(0.5f);
-        }
-    } 
 }

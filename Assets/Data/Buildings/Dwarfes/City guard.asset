@@ -23,12 +23,13 @@ MonoBehaviour:
     The Dwarven Outfit
     Shop.'
   isAvailableAtStart: 0
-  prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
+  prefab: {fileID: 7828922696322781366, guid: 0eecd20914c24014ab406c8f7ab3845a, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   daysTillUpdate: 5
   nation: 1
   daysToUpdate: 5

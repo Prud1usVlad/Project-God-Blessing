@@ -20,19 +20,11 @@ MonoBehaviour:
     you enter this market and have enough resources, you will never lack money. The
     main thing is not to drink it all yourself. \n\nMake quality alcohol."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  prefab: {fileID: 312882456432063554, guid: de6b171f863929240bc1960774291602, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
-    - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

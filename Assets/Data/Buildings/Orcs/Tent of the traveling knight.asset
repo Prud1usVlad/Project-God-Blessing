@@ -22,12 +22,13 @@ MonoBehaviour:
     Orcish
     equipment shop.'
   isAvailableAtStart: 0
-  prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
+  prefab: {fileID: 7828922696322781366, guid: 4a6c54940e1fb6d4986edfdba292d4c9, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   daysTillUpdate: 5
   nation: 1
   daysToUpdate: 5

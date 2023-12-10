@@ -29,4 +29,6 @@ MonoBehaviour:
   isLearnd: 0
   required:
   - {fileID: 11400000, guid: 74af0ecca3790714f8e6a069480e9744, type: 2}
+  buildingUpgrades:
+  - {fileID: 11400000, guid: c3a32a88f44c52044af41d1d640082bb, type: 2}
   building: {fileID: 0}

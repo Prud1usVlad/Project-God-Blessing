@@ -19,12 +19,13 @@ MonoBehaviour:
     you to buy equipment. Some of it has obviously been in battle, but it seems to
     still be in good shape. \n\nHe sells weapons of the halflings."
   isAvailableAtStart: 0
-  prefab: {fileID: 7828922696322781366, guid: 2fffe94a2b3ade845b41ad76297f7399, type: 3}
+  prefab: {fileID: 7828922696322781366, guid: 3d50007d1694dfb45adf0ac1b9f4afd8, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   daysTillUpdate: 5
   nation: 1
   daysToUpdate: 5

@@ -48,7 +48,7 @@ namespace Assets.Scripts.SaveSystem
         public List<Place> places;
         public List<Resource> resources;
         public List<Curse> curses;
-        public List<ProductionPower> productionPowers;
+        public List<Production> production;
         public List<MarketBuildingData> marketBuildingsData;
         public List<ResourceDynamic> everydayTransactions;
 
@@ -145,13 +145,10 @@ namespace Assets.Scripts.SaveSystem
 
         private void LoadBuildingStates(GameProgress progress)
         {
-            foreach (var b in progress.resourceContainer.productionBuildings)
+            if (production is not null && production.Count > 0)
             {
-                var power = productionPowers.Find(p => p.buildingGuid == b.Guid);
-                if (power is not null)
-                {
-                    b.productionPower = power.power;
-                }
+                progress.production.Clear();
+                production.ForEach(i => progress.production.Add(i));
             }
 
             foreach (var marketData in marketBuildingsData)
@@ -188,7 +185,16 @@ namespace Assets.Scripts.SaveSystem
                 var item = progress.buildingResearch
                     .Find(o => b.guid == o.guid);
 
-                item.isAvailable = b.isAvailable;
+                if (item != null)
+                    item.isAvailable = b.isAvailable;
+                else 
+                    progress.buildingResearch.Add(
+                        new ItemAvaliability 
+                        { 
+                            guid = b.guid, 
+                            isAvailable = b.isAvailable
+                        }
+                    );
             }
 
             // set resources
@@ -305,12 +311,7 @@ namespace Assets.Scripts.SaveSystem
 
         private void SaveBuildingStates(GameProgress progress)
         {
-            productionPowers = progress.resourceContainer.productionBuildings
-                .Select(b => new ProductionPower
-                {
-                    buildingGuid = b.Guid,
-                    power = b.productionPower
-                }).ToList();
+            production = progress.resourceContainer.production;
 
             var markets = progress.placedBuildings
                 .Where(b => b is MarketBuilding)

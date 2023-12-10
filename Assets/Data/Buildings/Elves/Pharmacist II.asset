@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Pharmacist II
+  m_EditorClassIdentifier: 
+  _guid: e78d4f581ffb6184ea8db56a5dae9f42
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Pharmacist services II
+  description: 'The number of diseases and accidents has been growing lately and
+    is really scary, so why not hire some elf to develop medicines. Only for medicine,
+    they''re not low-levels.
+
+
+    Make a healing paste.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 11400000, guid: 0101fdfa8523e8c4c9c825aa326b884f, type: 2}
+  productionRecipes: []

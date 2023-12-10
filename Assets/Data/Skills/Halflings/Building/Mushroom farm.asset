@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Mushroom farm
+  m_EditorClassIdentifier: 
+  _guid: 2c0068c775b36244d8472733a1f4f169
+  skillName: Mushroom farm
+  type: 1
+  nation: 5
+  description: "Minimum resources, minimum care, and you have strange-looking mushrooms.
+    This does not grow in your area. I wouldn't eat them raw, and I wouldn't eat
+    them fried either. I wouldn't eat them at all. \n\nIt allows you to grow mushrooms."
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: c982b6a4ecd2a2d4d9ecdc2d4d61ed2a, type: 2}

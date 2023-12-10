@@ -20,12 +20,13 @@ MonoBehaviour:
     conditions for the distribution of goods.  \n\nIt significantly improves the
     trading conditions."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  prefab: {fileID: 312882456432063554, guid: c9f9f188bb51ffa47a5ed153e66baf4c, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   modifiers:
     statModifiers:
     - stat: 1

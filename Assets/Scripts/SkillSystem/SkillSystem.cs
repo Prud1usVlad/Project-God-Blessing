@@ -119,7 +119,7 @@ public class SkillSystem : ScriptableObject
     private void AddReserchedBuilding(Building building)
     {
         var rb = gameProgress.buildingResearch?
-                    .Find(b => b.guid == building.Guid);
+            .Find(b => b.guid == building.Guid);
 
         if (rb is not null)
             rb.isAvailable = true;

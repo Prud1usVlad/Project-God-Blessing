@@ -28,13 +28,5 @@ MonoBehaviour:
     resources:
     - amount: 100
       name: 1
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
-    - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+  upgrade: {fileID: 11400000, guid: 1e10d8112213223429ad45c018a9512b, type: 2}
+  productionRecipes: []

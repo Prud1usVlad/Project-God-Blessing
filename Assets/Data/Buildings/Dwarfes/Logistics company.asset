@@ -22,19 +22,11 @@ MonoBehaviour:
     what will be in the boxes until they are opened.  \n\nIt allows you to get deliveries
     of random goods for gold."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  prefab: {fileID: 312882456432063554, guid: 162e700b041f6f544bb81b23d8444956, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
-    - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

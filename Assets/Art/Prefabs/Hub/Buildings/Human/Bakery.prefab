@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b81c1ea0e7e04abc1a3776b669df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInBuildMode: 0
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
   gameProgress: {fileID: 11400000, guid: 98249e36c4f6f7c4785e196f7b9d2a87, type: 2}
   hubController: {fileID: 0}
   building: {fileID: 11400000, guid: d632d18573bb68540a4f88f7fbb3ea30, type: 2}

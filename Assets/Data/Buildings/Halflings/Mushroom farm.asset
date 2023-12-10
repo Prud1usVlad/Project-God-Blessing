@@ -20,19 +20,11 @@ MonoBehaviour:
     eat them fried either. I wouldn't eat them at all. \n\nIt allows you to grow
     mushrooms."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  prefab: {fileID: 312882456432063554, guid: dce9e6356c465de47ac5b7d260b374e7, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
-    - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

@@ -28,6 +28,7 @@ MonoBehaviour:
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 11400000, guid: 2e826f327005685428f905581aac8c4e, type: 2}
   modifiers:
     statModifiers:
     - stat: 1

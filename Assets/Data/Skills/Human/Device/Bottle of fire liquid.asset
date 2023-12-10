@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bottle of fire liquid
   m_EditorClassIdentifier: 
   _guid: c4f40f5ac9c5296488c5bedc9812a358
-  skillName: 
+  skillName: Bottle of fire liquid
   type: 5
   nation: 1
   description: 'More volume means more problems. Absolutely forbidden to put on the
@@ -27,3 +27,4 @@ MonoBehaviour:
   isLearnd: 0
   required:
   - {fileID: 11400000, guid: 971515d9d6304ed46af996c7dd4ded1f, type: 2}
+  buildingUpgrades: []

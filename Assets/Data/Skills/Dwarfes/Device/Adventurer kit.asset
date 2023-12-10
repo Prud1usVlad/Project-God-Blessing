@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Adventurer kit
+  m_EditorClassIdentifier: 
+  _guid: 145712ff707b33c45953803d58fe8a17
+  skillName: Adventurer kit
+  type: 5
+  nation: 4
+  description: 'Any problem will not be the same if you have this miracle on your
+    shoulders. It''s hard to find what you need at the right time, and you can die
+    of old age trying to pack everything back.
+
+
+    Reveals the whole map, for a
+    very high price.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 6150e871c6b39f34abd4f1792e776334, type: 2}
+  buildingUpgrades: []

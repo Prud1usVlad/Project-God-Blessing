@@ -23,19 +23,11 @@ MonoBehaviour:
 
     Every day he gives you some random resources.'
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  prefab: {fileID: 312882456432063554, guid: 26cdc72b3debe324dac3a489a26d4f92, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
-    - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

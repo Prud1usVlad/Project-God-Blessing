@@ -34,6 +34,19 @@ namespace Assets.Scripts.ResourceSystem
             spendModifiers = _spendModifiers.AsReadOnly();
         }
 
+        public Resource(Resource other)
+        {
+            if (other == null)
+                return;
+
+            amount = other.amount;
+            name = other.name;
+            _gainModifiers = new List<ResourceModifier>();
+            _spendModifiers = new List<ResourceModifier>();
+            _gainModifiers.AddRange(other.gainModifiers);
+            _spendModifiers.AddRange(other.spendModifiers);
+        }
+
         public int ValueWithModifiers(int amount, TransactionType transaction, bool gain)
         {
             if (gain)

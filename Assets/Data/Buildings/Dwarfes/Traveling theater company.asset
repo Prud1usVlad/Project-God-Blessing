@@ -24,12 +24,13 @@ MonoBehaviour:
 
 '
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  prefab: {fileID: 312882456432063554, guid: 521c927b177da554da5ca8880a8c86e9, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 0}
   modifiers:
     statModifiers:
     - stat: 1

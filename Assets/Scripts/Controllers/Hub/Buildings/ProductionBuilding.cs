@@ -8,13 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Production", fileName = "Building")]
 public class ProductionBuilding : Building
 {
-    public Resource resource;
-    [Tooltip("Price for resource production on power 1. Affected by production power")]
-    public Price productionPrice;
-    public float productionMultiplier;
-
-    [Range(0, 4)]
-    public int productionPower = 0;
+    public List<ProductionRecipe> productionRecipes;
 
     public override void InitDialogue(DialogueBox dialogueBox,
         BuildingController controller = null)
@@ -24,11 +18,5 @@ public class ProductionBuilding : Building
         box.building = this;
         box.buildingController = controller;
         modalManager.DialogueOpen(dialogueBox);
-    }
-
-    public int GetProductionAmount()
-    {
-        return Mathf.RoundToInt(resource.amount
-            * productionMultiplier * productionPower);
     }
 }

@@ -19,12 +19,13 @@ MonoBehaviour:
     on it, maybe it will help you somehow. \n\nA small bonus to combat performance
     in the dungeon."
   isAvailableAtStart: 0
-  prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  prefab: {fileID: 312882456432063554, guid: c4e243ecc78ed144d94faee0e14aa760, type: 3}
   price:
     transactionType: 2
     resources:
     - amount: 100
       name: 1
+  upgrade: {fileID: 11400000, guid: 8e3ad2e597ec1414a922d442394a4d03, type: 2}
   modifiers:
     statModifiers:
     - stat: 1

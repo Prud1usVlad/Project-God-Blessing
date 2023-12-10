@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Orientation on the terrain
+  m_EditorClassIdentifier: 
+  _guid: 0b1b123d72f325b4493d1b28003a4b55
+  skillName: Orientation on the terrain
+  type: 4
+  nation: 4
+  description: 'Learning how to find ways around things can be difficult, but once
+    you have this skill, you can find a way out of any trap.
+
+
+    With some probability,
+    after clearing the room, the player is shown the direction to the exit.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 040598be6d6e5c14b81eb3240b41b727, type: 2}
+  buildingUpgrades: []

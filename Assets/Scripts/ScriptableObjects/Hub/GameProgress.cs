@@ -4,6 +4,7 @@ using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.Stats;
 using Assets.Scripts.StatSystem;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Progress/GameProgress", fileName = "GameProgress")]
@@ -23,6 +24,7 @@ public class GameProgress : ScriptableObject
     [Header("Runtime game data")]
     public List<Building> placedBuildings = new();  
     public List<CurseCard> curses = new();
+    public List<Production> production = new();
 
     // other 
     [Header("Registries")]
@@ -41,6 +43,8 @@ public class GameProgress : ScriptableObject
     {
         placedBuildings = new();
         curses = new();
+        production = new();
+        resourceContainer.production = production;
     }
 
     public void AddBuilding(Building building)
@@ -54,10 +58,13 @@ public class GameProgress : ScriptableObject
         }
         else if (building is ProductionBuilding)
         {
-            resourceContainer.productionBuildings
-                .Add(building as ProductionBuilding);
-        }
+            var b = building as ProductionBuilding;
 
+            foreach (var recipe in b.productionRecipes)
+            {
+                production.Add(new Production(recipe, b.Guid));
+            }
+        }
     }
 
     public void RemoveBuilding(Building building) 
@@ -71,8 +78,7 @@ public class GameProgress : ScriptableObject
         }
         else if (building is ProductionBuilding)
         {
-            resourceContainer.productionBuildings
-                .Add(building as ProductionBuilding);
+            production.RemoveAll(p => p.buildingGuid == building.Guid);
         }
     }
 
