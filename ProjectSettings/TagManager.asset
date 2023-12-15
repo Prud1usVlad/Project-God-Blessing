@@ -4,6 +4,28 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - RoomSpawnPoint
+  - MinimapRoom
+  - MinimapPlayerIcon
+  - LegendIcon
+  - LegendIconPoint
+  - AdditionalCamera
+  - UI
+  - SpawnPointGroup
+  - EnemySpawnPoint
+  - ResourcesSpawnPoint
+  - BossSpawnPoint
+  - TreasuresSpawnPoint
+  - ExitSpawnPoint
+  - WallSpawnPoint
+  - PlayerSpawnPoint
+  - Room
+  - EnemySpawnPointGroup
+  - BossSpawnPointGroup
+  - TreasuresSpawnPointGroup
+  - ExitSpawnPointGroup
+  - ResourcesSpawnPointGroup
+  - Wall
   - MainUi
   layers:
   - Default
