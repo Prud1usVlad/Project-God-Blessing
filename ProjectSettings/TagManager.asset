@@ -26,6 +26,7 @@ TagManager:
   - ExitSpawnPointGroup
   - ResourcesSpawnPointGroup
   - Wall
+  - MainUi
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Building Places
   - 
   - 
   - 

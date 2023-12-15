@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: NewBonus
+  m_EditorClassIdentifier: 
+  _guid: 2800a19ec170e8e40a0210de0bca4410
+  skillName: New bonus
+  type: 1
+  nation: 1
+  description: New bonus building
+  level: 0
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  building: {fileID: 11400000, guid: 68bfde619d9139146bf80c4d34833d16, type: 2}
