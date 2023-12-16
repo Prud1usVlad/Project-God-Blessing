@@ -67,7 +67,7 @@ public class HubController : MonoBehaviour
         
         if (place != null)
         {
-            var building = place.building;
+            var building = place.Building;
             objectPlacer.RemoveObjectAt(place);
             objectPlacer.PlaceObject(building.upgrade, place);
         }

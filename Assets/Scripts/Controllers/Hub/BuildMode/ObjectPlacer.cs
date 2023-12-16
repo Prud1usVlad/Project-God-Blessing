@@ -12,10 +12,10 @@ public class ObjectPlacer : MonoBehaviour
     {
         GameObject newObject = Instantiate(building.prefab);
         newObject.transform.position = place.transform.position;
+        newObject.transform.rotation = place.transform.rotation;
         placedGameObjects.Add(newObject);
 
-        place.building = building;
-        place.buildingIndexInPlacer = placedGameObjects.Count - 1;
+        place.SetBuilding(building, placedGameObjects.Count - 1);
 
         newObject.GetComponent<BuildingController>().isBuilt = true;
 
@@ -26,7 +26,7 @@ public class ObjectPlacer : MonoBehaviour
 
     public void RemoveObjectAt(BuildingPlace place)
     {
-        int idx = place.buildingIndexInPlacer;
+        int idx = place.BuildingIndexInPlacer;
 
         if (placedGameObjects.Count <= idx
             || idx < 0
@@ -35,12 +35,11 @@ public class ObjectPlacer : MonoBehaviour
             return;
         }
 
-        progress.RemoveBuilding(place.building);
+        progress.RemoveBuilding(place.Building);
 
         Destroy(placedGameObjects[idx]);
         placedGameObjects[idx] = null;
 
-        place.building = null;
-        place.buildingIndexInPlacer = -1;
+        place.RemoveBuilding();
     }
 }

@@ -70,8 +70,9 @@ MonoBehaviour:
     knbkjb ;v lgcgfc gvjhvl  asdasd asdas dasdasdadgds gddfgsd dfg dfgdfg dfg dfgdfgd
     dfgdfg dfg
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7786f1ba7cc32474c9f68556af77c59b, type: 2}
+  m_sharedMaterial: {fileID: 6482994280620334163, guid: 7786f1ba7cc32474c9f68556af77c59b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -567,6 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7c844d2d921bd429e3ce45d39fec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage:
+    progress: 0
+    isCompleted: 0
   overlay: {fileID: 2430005863406014018}
   stageName: {fileID: 6164507537164769225}
   stageDescription: {fileID: 4638369017819567569}
@@ -613,6 +617,7 @@ MonoBehaviour:
   content: 
   delay: 0.5
   dataProvider: {fileID: 2739041145585328858}
+  providerTag: 
 --- !u!1 &4497512339068542872
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +685,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7786f1ba7cc32474c9f68556af77c59b, type: 2}
+  m_sharedMaterial: {fileID: 6482994280620334163, guid: 7786f1ba7cc32474c9f68556af77c59b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
