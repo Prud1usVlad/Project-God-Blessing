@@ -42,7 +42,7 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
             BuildingPlace place = buildingPlaces.Find(p 
                 => p.gameObject.transform.position == position);
 
-            if (place is null || place.building is null)
+            if (place is null || place.Building is null)
             {
                 Debug.Log("Cant delete");
                 //soundFeedback.PlaySound(SoundType.wrongPlacement);
@@ -67,14 +67,14 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
         {
             var place = buildingPlaces.Find(p => p.transform.position == position);
             if (place is null) return true;
-            else return place.building is not null;
+            else return place.Building is not null;
         }
 
         private void ActionBase(Vector3 position)
         {
             BuildingPlace place = buildingPlaces.Find(p
                 => p.gameObject.transform.position == position);
-            var building = place.building;
+            var building = place.Building;
 
             //soundFeedback.PlaySound(SoundType.Remove);
             objectPlacer.RemoveObjectAt(place);
