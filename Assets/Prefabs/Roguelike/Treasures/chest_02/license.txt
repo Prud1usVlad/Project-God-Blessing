@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stone Chest
+* source:	https://sketchfab.com/3d-models/stone-chest-2c0ef602e6fd44c29f9d8f39412ba1d2
+* author:	TridentCorp (https://sketchfab.com/tridentcorp)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stone Chest" (https://sketchfab.com/3d-models/stone-chest-2c0ef602e6fd44c29f9d8f39412ba1d2) by TridentCorp (https://sketchfab.com/tridentcorp) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

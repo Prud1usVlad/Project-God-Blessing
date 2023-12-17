@@ -27,6 +27,12 @@ TagManager:
   - ResourcesSpawnPointGroup
   - Wall
   - MainUi
+  - Doors
+  - PlayerInteractCollider
+  - PlayerModel
+  - PlayerInteractUIText
+  - UIText
+  - Minimap
   layers:
   - Default
   - TransparentFX
@@ -35,7 +41,7 @@ TagManager:
   - Water
   - UI
   - Building Places
-  - 
+  - Ignore Rigidbody
   - 
   - 
   - 
