@@ -26,16 +26,29 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 250
       name: 1
-  upgrade: {fileID: 11400000, guid: 591fce15a95ea1f44b223da51eced84c, type: 2}
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
+    - amount: 50
+      name: 2
     - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+      name: 10
+  upgrade: {fileID: 11400000, guid: 591fce15a95ea1f44b223da51eced84c, type: 2}
+  productionRecipes:
+  - name: Flux
+    resources:
+    - amount: 5
+      name: 19
+    price:
+      transactionType: 5
+      resources:
+      - amount: 100
+        name: 1
+  - name: Cereals
+    resources:
+    - amount: 5
+      name: 11
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1

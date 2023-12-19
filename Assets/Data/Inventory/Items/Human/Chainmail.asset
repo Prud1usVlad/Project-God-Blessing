@@ -10,50 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cc421aac174a394c93b230267f8724b, type: 3}
-  m_Name: Sword
+  m_Name: Chainmail
   m_EditorClassIdentifier: 
-  _guid: 57b4c74f838add543b529029018bca49
-  itemName: Sword
-  description: Steel sword
-  icon: {fileID: 21300000, guid: d272be374bdce064799521f999c2226c, type: 3}
+  _guid: 4d9ca5afbffb94642856c01be7ea8109
+  itemName: Chainmail
+  description: 'Simple chainmail, heavy yet effective '
+  icon: {fileID: 21300000, guid: 73e2eb8378301fd499631fc2c6a5d4e9, type: 3}
   sellPrice:
-    transactionType: 3
-    resources:
-    - amount: 10
-      name: 1
-  buyPrice:
     transactionType: 3
     resources:
     - amount: 100
       name: 1
+  buyPrice:
+    transactionType: 3
+    resources:
+    - amount: 400
+      name: 1
   deconstructionPrice:
     transactionType: 7
     resources:
-    - amount: 5
-      name: 1
-  type: 100
-  complementary: 200
-  slothType: 5
+    - amount: 2
+      name: 24
+  type: 2
+  complementary: 0
+  slothType: 1
   nation: 1
   level: 7
   modifiers:
     statModifiers:
-    - stat: 6
+    - stat: 8
       reciever: 2
       modifier:
-        Value: 20
+        Value: 25
         Type: 100
-        Order: 0
-    - stat: 11
-      reciever: 2
-      modifier:
-        Value: 1
-        Type: 200
-        Order: 0
-    - stat: 9
-      reciever: 2
-      modifier:
-        Value: 0.01
-        Type: 200
         Order: 0
     resourceModifiers: []

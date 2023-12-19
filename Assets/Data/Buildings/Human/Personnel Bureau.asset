@@ -23,8 +23,16 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 500
       name: 1
+    - amount: 10
+      name: 9
+    - amount: 10
+      name: 10
+    - amount: 2
+      name: 33
+    - amount: 2
+      name: 37
   upgrade: {fileID: 0}
   modifiers:
     statModifiers:

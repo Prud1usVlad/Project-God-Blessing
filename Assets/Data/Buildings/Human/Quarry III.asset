@@ -26,16 +26,44 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 500
       name: 1
-  upgrade: {fileID: 0}
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
-    resources:
     - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+      name: 9
+    - amount: 10
+      name: 10
+    - amount: 4
+      name: 16
+  upgrade: {fileID: 0}
+  productionRecipes:
+  - name: Stones
+    resources:
+    - amount: 15
+      name: 3
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1
+  - name: Processed stones
+    resources:
+    - amount: 5
+      name: 9
+    price:
+      transactionType: 5
+      resources:
+      - amount: 10
+        name: 3
+      - amount: 100
+        name: 1
+  - name: Stone slabs
+    resources:
+    - amount: 1
+      name: 32
+    price:
+      transactionType: 5
+      resources:
+      - amount: 200
+        name: 1
+      - amount: 10
+        name: 9

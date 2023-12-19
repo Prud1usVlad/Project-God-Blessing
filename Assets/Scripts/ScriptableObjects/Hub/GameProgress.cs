@@ -65,6 +65,11 @@ public class GameProgress : ScriptableObject
                 production.Add(new Production(recipe, b.Guid));
             }
         }
+        else if (building is MarketBuilding)
+        {
+            var b = building as MarketBuilding;
+            b.UpdateStore();
+        }
     }
 
     public void RemoveBuilding(Building building) 

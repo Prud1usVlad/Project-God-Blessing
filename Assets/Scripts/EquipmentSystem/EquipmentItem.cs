@@ -12,6 +12,7 @@ namespace Assets.Scripts.EquipmentSystem
     {
         public string itemName;
         public string description;
+        public Sprite icon;
 
         public Price sellPrice;
         public Price buyPrice;

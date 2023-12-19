@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 3310dd1d4076e3743b643df0380c7409
   itemName: Ring
   description: Simple ring
+  icon: {fileID: 21300000, guid: 01daaf7f3eda1f44a86fff1587e04c90, type: 3}
   sellPrice:
     transactionType: 3
     resources:
@@ -35,4 +36,6 @@ MonoBehaviour:
   slothType: 2
   nation: 1
   level: 1
-  modifiers: []
+  modifiers:
+    statModifiers: []
+    resourceModifiers: []

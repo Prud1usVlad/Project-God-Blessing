@@ -14,7 +14,7 @@ public class MarketBuilding : Building
     public NationName nation;
     public int daysToUpdate;
     public Dictionary<SlothType, EquipmentItem> currentStore;
-    public IEnumerable<EquipmentItem> items => currentStore.Values;
+    public IEnumerable<EquipmentItem> items => currentStore?.Values;
 
     public EquipmentItemRegistry itemRegistry;
     public GameProgress gameProgress;

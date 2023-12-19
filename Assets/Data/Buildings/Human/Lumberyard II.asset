@@ -26,8 +26,16 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 200
       name: 1
+    - amount: 10
+      name: 3
+    - amount: 30
+      name: 2
+    - amount: 1
+      name: 29
+    - amount: 2
+      name: 30
   upgrade: {fileID: 11400000, guid: a50bd4f7d7617204b8079f2387cb8081, type: 2}
   productionRecipes:
   - name: Wood

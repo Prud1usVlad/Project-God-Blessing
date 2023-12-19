@@ -23,8 +23,12 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 80
       name: 1
+    - amount: 10
+      name: 3
+    - amount: 20
+      name: 2
   upgrade: {fileID: 0}
   daysTillUpdate: 5
   nation: 1

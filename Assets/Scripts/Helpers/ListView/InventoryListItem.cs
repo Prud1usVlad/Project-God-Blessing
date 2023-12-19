@@ -2,7 +2,6 @@
 using System;
 using UnityEngine.UI;
 using UnityEngine;
-using JetBrains.Annotations;
 
 namespace Assets.Scripts.Helpers.ListView
 {
@@ -17,6 +16,7 @@ namespace Assets.Scripts.Helpers.ListView
         public Image underlay;
         public Image shade;
         public Image image;
+        public Outline outline;
         public InventoryItemTooltipTrigger tooltipTrigger;
 
         public Action Selection { get; set; }
@@ -27,6 +27,7 @@ namespace Assets.Scripts.Helpers.ListView
             {
                 shade.gameObject.SetActive(false);
                 underlay.color = Color.red;
+                image.gameObject.SetActive(false);
 
                 return;
             }
@@ -53,6 +54,9 @@ namespace Assets.Scripts.Helpers.ListView
                 shade.gameObject.SetActive(true);
                 shade.color = new Color(0, 0, 0, 0.5f);
             }
+
+            image.gameObject.SetActive(true);
+            image.sprite = equipmentItem.icon;
 
             tooltipTrigger.Init(equipmentItem,
                 equipment.GetEquipedAnalogue(equipmentItem));

@@ -23,3 +23,243 @@ MonoBehaviour:
     sellPrice: 5
     maxSellAmount: 10
     maxBuyAmount: 15
+  - resource: 4
+    buyPrice: 5
+    sellPrice: 2
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 5
+    buyPrice: 25
+    sellPrice: 10
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 6
+    buyPrice: 30
+    sellPrice: 12
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 7
+    buyPrice: 25
+    sellPrice: 10
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 8
+    buyPrice: 120
+    sellPrice: 45
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 9
+    buyPrice: 140
+    sellPrice: 55
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 10
+    buyPrice: 140
+    sellPrice: 50
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 11
+    buyPrice: 30
+    sellPrice: 12
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 12
+    buyPrice: 55
+    sellPrice: 20
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 13
+    buyPrice: 60
+    sellPrice: 25
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 14
+    buyPrice: 220
+    sellPrice: 80
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 15
+    buyPrice: 230
+    sellPrice: 85
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 16
+    buyPrice: 210
+    sellPrice: 75
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 17
+    buyPrice: 130
+    sellPrice: 50
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 18
+    buyPrice: 135
+    sellPrice: 55
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 19
+    buyPrice: 130
+    sellPrice: 50
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 20
+    buyPrice: 300
+    sellPrice: 130
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 21
+    buyPrice: 400
+    sellPrice: 150
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 22
+    buyPrice: 330
+    sellPrice: 140
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 23
+    buyPrice: 200
+    sellPrice: 75
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 24
+    buyPrice: 210
+    sellPrice: 80
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 25
+    buyPrice: 220
+    sellPrice: 90
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 26
+    buyPrice: 600
+    sellPrice: 240
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 27
+    buyPrice: 570
+    sellPrice: 220
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 28
+    buyPrice: 630
+    sellPrice: 250
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 29
+    buyPrice: 1000
+    sellPrice: 400
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 30
+    buyPrice: 950
+    sellPrice: 380
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 31
+    buyPrice: 1100
+    sellPrice: 400
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 32
+    buyPrice: 1050
+    sellPrice: 400
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 33
+    buyPrice: 1100
+    sellPrice: 420
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 34
+    buyPrice: 1100
+    sellPrice: 420
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 35
+    buyPrice: 1000
+    sellPrice: 420
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 36
+    buyPrice: 2000
+    sellPrice: 800
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 37
+    buyPrice: 1600
+    sellPrice: 700
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 38
+    buyPrice: 1900
+    sellPrice: 750
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 39
+    buyPrice: 1850
+    sellPrice: 750
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 40
+    buyPrice: 4000
+    sellPrice: 1500
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 41
+    buyPrice: 4200
+    sellPrice: 1650
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 42
+    buyPrice: 4000
+    sellPrice: 1600
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 43
+    buyPrice: 4000
+    sellPrice: 1650
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 44
+    buyPrice: 5500
+    sellPrice: 2200
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 45
+    buyPrice: 5600
+    sellPrice: 2300
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 46
+    buyPrice: 6000
+    sellPrice: 2300
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 47
+    buyPrice: 5600
+    sellPrice: 2200
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 48
+    buyPrice: 10000
+    sellPrice: 4000
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 49
+    buyPrice: 12000
+    sellPrice: 4500
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 50
+    buyPrice: 9000
+    sellPrice: 3800
+    maxSellAmount: 10
+    maxBuyAmount: 15
+  - resource: 51
+    buyPrice: 10500
+    sellPrice: 4100
+    maxSellAmount: 10
+    maxBuyAmount: 15

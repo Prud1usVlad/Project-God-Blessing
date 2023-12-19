@@ -26,16 +26,35 @@ MonoBehaviour:
   price:
     transactionType: 2
     resources:
-    - amount: 100
+    - amount: 200
       name: 1
+    - amount: 10
+      name: 3
+    - amount: 30
+      name: 2
+    - amount: 2
+      name: 29
+    - amount: 1
+      name: 30
   upgrade: {fileID: 11400000, guid: 13728839d08cf30479bd63a510c4e35c, type: 2}
-  resource:
-    amount: 5
-    name: 1
-  productionPrice:
-    transactionType: 5
+  productionRecipes:
+  - name: Stones
     resources:
     - amount: 10
-      name: 1
-  productionMultiplier: 1
-  productionPower: 1
+      name: 3
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1
+  - name: Processed stones
+    resources:
+    - amount: 5
+      name: 9
+    price:
+      transactionType: 5
+      resources:
+      - amount: 100
+        name: 1
+      - amount: 10
+        name: 3
