@@ -7,15 +7,15 @@ using System.Collections;
 public class InventoryItemTooltipTrigger :
     MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public EquipmentItem item;
-    public EquipmentItem compare;
+    private InventoryRecord item;
+    private InventoryRecord compare;
     public float delay = 0.5f;
     public bool showCompare = true;
 
-    public void Init(EquipmentItem item, EquipmentItem compare = null)
+    public void Init(InventoryRecord record, InventoryRecord compareRecord = null)
     {
-        this.item = item;
-        this.compare = compare;
+        this.item = record;
+        this.compare = compareRecord;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

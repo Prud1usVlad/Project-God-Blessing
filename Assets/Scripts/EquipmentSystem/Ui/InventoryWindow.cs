@@ -49,12 +49,11 @@ public class InventoryWindow : DialogueBox
 
         slots.ForEach(s => s.slot.FillItem(null));
 
-        foreach (var record in equipment.records)
+        foreach (var record in equipment.equipedItems.Values)
         {
-            var item = equipment.GetItemByGuid(record.itemGuid);
-            var slot = slots.Find(s => s.types.Contains(item.type));
+            var slot = slots.Find(s => s.types.Contains(record.item.type));
             if (slot is not null)
-                slot.slot.FillItem(inventory.GetRecord(record.recordGuid));
+                slot.slot.FillItem(record);
         }
     }
 

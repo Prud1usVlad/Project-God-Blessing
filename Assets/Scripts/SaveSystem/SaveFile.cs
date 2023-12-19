@@ -157,7 +157,7 @@ namespace Assets.Scripts.SaveSystem
                     .Find(b => b.Guid == marketData.buildingGuid);
 
                 (building as MarketBuilding)
-                    .InitStore(marketData.itemGuids, marketData.daysTillUpdate); 
+                    .InitStore(marketData.itemsGuids, marketData.daysTillUpdate, marketData.itemsLevel); 
             }
         }
 
@@ -247,6 +247,8 @@ namespace Assets.Scripts.SaveSystem
         {
             foreach(var record in inventoryRecords)
             {
+                record.ChangeItem(progress.inventory
+                    .itemRegistry.FindByGuid(record.itemGuid));
                 progress.inventory.Add(record);
 
                 if (record.isEquipped)
@@ -324,9 +326,10 @@ namespace Assets.Scripts.SaveSystem
                 {
                     buildingGuid = market.Guid,
                     daysTillUpdate = market.daysTillUpdate,
-                    itemGuids = market.items
+                    itemsLevel = market.items.First(i => i is not null).level,
+                    itemsGuids = market.items
                         .Where(i => i is not null)
-                        .Select(i => i.Guid)
+                        .Select(i => i.itemGuid)
                         .ToList(),
                 });
             }
@@ -467,7 +470,8 @@ namespace Assets.Scripts.SaveSystem
         {
             public string buildingGuid;
             public int daysTillUpdate;
-            public List<string> itemGuids;
+            public int itemsLevel;
+            public List<string> itemsGuids;
         }
 
         #endregion

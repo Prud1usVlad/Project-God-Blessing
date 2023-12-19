@@ -8,10 +8,9 @@ namespace Assets.Scripts.Helpers.ListView
     public class InventoryListItem : MonoBehaviour, IListItem
     {
         public InventoryRecord record;
-        public EquipmentItem equipmentItem;
 
         public Equipment equipment;
-        public EquipmentItemRegistry equipmentRegistry;
+        //public EquipmentItemRegistry equipmentRegistry;
 
         public Image underlay;
         public Image shade;
@@ -35,13 +34,6 @@ namespace Assets.Scripts.Helpers.ListView
             {
                 underlay.color = Color.white;
                 record = data as InventoryRecord;
-                equipmentItem = equipmentRegistry
-                    .FindByGuid(record.itemGuid);
-            }
-            else if (data is EquipmentItem)
-            {
-                underlay.color = Color.white;
-                equipmentItem = data as EquipmentItem;
             }
 
             ProcessEquipmentItem();
@@ -56,18 +48,16 @@ namespace Assets.Scripts.Helpers.ListView
             }
 
             image.gameObject.SetActive(true);
-            image.sprite = equipmentItem.icon;
+            image.sprite = record.item.icon;
 
-            tooltipTrigger.Init(equipmentItem,
-                equipment.GetEquipedAnalogue(equipmentItem));
+            tooltipTrigger.Init(record,
+                equipment.GetEquipedAnalogue(record.item));
         }
 
         public bool HasData(object data)
         {
             if (data is InventoryRecord)
                 return record == data as InventoryRecord;
-            else if (data is EquipmentItem)
-                return equipmentItem == data as EquipmentItem;
             else return false;
         }
 

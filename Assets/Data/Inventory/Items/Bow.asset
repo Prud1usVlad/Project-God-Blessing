@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 7902d9a1311afed44b6bed4621793676
   itemName: Bow
   description: Regular bow
+  icon: {fileID: 21300000, guid: b3543777415c85a4bb00add39e027b06, type: 3}
   sellPrice:
     transactionType: 3
     resources:
@@ -34,7 +35,6 @@ MonoBehaviour:
   complementary: 202
   slothType: 5
   nation: 3
-  level: 1
   modifiers:
     statModifiers:
     - stat: 6

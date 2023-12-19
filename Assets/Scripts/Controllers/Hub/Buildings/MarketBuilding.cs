@@ -1,10 +1,9 @@
 using Assets.Scripts.EquipmentSystem;
-using Assets.Scripts.Stats;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Market", fileName = "Building")]
 public class MarketBuilding : Building
@@ -13,8 +12,8 @@ public class MarketBuilding : Building
 
     public NationName nation;
     public int daysToUpdate;
-    public Dictionary<SlothType, EquipmentItem> currentStore;
-    public IEnumerable<EquipmentItem> items => currentStore?.Values;
+    public Dictionary<SlothType, InventoryRecord> currentStore;
+    public IEnumerable<InventoryRecord> items => currentStore?.Values;
 
     public EquipmentItemRegistry itemRegistry;
     public GameProgress gameProgress;
@@ -35,17 +34,24 @@ public class MarketBuilding : Building
                 .skillSystem.connections.GetLevel(nation);
             var items = itemRegistry
                 .GetBySlothType(sloth)
-                .Where(i => i.nation == nation && i.level == nationConnLevel)
+                .Where(i => i.nation == nation)
                 .ToList();
             
-            var rand = UnityEngine.Random.Range(0, items.Count());
-            var randItem = items.Count > 0 ? items[rand] : null;
+            if (items.Any()) 
+            {
+                var rand = UnityEngine.Random.Range(0, items.Count());
+                var randItem = items.Count > 0 ? items[rand] : null;
+                currentStore.Add(sloth, new InventoryRecord(randItem, nationConnLevel));
+            }
+            else
+            {
+                currentStore.Add(sloth, null); ;
+            }
 
-            currentStore.Add(sloth, randItem);
         }
     }
 
-    public void InitStore(IEnumerable<string> guids, int daysTillUpdate)
+    public void InitStore(IEnumerable<string> guids, int daysTillUpdate, int itemsLevel)
     {
         this.daysTillUpdate = daysTillUpdate;
         currentStore = new();
@@ -53,7 +59,7 @@ public class MarketBuilding : Building
         foreach (var guid in guids)
         {
             var item = itemRegistry.FindByGuid(guid);
-            currentStore.Add(item.slothType, item);
+            currentStore.Add(item.slothType, new InventoryRecord(item, itemsLevel));
         }
 
         foreach (var sloth in (SlothType[])Enum.GetValues(typeof(SlothType)))
@@ -72,21 +78,21 @@ public class MarketBuilding : Building
         }
     }
 
-    public bool CanAffordItem(EquipmentItem item)
+    public bool CanAffordItem(InventoryRecord record)
     {
-        return gameProgress.resourceContainer.CanAfford(item.buyPrice);
+        return gameProgress.resourceContainer.CanAfford(record.item.buyPrice);
     }
 
-    public void BuyItem(EquipmentItem item)
+    public void BuyItem(InventoryRecord record)
     {
-        if (!CanAffordItem(item))
+        if (!CanAffordItem(record))
             return;
 
-        if (currentStore.Values.Contains(item))
+        if (currentStore.Values.Contains(record))
         {
-            gameProgress.resourceContainer.Spend(item.buyPrice);
-            gameProgress.inventory.Add(item);
-            currentStore.Remove(item.slothType);
+            gameProgress.resourceContainer.Spend(record.item.buyPrice);
+            gameProgress.inventory.Add(record);
+            currentStore.Remove(record.item.slothType);
         }
     }
 }

@@ -23,8 +23,6 @@ namespace Assets.Scripts.EquipmentSystem
         public ItemType complementary = ItemType.None;
         public SlothType slothType;
         public NationName nation;
-        [Range(0, 25)]
-        public int level;
 
         public ModifiersContainer modifiers;
 
