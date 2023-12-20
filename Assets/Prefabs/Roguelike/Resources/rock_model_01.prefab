@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3275014999775579488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: interact_position
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8416685490930229006}
   - component: {fileID: 5940061843303783434}
   - component: {fileID: 6171616060373267790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: polySurface3_lambert1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203673362349038639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: polySurface3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904979884406845948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RootNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138381819242199419}
   - component: {fileID: 6315893982281965348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock_model_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 2925487847073295308}
   - component: {fileID: 9211312935387428435}
   - component: {fileID: 4613387103009103930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 2768653989504820908}
   - component: {fileID: 4143888976099080833}
   - component: {fileID: 332003283783388088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: phyisic_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4899943299534820206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333178437574379844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 4a578a75575c4c49b01db22eaf0ab82c.fbx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424137284502907194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sketchfab_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

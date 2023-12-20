@@ -150,6 +150,8 @@ namespace Assets.Scripts.Roguelike.LevelGeneration.Logic
                 generationNumber++;
             };
 
+            RestartGameHelper.Instance.Restart += generate;
+
             generate.Invoke();
 
 

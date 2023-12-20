@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2347600045297528726}
   - component: {fileID: 4726744700430331047}
   - component: {fileID: 2607883277420264660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7359817971550362674}
   - component: {fileID: 4002959967706114898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: floor_forest_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6725267997212898877}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8665425659791301305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wall_spawn_point
   m_TagString: WallSpawnPoint
   m_Icon: {fileID: 0}

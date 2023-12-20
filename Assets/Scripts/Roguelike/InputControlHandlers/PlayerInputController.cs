@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Helpers;
+using Assets.Scripts.Helpers.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Player;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -17,10 +19,13 @@ public class PlayerInputController : MonoBehaviour
     public GameObject Player;
     public Camera PlayerCamera;
     public Animator Animator;
-    public GameObject WeaponObject;
+    public GameObject Weapon;
+    public GameObject Gadget;
+    public GameObject GadgetStore;
 
     [Header("UI Elements")]
     public GameObject InteractionText;
+    public GameObject GadgetWheel;
 
     [NonSerialized]
     public Action Interact;
@@ -37,6 +42,7 @@ public class PlayerInputController : MonoBehaviour
     private Action _collect;
     private Action _openChest;
     private Action _openDoor;
+    private Action _openGadgetWheel;
     private Action _death;
 
     private Vector3 _movementLeftVector = new Vector3(-1, 0, 0);
@@ -50,11 +56,16 @@ public class PlayerInputController : MonoBehaviour
     private bool _isDodge = false;
     private bool _isStaticAnimation = false;
     private bool _isDead = false;
+    private bool _isGadgetWheelOpened = false;
     private int _currentFixedDodgeFrame;
     private Vector3 _dodgeDirection;
     private Vector3 _lastDodgeDirection;
 
     private Rigidbody _rigidBody;
+    private ObjectGadgetHandler _objectGadgetHandler;
+
+    private GameObject _gadgetObject = null;
+    private RaycastHit _hit = default;
 
     public void OnDodgeEnd()
     {
@@ -75,14 +86,14 @@ public class PlayerInputController : MonoBehaviour
     {
         _isStaticAnimation = false;
         _rigidBody.velocity = Vector3.zero;
-        WeaponObject.SetActive(true);
+        Weapon.SetActive(true);
     }
 
     public void OnCollectEnd()
     {
         _isStaticAnimation = false;
         _rigidBody.velocity = Vector3.zero;
-        WeaponObject.SetActive(true);
+        Weapon.SetActive(true);
         InteractDestination[0].Value.Interact();
         InteractDestination.RemoveAt(0);
     }
@@ -91,7 +102,7 @@ public class PlayerInputController : MonoBehaviour
     {
         _isStaticAnimation = false;
         _rigidBody.velocity = Vector3.zero;
-        WeaponObject.SetActive(true);
+        Weapon.SetActive(true);
         InteractDestination[0].Value.Interact();
         InteractDestination.RemoveAt(0);
     }
@@ -100,15 +111,39 @@ public class PlayerInputController : MonoBehaviour
     {
         _isStaticAnimation = false;
         _rigidBody.velocity = Vector3.zero;
-        WeaponObject.SetActive(true);
+        Weapon.SetActive(true);
         InteractDestination[0].Value.Interact();
         InteractDestination.RemoveAt(0);
     }
 
+    public void OnRestart()
+    {
+        _isDead = false;
+        _isStaticAnimation = false;
+        PlayerStateHelper.Instance.PlayerState = PlayerState.InGame;
+        Animator.SetTrigger(AnimatorHelper.PlayerAnimator.ReviveTrigger);
+        _rigidBody.velocity = Vector3.zero;
+    }
+
+    public void OnThrow()
+    {
+        _gadgetObject.transform.SetParent(GadgetStore.transform);
+
+        Vector3 hitPoint = _hit.point;
+        hitPoint.y = transform.position.y;
+
+        _gadgetObject.GetComponent<GadgetController>().Throw(hitPoint);
+        _gadgetObject = null;
+        _hit = default;
+    }
+
+
     private void Start()
     {
+        GadgetWheel.SetActive(false);
         InteractDestination = new List<KeyValuePair<PlayerInteractDestination, IColliderHandler>>();
         _rigidBody = GetComponent<Rigidbody>();
+        _objectGadgetHandler = Gadget.GetComponent<ObjectGadgetHandler>();
 
         _leftMovement += delegate ()
         {
@@ -242,6 +277,7 @@ public class PlayerInputController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.End))
             {
                 _isDead = true;
+                PlayerStateHelper.Instance.PlayerState = PlayerState.Dead;
                 Animator.SetTrigger(AnimatorHelper.PlayerAnimator.DeathTrigger);
                 _rigidBody.velocity = Vector3.zero;
             }
@@ -254,16 +290,25 @@ public class PlayerInputController : MonoBehaviour
             {
                 return;
             }
-#if UNITY_EDITOR
+
             if (Input.GetMouseButtonUp(1))
             {
-                WeaponObject.SetActive(false);
+                Weapon.SetActive(false);
                 _isStaticAnimation = true;
                 setPlayerDirectionByMouse();
+
+                GameObject instance = Instantiate(GadgetHandler.Instance.Gadgets[GadgetHandler.Instance.CurrentGudgetNumber],
+                    Gadget.transform.position, Gadget.transform.rotation);
+                Ray ray = PlayerCamera.ScreenPointToRay(Input.mousePosition);
+
+                Physics.Raycast(ray, out _hit);
+
+                _gadgetObject = instance;
+                _gadgetObject.transform.SetParent(Gadget.transform);
+
                 Animator.SetTrigger(AnimatorHelper.PlayerAnimator.GadgetTrigger);
                 _rigidBody.velocity = Vector3.zero;
             }
-#endif
         };
 
         _collect += delegate ()
@@ -274,7 +319,7 @@ public class PlayerInputController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                WeaponObject.SetActive(false);
+                Weapon.SetActive(false);
 
                 Transform interactTransform = InteractDestination[0].Value.InteractTransform;
                 transform.position = new Vector3(
@@ -297,7 +342,7 @@ public class PlayerInputController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                WeaponObject.SetActive(false);
+                Weapon.SetActive(false);
 
                 Transform interactTransform = InteractDestination[0].Value.InteractTransform;
                 transform.position = new Vector3(
@@ -320,7 +365,7 @@ public class PlayerInputController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                WeaponObject.SetActive(false);
+                Weapon.SetActive(false);
 
                 Transform interactTransform = InteractDestination[0].Value.InteractTransform;
                 transform.position = new Vector3(
@@ -359,6 +404,23 @@ public class PlayerInputController : MonoBehaviour
                     throw new Exception("Unhandled interact destination");
             }
         };
+
+        _openGadgetWheel += delegate ()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                _isGadgetWheelOpened = true;
+                GadgetWheel.SetActive(true);
+                //Time.timeScale = 0.1f;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
+                _isGadgetWheelOpened = false;
+                GadgetWheel.SetActive(false);
+                //Time.timeScale = 1f;
+            }
+        };
     }
 
     private void Update()
@@ -371,7 +433,9 @@ public class PlayerInputController : MonoBehaviour
 
         InteractionText.SetActive(InteractDestination.Any());
 
-        if (_isStaticAnimation)
+        _openGadgetWheel.Invoke();
+
+        if (_isStaticAnimation || _isGadgetWheelOpened)
         {
             return;
         }

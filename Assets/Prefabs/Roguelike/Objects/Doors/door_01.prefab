@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920261257782418339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044306652148050186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: player_spawn_point
   m_TagString: PlayerSpawnPoint
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 5138401310357752189}
   - component: {fileID: 4658418345344132749}
   - component: {fileID: 3334524747392472711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6447910701176363301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: interact_position
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 5298294857495331938}
   - component: {fileID: 3596914575401125590}
   - component: {fileID: 6310795853212176825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

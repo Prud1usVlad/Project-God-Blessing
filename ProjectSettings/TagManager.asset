@@ -33,6 +33,8 @@ TagManager:
   - PlayerInteractUIText
   - UIText
   - Minimap
+  - HandlersObject
+  - WheelGadgetText
   layers:
   - Default
   - TransparentFX
@@ -41,7 +43,7 @@ TagManager:
   - Water
   - UI
   - Building Places
-  - Ignore Rigidbody
+  - Rigidbody
   - 
   - 
   - 

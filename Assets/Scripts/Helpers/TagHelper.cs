@@ -28,6 +28,9 @@ namespace Assets.Scripts.Helpers
         public static string MinimapTag = "Minimap";
         public static string PlayerInteractUITextTag = "PlayerInteractUIText";
 
+        public static string HandlersObjectTag = "HandlersObject";
+        public static string WheelGadgetTextTag = "WheelGadgetText";
+        
         public static class SpawnPointTags
         {
             public static string RoomSpawnPointTag = "RoomSpawnPoint";

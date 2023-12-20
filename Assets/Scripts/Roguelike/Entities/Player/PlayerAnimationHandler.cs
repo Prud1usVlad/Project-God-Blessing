@@ -11,6 +11,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     private Action _collectFunc;
     private Action _openChestFunc;
     private Action _openDoorFunc;
+    private Action _throwEventFunc;
 
 
     public GameObject PlayerObject;
@@ -24,6 +25,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         _collectFunc += playerInputController.OnCollectEnd;
         _openChestFunc += playerInputController.OnOpenChestEnd;
         _openDoorFunc += playerInputController.OnOpenDoorEnd;
+        _throwEventFunc += playerInputController.OnThrow;
     }
 
     public void OnDodgeAnimationEnd()
@@ -59,5 +61,10 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void OnDeathAnimationEnd()
     {
 
+    }
+
+    public void OnThrowEvent()
+    {
+        _throwEventFunc.Invoke();
     }
 }

@@ -25,8 +25,6 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
             }
             set
             {
-
-
                 if (value.RoomType.Equals(RoomType.Spawn))
                 {
                     IsVisible = true;

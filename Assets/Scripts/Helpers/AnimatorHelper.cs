@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-
 namespace Assets.Scripts.Helpers
 {
     public static class AnimatorHelper
@@ -20,11 +13,17 @@ namespace Assets.Scripts.Helpers
             public static string OpenDoorTrigger = "OpenDoor";
             public static string OpenChestTrigger = "OpenChest";
             public static string DeathTrigger = "Death";
+            public static string ReviveTrigger = "Revive";
         }
 
         public static class TreasureAnimator
         {
             public static string OpenChestTrigger = "OpenChest";
+        }
+
+        public static class UIAnimator
+        {
+            public static string IsHoveredParameter = "IsHovered";
         }
     }
 }
