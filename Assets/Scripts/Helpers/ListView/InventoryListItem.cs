@@ -2,21 +2,20 @@
 using System;
 using UnityEngine.UI;
 using UnityEngine;
-using JetBrains.Annotations;
 
 namespace Assets.Scripts.Helpers.ListView
 {
     public class InventoryListItem : MonoBehaviour, IListItem
     {
         public InventoryRecord record;
-        public EquipmentItem equipmentItem;
 
         public Equipment equipment;
-        public EquipmentItemRegistry equipmentRegistry;
+        //public EquipmentItemRegistry equipmentRegistry;
 
         public Image underlay;
         public Image shade;
         public Image image;
+        public Outline outline;
         public InventoryItemTooltipTrigger tooltipTrigger;
 
         public Action Selection { get; set; }
@@ -27,6 +26,7 @@ namespace Assets.Scripts.Helpers.ListView
             {
                 shade.gameObject.SetActive(false);
                 underlay.color = Color.red;
+                image.gameObject.SetActive(false);
 
                 return;
             }
@@ -34,13 +34,6 @@ namespace Assets.Scripts.Helpers.ListView
             {
                 underlay.color = Color.white;
                 record = data as InventoryRecord;
-                equipmentItem = equipmentRegistry
-                    .FindByGuid(record.itemGuid);
-            }
-            else if (data is EquipmentItem)
-            {
-                underlay.color = Color.white;
-                equipmentItem = data as EquipmentItem;
             }
 
             ProcessEquipmentItem();
@@ -54,16 +47,17 @@ namespace Assets.Scripts.Helpers.ListView
                 shade.color = new Color(0, 0, 0, 0.5f);
             }
 
-            tooltipTrigger.Init(equipmentItem,
-                equipment.GetEquipedAnalogue(equipmentItem));
+            image.gameObject.SetActive(true);
+            image.sprite = record.item.icon;
+
+            tooltipTrigger.Init(record,
+                equipment.GetEquipedAnalogue(record.item));
         }
 
         public bool HasData(object data)
         {
             if (data is InventoryRecord)
                 return record == data as InventoryRecord;
-            else if (data is EquipmentItem)
-                return equipmentItem == data as EquipmentItem;
             else return false;
         }
 

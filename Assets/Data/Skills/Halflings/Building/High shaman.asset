@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: High shaman
+  m_EditorClassIdentifier: 
+  _guid: f21fce0d6b9cfa6499317a1920722ab2
+  skillName: High shaman
+  type: 1
+  nation: 5
+  description: "One day a shaman called you over and showed you a strange brownish
+    substance, and after listening to a long story you realized that it was a special
+    mixture used in festive rituals, and today was the right time for it. After coming
+    to your senses a few days later, you realized that the product has prospects
+    in the market. \n\nIt allows you to produce the charms of visions in a shaman."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 972c7801a837f4b48bbbb4f30a803d70, type: 2}
+  - {fileID: 11400000, guid: 7e629e0ff1254f848875c4ce39c85405, type: 2}
+  buildingUpgrades:
+  - {fileID: 11400000, guid: 583aa2aee85fa6a4bb415474e4f4705b, type: 2}
+  building: {fileID: 0}

@@ -2,6 +2,7 @@ using Assets.Scripts.EventSystem;
 using Assets.Scripts.Helpers.ListView;
 using Assets.Scripts.ResourceSystem;
 using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,11 @@ public class BuildingListItem : MonoBehaviour, IListItem
     public TextMeshProUGUI buildingName;
     public TextMeshProUGUI buildingDescription;
     public TooltipTrigger tooltipTrigger;
-    public Transform resourcesPanel;
+    public ListViewController resources;
+
+    public Color defaultColor;
+    public Color availableColor;
+    public Color notAvaliableColor;
 
     public Action Selection { get; set; }
 
@@ -31,23 +36,9 @@ public class BuildingListItem : MonoBehaviour, IListItem
         buildingName?.SetText(building?.buildingName);
         buildingDescription?.SetText(building?.description);
 
-        GameObject pref = new GameObject("Resource");
-        var text = pref.AddComponent<TextMeshProUGUI>();
-        pref.AddComponent<TooltipTrigger>();
-        text.fontSize = 24;
+        resources.InitView(building.price
+            .resources.Cast<object>().ToList());
 
-        foreach (var res in building.price.resources)
-        {
-            var item = Instantiate(pref, Vector3.zero, Quaternion.identity, resourcesPanel);
-            
-            item.GetComponent<TextMeshProUGUI>()
-                .SetText($"{Enum.GetName(typeof(ResourceName), res.name)} : {res.amount}");
-            
-            item.GetComponent<TooltipTrigger>()
-                .Init($"{gameProgress.resourceContainer.GetResourceAmount(res.name)}/{res.amount}");
-        }
-
-        Destroy(pref);
         ApplyColors();
     }
 
@@ -73,12 +64,12 @@ public class BuildingListItem : MonoBehaviour, IListItem
 
         if (isPlaced)
         {
-            GetComponent<Image>().color = new Color(0, 1, 0, 0.5f);
+            GetComponent<Image>().color = defaultColor;
             tooltipTrigger.Init("Building already placed", building.name);
         }
         else if (!isAvailable || !isReserched)
         {
-            GetComponent<Image>().color = new Color(1, 0, 0, 0.5f);
+            GetComponent<Image>().color = notAvaliableColor;
             
             var content = (!isReserched) ? "Building is not reserched yet"
                 : "You don't have enough resources";
@@ -86,7 +77,7 @@ public class BuildingListItem : MonoBehaviour, IListItem
         }
         else
         {
-            GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            GetComponent<Image>().color = availableColor;
             tooltipTrigger.Init("Building is available", building.name);
         }
     }

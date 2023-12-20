@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Mine
+  m_EditorClassIdentifier: 
+  _guid: 269a49c86cff8cd4fb90d1392b027d16
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: 'Mine '
+  description: "A group of orcs have found an abandoned mine in the mountains nearby,
+    so they're asking for a storage and transportation area, with the possibility
+    of buying resources from them at low prices. It sounds like a plan, as long as
+    you don't steal from them  \n\nProduces coal, sulfur, iron and copper ore, for
+    a lot of money."
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: 8a2cce1d17038e34aba8e690fd3fe620, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 11400000}
+  productionRecipes: []

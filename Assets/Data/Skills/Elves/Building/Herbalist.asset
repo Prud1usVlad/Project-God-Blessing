@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Herbalist
+  m_EditorClassIdentifier: 
+  _guid: 0bacd7a278f38c6449c7ade8f5cebc16
+  skillName: The herbalist's house
+  type: 1
+  nation: 3
+  description: 'An elven forester often drops by your tavern with a bag full of medicinal
+    herbs. Why not offer to build a staging area for him? Maybe he will bring something
+    interesting?
+
+
+    He produces sugar root and medicinal herbs.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  building: {fileID: 11400000, guid: e85d569cff41f0b4aad48c2b56dd8899, type: 2}

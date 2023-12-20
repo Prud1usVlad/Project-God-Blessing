@@ -14,8 +14,8 @@ namespace Assets.Scripts.ResourceSystem
         private List<Resource> resources;
 
         private Dictionary<ResourceName, Dictionary<TransactionType, ResourceDynamic>> statistics;
-        
-        public List<ProductionBuilding> productionBuildings;
+
+        public List<Production> production;
         public ResourceMarket resourceMarket;
 
         public List<Resource> Resources => resources;
@@ -30,10 +30,17 @@ namespace Assets.Scripts.ResourceSystem
             return GetResource(name).amount;
         }
 
-        public IEnumerable<ProductionBuilding> 
-            GetProductionBuildings(ResourceName resource)
+        public IEnumerable<string> 
+            GetProductionBuildingsGuids(ResourceName resource)
         {
-            return productionBuildings.Where(b => b.resource.name == resource);
+            return GetActiveProductions(resource)
+                .Select(p => p.buildingGuid);
+        }
+
+        public IEnumerable<Production> GetActiveProductions(ResourceName resource) 
+        {
+            return production.Where(p => p.workers > 0 &&
+                p.recipe.resources.FindIndex(r => r.name == resource) > 0);
         }
 
         public Dictionary<TransactionType, ResourceDynamic> 
@@ -130,15 +137,18 @@ namespace Assets.Scripts.ResourceSystem
         {
             int value = 0;
             var res = GetResource(resource);
+            var releventProductions = production.Where(p => p.workers > 0 &&
+                p.recipe.price.resources.FindIndex(r => r.name == resource) > 0);
 
-            foreach (var b in productionBuildings)
+            foreach (var prod in releventProductions)
             {
-                var priceRes = b.productionPrice.resources.Find(r => r.name == resource);
+                var priceRes = prod.recipe.price
+                    .resources.Find(r => r.name == resource);
 
                 if (priceRes is not null) 
                 {
                     value += res.ValueWithModifiers(priceRes.amount,
-                        TransactionType.Production, false) * b.productionPower;
+                        TransactionType.Production, false) * prod.workers;
                 }
             }
 
@@ -149,15 +159,19 @@ namespace Assets.Scripts.ResourceSystem
 
         public int GaindedPerDay(ResourceName resource)
         {
+            int value = 0;
             var res = GetResource(resource);
 
-            var value = productionBuildings
-                .Where(b => b.resource.name == resource)
-                .Sum(b => res.ValueWithModifiers(
-                    b.GetProductionAmount(), 
-                    TransactionType.Production,
-                true)
-            );
+            foreach (var prod in GetActiveProductions(resource))
+            {
+                var gain = prod.recipe.resources.Find(r => r.name == resource);
+
+                if (gain is not null)
+                {
+                    value += res.ValueWithModifiers(gain.amount,
+                        TransactionType.Production, true) * prod.workers;
+                }
+            }
 
             value += resourceMarket.GetTransaction(resource).gained;
             return value;
@@ -183,7 +197,6 @@ namespace Assets.Scripts.ResourceSystem
         private void OnEnable()
         {
             statistics = new();
-            productionBuildings = new();
         }
     }
 }

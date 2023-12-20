@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Farmland II
+  m_EditorClassIdentifier: 
+  _guid: 591fce15a95ea1f44b223da51eced84c
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Farmland II
+  description: 'An agricultural development center that provides tools for cultivating
+    nearby fields. Sometimes you find the skeletons of your less successful predecessors
+    while cultivating the land.
+
+
+    Produces cereals and some flax for money, can
+    use fertilizers.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: b3f3050a2414f2947a2d117724d5785c, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 450
+      name: 1
+    - amount: 40
+      name: 8
+    - amount: 10
+      name: 10
+    - amount: 2
+      name: 16
+    - amount: 2
+      name: 27
+  upgrade: {fileID: 0}
+  productionRecipes:
+  - name: Flux
+    resources:
+    - amount: 5
+      name: 19
+    price:
+      transactionType: 5
+      resources:
+      - amount: 100
+        name: 1
+  - name: Cereals
+    resources:
+    - amount: 5
+      name: 11
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1
+  - name: Flux with bonemeal
+    resources:
+    - amount: 7
+      name: 19
+    price:
+      transactionType: 5
+      resources:
+      - amount: 100
+        name: 1
+      - amount: 10
+        name: 8
+  - name: Cereals with bonemeal
+    resources:
+    - amount: 7
+      name: 11
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1
+      - amount: 12
+        name: 8
+  - name: Flux with fertilizers
+    resources:
+    - amount: 12
+      name: 19
+    price:
+      transactionType: 5
+      resources:
+      - amount: 115
+        name: 1
+      - amount: 1
+        name: 39
+  - name: Cereals with fertilizers
+    resources:
+    - amount: 12
+      name: 11
+    price:
+      transactionType: 5
+      resources:
+      - amount: 65
+        name: 1
+      - amount: 1
+        name: 39

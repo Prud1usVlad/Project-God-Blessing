@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 5d81aca06178bdc4ea58ff0a39ddfb2c
   itemName: Copper ring
   description: Simple copper ring
+  icon: {fileID: 21300000, guid: 01daaf7f3eda1f44a86fff1587e04c90, type: 3}
   sellPrice:
     transactionType: 3
     resources:
@@ -34,11 +35,7 @@ MonoBehaviour:
   complementary: 0
   slothType: 2
   nation: 1
-  level: 1
+  level: 7
   modifiers:
-  - stat: 10
-    reciever: 2
-    modifier:
-      Value: 1
-      Type: 100
-      Order: 0
+    statModifiers: []
+    resourceModifiers: []

@@ -16,7 +16,7 @@ public class MarketBuildingDialogueBox : DialogueBox
     [NonSerialized]
     public MarketBuilding building;
     [NonSerialized]
-    public EquipmentItem selectedItem;
+    public InventoryRecord selectedItem;
 
     public ListViewController itemsList;
     public GameObject detailsPanel;
@@ -54,7 +54,7 @@ public class MarketBuildingDialogueBox : DialogueBox
             detailsPanel.SetActive(true);
 
             selectedDetails.InitView(selectedItem);
-            selectedPrice.InitView(selectedItem
+            selectedPrice.InitView(selectedItem.item
                 .buyPrice.resources.Cast<object>().ToList());
 
             buyButton.enabled = building.CanAffordItem(selectedItem);
@@ -94,7 +94,7 @@ public class MarketBuildingDialogueBox : DialogueBox
         var res = new StringBuilder();
         var prog = building.gameProgress;
 
-        foreach (var resource in selectedItem.buyPrice.resources) 
+        foreach (var resource in selectedItem.item.buyPrice.resources) 
         {
             res.AppendLine($"{Enum.GetName(typeof(ResourceName), resource.name)}" +
                 $" {prog.resourceContainer.GetResourceAmount(resource.name)}" +
@@ -106,7 +106,7 @@ public class MarketBuildingDialogueBox : DialogueBox
 
     private void OnSelectionChanged()
     {
-        selectedItem = itemsList.Selected as EquipmentItem;
+        selectedItem = itemsList.Selected as InventoryRecord;
         UpdateDetails();
     }
 }

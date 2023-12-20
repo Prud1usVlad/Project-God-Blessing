@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Weaving workshop III
+  m_EditorClassIdentifier: 
+  _guid: 55f52161811e9a84e8fa9c8c0e1a9bcc
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Weaving workshop III
+  description: 'A group of elves under the leadership of a dwarf made a cloth weaving
+    machine, this model can now be bought and used, but of course, if you can teach
+    your workers to work with it.
+
+
+    It produces fabric.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: a40339223e544c24bb4d3dbdc2a7630a, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

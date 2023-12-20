@@ -11,7 +11,7 @@ public class BonusBuilding : Building
 {
     public ModifiersContainer modifiers;
 
-    public override void InitDialogue(DialogueBox dialogueBox)
+    public override void InitDialogue(DialogueBox dialogueBox, BuildingController controller = null)
     {
         (dialogueBox as BonusBuildingDialogueBox).building = this;
         modalManager.DialogueOpen(dialogueBox);

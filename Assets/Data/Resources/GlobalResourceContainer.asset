@@ -13,11 +13,133 @@ MonoBehaviour:
   m_Name: GlobalResourceContainer
   m_EditorClassIdentifier: 
   resources:
-  - amount: 980
+  - amount: 98233
     name: 1
-  - amount: 200
+  - amount: 889
     name: 2
-  - amount: 200
+  - amount: 969
     name: 3
-  productionBuildings: []
+  - amount: 932
+    name: 4
+  - amount: 1000
+    name: 5
+  - amount: 1000
+    name: 6
+  - amount: 1000
+    name: 7
+  - amount: 1000
+    name: 8
+  - amount: 1000
+    name: 9
+  - amount: 1000
+    name: 10
+  - amount: 1000
+    name: 11
+  - amount: 1000
+    name: 12
+  - amount: 1000
+    name: 13
+  - amount: 1000
+    name: 14
+  - amount: 1000
+    name: 15
+  - amount: 1000
+    name: 16
+  - amount: 1000
+    name: 17
+  - amount: 1000
+    name: 18
+  - amount: 1000
+    name: 19
+  - amount: 1000
+    name: 20
+  - amount: 1000
+    name: 21
+  - amount: 1000
+    name: 22
+  - amount: 1000
+    name: 23
+  - amount: 1000
+    name: 24
+  - amount: 1000
+    name: 25
+  - amount: 1000
+    name: 26
+  - amount: 983
+    name: 27
+  - amount: 1000
+    name: 28
+  - amount: 999
+    name: 29
+  - amount: 999
+    name: 30
+  - amount: 1000
+    name: 31
+  - amount: 1000
+    name: 32
+  - amount: 1000
+    name: 33
+  - amount: 1000
+    name: 34
+  - amount: 1000
+    name: 35
+  - amount: 1000
+    name: 36
+  - amount: 1000
+    name: 37
+  - amount: 1000
+    name: 38
+  - amount: 1000
+    name: 39
+  - amount: 1000
+    name: 40
+  - amount: 1000
+    name: 41
+  - amount: 1000
+    name: 42
+  - amount: 1000
+    name: 43
+  - amount: 1000
+    name: 44
+  - amount: 1000
+    name: 45
+  - amount: 1000
+    name: 46
+  - amount: 1000
+    name: 47
+  - amount: 1000
+    name: 48
+  - amount: 1000
+    name: 49
+  - amount: 1000
+    name: 50
+  - amount: 1000
+    name: 51
+  production:
+  - recipe:
+      name: Stones
+      resources:
+      - amount: 10
+        name: 3
+      price:
+        transactionType: 5
+        resources:
+        - amount: 50
+          name: 1
+    buildingGuid: 81dd2e4276a2e324eabfd71f6b4d8e99
+    workers: 0
+  - recipe:
+      name: Flour
+      resources:
+      - amount: 5
+        name: 15
+      price:
+        transactionType: 5
+        resources:
+        - amount: 50
+          name: 1
+        - amount: 10
+          name: 11
+    buildingGuid: 877d5306add773e42b0784770994aa28
+    workers: 0
   resourceMarket: {fileID: 11400000, guid: 2dac4c29cabd337408d9fdb225c40215, type: 2}

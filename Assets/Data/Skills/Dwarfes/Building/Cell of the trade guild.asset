@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Cell of the trade guild
+  m_EditorClassIdentifier: 
+  _guid: 1e73b447138d78342b3e1be6f0575fc1
+  skillName: Cell of the trade guild
+  type: 1
+  nation: 4
+  description: "It's rare, but with the right bribe, you can be made a member of
+    a trade guild. And this is not only a status symbol, but also gives you favorable
+    conditions for the distribution of goods.  \n\nIt significantly improves the
+    trading conditions."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: 0658c2a4a5ed3aa41b370f4de02643d5, type: 2}

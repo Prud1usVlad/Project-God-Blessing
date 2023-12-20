@@ -13,16 +13,6 @@ public class Inventory : ScriptableObject
 
     public List<InventoryRecord> records;
 
-    public void Add(EquipmentItem item)
-    {
-        Add(new InventoryRecord(item));
-    }
-    
-    public void Add(string itemGuid)
-    {
-        Add(new InventoryRecord(itemGuid));
-    }
-
     public void Add(InventoryRecord record)
     {
         records.Add(record);

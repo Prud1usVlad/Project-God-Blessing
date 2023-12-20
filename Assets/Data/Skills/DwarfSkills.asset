@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7daa7ac072bdff409305fc2ee2ed0a4, type: 3}
+  m_Name: DwarfSkills
+  m_EditorClassIdentifier: 
+  _descriptors:
+  - {fileID: 11400000, guid: 1703f72394d00fa48b94649bad069f3c, type: 2}
+  - {fileID: 11400000, guid: 62d3b316822cb404cb20ee51e48b8d6d, type: 2}
+  - {fileID: 11400000, guid: 5fc205f836ba46b4ea6e3d6e437462ee, type: 2}
+  - {fileID: 11400000, guid: a6ef65b79986782469b92d3308827d05, type: 2}
+  - {fileID: 11400000, guid: 5e8ffbec120c57447895e1fa5d7ce783, type: 2}
+  - {fileID: 11400000, guid: 5f72d07643211b04890a3dd11df2a5c2, type: 2}
+  - {fileID: 11400000, guid: 69837307fb2e6064fb8069bd295a52de, type: 2}
+  - {fileID: 11400000, guid: 60a185fc7a0eb2e478d28d2c10a59668, type: 2}
+  - {fileID: 11400000, guid: 1e73b447138d78342b3e1be6f0575fc1, type: 2}
+  - {fileID: 11400000, guid: a3dbddbe956bf46409581fcbf1066c3d, type: 2}
+  - {fileID: 11400000, guid: fa5fa84f676f91f448bbdf7ad2153665, type: 2}
+  - {fileID: 11400000, guid: 0a777d47b6016584e8a7120b7d31758f, type: 2}
+  - {fileID: 11400000, guid: 7dc0fed24f9a89d43a1c331a38e5c22c, type: 2}
+  - {fileID: 11400000, guid: 7031279f75f43f2439a293e3e2241c74, type: 2}
+  - {fileID: 11400000, guid: d47f28733c6df0a4d894d58f476d4937, type: 2}
+  - {fileID: 11400000, guid: bb40bbaecfd8fec49a89ecb65af9ac9e, type: 2}
+  - {fileID: 11400000, guid: 601344f0444a6a74ba6451b895824aa8, type: 2}
+  - {fileID: 11400000, guid: 377bf8d153951d74f8b480dbc498e65e, type: 2}
+  - {fileID: 11400000, guid: 8c574eb3c195fda479d3d5267730700f, type: 2}
+  - {fileID: 11400000, guid: 040598be6d6e5c14b81eb3240b41b727, type: 2}
+  - {fileID: 11400000, guid: 0b1b123d72f325b4493d1b28003a4b55, type: 2}
+  - {fileID: 11400000, guid: 7f8f33387f02a7d449175e456f5b0048, type: 2}
+  - {fileID: 11400000, guid: 6150e871c6b39f34abd4f1792e776334, type: 2}
+  - {fileID: 11400000, guid: 145712ff707b33c45953803d58fe8a17, type: 2}
+  nation: 4

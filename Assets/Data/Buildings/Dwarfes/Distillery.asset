@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Distillery
+  m_EditorClassIdentifier: 
+  _guid: b7a3805139c4fc6439e1cc7478de8b8c
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Distillery
+  description: "The most prestigious license issued by gnomes is the license for
+    alcohol and its sale. Thanks to your connections, you can try to get it. Once
+    you enter this market and have enough resources, you will never lack money. The
+    main thing is not to drink it all yourself. \n\nMake quality alcohol."
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: de6b171f863929240bc1960774291602, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 0}
+  productionRecipes: []

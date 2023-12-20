@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Trick with the blade
+  m_EditorClassIdentifier: 
+  _guid: 7dc0fed24f9a89d43a1c331a38e5c22c
+  skillName: Trick with the blade
+  type: 3
+  nation: 4
+  description: 'Mesmerize your enemies with your blade and then bombard them with
+    a hail of blows. The key is to know when to stop.
+
+
+    It stuns the enemy and
+    increases the speed of attacks for the next few seconds.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: fa5fa84f676f91f448bbdf7ad2153665, type: 2}
+  buildingUpgrades: []

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Progress
+  m_EditorClassIdentifier: 
+  _guid: 5f06f551b2bd160479663079b87f53fa
+  skillName: Progress
+  type: 4
+  nation: 3
+  description: 'Everything that improves makes something better, or something like
+    that. It''s a bit strange, but we have what we have.
+
+
+    Improving buildings
+    is cheaper.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 07725a6767eecd64f8a3eeaa7748756c, type: 2}

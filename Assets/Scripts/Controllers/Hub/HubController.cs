@@ -34,6 +34,8 @@ public class HubController : MonoBehaviour
 
         gameProgress.questSystem.FillAvailable();
         var market = gameProgress.placedBuildings.Find(b => b is MarketBuilding);
+        if (market != null)
+            (market as MarketBuilding).UpdateStore();
 
         loadingScreen.Hide();
     }
@@ -58,6 +60,18 @@ public class HubController : MonoBehaviour
                     objectPlacer.PlaceObject(building, place);
                 }
             }
+        }
+    }
+
+    public void UpgradeBuilding(Vector3 pos)
+    {
+        var place = buildingPlaces.Find(p => p.transform.position == pos);
+        
+        if (place != null)
+        {
+            var building = place.Building;
+            objectPlacer.RemoveObjectAt(place);
+            objectPlacer.PlaceObject(building.upgrade, place);
         }
     }
 }

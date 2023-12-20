@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: ac161f84a95d5e342b4bc39585f28b17
   itemName: Quiver
   description: Quiver
+  icon: {fileID: 21300000, guid: 5b8aa7841620e5b48a7e568bb966bf28, type: 3}
   sellPrice:
     transactionType: 3
     resources:
@@ -36,7 +37,6 @@ MonoBehaviour:
   complementary: 102
   slothType: 4
   nation: 3
-  level: 1
   modifiers:
     statModifiers:
     - stat: 7

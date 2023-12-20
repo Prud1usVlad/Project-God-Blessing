@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: The master of cracking
+  m_EditorClassIdentifier: 
+  _guid: ec0edfbe3bdc059459122d9e5b81eba6
+  skillName: The master of cracking
+  type: 4
+  nation: 5
+  description: "They say that every ritual of the ancestors shows them how much you
+    respect them, and they thank you. I don't know how true this is, but the smoke
+    from the tent makes you more confident and less cautious. \n\nIf you have produced
+    fart powder or vision charms on the day, the damage increases accordingly."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 0778b5842fa600445b43bd6408811111, type: 2}
+  buildingUpgrades: []

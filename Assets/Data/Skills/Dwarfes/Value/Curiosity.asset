@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc6e615de057c645966e177f5dd3a2b, type: 3}
+  m_Name: Curiosity
+  m_EditorClassIdentifier: 
+  _guid: 8c574eb3c195fda479d3d5267730700f
+  skillName: Curiosity
+  type: 4
+  nation: 4
+  description: 'Out of natural curiosity, every dwarf in his wanderings pokes his
+    long nose into every crevice. Using this approach, you can get rich.
+
+
+    When
+    you explore all the rooms on a location, you get a bonus to loot.'
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Logistics company
+  m_EditorClassIdentifier: 
+  _guid: 5f72d07643211b04890a3dd11df2a5c2
+  skillName: Representative office of a logistics company
+  type: 1
+  nation: 4
+  description: "Some warmed-over dwarves offer you to host their logistics company's
+    warehouse, and in return they will leave some boxes for you. They say it often
+    happens that during the delivery the customer is no longer alive. It's a strange
+    thing, but they are obliged to leave the boxes regularly, and no one will know
+    what will be in the boxes until they are opened.  \n\nIt allows you to receive
+    deliveries of random goods for gold."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: 6a234a0e3db7e2946a159cee99a7897e, type: 2}

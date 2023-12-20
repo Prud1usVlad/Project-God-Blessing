@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Traditions of steelmaking
+  m_EditorClassIdentifier: 
+  _guid: a91a31e4aecf6264fb0c939c02ae9fe7
+  skillName: Traditions of steelmaking
+  type: 1
+  nation: 2
+  description: 'Your long communications with the orcs have finally convinced them
+    to send you a steelmaking instructor to open a small school in your city. Don''t
+    mind that she''s a woman, you''ll never see better steel in your life.
+
+
+    It
+    allows the steelmaker to process ingots into expensive materials, and to produce
+    a liquid for hardening.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 74af0ecca3790714f8e6a069480e9744, type: 2}
+  buildingUpgrades:
+  - {fileID: 11400000, guid: c3a32a88f44c52044af41d1d640082bb, type: 2}
+  building: {fileID: 0}

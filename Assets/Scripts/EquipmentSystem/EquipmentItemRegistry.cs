@@ -12,20 +12,6 @@ public class EquipmentItemRegistry : Registry<EquipmentItem>
             .Where(n => n.nation == nation).ToList();
     }
 
-    public List<EquipmentItem> GetByLevel(int level, bool allowLower = false)
-    {
-        if (allowLower)
-            return _descriptors.Where(i => i.level <= level).ToList();
-        else
-            return _descriptors.Where(i => i.level == level).ToList();
-    }
-
-    public List<EquipmentItem> GetByLevel(int min, int max)
-    {
-        return _descriptors.Where(i 
-            => i.level <= max && i.level >= min).ToList();
-    }
-
     public List<EquipmentItem> GetByType(ItemType type)
     {
         return _descriptors
