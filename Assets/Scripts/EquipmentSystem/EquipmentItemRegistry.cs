@@ -22,7 +22,7 @@ public class EquipmentItemRegistry : Registry<EquipmentItem>
 
     public List<EquipmentItem> GetByLevel(int min, int max)
     {
-        return _descriptors.Where(i 
+        return _descriptors.Where(i
             => i.level <= max && i.level >= min).ToList();
     }
 
@@ -40,5 +40,10 @@ public class EquipmentItemRegistry : Registry<EquipmentItem>
     public EquipmentItem GetByName(string name)
     {
         return _descriptors.Find(i => i.name == name);
+    }
+
+    public List<EquipmentItem> GetAll()
+    {
+        return _descriptors;
     }
 }

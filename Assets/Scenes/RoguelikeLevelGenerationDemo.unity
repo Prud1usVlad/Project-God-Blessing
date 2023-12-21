@@ -1048,6 +1048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393249304}
   - component: {fileID: 1393249305}
+  - component: {fileID: 1393249306}
   m_Layer: 0
   m_Name: HandlersObject
   m_TagString: HandlersObject
@@ -1099,6 +1100,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02bf74865c7bb244099d79b621cab6dc, type: 2}
   UnlockedGadgets: 01010101
   CurrentGudgetNumber: 0
+--- !u!114 &1393249306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393249303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a85341e3085e884b9c71ffb93dfde4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceIcons: []
+  LootIcons: []
+  EquipmentItemRegistry: {fileID: 11400000, guid: 47cc198efbd558043af141526be3fd9c,
+    type: 2}
 --- !u!1001 &1614526038
 PrefabInstance:
   m_ObjectHideFlags: 0
