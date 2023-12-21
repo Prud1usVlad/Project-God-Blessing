@@ -625,6 +625,41 @@ MonoBehaviour:
     type: 3}
   TextMesh: {fileID: 8696935476465292404}
   WheelRadius: 275
+--- !u!1 &1902416753140999751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9012723430978387589}
+  m_Layer: 5
+  m_Name: ItemCollectingMessages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9012723430978387589
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902416753140999751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4679383607820144251}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1946964629414940223
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +1005,7 @@ GameObject:
   - component: {fileID: 441434840169306124}
   - component: {fileID: 6896375949073346431}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: UIMessages
   m_TagString: UIText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,6 +1025,7 @@ RectTransform:
   m_Children:
   - {fileID: 4484287631861586168}
   - {fileID: 5261257451560444564}
+  - {fileID: 9012723430978387589}
   m_Father: {fileID: 957493686289648688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

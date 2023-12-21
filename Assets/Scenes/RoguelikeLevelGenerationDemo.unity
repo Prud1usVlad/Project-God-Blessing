@@ -1112,9 +1112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a85341e3085e884b9c71ffb93dfde4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResourceRegistry: {fileID: 11400000, guid: ffc8230b05e396b4da0fe0d4b8fdebd5, type: 2}
   EquipmentItemRegistry: {fileID: 11400000, guid: 47cc198efbd558043af141526be3fd9c,
     type: 2}
+  ItemCollectingMessages: {fileID: 1621570969}
+  ItemCollectingMessagePrefab: {fileID: 5610213605268763697, guid: 06ba56e68b0106c4e8c211a5883b00e4,
+    type: 3}
+  ItemCollectingMessageExistingTime: 5
+  ResourceRegistry: {fileID: 11400000, guid: ffc8230b05e396b4da0fe0d4b8fdebd5, type: 2}
   ResourceCollectingMessages: {fileID: 1614526040}
   ResourceCollectingMessagePrefab: {fileID: 3754495108826611949, guid: f6c37be71dd570e408a5f7653c3843cf,
     type: 3}
@@ -1228,6 +1232,11 @@ PrefabInstance:
       propertyPath: Minimap
       value: 
       objectReference: {fileID: 1021056771}
+    - target: {fileID: 9012723430978387589, guid: fdbf989ea0557264fbb9cab9074a3cf6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1242,6 +1251,12 @@ Transform:
 --- !u!1 &1614526040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2015838045821634239, guid: fdbf989ea0557264fbb9cab9074a3cf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614526038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1621570969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1902416753140999751, guid: fdbf989ea0557264fbb9cab9074a3cf6,
     type: 3}
   m_PrefabInstance: {fileID: 1614526038}
   m_PrefabAsset: {fileID: 0}

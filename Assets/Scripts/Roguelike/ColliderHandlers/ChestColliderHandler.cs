@@ -16,12 +16,15 @@ public class ChestColliderHandler : MonoBehaviour, IColliderHandler
         }
     }
     public Animator Animator;
+    public TreasureLootController TreasureLootController;
 
     private GameObject Player;
     private GameObject InteractionText;
 
     private PlayerInputController _playerInputController;
     private KeyValuePair<PlayerInteractDestination, IColliderHandler> _interactDestination;
+
+    private bool _isOpened = false;
 
     void Start()
     {
@@ -46,6 +49,10 @@ public class ChestColliderHandler : MonoBehaviour, IColliderHandler
 
     void OnTriggerEnter(Collider other)
     {
+        if(_isOpened)
+        {
+            return;
+        }
         if (other.transform.tag.Equals(TagHelper.ColliderTags.PlayerInteractColliderTag))
         {
             InteractionText.SetActive(true);
@@ -71,6 +78,8 @@ public class ChestColliderHandler : MonoBehaviour, IColliderHandler
 
     public void Interact()
     {
+        _isOpened = true;
         Animator.SetTrigger(AnimatorHelper.TreasureAnimator.OpenChestTrigger);
+        TreasureLootController.Loot();
     }
 }

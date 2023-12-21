@@ -1,9 +1,15 @@
+using System;
 using Assets.Scripts.EquipmentSystem;
-using Assets.Scripts.ResourceSystem;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/RogueLike/TreasureData", fileName = "TreasureData")]
-public class TreasureData : ScriptableObject
+[Serializable]
+public class TreasureData
 {
-    public EquipmentItem Item;
+    [Range(1, 25)]
+    public int MinItemLevel;
+    [Range(1, 25)]
+    public int MaxItemLevel;
+    public ItemType ItemType;
+    [Range(0.01f, 1f)]
+    public float LootChanse;
 }

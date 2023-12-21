@@ -15,13 +15,21 @@ public class LootHandler : MonoBehaviour
     }
 
     public List<CollectedResourceData> CollectedResources { get; private set; }
-    public List<EquipmentItem> CollectedItems { get; private set; }
+    public List<InventoryRecord> CollectedItems { get; private set; }
 
+    [Header("Item collecting")]
 
-    public ResourceDescriptions ResourceRegistry;
     public EquipmentItemRegistry EquipmentItemRegistry;
+    public GameObject ItemCollectingMessages;
+    public GameObject ItemCollectingMessagePrefab;
+    public float ItemCollectingMessageExistingTime = 5f;
+    private List<Pair<GameObject, float>> _itemCollectingMessagesQueue;
 
-    [Header("Resource collecting messages")]
+    [NonSerialized]
+    public List<EquipmentItem> EquipmentItemsList;
+
+    [Header("Resource collecting")]
+    public ResourceDescriptions ResourceRegistry;
     public GameObject ResourceCollectingMessages;
     public GameObject ResourceCollectingMessagePrefab;
     public float ResourceCollectingMessageExistingTime = 3f;
@@ -89,20 +97,39 @@ public class LootHandler : MonoBehaviour
         });
     }
 
-    public void CollectItem(EquipmentItem item)
+    public void CollectItem(InventoryRecord item)
     {
         CollectedItems.Add(item);
+
+        GameObject messageInstance =
+            Instantiate(ItemCollectingMessagePrefab, ItemCollectingMessagePrefab.transform.position, Quaternion.identity);
+        messageInstance.transform.SetParent(ItemCollectingMessages.transform);
+        
+        messageInstance.transform.localPosition = Vector3.zero;
+
+        messageInstance.GetComponent<ItemCollectingMessageController>().Icon.sprite = item.item.icon;
+        messageInstance.GetComponent<ItemCollectingMessageController>().Text.text = $"{item.item.itemName} collected";
+        messageInstance.SetActive(false);
+
+        _itemCollectingMessagesQueue.Add(new Pair<GameObject, float>
+        {
+            FirstItem = messageInstance,
+            SecondItem = 0f
+        });
     }
 
     private void Start()
     {
-        if (!EquipmentItemRegistry.GetAll().Any())
+        EquipmentItemsList = EquipmentItemRegistry.GetAll();
+
+        if (!EquipmentItemsList.Any())
         {
             throw new Exception("Empty item register");
         }
 
         CollectedResources = new List<CollectedResourceData>();
-        CollectedItems = new List<EquipmentItem>();
+        CollectedItems = new List<InventoryRecord>();
+        _itemCollectingMessagesQueue = new List<Pair<GameObject, float>>();
         _resourceCollectingMessagesQueue = new List<Pair<GameObject, float>>();
         _resourceCollectingMessagesDeleteQueue = new List<int>();
     }
@@ -132,6 +159,19 @@ public class LootHandler : MonoBehaviour
             }
 
             _resourceCollectingMessagesDeleteQueue.Clear();
+        }
+
+        if (_itemCollectingMessagesQueue.Any())
+        {
+            _itemCollectingMessagesQueue[0].FirstItem.SetActive(true);
+            _itemCollectingMessagesQueue[0].SecondItem += Time.deltaTime;
+
+            if (_itemCollectingMessagesQueue[0].SecondItem >= ItemCollectingMessageExistingTime)
+            {
+                Destroy(_itemCollectingMessagesQueue[0].FirstItem);
+
+                _itemCollectingMessagesQueue.RemoveAt(0);
+            }
         }
     }
 }
