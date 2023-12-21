@@ -17,6 +17,8 @@ public class LootHandler : MonoBehaviour
     public List<CollectedResourceData> CollectedResources { get; private set; }
     public List<InventoryRecord> CollectedItems { get; private set; }
 
+    public LootTabHandler LootTabHandler;
+
     [Header("Item collecting")]
 
     public EquipmentItemRegistry EquipmentItemRegistry;
@@ -95,6 +97,13 @@ public class LootHandler : MonoBehaviour
             FirstItem = messageInstance,
             SecondItem = 0f
         });
+
+        LootTabHandler.AddResources(new CollectedResourceTransferData
+        {
+            ResourceName = resourceData.Name,
+            CollectedAmount = resourceData.LootedAmount,
+            ResourceIcon = ResourceRegistry.GetResourceIcon(resourceData.Name)
+        });
     }
 
     public void CollectItem(InventoryRecord item)
@@ -104,7 +113,7 @@ public class LootHandler : MonoBehaviour
         GameObject messageInstance =
             Instantiate(ItemCollectingMessagePrefab, ItemCollectingMessagePrefab.transform.position, Quaternion.identity);
         messageInstance.transform.SetParent(ItemCollectingMessages.transform);
-        
+
         messageInstance.transform.localPosition = Vector3.zero;
 
         messageInstance.GetComponent<ItemCollectingMessageController>().Icon.sprite = item.item.icon;
@@ -116,6 +125,8 @@ public class LootHandler : MonoBehaviour
             FirstItem = messageInstance,
             SecondItem = 0f
         });
+
+        LootTabHandler.AddItem(item);
     }
 
     private void Start()

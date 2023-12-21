@@ -5,6 +5,7 @@ using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Player;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -26,6 +27,7 @@ public class PlayerInputController : MonoBehaviour
     [Header("UI Elements")]
     public GameObject InteractionText;
     public GameObject GadgetWheel;
+    public GameObject LootTab;
 
     [NonSerialized]
     public Action Interact;
@@ -43,6 +45,7 @@ public class PlayerInputController : MonoBehaviour
     private Action _openChest;
     private Action _openDoor;
     private Action _openGadgetWheel;
+    private Action _openLootTab;
     private Action _death;
 
     private Vector3 _movementLeftVector = new Vector3(-1, 0, 0);
@@ -56,7 +59,6 @@ public class PlayerInputController : MonoBehaviour
     private bool _isDodge = false;
     private bool _isStaticAnimation = false;
     private bool _isDead = false;
-    private bool _isGadgetWheelOpened = false;
     private int _currentFixedDodgeFrame;
     private Vector3 _dodgeDirection;
     private Vector3 _lastDodgeDirection;
@@ -144,6 +146,7 @@ public class PlayerInputController : MonoBehaviour
         InteractDestination = new List<KeyValuePair<PlayerInteractDestination, IColliderHandler>>();
         _rigidBody = GetComponent<Rigidbody>();
         _objectGadgetHandler = Gadget.GetComponent<ObjectGadgetHandler>();
+        LootTab.SetActive(false);
 
         _leftMovement += delegate ()
         {
@@ -407,18 +410,35 @@ public class PlayerInputController : MonoBehaviour
 
         _openGadgetWheel += delegate ()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q)
+                && !PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.Pause))
             {
-                _isGadgetWheelOpened = true;
+                PlayerStateHelper.Instance.PlayerState = PlayerState.Pause;
                 GadgetWheel.SetActive(true);
                 //Time.timeScale = 0.1f;
             }
 
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                _isGadgetWheelOpened = false;
+                PlayerStateHelper.Instance.PlayerState = PlayerState.InGame;
                 GadgetWheel.SetActive(false);
                 //Time.timeScale = 1f;
+            }
+        };
+
+        _openLootTab += delegate ()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab)
+                && !PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.Pause))
+            {
+                LootTab.SetActive(true);
+                PlayerStateHelper.Instance.PlayerState = PlayerState.Pause;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Tab))
+            {
+                LootTab.SetActive(false);
+                PlayerStateHelper.Instance.PlayerState = PlayerState.InGame;
             }
         };
     }
@@ -434,8 +454,9 @@ public class PlayerInputController : MonoBehaviour
         InteractionText.SetActive(InteractDestination.Any());
 
         _openGadgetWheel.Invoke();
+        _openLootTab.Invoke();
 
-        if (_isStaticAnimation || _isGadgetWheelOpened)
+        if (_isStaticAnimation || PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.Pause))
         {
             return;
         }

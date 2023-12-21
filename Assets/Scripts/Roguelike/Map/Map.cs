@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Helpers;
+using Assets.Scripts.Helpers.Roguelike;
 using UnityEngine;
 
 namespace Assets.Scripts.Roguelike.Map
@@ -49,6 +48,11 @@ namespace Assets.Scripts.Roguelike.Map
             }
             else
             {
+                if (PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.Pause))
+                {
+                    return;
+                }
+
                 _basePosition = MainCharacterIcon.transform.position;
                 _basePosition.z = MapCamera.transform.position.z;
                 MapCamera.transform.position = _basePosition;
