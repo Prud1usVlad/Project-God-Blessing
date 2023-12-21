@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Helpers;
+using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.Roguelike.Entities.Player;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
         }
     }
 
+    public ResourceLootController ResourceLootController;
+
     public float InteractDistance = 1f;
 
     private GameObject Player;
@@ -23,6 +26,8 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
 
     private PlayerInputController _playerInputController;
     private KeyValuePair<PlayerInteractDestination, IColliderHandler> _interactDestination;
+
+    private bool _isLooted = false;
 
     void Start()
     {
@@ -47,6 +52,10 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
 
     void OnTriggerEnter(Collider other)
     {
+        if (_isLooted)
+        {
+            return;
+        }
         if (other.transform.tag.Equals(TagHelper.ColliderTags.PlayerInteractColliderTag))
         {
             InteractionText.SetActive(true);
@@ -66,6 +75,10 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
 
     void OnTriggerExit(Collider other)
     {
+        if (_isLooted)
+        {
+            return;
+        }
         if (other.transform.tag.Equals(TagHelper.ColliderTags.PlayerInteractColliderTag))
         {
             int index = _playerInputController.InteractDestination
@@ -75,12 +88,12 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
                 _playerInputController.InteractDestination
                                 .RemoveAt(index);
             }
-
         }
     }
 
     public void Interact()
     {
-
+        _isLooted = true;
+        ResourceLootController.Loot();
     }
 }

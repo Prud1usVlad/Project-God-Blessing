@@ -2,25 +2,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.EquipmentSystem;
+using Assets.Scripts.ResourceSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class LootHandler : MonoBehaviour
 {
-    public List<ResourceData> Resources;
-
-    public List<CollectedResourceData> CollectedResources
+    private class Pair<T, V>
     {
-        get;
-        private set;
-    }
-    public List<EquipmentItem> CollectedItems
-    {
-        get;
-        private set;
+        public T FirstItem;
+        public V SecondItem;
     }
 
+    public List<CollectedResourceData> CollectedResources { get; private set; }
+    public List<EquipmentItem> CollectedItems { get; private set; }
+
+
+    public ResourceDescriptions ResourceRegistry;
     public EquipmentItemRegistry EquipmentItemRegistry;
+
+    [Header("Resource collecting messages")]
+    public GameObject ResourceCollectingMessages;
+    public GameObject ResourceCollectingMessagePrefab;
+    public float ResourceCollectingMessageExistingTime = 3f;
+    public int ResourceCollectingMessagesLimit = 3;
+    private List<Pair<GameObject, float>> _resourceCollectingMessagesQueue;
+    private List<int> _resourceCollectingMessagesDeleteQueue;
 
     public static LootHandler Instance
     {
@@ -48,11 +55,16 @@ public class LootHandler : MonoBehaviour
 
     private LootHandler() { }
 
-    public void CollectResources(CollectedResourceData resourceData)
+    public void CollectResource(CollectedResourceData resourceData)
     {
+        if (resourceData.LootedAmount <= 0)
+        {
+            return;
+        }
+
         int index = CollectedResources.FindIndex(x => x.Name.Equals(resourceData.Name));
 
-        if(index == -1)
+        if (index == -1)
         {
             CollectedResources.Add(resourceData);
         }
@@ -60,6 +72,21 @@ public class LootHandler : MonoBehaviour
         {
             CollectedResources[index].LootedAmount += resourceData.LootedAmount;
         }
+
+        GameObject messageInstance =
+            Instantiate(ResourceCollectingMessagePrefab, Vector3.zero, Quaternion.identity);
+        messageInstance.transform.SetParent(ResourceCollectingMessages.transform);
+        messageInstance.GetComponent<ResourceCollectingMessageController>().Icon.sprite =
+            ResourceRegistry.GetResourceIcon(resourceData.Name);
+        messageInstance.GetComponent<ResourceCollectingMessageController>().Text.text =
+            $"{resourceData.Name} X {resourceData.LootedAmount}";
+        messageInstance.SetActive(false);
+
+        _resourceCollectingMessagesQueue.Add(new Pair<GameObject, float>
+        {
+            FirstItem = messageInstance,
+            SecondItem = 0f
+        });
     }
 
     public void CollectItem(EquipmentItem item)
@@ -76,10 +103,35 @@ public class LootHandler : MonoBehaviour
 
         CollectedResources = new List<CollectedResourceData>();
         CollectedItems = new List<EquipmentItem>();
+        _resourceCollectingMessagesQueue = new List<Pair<GameObject, float>>();
+        _resourceCollectingMessagesDeleteQueue = new List<int>();
     }
 
     private void Update()
     {
+        if (_resourceCollectingMessagesQueue.Any())
+        {
+            for (int i = 0; i < ResourceCollectingMessagesLimit && i < _resourceCollectingMessagesQueue.Count; i++)
+            {
+                _resourceCollectingMessagesQueue[i].FirstItem.SetActive(true);
+                _resourceCollectingMessagesQueue[i].SecondItem += Time.deltaTime;
 
+                if (_resourceCollectingMessagesQueue[i].SecondItem >= ResourceCollectingMessageExistingTime)
+                {
+                    _resourceCollectingMessagesDeleteQueue.Add(i);
+                }
+            }
+
+            _resourceCollectingMessagesDeleteQueue = _resourceCollectingMessagesDeleteQueue.OrderByDescending(x => x).ToList();
+
+            foreach (int index in _resourceCollectingMessagesDeleteQueue)
+            {
+                Destroy(_resourceCollectingMessagesQueue[index].FirstItem);
+
+                _resourceCollectingMessagesQueue.RemoveAt(index);
+            }
+
+            _resourceCollectingMessagesDeleteQueue.Clear();
+        }
     }
 }
