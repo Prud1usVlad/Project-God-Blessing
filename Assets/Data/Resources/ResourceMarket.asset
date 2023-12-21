@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652e8330cc05f5b4fadce746e8ddc49a, type: 3}
+  m_Name: ResourceMarket
+  m_EditorClassIdentifier: 
+  resourceConfigs:
+  - resource: 2
+    buyPrice: 10
+    sellPrice: 2
+    maxSellAmount: 20
+    maxBuyAmount: 25
+  - resource: 3
+    buyPrice: 20
+    sellPrice: 5
+    maxSellAmount: 10
+    maxBuyAmount: 15

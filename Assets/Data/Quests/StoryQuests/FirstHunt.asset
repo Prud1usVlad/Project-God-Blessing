@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa83bea2048e5e94da80beb30da1a92b, type: 3}
+  m_Name: FirstHunt
+  m_EditorClassIdentifier: 
+  _guid: a7fccbe2cbbf55d4c84a0ded9eabd81b
+  questName: First hunt
+  description: First time going to the dark forest to hunt some meat for the village.
+  nation: 1
+  fameLevel: {fileID: 11400000, guid: bc6f04b360e7e0546b88d5bce60401f3, type: 2}
+  connectionLevel: 0
+  isReplayable: 0
+  stages:
+  - rid: 7409519877395841034
+  - rid: 7409519877395841035
+  - rid: 7409519877395841036
+  - rid: 7409519877395841037
+  - rid: 7409519877395841038
+  connectionPoints: 10
+  famePoints: 20
+  resources:
+  - amount: 20
+    name: 1
+  equipment:
+  - {fileID: 11400000, guid: 7902d9a1311afed44b6bed4621793676, type: 2}
+  - {fileID: 11400000, guid: ac161f84a95d5e342b4bc39585f28b17, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 7409519877395841034
+      type: {class: TravelStage, ns: Assets.Scripts.QuestSystem.Stages, asm: Assembly-CSharp}
+      data:
+        shortDescription: Travel to the forest
+        longDescription: 'First of all, you need to make your way to the forest.
+          The old and wise hunter will be waiting for you there '
+        progress: 0
+        isCompleted: 0
+    - rid: 7409519877395841035
+      type: {class: InteractStage, ns: Assets.Scripts.QuestSystem.Stages, asm: Assembly-CSharp}
+      data:
+        shortDescription: Speek to the hunter
+        longDescription: Hunter must be somewhere near. Find him and learn how to
+          hunt, and what is more important how not to lose yourself in this scary
+          environment
+        progress: 0
+        isCompleted: 0
+    - rid: 7409519877395841036
+      type: {class: KillStage, ns: Assets.Scripts.QuestSystem.Stages, asm: Assembly-CSharp}
+      data:
+        shortDescription: Kill the dear
+        longDescription: 'As the old hunter said, there is a lot of dears in here.
+          Find one and kill the way you like. '
+        progress: 0
+        isCompleted: 0
+        toKill: 1
+        killed: 0
+    - rid: 7409519877395841037
+      type: {class: CollectStage, ns: Assets.Scripts.QuestSystem.Stages, asm: Assembly-CSharp}
+      data:
+        shortDescription: Collect meat
+        longDescription: 'Perfect! Your first meat! now collect it so you can return
+          home not emptyhanded.  '
+        progress: 0
+        isCompleted: 0
+        toCollect: 1
+        collected: 0
+    - rid: 7409519877395841038
+      type: {class: TravelStage, ns: Assets.Scripts.QuestSystem.Stages, asm: Assembly-CSharp}
+      data:
+        shortDescription: Return home
+        longDescription: 'Your backpack is kinda heavy and the forest is kinda scary.
+          Make your way home, and try not to die. '
+        progress: 0
+        isCompleted: 0

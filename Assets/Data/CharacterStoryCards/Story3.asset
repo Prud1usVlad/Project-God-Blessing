@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d949376af2f8b141a6fd55aebec9266, type: 3}
+  m_Name: Story3
+  m_EditorClassIdentifier: 
+  _guid: 27a541048038299489b288a7dbe5c318
+  characterName: Ricardo
+  avatar: {fileID: -1602818718, guid: 4b15ba81a04611148b4bfe91c1201e07, type: 3}
+  defaultStats:
+  - name: 1
+    baseValue: 1
+  - name: 3
+    baseValue: 0
+  - name: 2
+    baseValue: 5
+  - name: 4
+    baseValue: 3
+  - name: 5
+    baseValue: 1
+  story: Story of ricardo
