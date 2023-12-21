@@ -39,7 +39,7 @@ public class LootTabHandler : MonoBehaviour
     {
         GameObject itemInstance = Instantiate(ItemPrefab, Vector3.zero, Quaternion.identity);
         itemInstance.GetComponent<CollectedItemRecordData>().ItemIcon.sprite = item.item.icon;
-        itemInstance.GetComponent<CollectedItemRecordData>().ItemLabel.text = $"{item.item.name}: LVL {item.level}";
+        itemInstance.GetComponent<CollectedItemRecordData>().ItemLabel.text = $"{item.level} LVL";
 
         if (currentItemColumnIndex >= ItemColumnLimit || currentItemColumnIndex == 0)
         {
