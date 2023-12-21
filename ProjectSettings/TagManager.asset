@@ -3,38 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - RoomSpawnPoint
-  - MinimapRoom
-  - MinimapPlayerIcon
-  - LegendIcon
-  - LegendIconPoint
-  - AdditionalCamera
-  - UI
-  - SpawnPointGroup
-  - EnemySpawnPoint
-  - ResourcesSpawnPoint
-  - BossSpawnPoint
-  - TreasuresSpawnPoint
-  - ExitSpawnPoint
-  - WallSpawnPoint
-  - PlayerSpawnPoint
-  - Room
-  - EnemySpawnPointGroup
-  - BossSpawnPointGroup
-  - TreasuresSpawnPointGroup
-  - ExitSpawnPointGroup
-  - ResourcesSpawnPointGroup
-  - Wall
-  - MainUi
-  - Doors
-  - PlayerInteractCollider
-  - PlayerModel
-  - PlayerInteractUIText
-  - UIText
-  - Minimap
-  - HandlersObject
-  - WheelGadgetText
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -42,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Building Places
-  - Rigidbody
+  - 
+  - 
   - 
   - 
   - 
