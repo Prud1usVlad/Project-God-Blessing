@@ -14,10 +14,8 @@ namespace Assets.Scripts.Roguelike
         public GameObject RightDoor;
         public GameObject BottomDoor;
 
-
         private Room _room;
 
-        [DoNotSerialize]
         public Room Room
         {
             get

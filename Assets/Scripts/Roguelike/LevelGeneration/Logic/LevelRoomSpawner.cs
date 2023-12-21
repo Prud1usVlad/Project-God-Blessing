@@ -44,6 +44,7 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
         private EntitiesConcentrator _entitiesConcentrator;
 
         private Minimap _minimap;
+        private bool _isGenerated = false;
 
         private sealed class FloorWallPair
         {
@@ -69,10 +70,12 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
                 throw new Exception("Any pair of wall and floor does not exist");
             }
 
-            foreach (Transform child in transform)
+
+            RestartGameHelper.Instance.Restart += delegate ()
             {
-                Destroy(child.gameObject, 0f);
-            }
+                _isGenerated = false;
+                _spawnPipeline.Invoke();
+            };
 
             _spawnPipeline += spawn;
 
@@ -81,12 +84,7 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
             {
                 if (Input.GetKeyUp(KeyCode.Backspace))
                 {
-                    foreach (Transform child in transform)
-                    {
-                        Destroy(child.gameObject, 0f);
-                    }
-
-                    _spawnPipeline += spawn;
+                    _isGenerated = false;
                 }
             };
 #endif
@@ -128,18 +126,27 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
 
         private void spawn()
         {
+            if (_isGenerated)
+            {
+                return;
+            }
             if (_generator != null)
             {
                 if (_generator.StartRoom != null)
                 {
+                    _isGenerated = true;
+
+                    foreach (Transform child in transform)
+                    {
+                        Destroy(child.gameObject, 0f);
+                    }
+
                     _currentLevelEnvironmentType = _generator.LevelInputProperties.EnvironmentType;
 
                     if (!_floorWallTable.Any(x => x.Key.GetComponent<RoomPartParams>().EnvironmentTypeCheck(_currentLevelEnvironmentType)))
                     {
                         throw new Exception("Any pair of wall and floor with the same environmental type does not exist");
                     }
-
-                    _spawnPipeline -= spawn;
 
                     _currentRoom = roomSpawn(_generator.StartRoom, Vector3.zero, null);
 
@@ -169,9 +176,6 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
             GameObject instance = new GameObject($"{currentRoom.RoomType}_{currentRoom.DepthOfRoomFromStart}_{currentRoom.GetRoomForm()}");
             instance.transform.position = transform.position;
             instance.transform.rotation = Quaternion.identity;
-
-            //GameObject instance = Instantiate(room, transform.position, Quaternion.identity);
-
 
             instance.transform.parent = gameObject.transform;
 

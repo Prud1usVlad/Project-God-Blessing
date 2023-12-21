@@ -27,4 +27,9 @@ public class EquipmentItemRegistry : Registry<EquipmentItem>
     {
         return _descriptors.Find(i => i.name == name);
     }
+
+    public List<EquipmentItem> GetAll()
+    {
+        return _descriptors;
+    }
 }

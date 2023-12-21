@@ -22,7 +22,15 @@ namespace Assets.Scripts.Helpers
 
         public static string DoorsTag = "Doors";
         public static string WallTag = "Wall";
+        public static string PlayerTag = "Player";
+        public static string PlayerModelTag = "PlayerModel";
+        public static string UITextTag = "UIText";
+        public static string MinimapTag = "Minimap";
+        public static string PlayerInteractUITextTag = "PlayerInteractUIText";
 
+        public static string HandlersObjectTag = "HandlersObject";
+        public static string WheelGadgetTextTag = "WheelGadgetText";
+        
         public static class SpawnPointTags
         {
             public static string RoomSpawnPointTag = "RoomSpawnPoint";
@@ -39,6 +47,11 @@ namespace Assets.Scripts.Helpers
             public static string ResourcesSpawnPointTag = "ResourcesSpawnPoint";
             public static string WallSpawnPointTag = "WallSpawnPoint";
             public static string PlayerSpawnPointTag = "PlayerSpawnPoint";
+        }
+
+        public static class ColliderTags
+        {
+            public static string PlayerInteractColliderTag = "PlayerInteractCollider";
         }
     }
 }

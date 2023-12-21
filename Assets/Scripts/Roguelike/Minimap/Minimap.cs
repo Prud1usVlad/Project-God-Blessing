@@ -50,8 +50,9 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
 
         private Generator _generator;
         private ControlInputHandler _controlInputHandler;
-
         private GameObject _currentRoom;
+        private bool _isGenerated;
+        private Action _mapGenerartingPipeline;
 
         private void Start()
         {
@@ -63,22 +64,41 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
             MoveDownDoorFunc += moveDownDoor;
             MoveLeftDoorFunc += moveLeftDoor;
 
-            foreach (Transform child in transform)
+            RestartGameHelper.Instance.Restart += delegate ()
             {
-                if (!child.tag.Equals(TagHelper.MinimapPlayerIconTag)
-                 && !child.tag.Equals(TagHelper.UITag))
-                {
-                    Destroy(child.gameObject, 0f);
-                }
-            }
+                _isGenerated = false;
+                _mapGenerartingPipeline.Invoke();
+            };
 
-            _controlInputHandler.ControlActionList += mapFilling;
+            _mapGenerartingPipeline += mapFilling;
 
 #if UNITY_EDITOR
-            _controlInputHandler.ControlActionList += delegate ()
+            _mapGenerartingPipeline += delegate ()
             {
                 if (Input.GetKeyUp(KeyCode.Backspace))
                 {
+                    _isGenerated = false;
+                }
+            };
+        }
+#endif
+
+        private void Update()
+        {
+            _mapGenerartingPipeline.Invoke();
+        }
+
+        private void mapFilling()
+        {
+            if (_isGenerated)
+            {
+                return;
+            }
+            if (_generator != null)
+            {
+                if (_generator.StartRoom != null)
+                {
+                    _isGenerated = true;
                     foreach (Transform child in transform)
                     {
                         if (!child.tag.Equals(TagHelper.MinimapPlayerIconTag)
@@ -87,32 +107,8 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
                             Destroy(child.gameObject, 0f);
                         }
                     }
-
-                    _controlInputHandler.ControlActionList += mapFilling;
-                }
-            };
-        }
-#endif
-
-        private void mapFilling()
-        {
-            if (_generator != null)
-            {
-                if (_generator.StartRoom != null)
-                {
-                    _controlInputHandler.ControlActionList -= mapFilling;
-                    minimapSpawn(_generator.StartRoom, transform);
-
-                    _currentRoom = null;
-                    foreach (Transform children in gameObject.transform)
-                    {
-                        if (children.tag.Equals(TagHelper.MinimapRoomTag)
-                            && children.GetComponent<RoomDecorator>().Room.RoomType.Equals(RoomType.Spawn))
-                        {
-                            _currentRoom = children.gameObject;
-                            break;
-                        }
-                    }
+                    //_controlInputHandler.ControlActionList -= mapFilling;
+                    _currentRoom = minimapSpawn(_generator.StartRoom, transform);
 
                     if (_currentRoom == null)
                     {
@@ -130,11 +126,11 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
             }
         }
 
-        private void minimapSpawn(Room currentRoom, Transform spawnPoint)
+        private GameObject minimapSpawn(Room currentRoom, Transform spawnPoint)
         {
             if (currentRoom == null)
             {
-                return;
+                return null;
             }
 
             GameObject room;
@@ -259,6 +255,8 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
                     }
                 }
             }
+
+            return instance;
         }
 
         private void moveTopDoor()
