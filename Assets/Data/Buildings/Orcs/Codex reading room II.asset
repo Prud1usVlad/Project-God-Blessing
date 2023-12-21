@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3889604fd2a6345a46a52e81a61717, type: 3}
+  m_Name: Codex reading room II
+  m_EditorClassIdentifier: 
+  _guid: 2e826f327005685428f905581aac8c4e
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Codex reading room II
+  description: 'Sometimes it is useful to remind yourself of the basic principles
+    of life when you are in complete silence. If only there wasn''t all that noise
+    outside the window.
+
+
+    A bonus to sanity in a dungeon.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: b40310f6f4e1f26449c566702e22e84c, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 100
+      name: 1
+  upgrade: {fileID: 11400000}
+  modifiers:
+    statModifiers:
+    - stat: 1
+      reciever: 2
+      modifier:
+        Value: 1
+        Type: 100
+        Order: 0
+    resourceModifiers: []

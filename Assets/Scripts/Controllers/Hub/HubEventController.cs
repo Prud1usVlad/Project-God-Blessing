@@ -19,31 +19,29 @@ public class HubEventController : MonoBehaviour
 
     private void ProduceResources()
     {
-        var prodBuild = objectPlacer.placedGameObjects
-            .Select(o => o.GetComponent<BuildingController>().building)
-            .Where(b => b is ProductionBuilding)
-            .Cast<ProductionBuilding>();
-        var cont = progress.resourceContainer;
+        var production = progress.production;
+        var resources = progress.resourceContainer;
 
-        foreach (var b in prodBuild)
+        foreach (var item in production)
         {
-            if (b.productionPower < 0)
+            if (item.workers < 0)
                 continue;
 
-            var totalPrice = b.productionPrice * b.productionPower;
+            var totalPrice = item.recipe.price * item.workers;
 
-            if (cont.CanAfford(totalPrice))
+            if (resources.CanAfford(totalPrice))
             {
-                cont.Spend(totalPrice);
+                resources.Spend(totalPrice);
 
-                var totalAmount = Mathf.RoundToInt(b.resource.amount
-                    * b.productionMultiplier * b.productionPower);
-
-                cont.GainResource(b.resource.name, totalAmount, TransactionType.Production);
+                foreach (var res in item.recipe.resources)
+                {
+                    var totalAmount = Mathf.RoundToInt(res.amount * item.workers);
+                    resources.GainResource(res.name, totalAmount, TransactionType.Production);
+                }
             }
             else
             {
-                Debug.Log("Production stopped in " + b.buildingName);
+                Debug.Log("Production stopped in " + item.buildingGuid);
             }
         }
     }

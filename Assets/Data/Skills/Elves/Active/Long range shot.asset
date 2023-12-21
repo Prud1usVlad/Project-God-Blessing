@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Long range shot
+  m_EditorClassIdentifier: 
+  _guid: 21513f219a52cba4d98f7bf641ec0d35
+  skillName: Long range shot
+  type: 3
+  nation: 3
+  description: 'Sophisticated technique, lethal result. You won''t be mistaken for
+    a beginner.
+
+
+    A powerful long-range shot that ignores armor.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 797dae9edc8ea3b458767a66ff4316e2, type: 2}

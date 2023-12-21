@@ -1,3 +1,4 @@
+using Assets.Scripts.ScriptableObjects.Hub;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class BuildingController : MonoBehaviour
 {
-    private bool isInBuildMode = false;
-    
+    public bool isInBuildMode = false;
+
+    public ModalManager modalManager;
+    public GameProgress gameProgress;
+    public HubController hubController;
+
     public Building building;
     public GameObject dialogueBox;
     public bool isBuilt = false;
+
+    private void Awake()
+    {
+        hubController = FindAnyObjectByType<HubController>();
+    }
 
     public void Interact()
     {
@@ -18,7 +28,7 @@ public class BuildingController : MonoBehaviour
         var dial = Instantiate(dialogueBox, canvas.transform);
         var comp = dial.GetComponent<DialogueBox>();
 
-        building.InitDialogue(comp);
+        building.InitDialogue(comp, this);
     }
 
     public void OnBuildModeEnter()
@@ -31,26 +41,42 @@ public class BuildingController : MonoBehaviour
         isInBuildMode = false;
     }
 
-    private void Update()
+    public bool HasUpgrades() =>
+        building.upgrade is not null;
+
+    public bool CanUpgrade()
     {
-        //if (Input.GetMouseButtonDown(0) && !isInBuildMode && 
-        //    !EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.transform.GetInstanceID() == transform.GetInstanceID())
-        //        {
-        //            Interact();
-        //        }
-        //    }
-        //}
+        if (HasUpgrades())
+        {
+            var reserched = gameProgress.buildingResearch?
+                .Find(b => b.guid == building.upgrade.Guid)?.isAvailable;
+
+            if ((reserched ?? false) && gameProgress.resourceContainer.CanAfford(building.upgrade.price))
+            {
+                return true;
+
+            } 
+        }
+
+
+        return false;
     }
+
+    public void UpdgradeBuilding()
+    {
+        if (CanUpgrade())
+        {
+            gameProgress.resourceContainer.Spend(building.upgrade.price);
+            building = building.upgrade;
+
+            hubController.UpgradeBuilding(gameObject.transform.position);
+        }
+    }
+
 
     public void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject() && !isInBuildMode)
             Interact();
     }
 }

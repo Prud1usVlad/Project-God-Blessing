@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Block
+  m_EditorClassIdentifier: 
+  _guid: fb4b0bab95c47d74d9a387f05071fdd8
+  skillName: Block
+  type: 3
+  nation: 1
+  description: 'It''s not known how, but you manage to block enemy attacks several
+    times, reducing damage.
+
+
+    A temporary boost in defense.'
+  level: 0
+  pointsRequired: 1
+  isLearnd: 0
+  required: []

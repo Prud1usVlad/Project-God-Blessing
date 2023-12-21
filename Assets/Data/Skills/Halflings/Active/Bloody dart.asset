@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Bloody dart
+  m_EditorClassIdentifier: 
+  _guid: 6dd0ed1ee69d15e4cb5ddd7ac90ce864
+  skillName: Bloody dart
+  type: 3
+  nation: 5
+  description: 'A short and light spear with a special design that makes it rotate
+    in flight. You can throw it far enough, but it doesn''t guarantee that the blood
+    splatter won''t still stain your shirt.
+
+
+    It''s a long-range attack that
+    makes you bleed.'
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 7f1236a201ab8bf429b5957e28d8b715, type: 2}
+  buildingUpgrades: []

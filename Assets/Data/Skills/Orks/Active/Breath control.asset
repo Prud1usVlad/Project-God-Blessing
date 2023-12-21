@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c38dc1f72eba4a96ca9701a2dd7a6, type: 3}
+  m_Name: Breath control
+  m_EditorClassIdentifier: 
+  _guid: adb2bea7af20d60468a6babd48c5bed4
+  skillName: 'Breath control '
+  type: 3
+  nation: 2
+  description: "Deep breath, long exhale, let your mind clear and feel a surge of
+    energy. Yes, this also applies to you, and even better, do some exercise.   \n\nIt
+    speeds up the regeneration of the sanity for a short time."
+  level: 1
+  pointsRequired: 1
+  isLearnd: 0
+  required: []

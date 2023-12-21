@@ -17,5 +17,6 @@ namespace Assets.Scripts.SkillSystem
         public bool isLearnd = false;
 
         public List<Skill> required;
+        public List<Building> buildingUpgrades;
     }
 }

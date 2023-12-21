@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Icicles
+  m_EditorClassIdentifier: 
+  _guid: e76edaac3e5359643872c8f6a01b2851
+  skillName: ' Icicles'
+  type: 5
+  nation: 5
+  description: "A serious weapon skillfully thrown will not only pierce the enemy,
+    but also freeze him. And the ice fragments will make it difficult for others
+    to dodge.    \n\nIt throws an icicle that freezes the target and everyone around
+    it."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: b636d3f9c9e7acd4a93776030e243e02, type: 2}
+  buildingUpgrades: []

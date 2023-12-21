@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BuildingRegistry
   m_EditorClassIdentifier: 
   _descriptors:
-  - {fileID: 11400000, guid: 68bfde619d9139146bf80c4d34833d16, type: 2}
-  - {fileID: 11400000, guid: e201d62feb099824eb53be549f876488, type: 2}
-  - {fileID: 11400000, guid: addde35c1584533409a3f3e6ff5d427a, type: 2}
-  - {fileID: 11400000, guid: efc29a37ef48d98408e98c8504e1aee3, type: 2}
-  - {fileID: 11400000, guid: 16ebe5cc36d5fec42bc41e99a2e91bc1, type: 2}
+  - {fileID: 11400000, guid: 6092f40a78ab0ed4a9542dcd2dc2d537, type: 2}
+  - {fileID: 11400000, guid: 81dd2e4276a2e324eabfd71f6b4d8e99, type: 2}
+  - {fileID: 11400000, guid: ebd6b43eadf64a243ad1cd35228195ee, type: 2}
+  - {fileID: 11400000, guid: 86af80f35a48a23459acc4e032488949, type: 2}
+  - {fileID: 11400000, guid: 877d5306add773e42b0784770994aa28, type: 2}
+  - {fileID: 11400000, guid: f2d614abdf1282e47b5184547fa0a547, type: 2}
+  - {fileID: 11400000, guid: d632d18573bb68540a4f88f7fbb3ea30, type: 2}

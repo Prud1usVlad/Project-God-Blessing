@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Buildings/Tavern", fileName = "Tavern")]
 public class Tavern : Building
 {
-    public override void InitDialogue(DialogueBox dialogueBox)
+    public override void InitDialogue(DialogueBox dialogueBox, BuildingController controller = null)
     {
         modalManager.DialogueOpen(dialogueBox);
     }

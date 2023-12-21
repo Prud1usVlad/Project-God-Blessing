@@ -7,16 +7,28 @@ namespace Assets.Scripts.EquipmentSystem
     [Serializable]
     public class InventoryRecord
     {
+        private EquipmentItem _item;
+
         public string itemGuid;
         public string recordGuid;
         public bool isEquipped;
+        public int level;
+
+        public EquipmentItem item => _item;
 
         public InventoryRecord() { }
-        public InventoryRecord(string itemGuid) 
+        public InventoryRecord(EquipmentItem item, int level) 
         {
-            this.itemGuid = itemGuid;
+            itemGuid = item.Guid;
+            this._item = item;
             recordGuid = Guid.NewGuid().ToString();
+            this.level = level;
         }
-        public InventoryRecord(EquipmentItem item) : this(item.Guid) { }
+
+        public void ChangeItem(EquipmentItem equipmentItem)
+        {
+            _item = equipmentItem;
+            itemGuid = equipmentItem.Guid;
+        }
     }
 }

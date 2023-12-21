@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Museum of history
+  m_EditorClassIdentifier: 
+  _guid: 3ca503f0de9b54143a5ea49fae991294
+  skillName: Museum of history
+  type: 1
+  nation: 2
+  description: "A few battle paintings, some old weapons, and of course soundproofing.
+    Now it's much more pleasant to spend time in the reading room. Even if you can't
+    read.   \n\nImprovements to the reading room that gives a bonus to mental regeneration."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: e4f2394f83413f0479a6dc7cf0257451, type: 2}
+  building: {fileID: 0}

@@ -48,7 +48,7 @@ namespace Assets.Scripts.SaveSystem
         public List<Place> places;
         public List<Resource> resources;
         public List<Curse> curses;
-        public List<ProductionPower> productionPowers;
+        public List<Production> production;
         public List<MarketBuildingData> marketBuildingsData;
         public List<ResourceDynamic> everydayTransactions;
 
@@ -145,13 +145,10 @@ namespace Assets.Scripts.SaveSystem
 
         private void LoadBuildingStates(GameProgress progress)
         {
-            foreach (var b in progress.resourceContainer.productionBuildings)
+            if (production is not null && production.Count > 0)
             {
-                var power = productionPowers.Find(p => p.buildingGuid == b.Guid);
-                if (power is not null)
-                {
-                    b.productionPower = power.power;
-                }
+                progress.production.Clear();
+                production.ForEach(i => progress.production.Add(i));
             }
 
             foreach (var marketData in marketBuildingsData)
@@ -160,7 +157,7 @@ namespace Assets.Scripts.SaveSystem
                     .Find(b => b.Guid == marketData.buildingGuid);
 
                 (building as MarketBuilding)
-                    .InitStore(marketData.itemGuids, marketData.daysTillUpdate); 
+                    .InitStore(marketData.itemsGuids, marketData.daysTillUpdate, marketData.itemsLevel); 
             }
         }
 
@@ -188,7 +185,16 @@ namespace Assets.Scripts.SaveSystem
                 var item = progress.buildingResearch
                     .Find(o => b.guid == o.guid);
 
-                item.isAvailable = b.isAvailable;
+                if (item != null)
+                    item.isAvailable = b.isAvailable;
+                else 
+                    progress.buildingResearch.Add(
+                        new ItemAvaliability 
+                        { 
+                            guid = b.guid, 
+                            isAvailable = b.isAvailable
+                        }
+                    );
             }
 
             // set resources
@@ -241,6 +247,8 @@ namespace Assets.Scripts.SaveSystem
         {
             foreach(var record in inventoryRecords)
             {
+                record.ChangeItem(progress.inventory
+                    .itemRegistry.FindByGuid(record.itemGuid));
                 progress.inventory.Add(record);
 
                 if (record.isEquipped)
@@ -305,12 +313,7 @@ namespace Assets.Scripts.SaveSystem
 
         private void SaveBuildingStates(GameProgress progress)
         {
-            productionPowers = progress.resourceContainer.productionBuildings
-                .Select(b => new ProductionPower
-                {
-                    buildingGuid = b.Guid,
-                    power = b.productionPower
-                }).ToList();
+            production = progress.resourceContainer.production;
 
             var markets = progress.placedBuildings
                 .Where(b => b is MarketBuilding)
@@ -323,9 +326,10 @@ namespace Assets.Scripts.SaveSystem
                 {
                     buildingGuid = market.Guid,
                     daysTillUpdate = market.daysTillUpdate,
-                    itemGuids = market.items
+                    itemsLevel = market.items.First(i => i is not null).level,
+                    itemsGuids = market.items
                         .Where(i => i is not null)
-                        .Select(i => i.Guid)
+                        .Select(i => i.itemGuid)
                         .ToList(),
                 });
             }
@@ -466,7 +470,8 @@ namespace Assets.Scripts.SaveSystem
         {
             public string buildingGuid;
             public int daysTillUpdate;
-            public List<string> itemGuids;
+            public int itemsLevel;
+            public List<string> itemsGuids;
         }
 
         #endregion

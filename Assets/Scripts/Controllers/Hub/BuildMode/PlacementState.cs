@@ -75,7 +75,7 @@ namespace Assets.Scripts.Controllers.Hub.BuildMode
         {
             var place = buildingPlaces.Find(p => p.transform.position == position);
             if (place is null) return false;
-            else return place.building is null;
+            else return place.Building is null;
         }
 
         private void ActionBase(Vector3 position)

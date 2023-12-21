@@ -15,6 +15,7 @@ MonoBehaviour:
   _guid: 57b4c74f838add543b529029018bca49
   itemName: Sword
   description: Steel sword
+  icon: {fileID: 21300000, guid: d272be374bdce064799521f999c2226c, type: 3}
   sellPrice:
     transactionType: 3
     resources:
@@ -34,7 +35,7 @@ MonoBehaviour:
   complementary: 200
   slothType: 5
   nation: 1
-  level: 1
+  level: 7
   modifiers:
     statModifiers:
     - stat: 6

@@ -75,7 +75,8 @@ namespace Assets.Scripts.QuestSystem
 
             foreach (var item in data.equipment)
             {
-                gameProgress.inventory.Add(item);
+                gameProgress.inventory.Add(new EquipmentSystem
+                    .InventoryRecord(item, data.connectionLevel));
             }
 
             foreach (var res in data.resources)

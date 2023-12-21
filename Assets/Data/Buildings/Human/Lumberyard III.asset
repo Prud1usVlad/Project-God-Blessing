@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96602c679c1f94f877ca0d1ef5dbd9, type: 3}
+  m_Name: Lumberyard III
+  m_EditorClassIdentifier: 
+  _guid: a50bd4f7d7617204b8079f2387cb8081
+  modalManager: {fileID: 11400000, guid: 1d0fbcb6d7dd0c6479f2b469e78e3eeb, type: 2}
+  buildingName: Lumberyard II
+  description: 'A small shed where loggers bring wood from the neighboring forest.
+    Sometimes the woodcutters may not make it, but who cares? We''ll hire new ones.
+
+
+    It
+    produces wood, planks and wooden furniture.'
+  isAvailableAtStart: 0
+  prefab: {fileID: 312882456432063554, guid: 4cae5b9838e848245a10147489b657c4, type: 3}
+  price:
+    transactionType: 2
+    resources:
+    - amount: 600
+      name: 1
+    - amount: 10
+      name: 10
+    - amount: 4
+      name: 16
+    - amount: 5
+      name: 27
+  upgrade: {fileID: 0}
+  productionRecipes:
+  - name: Wood
+    resources:
+    - amount: 15
+      name: 2
+    price:
+      transactionType: 5
+      resources:
+      - amount: 50
+        name: 1
+  - name: Planks
+    resources:
+    - amount: 5
+      name: 10
+    price:
+      transactionType: 5
+      resources:
+      - amount: 100
+        name: 1
+      - amount: 10
+        name: 2
+  - name: Wooden furniture
+    resources:
+    - amount: 1
+      name: 33
+    price:
+      transactionType: 5
+      resources:
+      - amount: 200
+        name: 1
+      - amount: 10
+        name: 10

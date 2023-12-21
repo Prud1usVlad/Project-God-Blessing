@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Alchemical laboratory
+  m_EditorClassIdentifier: 
+  _guid: e63b31d08e798284f8048debfb1291a7
+  skillName: Alchemical laboratory
+  type: 1
+  nation: 3
+  description: "Your home alchemists ask you to provide them with more resources,
+    why they don't tell you, but they will provide you with valuable goods for sale
+    \n\nAllows you to produce alchemical reagent kits in the alchemy lab."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000}
+  building: {fileID: 0}

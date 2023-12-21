@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Bottle of electrolyte
+  m_EditorClassIdentifier: 
+  _guid: b636d3f9c9e7acd4a93776030e243e02
+  skillName: Bottle of electrolyte
+  type: 5
+  nation: 2
+  description: "A bottle of water from the mountains with special properties. Once
+    someone dropped it under their feet and had to wait for the mud to dry to get
+    out.    \n\nIt makes a medium-sized puddle, which significantly reduces the enemy's
+    speed at the point of falling."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 49f7cef8ff0ba384985ede9e93ace0ec, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Ice cube
+  m_EditorClassIdentifier: 
+  _guid: 411ecd1f23267ae40b808d3b74ad01e1
+  skillName: Ice cube
+  type: 5
+  nation: 5
+  description: "White ice that turns into a weapon, in the warm local climate, few
+    people wear fur, so an ice cube launched with enough force will not only leave
+    a bruise but also has the ability to freeze body fluids. \n\nIt can be thrown
+    at anything."
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: 49f7cef8ff0ba384985ede9e93ace0ec, type: 2}
+  buildingUpgrades: []

@@ -20,9 +20,10 @@ public class InventoryItemTooltip : MonoBehaviour
     public GameObject modifierWidget;
     public GameObject resourceAmountWidget;
 
-    public void InitView(EquipmentItem item)
+    public void InitView(InventoryRecord record)
     {
-        header.SetText($"{item.name} {item.level}Lvl");
+        var item = record.item;
+        header.SetText($"{item.name} {record.level}Lvl");
         description.SetText(item.description);
         nation.SetText(System.Enum.GetName(typeof(NationName), item.nation));
         type.SetText(System.Enum.GetName(typeof(ItemType), item.type));

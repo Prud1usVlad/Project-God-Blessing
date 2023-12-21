@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa71e9d2de236b458ab76d3a3d3b513, type: 3}
+  m_Name: Weaving workshop
+  m_EditorClassIdentifier: 
+  _guid: a6ef65b79986782469b92d3308827d05
+  skillName: Weaving workshop
+  type: 1
+  nation: 4
+  description: 'A group of elves under the leadership of a dwarf made a loom, this
+    model can now be bought and used, but of course, if you can train your employees
+    to work with it.
+
+
+    It produces cloth.'
+  level: 2
+  pointsRequired: 1
+  isLearnd: 0
+  required: []
+  buildingUpgrades: []
+  building: {fileID: 11400000, guid: 8b05b4c840764f3449c640a7d2552cb0, type: 2}

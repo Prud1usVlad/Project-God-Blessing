@@ -18,6 +18,7 @@ public class ListViewController : MonoBehaviour
 
     public GameObject prefab;
     public GameObject contentParent;
+    public float childScale = 1;
 
     public bool allowSelection = true;
 
@@ -68,11 +69,13 @@ public class ListViewController : MonoBehaviour
 
         if (newData != null) 
             data = newData;
-
+        
         data.ForEach(item =>
         {
-            var comp = Instantiate(prefab, contentParent.transform)
-                .GetComponent<IListItem>();
+            var obj = Instantiate(prefab, contentParent.transform);
+            var comp = obj.GetComponent<IListItem>();
+
+            obj.transform.localScale *= childScale;
 
             if (allowSelection)
                 comp.Selection += () => ChangeSelection(item);

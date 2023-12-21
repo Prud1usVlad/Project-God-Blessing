@@ -17,19 +17,19 @@ public class TooltipSystem : MonoBehaviour
         instance = this;
     }
 
-    public static void Show(EquipmentItem item, EquipmentItem compare = null)
+    public static void Show(InventoryRecord record, InventoryRecord compareRecord = null)
     {
-        if (item is null)
+        if (record is null)
             return;
 
-        instance.itemTooltip.InitView(item);
-        if (compare != null) 
+        instance.itemTooltip.InitView(record);
+        if (compareRecord != null) 
         {
-            instance.compareTooltip.InitView(compare);
+            instance.compareTooltip.InitView(compareRecord);
         }
 
         instance.inventoryTooltipWrapper.SetActive(true);
-        instance.compareTooltip.gameObject.SetActive(compare != null);
+        instance.compareTooltip.gameObject.SetActive(compareRecord != null);
     }
 
     public static void Show(string content, string header = "")

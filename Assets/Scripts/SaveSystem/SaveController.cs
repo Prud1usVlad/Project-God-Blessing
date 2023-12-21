@@ -65,7 +65,7 @@ public class SaveController : MonoBehaviour
             => new Place
             {
                 position = p.transform.position,
-                buildingGuid = p.building?.Guid
+                buildingGuid = p.Building?.Guid
             }
         ).ToList();
 

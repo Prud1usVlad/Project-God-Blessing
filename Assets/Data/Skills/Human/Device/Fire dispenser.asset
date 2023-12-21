@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4073f104388b9474297f116b0b329bfe, type: 3}
+  m_Name: Fire dispenser
+  m_EditorClassIdentifier: 
+  _guid: 90600a1882a3e924599d1cb59b22b7c6
+  skillName: Fire dispenser
+  type: 5
+  nation: 1
+  description: "A complex mechanism that sprays fire, usually used at low power to
+    scare away large insects. But it can scare away anyone from this world.   \n\nLaunches
+    a powerful jet of fire in front of you. It sets fire to everything in its path."
+  level: 3
+  pointsRequired: 1
+  isLearnd: 0
+  required:
+  - {fileID: 11400000, guid: c4f40f5ac9c5296488c5bedc9812a358, type: 2}
+  buildingUpgrades: []
