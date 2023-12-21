@@ -9,8 +9,6 @@ namespace Assets.Scripts.Roguelike.Entities.Treasure
 {
     public class TreasureDecorator : MonoBehaviour, IEntitySpawnDecorator
     {
-        public string TreasureParams;
-
         public float GetSpawnProbability(PlayerDecorator player)
         {
             return 1;

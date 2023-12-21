@@ -17,11 +17,10 @@ namespace Assets.Scripts.Roguelike.StateHandlers
                         gameObject.SetActive(false);
                         break;
                     case PlayerState.InGame:
-                        gameObject.SetActive(true);
-                        gameObject.GetComponent<Minimap>().enabled = true;
+                        FindAnyObjectByType<Minimap>().enabled = true;
                         break;
                     case PlayerState.Pause:
-                        gameObject.GetComponent<Minimap>().enabled = false;
+                        FindAnyObjectByType<Minimap>().enabled = false;
                         break;
                     default:
                         throw new Exception("Unhandled player state");

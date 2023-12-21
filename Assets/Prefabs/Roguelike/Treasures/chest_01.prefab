@@ -399,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _InteractTransform: {fileID: 7324233076199570201}
   Animator: {fileID: 7687938344085090291}
+  TreasureLootController: {fileID: 5200398158602623727}
 --- !u!1 &2069053679872194178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6597332127176287507}
   - component: {fileID: 7622973805379563817}
+  - component: {fileID: 5200398158602623727}
   m_Layer: 7
   m_Name: chest_01
   m_TagString: Untagged
@@ -1395,7 +1397,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c676ebae02a77334db47949ec1a280b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreasureParams: 
+--- !u!114 &5200398158602623727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322713446390842232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51e829605f0aa243902799dfd7a320a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreasureData:
+  - MinItemLevel: 0
+    MaxItemLevel: 25
+    ItemType: 0
+    LootChanse: 0.25
+  - MinItemLevel: 10
+    MaxItemLevel: 20
+    ItemType: 0
+    LootChanse: 0.5
+  - MinItemLevel: 15
+    MaxItemLevel: 16
+    ItemType: 0
+    LootChanse: 0.25
 --- !u!1 &8255806183886501957
 GameObject:
   m_ObjectHideFlags: 0
