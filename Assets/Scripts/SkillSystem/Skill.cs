@@ -16,6 +16,10 @@ namespace Assets.Scripts.SkillSystem
         public int pointsRequired = 1;
         public bool isLearnd = false;
 
+        public Sprite icon;
+        [Range(0, 5)]
+        public int topCornerIndicator = 0;
+
         public List<Skill> required;
         public List<Building> buildingUpgrades;
     }

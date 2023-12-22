@@ -16,9 +16,11 @@ public class ResourceListItem : MonoBehaviour, IListItem
     public TextMeshProUGUI amount;
     public TextMeshProUGUI gained;
     public TextMeshProUGUI used;
+    public Image icon;
 
     public GameEvent itemSelected;
     public ResourceContainer resourceContainer;
+    public ResourceDescriptions resourceDescriptions;
 
     public string resName;
 
@@ -36,6 +38,8 @@ public class ResourceListItem : MonoBehaviour, IListItem
             resourceContainer.GaindedPerDay(resource.name)));
         used.SetText(Converters.IntToUiString(
             resourceContainer.SpentPerDay(resource.name)));
+
+        icon.sprite = resourceDescriptions.GetResourceIcon(resource.name);
     }
 
     public bool HasData(object data)

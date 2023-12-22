@@ -1,12 +1,20 @@
 ﻿using Assets.Scripts.Helpers;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TavernDialogueWindow : DialogueBox
 {
+    [SerializeField]
+    private List<NationFiller> fillers;
+
     public GameObject economicsWindowPrefab;
     public GameObject skillTreeWindowPrefab;
     public GameObject inventoryWindowPrefab;
+
+    public GameProgress gameProgress;
 
     public override bool InitDialogue()
     {
@@ -25,6 +33,14 @@ public class TavernDialogueWindow : DialogueBox
 
     public void UpdateView()
     {
+        var connections = gameProgress.skillSystem.connections;
+
+        foreach (var f in fillers)
+        {
+            var conn = connections.GetConnection(f.nation);
+            f.filler.fillAmount = (float)conn.currentLevelIdx / conn.levelsAmount;
+        }
+
     }
 
     public void CloseWindow()
@@ -56,6 +72,13 @@ public class TavernDialogueWindow : DialogueBox
         dialogue.InitData((NationName)nationIdx);
 
         modalManager.DialogueOpen(dialogue);
+    }
+
+    [Serializable]
+    private class NationFiller
+    {
+        public NationName nation;
+        public Image filler;
     }
 
 }
