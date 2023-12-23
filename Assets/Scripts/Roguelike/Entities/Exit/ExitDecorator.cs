@@ -15,5 +15,9 @@ namespace Assets.Scripts.Roguelike.Entities.Exit
         {
             return 1;
         }
+
+        public void SetSpawnSetting(PlayerDecorator player)
+        {
+        }
     }
 }

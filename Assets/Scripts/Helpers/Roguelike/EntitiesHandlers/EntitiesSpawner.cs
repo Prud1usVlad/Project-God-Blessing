@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.Roguelike.Entities.Player;
+using Assets.Scripts.Roguelike.Entities.Resource;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Enums;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Enums.LevelProperties;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Models;
@@ -105,6 +106,7 @@ namespace Assets.Scripts.Helpers.Roguelike.EntitiesHandlers
                         child.position, 
                         Quaternion.identity);
                     instance.transform.parent = gameObject.transform;
+                    instance.GetComponent<IEntitySpawnDecorator>().SetSpawnSetting(default);
                 }
             }
         }

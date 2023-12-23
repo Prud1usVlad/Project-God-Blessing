@@ -13,5 +13,9 @@ namespace Assets.Scripts.Roguelike.Entities.Treasure
         {
             return 1;
         }
+
+        public void SetSpawnSetting(PlayerDecorator player)
+        {
+        }
     }
 }

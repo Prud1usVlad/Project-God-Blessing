@@ -40,14 +40,6 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
         [Header("Game objects")]
         public GameObject Level;
 
-        public Action MoveRightDoorFunc;
-
-        public Action MoveDownDoorFunc;
-
-        public Action MoveLeftDoorFunc;
-
-        public Action MoveTopDoorFunc;
-
         private Generator _generator;
         private ControlInputHandler _controlInputHandler;
         private GameObject _currentRoom;
@@ -59,10 +51,10 @@ namespace Assets.Scripts.Helpers.Roguelike.Minimap
             _generator = Level.GetComponent<Generator>();
             _controlInputHandler = Level.GetComponent<ControlInputHandler>();
 
-            MoveTopDoorFunc += moveTopDoor;
-            MoveRightDoorFunc += MoveRightDoor;
-            MoveDownDoorFunc += moveDownDoor;
-            MoveLeftDoorFunc += moveLeftDoor;
+            RoomMovementController.Instance.MoveTopDoorFunc = moveTopDoor + RoomMovementController.Instance.MoveTopDoorFunc;
+            RoomMovementController.Instance.MoveRightDoorFunc = MoveRightDoor + RoomMovementController.Instance.MoveRightDoorFunc;
+            RoomMovementController.Instance.MoveDownDoorFunc = moveDownDoor + RoomMovementController.Instance.MoveDownDoorFunc;
+            RoomMovementController.Instance.MoveLeftDoorFunc = moveLeftDoor + RoomMovementController.Instance.MoveLeftDoorFunc ;
 
             RestartGameHelper.Instance.Restart += delegate ()
             {

@@ -9,11 +9,9 @@ using Assets.Scripts.Roguelike.LevelGeneration.Domain.Enums;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Enums.LevelProperties;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Models;
 using Assets.Scripts.Roguelike.LevelGeneration.Logic;
-using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using Unity.VisualScripting;
+using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.AI;
 
 namespace Assets.Scripts.Roguelike.LevelGeneration
 {
@@ -60,10 +58,10 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
 
             _minimap = Minimap.GetComponent<Minimap>();
 
-            _minimap.MoveDownDoorFunc += moveDownDoor;
-            _minimap.MoveRightDoorFunc += moveRightDoor;
-            _minimap.MoveTopDoorFunc += moveTopDoor;
-            _minimap.MoveLeftDoorFunc += moveLeftDoor;
+            RoomMovementController.Instance.MoveDownDoorFunc = moveDownDoor + RoomMovementController.Instance.MoveDownDoorFunc;
+            RoomMovementController.Instance.MoveRightDoorFunc = moveRightDoor + RoomMovementController.Instance.MoveRightDoorFunc;
+            RoomMovementController.Instance.MoveTopDoorFunc = moveTopDoor + RoomMovementController.Instance.MoveTopDoorFunc;
+            RoomMovementController.Instance.MoveLeftDoorFunc = moveLeftDoor + RoomMovementController.Instance.MoveLeftDoorFunc;
 
             if (!setFloorWallPairs())
             {
@@ -158,6 +156,8 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
                     LevelRoomDecorator room = _currentRoom.GetComponent<LevelRoomDecorator>();
 
                     room.IsCurrentRoom = true;
+
+                    _currentRoom.transform.parent.GetComponent<NavMeshSurface>().BuildNavMesh();
                 }
                 else
                 {
@@ -201,10 +201,10 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
             doorsInteractor.Room = currentRoom;
             doorsInteractor.Player = Player;
 
-            _minimap.MoveTopDoorFunc = doorsInteractor.MoveTopDoor + _minimap.MoveTopDoorFunc;
-            _minimap.MoveRightDoorFunc = doorsInteractor.MoveRightDoor + _minimap.MoveRightDoorFunc;
-            _minimap.MoveDownDoorFunc = doorsInteractor.MoveDownDoor + _minimap.MoveDownDoorFunc;
-            _minimap.MoveLeftDoorFunc = doorsInteractor.MoveLeftDoor + _minimap.MoveLeftDoorFunc;
+            RoomMovementController.Instance.MoveTopDoorFunc = doorsInteractor.MoveTopDoor + RoomMovementController.Instance.MoveTopDoorFunc;
+            RoomMovementController.Instance.MoveRightDoorFunc = doorsInteractor.MoveRightDoor + RoomMovementController.Instance.MoveRightDoorFunc;
+            RoomMovementController.Instance.MoveDownDoorFunc = doorsInteractor.MoveDownDoor + RoomMovementController.Instance.MoveDownDoorFunc;
+            RoomMovementController.Instance.MoveLeftDoorFunc = doorsInteractor.MoveLeftDoor + RoomMovementController.Instance.MoveLeftDoorFunc;
 
             wallInstance.GetComponent<WallDecorator>().Room = currentRoom;
 
@@ -332,6 +332,10 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
             return floorWallPairs[(int)UnityEngine.Random.Range(0f, floorWallPairs.Count)];
         }
 
+        public GameObject GetCurrentRoom()
+        {
+            return _currentRoom;
+        }
 
         private void moveTopDoor()
         {

@@ -5,7 +5,7 @@ using Assets.Scripts.ResourceSystem;
 using Assets.Scripts.Roguelike.Entities.Player;
 using UnityEngine;
 
-public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
+public class ResourceColliderHanler : MonoBehaviour, IInteractColliderHandler
 {
     public Transform _InteractTransform;
 
@@ -25,7 +25,7 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
     private GameObject InteractionText;
 
     private PlayerInputController _playerInputController;
-    private KeyValuePair<PlayerInteractDestination, IColliderHandler> _interactDestination;
+    private KeyValuePair<PlayerInteractDestination, IInteractColliderHandler> _interactDestination;
 
     private bool _isLooted = false;
 
@@ -34,7 +34,7 @@ public class ResourceColliderHanler : MonoBehaviour, IColliderHandler
         Player = GameObject.FindGameObjectWithTag(TagHelper.PlayerTag);
         Transform uiText = GameObject.FindGameObjectWithTag(TagHelper.UITextTag).transform;
         _playerInputController = Player.GetComponent<PlayerInputController>();
-        _interactDestination = new KeyValuePair<PlayerInteractDestination, IColliderHandler>(
+        _interactDestination = new KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>(
                     PlayerInteractDestination.Collect, this);
 
         foreach (Transform child in uiText)

@@ -22,7 +22,7 @@ namespace Assets.Scripts.Helpers.Roguelike
             }
         }
 
-
+        public bool IsInvincibleByDodge = false;
 
         public static PlayerStateHelper Instance
         {
@@ -45,5 +45,10 @@ namespace Assets.Scripts.Helpers.Roguelike
         }
 
         private PlayerStateHelper() { }
+
+        private void Start()
+        {
+            PlayerState = PlayerState.InGame;
+        }
     }
 }
