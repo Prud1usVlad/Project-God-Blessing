@@ -1,146 +1,92 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Enemy;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyDecorator))]
 public class EnemyController : MonoBehaviour
 {
-    public GameObject AttackCollider;
     public Transform HitMarkerContainer;
     public GameObject HitMarkerPrefab;
     public Animator EnemyAnimator;
     public LayerMask WhatIsGround;
     public LayerMask WhatIsPlayer;
 
-    public Vector3 walkPoint;
-
-    public float WalkPointRange;
-
-    public float SightRange = 100f;
-    public float AttackRange = 5f;
-    public float AttackCooldown = 0.5f;
     public bool _isPlayerInSightRange;
     public bool _isPlayerInAttackRange;
 
     public Action OnDeathEvent;
-
-    private bool _isAttack;
-    private bool _walkPointSet;
+    public Action OnAttackEnd;
+    private List<AbstractAttackBehaviour> _attackBehaviours = new List<AbstractAttackBehaviour>();
+    private AbstractChaseBehaviour _chaseBehaviour;
+    private AbstractPatrolingBehaviour _patrolingBehaviour;
     private bool _isDead = false;
-    private bool _isInAnimation = false;
-    private bool _isInPunchCooldown = false;
-    private NavMeshAgent _agent;
+    public bool IsInAnimation;
     private Transform _player;
     private EnemyParameters _parameters;
 
     private void Start()
     {
-        //Physics.IgnoreCollision(transform.GetComponent<Collider>(), _player.GetComponent<Collider>(), true);
-        _agent = GetComponent<NavMeshAgent>();
         _parameters = GetComponent<EnemyDecorator>().EnemyParameters;
         _player = GameObject.FindWithTag(TagHelper.PlayerTag).transform;
+
+        _attackBehaviours = GetComponents<AbstractAttackBehaviour>().OrderBy(x => x.Priority).ToList();
+        _chaseBehaviour = GetComponent<AbstractChaseBehaviour>();
+        _patrolingBehaviour = GetComponent<AbstractPatrolingBehaviour>();
+
+        if (!_attackBehaviours.Any())
+        {
+            throw new Exception("Empty attack list");
+        }
+
+        _chaseBehaviour.Initialize(_player);
+        _patrolingBehaviour.Initialize(_player);
+
+        foreach (IAttackBehaviour attackBehaviour in _attackBehaviours)
+        {
+            attackBehaviour.Initialize(_player);
+        }
     }
 
     private void Update()
     {
-        if (_isDead || _isInAnimation || _isInPunchCooldown)
+        if (_isDead || IsInAnimation)
         {
             return;
         }
 
-        _isPlayerInSightRange = Physics.CheckSphere(transform.position, SightRange, WhatIsPlayer);
-        _isPlayerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, WhatIsPlayer);
+        _isPlayerInSightRange = _chaseBehaviour.CheckPlayerSightable();
 
-        if (!_isPlayerInSightRange && !_isPlayerInAttackRange)
+        foreach (IAttackBehaviour attackBehaviour in _attackBehaviours)
         {
-            EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimators.OrcAnimator.IsWalkParameter, true);
-            Patroling();
+            _isPlayerInAttackRange = attackBehaviour.CheckAttackRange();
+
+            if (!_isPlayerInSightRange && !_isPlayerInAttackRange)
+            {
+                _patrolingBehaviour.Patroling();
+            }
+            if (_isPlayerInSightRange && !_isPlayerInAttackRange)
+            {
+                _chaseBehaviour.ChasePlayer();
+            }
+            if (_isPlayerInAttackRange && _isPlayerInSightRange
+                && attackBehaviour.CheckAttackPossibility()
+                && PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.InGame))
+            {
+                IsInAnimation = true;
+                attackBehaviour.Attack();
+            }
         }
-        if (_isPlayerInSightRange && !_isPlayerInAttackRange)
-        {
-            EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimators.OrcAnimator.IsWalkParameter, true);
-            ChasePlayer();
-        }
-        if (_isPlayerInAttackRange && _isPlayerInSightRange && PlayerStateHelper.Instance.PlayerState.Equals(PlayerState.InGame))
-        {
-            EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimators.OrcAnimator.IsWalkParameter, false);
-            EnemyAnimator.SetTrigger(AnimatorHelper.EnemyAnimators.OrcAnimator.PunchTrigger);
-            AttackPlayer();
-        }
-    }
-
-    private void Patroling()
-    {
-        if (!_walkPointSet)
-        {
-            SearchWalkPoint();
-        }
-
-        if (_walkPointSet)
-        {
-            _agent.SetDestination(walkPoint);
-        }
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1f)
-        {
-            _walkPointSet = false;
-        }
-    }
-    private void SearchWalkPoint()
-    {
-        float randomZ = Random.Range(-WalkPointRange, WalkPointRange);
-        float randomX = Random.Range(-WalkPointRange, WalkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, WhatIsGround))
-            _walkPointSet = true;
-    }
-
-    private void ChasePlayer()
-    {
-        _agent.SetDestination(_player.position);
-    }
-
-    private void AttackPlayer()
-    {
-        _agent.SetDestination(transform.position);
-
-        transform.LookAt(_player);
-
-        if (!_isAttack)
-        {
-            AttackCollider.SetActive(true);
-            _isAttack = true;
-            _isInAnimation = true;
-        }
-    }
-
-    public void OnResetAttack()
-    {
-        AttackCollider.SetActive(false);
-        _isInAnimation = false;
-        _isAttack = false;
-        _isInPunchCooldown = true;
-
-        Invoke(nameof(ResetAttackCooldown), AttackCooldown / _parameters.EnemyBaseAttackSpeed);
-    }
-
-    private void ResetAttackCooldown()
-    {
-        _isInPunchCooldown = false;
     }
 
     public void TakeDamage(float damage)
     {
-        if(_isDead)
+        if (_isDead)
         {
             return;
         }
@@ -151,19 +97,27 @@ public class EnemyController : MonoBehaviour
 
         if (_parameters.EnemyBaseHealth <= 0 && !_isDead)
         {
-            EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimators.OrcAnimator.IsWalkParameter, false);
-            EnemyAnimator.SetTrigger(AnimatorHelper.EnemyAnimators.OrcAnimator.DieTrigger);
+            EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimator.OrcAnimator.IsWalkParameter, false);
+            EnemyAnimator.SetTrigger(AnimatorHelper.EnemyAnimator.OrcAnimator.DieTrigger);
             _isDead = true;
             OnDeathEvent.Invoke();
             Destroy(gameObject, _parameters.EnemyBaseDisapearingTime);
         }
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, AttackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, SightRange);
+        foreach (IAttackBehaviour attackBehaviour in _attackBehaviours)
+        {
+            Gizmos.DrawWireSphere(transform.position, attackBehaviour.GetAttackRange());
+        }
+        if (_chaseBehaviour != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, _chaseBehaviour.GetSightRange());
+        }
     }
+#endif
 }

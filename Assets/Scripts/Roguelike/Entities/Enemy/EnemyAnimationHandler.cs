@@ -7,6 +7,6 @@ public class EnemyAnimationHandler : MonoBehaviour
 
     public void OnPunchAnimationEnd()
     {
-        EnemyController.OnResetAttack();
+        EnemyController.OnAttackEnd?.Invoke();
     }
 }

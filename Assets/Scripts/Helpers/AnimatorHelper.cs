@@ -26,7 +26,7 @@ namespace Assets.Scripts.Helpers
             public static string IsHoveredParameter = "IsHovered";
         }
 
-        public static class EnemyAnimators
+        public static class EnemyAnimator
         {
             public static class OrcAnimator
             {
@@ -35,7 +35,14 @@ namespace Assets.Scripts.Helpers
                 public static string PunchTrigger = "Punch";
 
                 public static string DieTrigger = "Die";
-                
+
+            }
+            public static class Attack
+            {
+                public static string PunchTag = "Punch";
+                public static string ThrowTag = "Throw";
+                public static string SummonTag = "Summon";
+                public static string BiteTag = "Bite";
             }
         }
     }

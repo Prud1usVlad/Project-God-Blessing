@@ -42,7 +42,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 896
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -118,6 +118,9 @@ GameObject:
   - component: {fileID: 6079865907003610195}
   - component: {fileID: 7325219409460962067}
   - component: {fileID: 9132242430888126715}
+  - component: {fileID: 1791645577165860086}
+  - component: {fileID: 8888373653242274449}
+  - component: {fileID: 5332118761658847574}
   m_Layer: 7
   m_Name: Orc
   m_TagString: Untagged
@@ -178,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfc61c7eded58a4aa765477cb1086f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackCollider: {fileID: 3015852164897903008}
   HitMarkerContainer: {fileID: 997190436823220743}
   HitMarkerPrefab: {fileID: 5382122119322063291, guid: 3584f7d36f482414aa155e5b1caa186d,
     type: 3}
@@ -189,13 +191,9 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  walkPoint: {x: 0, y: 0, z: 0}
-  WalkPointRange: 0
-  SightRange: 100
-  AttackRange: 1.1
-  AttackCooldown: 2
   _isPlayerInSightRange: 0
   _isPlayerInAttackRange: 0
+  IsInAnimation: 0
 --- !u!195 &9132242430888126715
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -218,6 +216,49 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1791645577165860086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428719709382168766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a70fe5ae74fa841b69ce2ffa0263fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackCollider: {fileID: 3015852164897903008}
+  Priority: 0
+  IsAttackCooldown: 0
+  AttackType: 0
+  _attackParameters: {fileID: 11400000, guid: 3d6f7ead51eb09d46a66e065300308e2, type: 2}
+--- !u!114 &8888373653242274449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428719709382168766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9997adfbfdc3146b30dbee2577c6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkPointRange: 20
+--- !u!114 &5332118761658847574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428719709382168766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92687b8ac9d8ed41bede38b70de2ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SightRange: 20
 --- !u!1 &6949604558849681113
 GameObject:
   m_ObjectHideFlags: 0
