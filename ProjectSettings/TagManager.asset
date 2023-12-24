@@ -38,6 +38,8 @@ TagManager:
   - GadgetDamageArea
   - SwordDamageArea
   - EnemyDamageArea
+  - ThrowObjectCollider
+  - PlayerHitboxCollider
   layers:
   - Default
   - TransparentFX

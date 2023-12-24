@@ -18,6 +18,15 @@ public class PlayerColliderHandler : MonoBehaviour
                     .EnemyParameters.EnemyBaseDamage;
             }
         }
+
+        if (other.transform.tag.Equals(TagHelper.ColliderTags.ThrowObjectColliderTag))
+        {
+            if (!PlayerStateHelper.Instance.IsInvincibleByDodge)
+            {
+                Player.Health -= other.transform.parent.GetComponent<ThrowObjectParameters>().Damage;
+            }
+            other.transform.parent.gameObject.SetActive(false);
+        }
     }
 }
 

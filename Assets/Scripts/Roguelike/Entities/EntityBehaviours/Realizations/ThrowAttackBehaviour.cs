@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [Serializable]
-public class PunchAttackBehaviour : AbstractAttackBehaviour
+public class ThrowAttackBehaviour : AbstractAttackBehaviour
 {
-    public GameObject AttackCollider;
+    public GameObject ThrowObject;
+    public GameObject ThrowPosition;
+
     [SerializeField]
     private AttackParameters _attackParameters;
     private EnemyController _enemyController;
     private Transform _player;
+    private Transform _playerHitboxCollider;
     private NavMeshAgent _agent;
     private EnemyParameters _parameters;
     private string _attackTypeAnimationTag;
@@ -31,8 +34,9 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
     private void Start()
     {
         AttackParameters = _attackParameters;
-        AttackType = AttackType.Punch;
+        AttackType = AttackType.Throw;
     }
+
     private void OnResetAttack()
     {
         if (IsAttackCooldown)
@@ -40,7 +44,6 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
             return;
         }
 
-        AttackCollider.SetActive(false);
         _isAttack = false;
         IsAttackCooldown = true;
         _enemyController.IsInAnimation = false;
@@ -50,7 +53,7 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
 
     private void ResetAttackCooldown()
     {
-        _enemyController.OnPunchEnd -= OnResetAttack;
+        _enemyController.OnThrowEnd -= OnResetAttack;
         IsAttackCooldown = false;
     }
 
@@ -70,11 +73,29 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
 
         if (!_isAttack)
         {
-            _enemyController.OnPunchEnd += OnResetAttack;
-            AttackCollider.SetActive(true);
+            _enemyController.OnThrowEnd += OnResetAttack;
+            _enemyController.OnThrowEvent += Throw;
             _isAttack = true;
         }
     }
+
+    private void Throw()
+    {
+        GameObject throwObject = Instantiate(ThrowObject, ThrowPosition.transform.position, Quaternion.identity);
+        throwObject.transform.LookAt(_playerHitboxCollider);
+
+        throwObject.GetComponent<ThrowObjectParameters>().Damage = AttackParameters.BaseDamege;
+
+        Rigidbody rigidbody = throwObject.GetComponent<Rigidbody>();
+        rigidbody.AddForce((
+            _playerHitboxCollider.transform.position - throwObject.transform.position).normalized * 16f,
+            ForceMode.Impulse);
+
+        Destroy(throwObject, 30f);
+
+        _enemyController.OnThrowEvent -= Throw;
+    }
+
 
     public override bool CheckAttackRange()
     {
@@ -92,6 +113,7 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
         _player = player;
         _agent = GetComponent<NavMeshAgent>();
         _parameters = GetComponent<EnemyDecorator>().EnemyParameters;
+        _playerHitboxCollider = GameObject.FindWithTag(TagHelper.ColliderTags.PlayerHitboxColliderTag).transform;
         _attackTypeAnimationTag = AttackTypeHandler.GetAttackTypeAnimationTag(AttackType);
     }
 

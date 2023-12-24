@@ -21,7 +21,15 @@ public class EnemyController : MonoBehaviour
     public bool _isPlayerInAttackRange;
 
     public Action OnDeathEvent;
-    public Action OnAttackEnd;
+    public Action OnPunchEnd;
+    public Action OnPunchEvent;
+    public Action OnThrowEnd;
+    public Action OnThrowEvent;
+    public Action OnBiteEnd;
+    public Action OnBiteEvent;
+    public Action OnSpawnEnd;
+    public Action OnSpawnEvent;
+
     private List<AbstractAttackBehaviour> _attackBehaviours = new List<AbstractAttackBehaviour>();
     private AbstractChaseBehaviour _chaseBehaviour;
     private AbstractPatrolingBehaviour _patrolingBehaviour;
@@ -64,6 +72,11 @@ public class EnemyController : MonoBehaviour
 
         foreach (IAttackBehaviour attackBehaviour in _attackBehaviours)
         {
+            if (_isDead || IsInAnimation)
+            {
+                return;
+            }
+
             _isPlayerInAttackRange = attackBehaviour.CheckAttackRange();
 
             if (!_isPlayerInSightRange && !_isPlayerInAttackRange)

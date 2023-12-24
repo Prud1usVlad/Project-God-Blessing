@@ -4,7 +4,6 @@ using UnityEngine;
 [Serializable]
 public abstract class AbstractAttackBehaviour : MonoBehaviour, IAttackBehaviour
 {
-    public GameObject AttackCollider;
     public virtual AttackParameters AttackParameters { get; set; }
 
     public int Priority;

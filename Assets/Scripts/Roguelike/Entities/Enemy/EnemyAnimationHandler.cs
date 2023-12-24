@@ -7,6 +7,36 @@ public class EnemyAnimationHandler : MonoBehaviour
 
     public void OnPunchAnimationEnd()
     {
-        EnemyController.OnAttackEnd?.Invoke();
+        EnemyController.OnPunchEnd?.Invoke();
+    }
+
+    public void OnThrowAnimationEnd()
+    {
+        EnemyController.OnThrowEnd?.Invoke();
+    }
+
+    public void OnThowEvent()
+    {
+        EnemyController.OnThrowEvent?.Invoke();
+    }
+
+    public void OnSpawnAnimationEnd()
+    {
+        EnemyController.OnSpawnEnd?.Invoke();
+    }
+
+    public void OnSpawnEvent()
+    {
+        EnemyController.OnSpawnEvent?.Invoke();
+    }
+
+    public void OnBiteAnimationEnd()
+    {
+        EnemyController.OnBiteEnd?.Invoke();
+    }
+
+    public void OnBiteEvent()
+    {
+        EnemyController.OnBiteEvent?.Invoke();
     }
 }

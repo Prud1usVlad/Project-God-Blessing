@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1abee56d1e788244a7971f3733e2c15, type: 3}
-  m_Name: OrcEnemyParameters
+  m_Name: OrcPunchAttack
   m_EditorClassIdentifier: 
   BaseDamege: 10
   BaseCooldown: 2

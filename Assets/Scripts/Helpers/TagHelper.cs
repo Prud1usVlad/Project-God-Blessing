@@ -55,6 +55,8 @@ namespace Assets.Scripts.Helpers
             public static string GadgetDamageAreaTag = "GadgetDamageArea";
             public static string SwordDamageAreaTag = "SwordDamageArea";
             public static string EnemyDamageAreaTag = "EnemyDamageArea";
+            public static string ThrowObjectColliderTag = "ThrowObjectCollider";
+            public static string PlayerHitboxColliderTag = "PlayerHitboxCollider";
         }
     }
 }

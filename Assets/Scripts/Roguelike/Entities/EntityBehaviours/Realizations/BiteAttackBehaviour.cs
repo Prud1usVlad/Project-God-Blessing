@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [Serializable]
-public class PunchAttackBehaviour : AbstractAttackBehaviour
+public class BiteAttackBehaviour : AbstractAttackBehaviour
 {
     public GameObject AttackCollider;
     [SerializeField]
@@ -31,7 +31,7 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
     private void Start()
     {
         AttackParameters = _attackParameters;
-        AttackType = AttackType.Punch;
+        AttackType = AttackType.Bite;
     }
     private void OnResetAttack()
     {
@@ -50,7 +50,7 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
 
     private void ResetAttackCooldown()
     {
-        _enemyController.OnPunchEnd -= OnResetAttack;
+        _enemyController.OnBiteEnd -= OnResetAttack;
         IsAttackCooldown = false;
     }
 
@@ -70,7 +70,7 @@ public class PunchAttackBehaviour : AbstractAttackBehaviour
 
         if (!_isAttack)
         {
-            _enemyController.OnPunchEnd += OnResetAttack;
+            _enemyController.OnBiteEnd += OnResetAttack;
             AttackCollider.SetActive(true);
             _isAttack = true;
         }
