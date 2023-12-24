@@ -26,5 +26,8 @@ MonoBehaviour:
   level: 3
   pointsRequired: 1
   isLearnd: 0
+  icon: {fileID: 21300000, guid: d827bc5f8d76c84419e16f49c61bae83, type: 3}
+  topCornerIndicator: 3
   required:
   - {fileID: 11400000, guid: 2812c1a65206c804989f3a7458e027e8, type: 2}
+  buildingUpgrades: []

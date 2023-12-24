@@ -21,5 +21,8 @@ MonoBehaviour:
     in front of the player."
   level: 0
   pointsRequired: 1
-  isLearnd: 0
+  isLearnd: 1
+  icon: {fileID: 21300000, guid: 6cdb65a4eda77894b98963c5df352051, type: 3}
+  topCornerIndicator: 1
   required: []
+  buildingUpgrades: []

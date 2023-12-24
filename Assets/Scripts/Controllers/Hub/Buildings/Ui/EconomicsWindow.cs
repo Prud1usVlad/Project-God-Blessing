@@ -27,8 +27,8 @@ public class EconomicsWindow : DialogueBox
     [Header("Market ui elements")]
     public Slider sellSlider;
     public Slider buySlider;
-    public TextMeshProUGUI sellMax;
-    public TextMeshProUGUI buyMax;
+    public TextMeshProUGUI sellAmount;
+    public TextMeshProUGUI buyAmount;
     public TextMeshProUGUI sellPrice;
     public TextMeshProUGUI buyPrice;
     public GameObject marketPanel;
@@ -191,8 +191,8 @@ public class EconomicsWindow : DialogueBox
         sellSlider.maxValue = conf.maxSellAmount;
         buySlider.maxValue = conf.maxBuyAmount;
 
-        sellMax.SetText(conf.maxSellAmount + "pt.");
-        buyMax.SetText(conf.maxBuyAmount + "pt.");
+        sellAmount.SetText(sellSlider.value + "pt.");
+        buyAmount.SetText(buySlider.value + "pt.");
 
         var sPrice = market.GetSellPrice(selected.name, (int)sellSlider.value);
         var bPrice = market.GetBuyPrice(selected.name, (int)buySlider.value);

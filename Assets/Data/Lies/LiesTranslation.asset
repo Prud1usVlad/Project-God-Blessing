@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b102ad77c418d34468fdbabce7ce77a4, type: 3}
   m_Name: LiesTranslation
   m_EditorClassIdentifier: 
-  currentPoints: 100
-  currentLevelIdx: 1
+  currentPoints: 0
+  currentLevelIdx: 0
   curseRegistry: {fileID: 11400000, guid: b0a46eb1e44fdcf4f9d22360bbe8dc75, type: 2}
   levelsAmount: 3
   pointsForLevel: 100

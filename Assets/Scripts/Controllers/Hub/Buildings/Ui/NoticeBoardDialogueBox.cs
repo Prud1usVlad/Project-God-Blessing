@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Helpers;
+﻿using Assets.Scripts.EquipmentSystem;
+using Assets.Scripts.Helpers;
 using Assets.Scripts.QuestSystem;
 using Assets.Scripts.SkillSystem.Ui;
 using System;
@@ -131,8 +132,9 @@ public class NoticeBoardDialogueBox : DialogueBox
     {
         resRewards.InitView(quest.data
             .resources.Cast<object>().ToList());
-        itemRewards.InitView(quest.data
-            .equipment.Cast<object>().ToList());
+        itemRewards.InitView(quest.data.equipment
+            .Select(e => new InventoryRecord(e, quest.data.connectionLevel))
+            .Cast<object>().ToList());
 
         var stagesToShow = quest.stages
             .Where(s => s.isCompleted || s == quest.stage);
