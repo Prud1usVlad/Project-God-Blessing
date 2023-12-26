@@ -11,4 +11,9 @@ public abstract class AbstractPatrolingBehaviour : MonoBehaviour, IPatrolingBeha
     {
         throw new System.NotImplementedException();
     }
+
+    public virtual void OnDeathEvent()
+    {
+        throw new System.NotImplementedException();
+    }
 }

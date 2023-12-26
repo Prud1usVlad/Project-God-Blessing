@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OrcSpawnAttack
   m_EditorClassIdentifier: 
   BaseDamege: 0
-  BaseCooldown: 20
+  BaseCooldown: 40
   BaseAttackDistance: 100

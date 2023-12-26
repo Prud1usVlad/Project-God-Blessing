@@ -5,6 +5,7 @@ namespace Assets.Scripts.Roguelike.Entities.Player
         Collect,
         OpenChest,
         OpenDoor,
+        LeftLevel,
         None
     }
 }

@@ -3,9 +3,10 @@ using Assets.Scripts.Helpers;
 using Assets.Scripts.Roguelike.Entities.Player;
 using UnityEngine;
 
-public class ResourceColliderHanler : MonoBehaviour, IInteractColliderHandler
+public class ExitColliderHanler : MonoBehaviour, IInteractColliderHandler
 {
     public Transform _InteractTransform;
+    public ExitController ExitController;
 
     public Transform InteractTransform
     {
@@ -14,8 +15,6 @@ public class ResourceColliderHanler : MonoBehaviour, IInteractColliderHandler
             return _InteractTransform;
         }
     }
-
-    public ResourceLootController ResourceLootController;
 
     public float InteractDistance = 1f;
 
@@ -33,7 +32,7 @@ public class ResourceColliderHanler : MonoBehaviour, IInteractColliderHandler
         Transform uiText = GameObject.FindGameObjectWithTag(TagHelper.UITextTag).transform;
         _playerInputController = Player.GetComponent<PlayerInputController>();
         _interactDestination = new KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>(
-                    PlayerInteractDestination.Collect, this);
+                    PlayerInteractDestination.LeftLevel, this);
 
         foreach (Transform child in uiText)
         {
@@ -91,7 +90,6 @@ public class ResourceColliderHanler : MonoBehaviour, IInteractColliderHandler
 
     public void Interact()
     {
-        _isLooted = true;
-        ResourceLootController.Loot();
+        ExitController.LeftLevel();
     }
 }

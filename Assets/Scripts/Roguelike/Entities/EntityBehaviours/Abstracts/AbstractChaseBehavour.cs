@@ -18,6 +18,11 @@ public abstract class AbstractChaseBehaviour : MonoBehaviour, IChaseBehaviour
         throw new System.NotImplementedException();
     }
 
+    public virtual void OnDeathEvent()
+    {
+        throw new System.NotImplementedException();
+    }
+
 #if UNITY_EDITOR
     public virtual float GetSightRange()
     {

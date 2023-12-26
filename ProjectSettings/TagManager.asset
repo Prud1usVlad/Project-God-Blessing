@@ -40,6 +40,8 @@ TagManager:
   - EnemyDamageArea
   - ThrowObjectCollider
   - PlayerHitboxCollider
+  - LeftLevelScreen
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
@@ -51,7 +53,7 @@ TagManager:
   - Rigidbody
   - Player
   - Collider
-  - 
+  - Exit
   - 
   - 
   - 

@@ -49,6 +49,7 @@ public class PlayerInputController : MonoBehaviour
     private Action _openGadgetWheel;
     private Action _openLootTab;
     private Action _death;
+    private Action _leftLevel;
 
     private Vector3 _movementLeftVector = new Vector3(-1, 0, 0);
     private Vector3 _movementBottomVector = new Vector3(0, 0, -1);
@@ -391,6 +392,20 @@ public class PlayerInputController : MonoBehaviour
             }
         };
 
+        _leftLevel += delegate ()
+        {
+            if (_isStaticAnimation)
+            {
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                InteractDestination[0].Value.Interact();
+                InteractDestination.RemoveAt(0);
+            }
+        };
+
         Interact += delegate ()
         {
             if (_isStaticAnimation || !InteractDestination.Any())
@@ -402,6 +417,9 @@ public class PlayerInputController : MonoBehaviour
             {
                 case PlayerInteractDestination.None:
                     return;
+                case PlayerInteractDestination.LeftLevel:
+                    _leftLevel.Invoke();
+                    break;
                 case PlayerInteractDestination.OpenChest:
                     _openChest.Invoke();
                     break;

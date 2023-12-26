@@ -37,10 +37,12 @@ public class EnemyController : MonoBehaviour
     public bool IsInAnimation;
     private Transform _player;
     private EnemyParameters _parameters;
+    private EnemyDecorator _enemyDecorator;
 
     private void Start()
     {
-        _parameters = GetComponent<EnemyDecorator>().EnemyParameters;
+        _enemyDecorator = GetComponent<EnemyDecorator>();
+        _parameters = _enemyDecorator.EnemyParameters;
         _player = GameObject.FindWithTag(TagHelper.PlayerTag).transform;
 
         _attackBehaviours = GetComponents<AbstractAttackBehaviour>().OrderBy(x => x.Priority).ToList();
@@ -105,16 +107,25 @@ public class EnemyController : MonoBehaviour
         }
         _parameters.EnemyBaseHealth -= damage;
 
-        GameObject hitMarker = Instantiate(HitMarkerPrefab, HitMarkerContainer.position, HitMarkerPrefab.transform.rotation);
-        hitMarker.GetComponent<TextMesh>().text = damage.ToString();
+        GameObject hitMarker = Instantiate(HitMarkerPrefab, HitMarkerContainer.position, HitMarkerPrefab.transform.rotation, transform.parent);
+        hitMarker.GetComponentInChildren<TextMesh>().text = damage.ToString();
 
         if (_parameters.EnemyBaseHealth <= 0 && !_isDead)
         {
             EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimator.OrcAnimator.IsWalkParameter, false);
             EnemyAnimator.SetTrigger(AnimatorHelper.EnemyAnimator.OrcAnimator.DieTrigger);
             _isDead = true;
+            
+            _chaseBehaviour.OnDeathEvent();
+            _patrolingBehaviour.OnDeathEvent();
+
+            _enemyDecorator.EnemyDeath += delegate()
+            {
+                Destroy(gameObject, _parameters.EnemyBaseDisapearingTime);
+            };
+            _enemyDecorator.EnemyDeath.Invoke();
             OnDeathEvent.Invoke();
-            Destroy(gameObject, _parameters.EnemyBaseDisapearingTime);
+            
         }
     }
 

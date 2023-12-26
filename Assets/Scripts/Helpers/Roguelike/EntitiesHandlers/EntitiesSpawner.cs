@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Roguelike.Entities.Enemy;
 using Assets.Scripts.Roguelike.Entities.Player;
 using Assets.Scripts.Roguelike.Entities.Resource;
 using Assets.Scripts.Roguelike.LevelGeneration.Domain.Enums;
@@ -14,6 +15,7 @@ namespace Assets.Scripts.Helpers.Roguelike.EntitiesHandlers
         public Room Room;
 
         public GameObject Player;
+        public LevelRoomDecorator LevelRoomDecorator;
 
         public EntitiesConcentrator EntitiesConcentrator;
 
@@ -102,11 +104,33 @@ namespace Assets.Scripts.Helpers.Roguelike.EntitiesHandlers
                 if (child.tag.Equals(targetSingleTag))
                 {
                     GameObject instance = Instantiate(
-                        targetEntities[(int)UnityEngine.Random.Range(0f, targetEntities.Count)], 
-                        child.position, 
+                        targetEntities[(int)UnityEngine.Random.Range(0f, targetEntities.Count)],
+                        child.position,
                         Quaternion.identity);
                     instance.transform.parent = gameObject.transform;
                     instance.GetComponent<IEntitySpawnDecorator>().SetSpawnSetting(default);
+
+                    if (Room.RoomType.Equals(RoomType.Boss) || Room.RoomType.Equals(RoomType.Trial))
+                    {
+                        LevelRoomDecorator.RegisterEnemy(instance);
+
+                    }
+
+                    if (Room.RoomType.Equals(RoomType.Boss))
+                    {
+                        EnemyDecorator enemyDecorator = instance.GetComponent<EnemyDecorator>();
+
+                        enemyDecorator.EnemyDeath = delegate ()
+                        {
+                            Instantiate(
+                                EntitiesConcentrator.ExitObjects[(int)UnityEngine.Random
+                                    .Range(0f, EntitiesConcentrator.ExitObjects.Count)],
+                                child.position,
+                                Quaternion.identity,
+                                transform.parent);
+                        }
+                        + enemyDecorator.EnemyDeath;
+                    }
                 }
             }
         }

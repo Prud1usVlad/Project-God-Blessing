@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70cf02f9f1fe5549afb7c52f8b69bf9, type: 3}
-  m_Name: orc_1
+  m_Script: {fileID: 11500000, guid: 6780c4bb7817f05439c42e3a4f6f1221, type: 3}
+  m_Name: orc_01
   m_EditorClassIdentifier: 
-  EnemyLevel: 20
-  EnemyName: Strong Orc
-  EnemyBaseHealth: 350
+  EnemyLevel: 25
+  EnemyName: Legendary Orc
+  EnemyBaseHealth: 750
   EnemyBaseDamage: 40
-  EnemyBaseAttackSpeed: 2
+  EnemyBaseAttackSpeed: 1
   EnemyBaseMovementSpeed: 1
   EnemyBaseDisapearingTime: 1
   AvailableResourcesInLoot: []

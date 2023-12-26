@@ -7,9 +7,14 @@ public class ChaseBehaviour : AbstractChaseBehaviour
     private EnemyController _enemyController;
     private Transform _player;
     private NavMeshAgent _agent;
+    private bool _isDead = false;
 
     public override void ChasePlayer()
     {
+        if(_isDead)
+        {
+            return;
+        }
         _enemyController.EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimator.OrcAnimator.IsWalkParameter, true);
         _agent.SetDestination(_player.position);
     }
@@ -24,6 +29,12 @@ public class ChaseBehaviour : AbstractChaseBehaviour
         _enemyController = GetComponent<EnemyController>();
         _player = player;
         _agent = GetComponent<NavMeshAgent>();
+    }
+
+    public override void OnDeathEvent()
+    {
+        _isDead = true;
+        _agent.SetDestination(transform.position);
     }
 
 #if UNITY_EDITOR

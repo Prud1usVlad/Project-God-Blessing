@@ -189,7 +189,13 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
 
             floorInstance.AddComponent<EntitiesSpawner>();
 
+            instance.AddComponent<LevelRoomDecorator>();
+            LevelRoomDecorator levelRoomDecorator = instance.GetComponent<LevelRoomDecorator>();
+            levelRoomDecorator.WallDecorator = wallInstance.GetComponent<WallDecorator>();
+            levelRoomDecorator.Room = currentRoom;
+
             EntitiesSpawner spawner = floorInstance.GetComponent<EntitiesSpawner>();
+            spawner.LevelRoomDecorator = levelRoomDecorator;
             spawner.Room = currentRoom;
             spawner.EntitiesConcentrator = _entitiesConcentrator;
             spawner.Player = Player;
@@ -208,9 +214,7 @@ namespace Assets.Scripts.Roguelike.LevelGeneration
 
             wallInstance.GetComponent<WallDecorator>().Room = currentRoom;
 
-            instance.AddComponent<LevelRoomDecorator>();
-            LevelRoomDecorator levelRoomDecorator = instance.GetComponent<LevelRoomDecorator>();
-            levelRoomDecorator.Room = currentRoom;
+
 
             if (currentRoom.RoomEntranceDoor != Direction.L)
             {

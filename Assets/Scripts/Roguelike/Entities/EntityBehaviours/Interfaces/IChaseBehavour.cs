@@ -8,6 +8,8 @@ public interface IChaseBehaviour
 
     public bool CheckPlayerSightable();
 
+    public void OnDeathEvent();
+
 #if UNITY_EDITOR
     public float GetSightRange();
 #endif

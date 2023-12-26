@@ -216,9 +216,8 @@ GameObject:
   - component: {fileID: 1791645577165860086}
   - component: {fileID: 8888373653242274449}
   - component: {fileID: 5332118761658847574}
-  - component: {fileID: 8607873823405597919}
   m_Layer: 7
-  m_Name: Orc
+  m_Name: Orc_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,12 +319,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6428719709382168766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60f99e41429074943b545c27e2a32f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Priority: 0
+  Priority: 1
   IsAttackCooldown: 0
   AttackType: 1
   ThrowObject: {fileID: 374752473075935232, guid: 9a933d6c9bcab7b49882019bd2b49bb9,
@@ -339,12 +338,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6428719709382168766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63a70fe5ae74fa841b69ce2ffa0263fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Priority: 1
+  Priority: 2
   IsAttackCooldown: 0
   AttackType: 0
   AttackCollider: {fileID: 3015852164897903008}
@@ -375,27 +374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SightRange: 20
---- !u!114 &8607873823405597919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6428719709382168766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7779e3b0c39493f4eb13baabb0deec94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Priority: 0
-  IsAttackCooldown: 0
-  AttackType: 2
-  SpawnObject: {fileID: 1647327413101696238, guid: 46420c2bd90720a44a9576d7e612d37a,
-    type: 3}
-  SpawnPositions:
-  - {fileID: 5459655202212747093}
-  - {fileID: 6907671021331146019}
-  _attackParameters: {fileID: 0}
 --- !u!1 &6949604558849681113
 GameObject:
   m_ObjectHideFlags: 0

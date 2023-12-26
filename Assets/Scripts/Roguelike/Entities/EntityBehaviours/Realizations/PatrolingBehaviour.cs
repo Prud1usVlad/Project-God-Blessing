@@ -10,9 +10,15 @@ public class PatrolingBehaviour : AbstractPatrolingBehaviour
     private Transform _player;
     private UnityEngine.AI.NavMeshAgent _agent;
     private bool _walkPointSet;
+    private bool _isDead = false;
 
     public override void Patroling()
     {
+        if(_isDead)
+        {
+            return;
+        }
+        
         _enemyController.EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimator.OrcAnimator.IsWalkParameter, true);
 
         if (!_walkPointSet)
@@ -43,11 +49,14 @@ public class PatrolingBehaviour : AbstractPatrolingBehaviour
         {
             _walkPointSet = true;
         }
-        else
-        {
-            SearchWalkPoint();
-        }
     }
+
+    public override void OnDeathEvent()
+    {
+        _isDead = true;
+        _agent.SetDestination(transform.position);
+    }
+
 
     public override void Initialize(Transform player)
     {

@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Assets.Scripts.Roguelike.Entities.Player;
 using Assets.Scripts.Roguelike.Entities.Resource;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Roguelike.Entities.Enemy
 {
@@ -9,6 +11,8 @@ namespace Assets.Scripts.Roguelike.Entities.Enemy
     {
         public List<EnemyParameters> EnemyParametersList;
         public EnemyParameters EnemyParameters;
+
+        public Action EnemyDeath;
 
         public float GetSpawnProbability(PlayerDecorator player)
         {

@@ -58,5 +58,14 @@ namespace Assets.Scripts.Helpers
             public static string ThrowObjectColliderTag = "ThrowObjectCollider";
             public static string PlayerHitboxColliderTag = "PlayerHitboxCollider";
         }
+    
+        public static class UITags
+        {
+            public static string PlayerUITag = "PlayerUI";
+            public static class Screens
+            {
+                public static string LeftLevelScreenTag = "LeftLevelScreen";
+            }
+        }
     }
 }

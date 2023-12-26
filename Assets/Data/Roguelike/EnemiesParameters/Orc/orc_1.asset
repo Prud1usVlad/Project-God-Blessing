@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLevel: 1
   EnemyName: Little orc
-  EnemyBaseHealth: 100000
+  EnemyBaseHealth: 100
   EnemyBaseDamage: 5
   EnemyBaseAttackSpeed: 1
   EnemyBaseMovementSpeed: 1
