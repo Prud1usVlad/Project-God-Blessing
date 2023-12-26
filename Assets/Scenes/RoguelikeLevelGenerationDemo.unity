@@ -1795,6 +1795,10 @@ MonoBehaviour:
   - {fileID: 7322713446390842232, guid: 3ccecfcec99548b47bcc2be1f1c1e847, type: 3}
   ResourceObjects:
   - {fileID: 4337789915968656976, guid: bbecf54764bfb15419e72e7dc824947d, type: 3}
+  - {fileID: 4337789915968656976, guid: af74185e74f250f4ea332d2bb10146c2, type: 3}
+  - {fileID: 4337789915968656976, guid: 6c4e9b856b2de884396b0ef77e016bb5, type: 3}
+  - {fileID: 4337789915968656976, guid: 82acdd7e68c4bdc438c337b998873a92, type: 3}
+  - {fileID: 4337789915968656976, guid: 7e6c13e910879a544893b67d8dfffad1, type: 3}
   ExitObjects:
   - {fileID: 5082967740183969176, guid: 44cf94fd1ebf2414d8fd1fa3a6b3c057, type: 3}
 --- !u!114 &1952838677
@@ -1842,7 +1846,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1781
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0

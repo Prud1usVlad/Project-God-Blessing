@@ -247,19 +247,19 @@ MonoBehaviour:
   - Name: 6
     MinAmount: 0
     MaxAmount: 10
-    LootChanse: 1
+    LootChanse: 0.3
   - Name: 31
     MinAmount: 100
     MaxAmount: 1000
-    LootChanse: 1
+    LootChanse: 0.605
   - Name: 32
     MinAmount: 100
     MaxAmount: 1000
-    LootChanse: 1
+    LootChanse: 0.273
   - Name: 10
     MinAmount: 100
     MaxAmount: 1000
-    LootChanse: 1
+    LootChanse: 0.847
 --- !u!1 &4984004014247570835
 GameObject:
   m_ObjectHideFlags: 0
