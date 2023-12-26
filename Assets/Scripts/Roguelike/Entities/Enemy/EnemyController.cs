@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.EquipmentSystem;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Enemy;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyDecorator))]
@@ -115,17 +117,47 @@ public class EnemyController : MonoBehaviour
             EnemyAnimator.SetBool(AnimatorHelper.EnemyAnimator.OrcAnimator.IsWalkParameter, false);
             EnemyAnimator.SetTrigger(AnimatorHelper.EnemyAnimator.OrcAnimator.DieTrigger);
             _isDead = true;
-            
+
             _chaseBehaviour.OnDeathEvent();
             _patrolingBehaviour.OnDeathEvent();
 
-            _enemyDecorator.EnemyDeath += delegate()
+            _enemyDecorator.EnemyDeath += delegate ()
             {
+                foreach (AvailableResource resource in _parameters.AvailableResourcesInLoot)
+                {
+                    if (RandomHelper.GetResultOfChanceWheel(resource.LootChanse))
+                    {
+                        LootHandler.Instance.CollectResource(new CollectedResourceData
+                        {
+                            Name = resource.Name,
+                            LootedAmount = Random.Range(resource.MinAmount, resource.MaxAmount)
+                        });
+                    }
+                }
+
+                foreach (TreasureData item in _parameters.AvailableItemsInLoot)
+                {
+                    if (RandomHelper.GetResultOfChanceWheel(item.LootChanse))
+                    {
+                        List<EquipmentItem> items = LootHandler.Instance.EquipmentItemRegistry.GetByType(item.ItemType);
+
+                        if(!items.Any())
+                        {
+                            continue;
+                        }
+
+                        LootHandler.Instance.CollectItem(
+                            new InventoryRecord( 
+                                items[Random.Range(0, items.Count)], 
+                                Random.Range(item.MinItemLevel, item.MaxItemLevel)));
+                    }
+                }
+
                 Destroy(gameObject, _parameters.EnemyBaseDisapearingTime);
             };
             _enemyDecorator.EnemyDeath.Invoke();
             OnDeathEvent.Invoke();
-            
+
         }
     }
 

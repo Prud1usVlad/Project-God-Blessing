@@ -19,5 +19,37 @@ MonoBehaviour:
   EnemyBaseAttackSpeed: 1
   EnemyBaseMovementSpeed: 1
   EnemyBaseDisapearingTime: 1
-  AvailableResourcesInLoot: []
-  AvailableItemsInLoot: []
+  AvailableResourcesInLoot:
+  - Name: 16
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 20
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 24
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 30
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 7
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  AvailableItemsInLoot:
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 100
+    LootChanse: 0.5
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 101
+    LootChanse: 0.5
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 200
+    LootChanse: 0.5
