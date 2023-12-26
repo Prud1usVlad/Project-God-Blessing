@@ -393,10 +393,10 @@ MonoBehaviour:
   ThrowSpeed: 10
   ThrowPositionPrecision: 0.1
   TimeToGadgetWork: 10
-  ActionAreaSize: 4
-  GadgetEnterDamage: 10
-  GadgetDamagePerTick: 1
-  TickTime: 0.05
+  ActionAreaSize: 3
+  GadgetEnterDamage: 1
+  GadgetDamagePerTick: 2
+  TickTime: 0.1
   TrappedEnemies: []
   GadgetModel: {fileID: 7478933518352274275}
   GadgetVFXArea: {fileID: 1273814794087548356}

@@ -1787,6 +1787,7 @@ MonoBehaviour:
   Enemies:
   - {fileID: 6428719709382168766, guid: 2d0dbc749653d9846a07b433274e9522, type: 3}
   - {fileID: 1647327413101696238, guid: 46420c2bd90720a44a9576d7e612d37a, type: 3}
+  - {fileID: 1663833323742765353, guid: 2ec5bc699d335db4d8aa366f0d8cbc1d, type: 3}
   Bosses:
   - {fileID: 6428719709382168766, guid: bfdb61f29fb6d72468843b03eb464fe6, type: 3}
   TreasureObjects:

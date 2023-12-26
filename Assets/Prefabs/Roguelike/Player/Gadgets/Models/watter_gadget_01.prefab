@@ -392,9 +392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowSpeed: 10
   ThrowPositionPrecision: 0.1
-  TimeToGadgetWork: 10
+  TimeToGadgetWork: 12
   ActionAreaSize: 4
-  GadgetEnterDamage: 10
+  GadgetEnterDamage: 5
   GadgetDamagePerTick: 1
   TickTime: 0.05
   TrappedEnemies: []

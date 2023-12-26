@@ -85,7 +85,7 @@ public class EnemyController : MonoBehaviour
             {
                 _patrolingBehaviour.Patroling();
             }
-            if (_isPlayerInSightRange && !_isPlayerInAttackRange)
+            if (_isPlayerInSightRange && (!_isPlayerInAttackRange || !attackBehaviour.CheckAttackPossibility()))
             {
                 _chaseBehaviour.ChasePlayer();
             }
