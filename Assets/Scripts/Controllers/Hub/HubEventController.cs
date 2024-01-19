@@ -35,7 +35,7 @@ public class HubEventController : MonoBehaviour
 
                 foreach (var res in item.recipe.resources)
                 {
-                    var totalAmount = Mathf.RoundToInt(res.amount * item.workers);
+                    var totalAmount = item.recipe.TotalAmount(res.name, item.workers);
                     resources.GainResource(res.name, totalAmount, TransactionType.Production);
                 }
             }

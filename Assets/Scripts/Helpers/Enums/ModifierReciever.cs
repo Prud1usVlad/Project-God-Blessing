@@ -12,5 +12,6 @@ namespace Assets.Scripts.Helpers.Enums
         All,
         Player,
         Mobs,
+        Bakery,
     }
 }

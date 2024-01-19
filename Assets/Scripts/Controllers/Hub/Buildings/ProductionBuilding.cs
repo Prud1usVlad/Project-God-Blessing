@@ -9,7 +9,7 @@ using UnityEngine;
 public class ProductionBuilding : Building
 {
     public List<ProductionRecipe> productionRecipes;
-
+    
     public override void InitDialogue(DialogueBox dialogueBox,
         BuildingController controller = null)
     {

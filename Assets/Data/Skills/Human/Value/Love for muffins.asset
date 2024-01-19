@@ -21,7 +21,7 @@ MonoBehaviour:
 
 
     When you produce in
-    the bakery and the last 2 levels of capacity, profits increase.'
+    the bakery and the last 4 levels of capacity, profits increase.'
   level: 2
   pointsRequired: 1
   isLearnd: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   required:
   - {fileID: 11400000, guid: 44093446690479c44ac1f8dded1f4f98, type: 2}
   buildingUpgrades: []
+  conditional: {fileID: 11400000, guid: 72fe32a5e45292445973faa56682989f, type: 2}

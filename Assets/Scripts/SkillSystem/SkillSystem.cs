@@ -60,6 +60,8 @@ public class SkillSystem : ScriptableObject
             return;
 
         equipedValueSkill = skill;
+
+        gameProgress.globalModifiers.AddModifiers(skill.conditional);
     }
 
     public bool IsEquiped(Skill skill)
