@@ -350,7 +350,7 @@ namespace Assets.Scripts.SaveSystem
         private void SaveBasic(GameProgress progress)
         {
             characterName = progress.characterName;
-            day = progress.day;
+            day = progress.week;
             fame = progress.fameTranslation.currentPoints;
             lies = progress.liesTranslation.currentPoints;
             reserchedBuildings = progress.buildingResearch;

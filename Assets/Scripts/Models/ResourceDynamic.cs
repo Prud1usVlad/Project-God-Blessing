@@ -13,5 +13,17 @@ namespace Assets.Scripts.Models
         public ResourceName resource;
         public int gained;
         public int spent;
+
+        public ResourceDynamic()
+        {
+
+        }
+
+        public ResourceDynamic(ResourceName resource, int gained, int spent)
+        {
+            this.resource = resource;
+            this.gained = gained;
+            this.spent = spent;
+        }
     }
 }
