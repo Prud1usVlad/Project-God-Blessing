@@ -1116,51 +1116,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 839590848}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &844042180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 844042182}
-  - component: {fileID: 844042181}
-  m_Layer: 0
-  m_Name: New Game Object
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &844042181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844042180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1359519580}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modifiers: {fileID: 0}
---- !u!4 &844042182
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844042180}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &905531952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2178,21 +2133,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1334223580}
   m_PrefabAsset: {fileID: 0}
---- !u!115 &1359519580
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 7
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_Type: 0
-  m_ExecutionOrder: 0
-  m_ClassName: GlobalModifiers/ConditionChecker
-  m_Namespace: Assets.Scripts.StatSystem
-  m_AssemblyName: Assembly-CSharp
 --- !u!1001 &1372558777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5685,7 +5625,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 844042182}
   - {fileID: 1041076370}
   - {fileID: 5825031517258939302}
   - {fileID: 1904173498014611982}
