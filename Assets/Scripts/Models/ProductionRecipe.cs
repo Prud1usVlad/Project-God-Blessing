@@ -1,9 +1,7 @@
 ﻿using Assets.Scripts.ResourceSystem;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Models
 {
@@ -13,5 +11,12 @@ namespace Assets.Scripts.Models
         public string name;
         public List<Resource> resources;
         public Price price;
+
+        public int TotalAmount(ResourceName resource, int workers)
+        {
+            var res = resources.Find(r => r.name == resource);
+
+            return Mathf.RoundToInt(res.ValueWithModifiers(res.amount, TransactionType.Production, true) * workers);
+        }
     }
 }

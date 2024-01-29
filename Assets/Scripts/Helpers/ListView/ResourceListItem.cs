@@ -35,9 +35,9 @@ public class ResourceListItem : MonoBehaviour, IListItem
         amount.SetText(Converters.IntToUiString(resource.amount));
         
         gained.SetText(Converters.IntToUiString(
-            resourceContainer.GaindedPerDay(resource.name)));
+            resourceContainer.GaindedPerWeek(resource.name)));
         used.SetText(Converters.IntToUiString(
-            resourceContainer.SpentPerDay(resource.name)));
+            resourceContainer.SpentPerWeek(resource.name)));
 
         icon.sprite = resourceDescriptions.GetResourceIcon(resource.name);
     }

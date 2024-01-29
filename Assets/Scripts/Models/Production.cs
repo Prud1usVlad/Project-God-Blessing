@@ -19,5 +19,6 @@ namespace Assets.Scripts.Models
             this.buildingGuid = buildingGuid;
             this.workers = workers;
         }
+
     }
 }

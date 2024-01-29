@@ -1,38 +1,63 @@
 ﻿using Assets.Scripts.Helpers.Enums;
 using Assets.Scripts.Stats;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.SaveSystem;
 using System.Linq;
 using System;
 using Assets.Scripts.Models;
 using Assets.Scripts.ResourceSystem;
-using System.Text.RegularExpressions;
-using UnityEditor.Experimental.GraphView;
 
 namespace Assets.Scripts.StatSystem
 {
     [CreateAssetMenu(fileName = "StatsContainer", menuName = "ScriptableObjects/StatSystem/GlobalMods")]
     public class GlobalModifiers : ScriptableObject
     {
+        private ConditionChecker checker;
+
+        [Tooltip("Interval in seconds beetween conditional modifiers checks")]
+        public float conditionCheckerInterval = 1;
+
+        public List<ConditionalModifier> conditionalModifiers;
+
         // stats ordered by: reciever >> statName >> source
         public Dictionary<ModifierReciever, Dictionary<StatName, List<StatModifier>>> statTable;
-        public Dictionary<ResourceName, List<ResourceModifier>> resTable;
+        public Dictionary<ModifierReciever, Dictionary<ResourceName, List<ResourceModifier>>> resTable;
 
         public List<StatsContainer> statContainers;
         public List<ResourceContainer> resContainers;
+
+        public void Awake()
+        {
+            var g = new GameObject();
+            checker = g.AddComponent<ConditionChecker>();
+        }
 
         // methods with simplified signature
         public void AddModifiers(ModifiersContainer container)
         {
             BaseAddRemove(container.statModifiers, m => m.reciever, m => m.stat, true);
-            BaseAddRemove(container.resourceModifiers, m => m.resource, true);
+            BaseAddRemove(container.resourceModifiers, m => m.reciever, m => m.resource, true);
         }
 
         public void RemoveModifiers(ModifiersContainer container)
         {
             BaseAddRemove(container.statModifiers, m => m.reciever, m => m.stat, false);
-            BaseAddRemove(container.resourceModifiers, m => m.resource, false);
+            BaseAddRemove(container.resourceModifiers, m => m.reciever, m => m.resource, false);
+        }
+
+        public void AddModifiers(ExtendedModifiersContainer container)
+        {
+            AddModifiers(container as ModifiersContainer);
+            foreach (var modifier in container.conditionalModifiers)
+                AddModifiers(modifier);
+        }
+
+        public void RemoveModifiers(ExtendedModifiersContainer container)
+        {
+            RemoveModifiers(container as ModifiersContainer);
+            foreach(var modifier in container.conditionalModifiers)
+                RemoveModifiers(modifier);
         }
 
         // basic methods
@@ -84,15 +109,18 @@ namespace Assets.Scripts.StatSystem
         }
 
         public void AddModifiers(IEnumerable<ResMod> modifiers,
-            ResourceName res, bool update = true)
+            ModifierReciever reciever, ResourceName res, bool update = true)
         {
             if (resTable is null)
-                resTable = new Dictionary<ResourceName, List<ResourceModifier>>();
+                resTable = new();
 
-            if (!resTable.ContainsKey(res))
-                resTable.Add(res, new List<ResourceModifier>());
+            if (!resTable.ContainsKey(reciever))
+                resTable.Add(reciever, new());
 
-            var list = resTable[res];
+            if (!resTable[reciever].ContainsKey(res))
+                resTable[reciever].Add(res, new());
+
+            var list = resTable[reciever][res];
 
             foreach (var modifier in modifiers)
             {
@@ -104,15 +132,18 @@ namespace Assets.Scripts.StatSystem
         }
 
         public void RemoveModifiers(IEnumerable<ResMod> modifiers,
-            ResourceName res, bool update = true)
+            ModifierReciever reciever, ResourceName res, bool update = true)
         {
             if (resTable is null)
-                resTable = new Dictionary<ResourceName, List<ResourceModifier>>();
+                resTable = new ();
 
-            if (!resTable.ContainsKey(res))
+            if (!resTable.ContainsKey(reciever))
                 return;
 
-            var list = resTable[res];
+            if (!resTable[reciever].ContainsKey(res))
+                return;
+
+            var list = resTable[reciever][res];
 
             foreach (var modifier in modifiers)
             {
@@ -121,6 +152,16 @@ namespace Assets.Scripts.StatSystem
 
             if (update)
                 UpdateContainers(modifiers, false);
+        }
+
+        public void AddModifiers(ConditionalModifier modifier)
+        {
+            conditionalModifiers.Add(modifier);
+        }
+
+        public void RemoveModifiers(ConditionalModifier modifier)
+        {
+            conditionalModifiers.Remove(modifier);
         }
 
         private void UpdateContainers(IEnumerable<StatMod> modifiers, bool add)
@@ -194,19 +235,46 @@ namespace Assets.Scripts.StatSystem
         }
 
         private void BaseAddRemove(List<ResMod> modifiers,
+            Func<ResMod, ModifierReciever> recieverSelector,
             Func<ResMod, ResourceName> resSelector, bool add)
         {
-            var gruped = modifiers.GroupBy(resSelector);
+            var gruped = modifiers.GroupBy(recieverSelector);
 
             foreach (var grup in gruped)
             {
-                if (add)
-                    AddModifiers(grup, grup.Key, false);
-                else
-                    RemoveModifiers(grup, grup.Key, false);
+                var innerGruped = grup.GroupBy(resSelector);
+
+                foreach (var iGrup in innerGruped)
+                {
+                    if (add)
+                        AddModifiers(iGrup, grup.Key, iGrup.Key, false);
+                    else
+                        RemoveModifiers(iGrup, grup.Key, iGrup.Key, false);
+                }
             }
 
             UpdateContainers(modifiers, add);
+        }
+
+        private class ConditionChecker : MonoBehaviour
+        {
+            public GlobalModifiers modifiers;
+
+            private void Awake()
+            {
+                StartCoroutine(ConditionCheckerRoutine());
+            }
+
+            private IEnumerator ConditionCheckerRoutine()
+            {
+                while (true)
+                {
+                    foreach (var mod in modifiers.conditionalModifiers)
+                        mod.ManageModifier();
+
+                    yield return new WaitForSeconds(modifiers.conditionCheckerInterval);
+                }
+            }
         }
     }
 }

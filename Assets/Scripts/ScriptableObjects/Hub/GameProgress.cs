@@ -11,7 +11,7 @@ using UnityEngine;
 public class GameProgress : ScriptableObject
 {
     public string characterName;
-    public int day = 1;
+    public int week = 1;
     public Sprite avatar;
     public string preferedSaveFile;
 

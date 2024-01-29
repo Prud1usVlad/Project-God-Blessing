@@ -133,7 +133,7 @@ namespace Assets.Scripts.ResourceSystem
                 GainResource(r.name, r.amount, price.transactionType);
         }
 
-        public int SpentPerDay(ResourceName resource)
+        public int SpentPerWeek(ResourceName resource)
         {
             int value = 0;
             var res = GetResource(resource);
@@ -157,7 +157,7 @@ namespace Assets.Scripts.ResourceSystem
             return value;
         }
 
-        public int GaindedPerDay(ResourceName resource)
+        public int GaindedPerWeek(ResourceName resource)
         {
             int value = 0;
             var res = GetResource(resource);

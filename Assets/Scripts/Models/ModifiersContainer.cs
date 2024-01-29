@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.StatSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Assets.Scripts.Models
         public List<StatMod> statModifiers = new();
         public List<ResMod> resourceModifiers = new();
 
-        public void InitSource(object source)
+        public virtual void InitSource(object source)
         {
             foreach (var mod in statModifiers)
                 mod.modifier.Source = source;
