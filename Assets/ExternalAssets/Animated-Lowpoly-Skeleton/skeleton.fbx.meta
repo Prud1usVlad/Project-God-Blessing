@@ -20,18 +20,16 @@ ModelImporter:
     animationImportWarnings: "\nClip 'skeleton-skeleton|attack' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'belly' has translation animation
-      that will be discarded.\n\t'belly' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n\nClip 'skeleton-skeleton|idle'
+      that will be discarded.\n\nClip 'skeleton-skeleton|idle' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'chest' has scale animation
+      that will be discarded.\n\t'head' has scale animation that will be discarded.\n\nClip
+      'skeleton-skeleton|run' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'belly'
+      has translation animation that will be discarded.\n\nClip 'skeleton-skeleton|spawn'
       has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'chest'
-      has scale animation that will be discarded.\n\t'head' has scale animation that
-      will be discarded.\n\nClip 'skeleton-skeleton|run' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'belly' has translation animation that will
-      be discarded.\n\nClip 'skeleton-skeleton|spawn' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'belly' has translation animation that will
-      be discarded.\n"
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'belly'
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -315,12 +313,12 @@ ModelImporter:
     - name: upperarm.L
       parentName: chest
       position: {x: -0.001378094, y: 0.0013091874, z: 0.00032155507}
-      rotation: {x: 0.67608774, y: -0.13759167, z: 0.7209053, w: -0.06534084}
+      rotation: {x: 0.55322105, y: -0.5488885, z: 0.44759664, w: 0.43854895}
       scale: {x: 1.0000011, y: 1.0000007, z: 1.0000002}
     - name: lowerarm.L
       parentName: upperarm.L
       position: {x: 1.2107193e-10, y: 0.0023875912, z: 4.9825755e-10}
-      rotation: {x: -0.03586733, y: 0.0063222013, z: -0.3110203, w: 0.9497052}
+      rotation: {x: -0.00925006, y: 0.00863108, z: -0.027858257, w: 0.99953187}
       scale: {x: 1.0000002, y: 1.0000002, z: 0.9999999}
     - name: hand.L
       parentName: lowerarm.L
@@ -330,7 +328,7 @@ ModelImporter:
     - name: fingers.L
       parentName: hand.L
       position: {x: -9.313225e-11, y: 0.0009900345, z: -1.11758706e-10}
-      rotation: {x: -0.0008045885, y: -0.00018950227, z: -0.22925785, w: 0.97336537}
+      rotation: {x: -0.00026494268, y: -0.00019421152, z: -0.07547065, w: 0.997148}
       scale: {x: 0.9999999, y: 1, z: 0.9999997}
     - name: fingers.L_end
       parentName: fingers.L
@@ -350,7 +348,7 @@ ModelImporter:
     - name: thumb.L
       parentName: hand.L
       position: {x: -9.313225e-11, y: 0.0009900345, z: -1.11758706e-10}
-      rotation: {x: 0.033888813, y: -0.008000061, z: 0.22961372, w: 0.97265875}
+      rotation: {x: 0.010996901, y: -0.008201298, z: 0.07450942, w: 0.997126}
       scale: {x: 0.99999976, y: 1, z: 0.99999994}
     - name: thumb.L_end
       parentName: thumb.L
@@ -360,12 +358,12 @@ ModelImporter:
     - name: upperarm.R
       parentName: chest
       position: {x: 0.0012862205, y: 0.001263253, z: 0.00032155486}
-      rotation: {x: 0.7113984, y: 0.18759546, z: -0.6772883, w: -0.00091005454}
+      rotation: {x: 0.56991893, y: 0.5593928, z: -0.43112087, w: 0.4200083}
       scale: {x: 1.0000002, y: 1, z: 1.0000002}
     - name: lowerarm.R
       parentName: upperarm.R
       position: {x: 6.519258e-11, y: 0.0024558823, z: -3.8649886e-10}
-      rotation: {x: 0.102895655, y: -0.06403768, z: 0.28159383, w: 0.95184904}
+      rotation: {x: -0.0006003677, y: -0.070134245, z: 0.026540723, w: 0.9971842}
       scale: {x: 1.0000007, y: 1.0000008, z: 1}
     - name: hand.R
       parentName: lowerarm.R
