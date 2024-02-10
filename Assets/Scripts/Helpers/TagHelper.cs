@@ -52,6 +52,20 @@ namespace Assets.Scripts.Helpers
         public static class ColliderTags
         {
             public static string PlayerInteractColliderTag = "PlayerInteractCollider";
+            public static string GadgetDamageAreaTag = "GadgetDamageArea";
+            public static string SwordDamageAreaTag = "SwordDamageArea";
+            public static string EnemyDamageAreaTag = "EnemyDamageArea";
+            public static string ThrowObjectColliderTag = "ThrowObjectCollider";
+            public static string PlayerHitboxColliderTag = "PlayerHitboxCollider";
+        }
+    
+        public static class UITags
+        {
+            public static string PlayerUITag = "PlayerUI";
+            public static class Screens
+            {
+                public static string LeftLevelScreenTag = "LeftLevelScreen";
+            }
         }
     }
 }

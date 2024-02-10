@@ -7,7 +7,7 @@ using Assets.Scripts.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Player;
 using UnityEngine;
 
-public class DoorColliderHandler : MonoBehaviour, IColliderHandler
+public class DoorColliderHandler : MonoBehaviour, IInteractColliderHandler
 {
 
     public Transform _InteractTransform;
@@ -22,18 +22,17 @@ public class DoorColliderHandler : MonoBehaviour, IColliderHandler
 
     private GameObject _player;
     private GameObject _interactionText;
-    private Minimap _minimap;
     private WallDecorator _wallDecorator;
 
     private PlayerInputController _playerInputController;
-    private KeyValuePair<PlayerInteractDestination, IColliderHandler> _interactDestination;
+    private KeyValuePair<PlayerInteractDestination, IInteractColliderHandler> _interactDestination;
 
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag(TagHelper.PlayerTag);
         Transform uiText = GameObject.FindGameObjectWithTag(TagHelper.UITextTag).transform;
         _playerInputController = _player.GetComponent<PlayerInputController>();
-        _interactDestination = new KeyValuePair<PlayerInteractDestination, IColliderHandler>(
+        _interactDestination = new KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>(
                     PlayerInteractDestination.OpenDoor, this);
 
         foreach (Transform child in uiText)
@@ -47,7 +46,6 @@ public class DoorColliderHandler : MonoBehaviour, IColliderHandler
             }
         }
 
-        _minimap = GameObject.FindGameObjectWithTag(TagHelper.MinimapTag).GetComponent<Minimap>();
         _wallDecorator = transform.parent.parent.parent.GetComponent<WallDecorator>();
     }
 
@@ -79,22 +77,22 @@ public class DoorColliderHandler : MonoBehaviour, IColliderHandler
     {
         if (_wallDecorator.BottomDoor == transform.parent.gameObject)
         {
-            _minimap.MoveDownDoorFunc.Invoke();
+            RoomMovementController.Instance.MoveDownDoorFunc.Invoke();
         }
 
         if (_wallDecorator.RightDoor == transform.parent.gameObject)
         {
-            _minimap.MoveRightDoorFunc.Invoke();
+            RoomMovementController.Instance.MoveRightDoorFunc.Invoke();
         }
 
         if (_wallDecorator.TopDoor == transform.parent.gameObject)
         {
-            _minimap.MoveTopDoorFunc.Invoke();
+            RoomMovementController.Instance.MoveTopDoorFunc.Invoke();
         }
 
         if (_wallDecorator.LeftDoor == transform.parent.gameObject)
         {
-            _minimap.MoveLeftDoorFunc.Invoke();
+            RoomMovementController.Instance.MoveLeftDoorFunc.Invoke();
         }
     }
 }

@@ -9,5 +9,9 @@ namespace Assets.Scripts.Roguelike.Entities.Resource
         {
             return 1;
         }
+
+        public void SetSpawnSetting(PlayerDecorator player)
+        {
+        }
     }
 }

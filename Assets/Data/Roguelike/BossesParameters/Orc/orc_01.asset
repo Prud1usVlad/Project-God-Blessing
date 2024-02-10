@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6780c4bb7817f05439c42e3a4f6f1221, type: 3}
+  m_Name: orc_01
+  m_EditorClassIdentifier: 
+  EnemyLevel: 25
+  EnemyName: Legendary Orc
+  EnemyBaseHealth: 750
+  EnemyBaseDamage: 40
+  EnemyBaseAttackSpeed: 1
+  EnemyBaseMovementSpeed: 1
+  EnemyBaseDisapearingTime: 1
+  AvailableResourcesInLoot:
+  - Name: 16
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 20
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 24
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 30
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  - Name: 7
+    MinAmount: 1
+    MaxAmount: 100
+    LootChanse: 0.75
+  AvailableItemsInLoot:
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 100
+    LootChanse: 0.5
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 101
+    LootChanse: 0.5
+  - MinItemLevel: 15
+    MaxItemLevel: 25
+    ItemType: 200
+    LootChanse: 0.5

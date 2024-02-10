@@ -4,7 +4,7 @@ using Assets.Scripts.Helpers;
 using Assets.Scripts.Roguelike.Entities.Player;
 using UnityEngine;
 
-public class ChestColliderHandler : MonoBehaviour, IColliderHandler
+public class ChestColliderHandler : MonoBehaviour, IInteractColliderHandler
 {
     public Transform _InteractTransform;
 
@@ -22,7 +22,7 @@ public class ChestColliderHandler : MonoBehaviour, IColliderHandler
     private GameObject InteractionText;
 
     private PlayerInputController _playerInputController;
-    private KeyValuePair<PlayerInteractDestination, IColliderHandler> _interactDestination;
+    private KeyValuePair<PlayerInteractDestination, IInteractColliderHandler> _interactDestination;
 
     private bool _isOpened = false;
 
@@ -31,7 +31,7 @@ public class ChestColliderHandler : MonoBehaviour, IColliderHandler
         Player = GameObject.FindGameObjectWithTag(TagHelper.PlayerTag);
         Transform uiText = GameObject.FindGameObjectWithTag(TagHelper.UITextTag).transform;
         _playerInputController = Player.GetComponent<PlayerInputController>();
-        _interactDestination = new KeyValuePair<PlayerInteractDestination, IColliderHandler>(
+        _interactDestination = new KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>(
                     PlayerInteractDestination.OpenChest, this);
 
         foreach (Transform child in uiText)

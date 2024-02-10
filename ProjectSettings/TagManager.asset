@@ -35,6 +35,13 @@ TagManager:
   - Minimap
   - HandlersObject
   - WheelGadgetText
+  - GadgetDamageArea
+  - SwordDamageArea
+  - EnemyDamageArea
+  - ThrowObjectCollider
+  - PlayerHitboxCollider
+  - LeftLevelScreen
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
@@ -44,10 +51,10 @@ TagManager:
   - UI
   - Building Places
   - Rigidbody
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Collider
+  - Exit
+  - Points
   - 
   - 
   - 

@@ -213,7 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2452b5c1eb14a4f84506c4a40d902e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossParams: 
+  BossParametersList:
+  - {fileID: 11400000, guid: 681e6bda096836f44b5e617f78400541, type: 2}
+  BossParameters: {fileID: 11400000, guid: 681e6bda096836f44b5e617f78400541, type: 2}
 --- !u!1 &9194883373499699776
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,5 +45,24 @@ namespace Assets.Scripts.Roguelike
             }
         }
 
+        public void RoomStatus(bool isCleared)
+        {
+            if (BottomDoor != null)
+            {
+                BottomDoor?.SetActive(isCleared);
+            }
+            if (LeftDoor != null)
+            {
+                LeftDoor?.SetActive(isCleared);
+            }
+            if (TopDoor != null)
+            {
+                TopDoor?.SetActive(isCleared);
+            }
+            if (RightDoor != null)
+            {
+                RightDoor?.SetActive(isCleared);
+            }
+        }
     }
 }

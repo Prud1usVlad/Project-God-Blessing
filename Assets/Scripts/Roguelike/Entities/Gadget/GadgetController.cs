@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -8,6 +10,12 @@ public class GadgetController : MonoBehaviour
     public float ThrowPositionPrecision = 0.1f;
     public float TimeToGadgetWork = 10f;
     public float ActionAreaSize = 4;
+    public float GadgetEnterDamage = 10f;
+    public float GadgetDamagePerTick = 1f;
+    public float TickTime = 0.05f;
+    private float currentTime = 0f;
+
+    public List<EnemyController> TrappedEnemies = new List<EnemyController>();
 
     [Header("Game objects")]
     public GameObject GadgetModel;
@@ -50,7 +58,7 @@ public class GadgetController : MonoBehaviour
                 transform.position = _destinationPoint.Value;
                 transform.rotation = Quaternion.identity;
                 _destinationPoint = null;
-                
+
                 GadgetModel.SetActive(false);
                 GadgetActionArea.transform.localScale = new Vector3(ActionAreaSize, 0.4f, ActionAreaSize);
                 GadgetVFX.SetVector3("AreaScales", GadgetActionArea.transform.localScale);
@@ -59,5 +67,22 @@ public class GadgetController : MonoBehaviour
                 Destroy(gameObject, TimeToGadgetWork);
             }
         }
+
+
+        if (currentTime >= TickTime)
+        {
+            int ticks = (int)(currentTime/TickTime);
+            foreach (EnemyController enemyController in TrappedEnemies)
+            {
+                enemyController?.TakeDamage(GadgetDamagePerTick * ticks);
+            }
+
+            currentTime -= ticks;
+        }
+        else
+        {
+            currentTime += Time.deltaTime;
+        }
+
     }
 }

@@ -4,11 +4,13 @@ using System.Linq;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.Helpers.Roguelike;
 using Assets.Scripts.Roguelike.Entities.Player;
+using Assets.Scripts.Roguelike.LevelGeneration;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Player))]
 public class PlayerInputController : MonoBehaviour
 {
     [Header("Player movement parameters")]
@@ -22,7 +24,7 @@ public class PlayerInputController : MonoBehaviour
     public Animator Animator;
     public GameObject Weapon;
     public GameObject Gadget;
-    public GameObject GadgetStore;
+    public GameObject Level;
 
     [Header("UI Elements")]
     public GameObject InteractionText;
@@ -32,7 +34,7 @@ public class PlayerInputController : MonoBehaviour
     [NonSerialized]
     public Action Interact;
     [NonSerialized]
-    public List<KeyValuePair<PlayerInteractDestination, IColliderHandler>> InteractDestination;
+    public List<KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>> InteractDestination;
 
     private Action _leftMovement;
     private Action _bottomMovement;
@@ -47,6 +49,7 @@ public class PlayerInputController : MonoBehaviour
     private Action _openGadgetWheel;
     private Action _openLootTab;
     private Action _death;
+    private Action _leftLevel;
 
     private Vector3 _movementLeftVector = new Vector3(-1, 0, 0);
     private Vector3 _movementBottomVector = new Vector3(0, 0, -1);
@@ -64,6 +67,8 @@ public class PlayerInputController : MonoBehaviour
     private Vector3 _lastDodgeDirection;
 
     private Rigidbody _rigidBody;
+    private Weapon _weapon;
+    private Player _player;
     private ObjectGadgetHandler _objectGadgetHandler;
 
     private GameObject _gadgetObject = null;
@@ -80,6 +85,7 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnMeleeAttackEnd()
     {
+        _weapon.EndAttack();
         _isStaticAnimation = false;
         _rigidBody.velocity = Vector3.zero;
     }
@@ -129,7 +135,8 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnThrow()
     {
-        _gadgetObject.transform.SetParent(GadgetStore.transform);
+        Transform currentRoom = Level.GetComponent<LevelRoomSpawner>().GetCurrentRoom().transform;
+        _gadgetObject.transform.SetParent(currentRoom);
 
         Vector3 hitPoint = _hit.point;
         hitPoint.y = transform.position.y;
@@ -143,8 +150,10 @@ public class PlayerInputController : MonoBehaviour
     private void Start()
     {
         GadgetWheel.SetActive(false);
-        InteractDestination = new List<KeyValuePair<PlayerInteractDestination, IColliderHandler>>();
+        InteractDestination = new List<KeyValuePair<PlayerInteractDestination, IInteractColliderHandler>>();
         _rigidBody = GetComponent<Rigidbody>();
+        _weapon = Weapon.GetComponent<Weapon>();
+        _player = GetComponent<Player>();
         _objectGadgetHandler = Gadget.GetComponent<ObjectGadgetHandler>();
         LootTab.SetActive(false);
 
@@ -263,6 +272,7 @@ public class PlayerInputController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                _weapon.StartAttack();
                 _rigidBody.velocity = Vector3.zero;
                 _isStaticAnimation = true;
                 setPlayerDirectionByMouse();
@@ -276,15 +286,14 @@ public class PlayerInputController : MonoBehaviour
             {
                 return;
             }
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.End))
+
+            if (_player.Health <= 0)
             {
                 _isDead = true;
                 PlayerStateHelper.Instance.PlayerState = PlayerState.Dead;
                 Animator.SetTrigger(AnimatorHelper.PlayerAnimator.DeathTrigger);
                 _rigidBody.velocity = Vector3.zero;
             }
-#endif
         };
 
         _gadgetThrow += delegate ()
@@ -383,6 +392,20 @@ public class PlayerInputController : MonoBehaviour
             }
         };
 
+        _leftLevel += delegate ()
+        {
+            if (_isStaticAnimation)
+            {
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                InteractDestination[0].Value.Interact();
+                InteractDestination.RemoveAt(0);
+            }
+        };
+
         Interact += delegate ()
         {
             if (_isStaticAnimation || !InteractDestination.Any())
@@ -394,6 +417,9 @@ public class PlayerInputController : MonoBehaviour
             {
                 case PlayerInteractDestination.None:
                     return;
+                case PlayerInteractDestination.LeftLevel:
+                    _leftLevel.Invoke();
+                    break;
                 case PlayerInteractDestination.OpenChest:
                     _openChest.Invoke();
                     break;

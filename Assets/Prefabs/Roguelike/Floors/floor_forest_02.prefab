@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e4e0de7935bee44896ddb56a1327e22, type: 2}
+  - {fileID: 2100000, guid: 2312f9712e387cb49b9b0caf196b3f77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8665425659791301305}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: wall_spawn_point
   m_TagString: WallSpawnPoint
   m_Icon: {fileID: 0}

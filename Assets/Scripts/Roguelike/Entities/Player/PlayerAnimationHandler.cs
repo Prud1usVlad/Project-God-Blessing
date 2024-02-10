@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Helpers.Roguelike;
 using UnityEngine;
 
 public class PlayerAnimationHandler : MonoBehaviour
@@ -61,6 +60,16 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void OnDeathAnimationEnd()
     {
 
+    }
+
+    public void OnInvincivleByDodgeStart()
+    {
+        PlayerStateHelper.Instance.IsInvincibleByDodge = true;
+    }
+
+    public void OnInvincivleByDodgeEnd()
+    {
+        PlayerStateHelper.Instance.IsInvincibleByDodge = false;
     }
 
     public void OnThrowEvent()
